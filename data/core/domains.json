@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "generatedBy": "tools/import-og-dhsrd.mjs",
+    "note": "Generated file. Edit tools/curation/core.json and re-run the importer instead of editing by hand.",
+    "contentProfile": "core",
+    "sourceVersion": "2.0",
+    "upstream": {
+      "repository": "https://github.com/callmepartario/og-dhsrd",
+      "commit": "07cac58944b5cf8a2890efa6d263d4fe0f869032",
+      "file": "scripts/og-dhsrd-features.js",
+      "sha256": "d309a09e60887a23d2b4b26beadbcc8c9aee6c46de50dd07246f584d759b2b36"
+    },
+    "copyright": "Includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Used under the Darrington Press Community Gaming License; see NOTICE.md."
+  },
+  "records": [
+    {
+      "id": "domain.blade",
+      "name": "Blade",
+      "theme": "Weapon mastery",
+      "summary": "Wielders of Blade dedicate themselves to achieving inexorable power over death.",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 24",
+          "DH Core 329"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "domain.codex",
+      "name": "Codex",
+      "theme": "Intensive magical study",
+      "summary": "Codex offers a commanding and versatile understanding of magic to devotees who pursue knowledge beyond the boundaries of common wisdom.",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 24",
+          "DH Core 332"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "domain.grace",
+      "name": "Grace",
+      "theme": "Charisma",
+      "summary": "Grace offers its wielders raw magnetism and mastery over language.",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 24",
+          "DH Core 334"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "domain.valor",
+      "name": "Valor",
+      "theme": "Protection",
+      "summary": "Valor offers great power to those who raise their shields in defense of others.",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 24",
+          "DH Core 341"
+        ],
+        "errata": false
+      }
+    }
+  ]
+}

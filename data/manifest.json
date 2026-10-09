@@ -1,0 +1,28 @@
+{
+  "dataVersion": "0.1.0-m0",
+  "srdVersion": "2.0",
+  "profiles": {
+    "core": {
+      "label": "Core Only",
+      "sourceSets": ["core"],
+      "files": {
+        "classes": "core/classes.json",
+        "subclasses": "core/subclasses.json",
+        "features": "core/features.json",
+        "ancestries": "core/ancestries.json",
+        "communities": "core/communities.json",
+        "domains": "core/domains.json",
+        "domainCards": "core/domain-cards.json",
+        "weapons": "core/weapons.json",
+        "armor": "core/armor.json",
+        "items": "core/items.json"
+      }
+    }
+  },
+  "flavor": {
+    "names": "flavor/names.json",
+    "details": "flavor/details.json",
+    "experiences": "flavor/experiences.json",
+    "classStyles": "flavor/class-styles.json"
+  }
+}

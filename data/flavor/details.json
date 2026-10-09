@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "source": "quicksheet-original",
+    "note": "Original QuickSheet flavor tables. Purely descriptive: nothing here grants or implies mechanics, and nothing is keyed to ancestry so that heritage never dictates personality. Text may contain tokens {name}, {first}, {they}, {them}, {their}, filled from the generated pronouns."
+  },
+  "distinguishingDetails": [
+    "a chipped front tooth worn with odd pride",
+    "ink-stained fingertips",
+    "a braided cord tied around one wrist",
+    "a voice that carries farther than expected",
+    "an old burn scar across the back of one hand",
+    "mismatched earrings",
+    "a hat with a single bright feather",
+    "a habit of humming quietly",
+    "a faded tattoo of a compass rose",
+    "boots resoled countless times",
+    "a pendant that is never taken off",
+    "a patched cloak in three different colors",
+    "a laugh that turns heads",
+    "a carefully mended scarf",
+    "a neat row of brass buttons",
+    "a well-worn leather satchel covered in stitched notes",
+    "a small scar through one eyebrow",
+    "a sprig of dried herbs tucked behind one ear",
+    "rings on nearly every finger",
+    "an unusually precise way of standing"
+  ],
+  "personalities": [
+    "warm but impossible to rush",
+    "dry-humored and quietly observant",
+    "relentlessly curious",
+    "blunt, honest, and secretly sentimental",
+    "theatrical even when ordering breakfast",
+    "patient with people, impatient with excuses",
+    "cheerful in a crisis and anxious in peacetime",
+    "fiercely loyal and slow to trust",
+    "soft-spoken until something matters",
+    "competitive about everything, even chores",
+    "an incurable optimist",
+    "methodical, with a list for every occasion",
+    "quick to forgive and slow to forget",
+    "restless whenever things go quiet",
+    "generous to a fault",
+    "proud, polite, and very stubborn"
+  ],
+  "motivations": [
+    "repay a debt to someone who once saved {their} life",
+    "find a sibling who left home without a word",
+    "earn enough to rebuild a ruined family home",
+    "prove that a long-held family story is true",
+    "keep a promise made to a dying mentor",
+    "see every corner of the map at least once",
+    "protect people who have no one else to stand up for them",
+    "make a name worth remembering",
+    "recover a stolen heirloom",
+    "understand a strange dream that keeps returning",
+    "atone for a mistake that cost others dearly",
+    "find a place that truly feels like home",
+    "outshine a rival who never takes {them} seriously",
+    "learn the truth about where {they} came from"
+  ],
+  "conceptTails": {
+    "performance": [
+      "who collects forgotten songs",
+      "who never misses a chance at an audience",
+      "who turns every scrape into a story",
+      "who hides doubt behind a dazzling performance"
+    ],
+    "protection": [
+      "who stands between friends and danger",
+      "who carries the weight of an old failure",
+      "who measures life by the people kept safe",
+      "who would rather take a blow than watch one land"
+    ],
+    "general": [
+      "who is searching for something lost",
+      "who left home with more questions than answers",
+      "who has a debt to repay and a long road ahead"
+    ]
+  },
+  "origins": [
+    "a riverside market town",
+    "a crumbling hilltop monastery",
+    "a crowded port city",
+    "a sleepy farming village",
+    "a traveling caravan",
+    "a lighthouse on a lonely coast",
+    "a mining settlement deep in the hills",
+    "a busy crossroads inn",
+    "a walled city with too many rules",
+    "a hamlet at the edge of an old forest"
+  ],
+  "turningPoints": [
+    "a fire destroyed everything {they} knew",
+    "a stranger left {them} a sealed letter and vanished",
+    "{they} witnessed something never meant to be seen",
+    "a festival ended in disaster",
+    "{their} mentor disappeared on an ordinary errand",
+    "a bargain went wrong in front of the whole town",
+    "{they} found a map hidden inside an old instrument case",
+    "a flood washed away the only road home",
+    "a friend took the blame for something {they} did",
+    "{they} won a contest that was meant to be lost"
+  ],
+  "hookTemplates": [
+    "{name} grew up in {origin}. Everything changed when {turningPoint}. Now {first} wants to {motivation}.",
+    "Few in {origin} expected much of {name}, until {turningPoint}. Since then, {first} has set out to {motivation}.",
+    "{name} left {origin} the season {turningPoint}, and has spent every day since trying to {motivation}."
+  ]
+}

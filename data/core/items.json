@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "generatedBy": "tools/import-og-dhsrd.mjs",
+    "note": "Generated file. Edit tools/curation/core.json and re-run the importer instead of editing by hand.",
+    "contentProfile": "core",
+    "sourceVersion": "2.0",
+    "upstream": {
+      "repository": "https://github.com/callmepartario/og-dhsrd",
+      "commit": "07cac58944b5cf8a2890efa6d263d4fe0f869032",
+      "file": "scripts/og-dhsrd-features.js",
+      "sha256": "d309a09e60887a23d2b4b26beadbcc8c9aee6c46de50dd07246f584d759b2b36"
+    },
+    "copyright": "Includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Used under the Darrington Press Community Gaming License; see NOTICE.md."
+  },
+  "records": [
+    {
+      "id": "item.torch",
+      "name": "Torch",
+      "text": "",
+      "category": "starting-kit",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "srd-character-creation",
+        "pages": [
+          "SRD 2.0 Character Creation, Step 5"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "item.rope",
+      "name": "50 feet of rope",
+      "text": "",
+      "category": "starting-kit",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "srd-character-creation",
+        "pages": [
+          "SRD 2.0 Character Creation, Step 5"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "item.basic-supplies",
+      "name": "Basic supplies",
+      "text": "",
+      "category": "starting-kit",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "srd-character-creation",
+        "pages": [
+          "SRD 2.0 Character Creation, Step 5"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "item.minor-health-potion",
+      "name": "Minor Health Potion",
+      "category": "consumable",
+      "text": "Clear **1d4** Hit Points.",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 132"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "item.minor-stamina-potion",
+      "name": "Minor Stamina Potion",
+      "category": "consumable",
+      "text": "Clear **1d4** Stress.",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 132"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "item.nomadic-pack",
+      "name": "Nomadic Pack",
+      "text": "See the Wanderborne *Nomadic Pack* feature.",
+      "grantedBy": "feature.wanderborne.nomadic-pack",
+      "category": "granted",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [],
+        "errata": false
+      }
+    }
+  ]
+}

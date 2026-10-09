@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "generatedBy": "tools/import-og-dhsrd.mjs",
+    "note": "Generated file. Edit tools/curation/core.json and re-run the importer instead of editing by hand.",
+    "contentProfile": "core",
+    "sourceVersion": "2.0",
+    "upstream": {
+      "repository": "https://github.com/callmepartario/og-dhsrd",
+      "commit": "07cac58944b5cf8a2890efa6d263d4fe0f869032",
+      "file": "scripts/og-dhsrd-features.js",
+      "sha256": "d309a09e60887a23d2b4b26beadbcc8c9aee6c46de50dd07246f584d759b2b36"
+    },
+    "copyright": "Includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Used under the Darrington Press Community Gaming License; see NOTICE.md."
+  },
+  "records": [
+    {
+      "id": "ancestry.clank",
+      "name": "Clank",
+      "summary": "Clanks are sentient mechanical beings built from a variety of materials, including metal, wood, and stone.",
+      "topFeatureId": "feature.clank.purposeful-design",
+      "bottomFeatureId": "feature.clank.efficient",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 53"
+        ],
+        "errata": false,
+        "card": "DH Core 056/270"
+      }
+    },
+    {
+      "id": "ancestry.galapa",
+      "name": "Galapa",
+      "summary": "Galapa resemble anthropomorphic turtles with large, domed shells into which they can retract.",
+      "topFeatureId": "feature.galapa.shell",
+      "bottomFeatureId": "feature.galapa.retract",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 61"
+        ],
+        "errata": false,
+        "card": "DH Core 064/270"
+      }
+    },
+    {
+      "id": "ancestry.giant",
+      "name": "Giant",
+      "summary": "Giants are towering humanoids with broad shoulders, long arms, and one to three eyes.",
+      "topFeatureId": "feature.giant.endurance",
+      "bottomFeatureId": "feature.giant.reach",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 62"
+        ],
+        "errata": false,
+        "card": "DH Core 065/270"
+      }
+    },
+    {
+      "id": "ancestry.human",
+      "name": "Human",
+      "summary": "Humans are most easily recognized by their dexterous hands, rounded ears, and bodies built for endurance.",
+      "topFeatureId": "feature.human.high-stamina",
+      "bottomFeatureId": "feature.human.adaptability",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 65"
+        ],
+        "errata": false,
+        "card": "DH Core 068/270"
+      }
+    },
+    {
+      "id": "ancestry.simiah",
+      "name": "Simiah",
+      "summary": "Simiah resemble anthropomorphic monkeys and apes with long limbs and prehensile feet.",
+      "topFeatureId": "feature.simiah.natural-climber",
+      "bottomFeatureId": "feature.simiah.nimble",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 70"
+        ],
+        "errata": false,
+        "card": "DH Core 073/270"
+      }
+    }
+  ]
+}

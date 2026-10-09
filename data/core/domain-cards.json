@@ -1,0 +1,245 @@
+{
+  "meta": {
+    "generatedBy": "tools/import-og-dhsrd.mjs",
+    "note": "Generated file. Edit tools/curation/core.json and re-run the importer instead of editing by hand.",
+    "contentProfile": "core",
+    "sourceVersion": "2.0",
+    "upstream": {
+      "repository": "https://github.com/callmepartario/og-dhsrd",
+      "commit": "07cac58944b5cf8a2890efa6d263d4fe0f869032",
+      "file": "scripts/og-dhsrd-features.js",
+      "sha256": "d309a09e60887a23d2b4b26beadbcc8c9aee6c46de50dd07246f584d759b2b36"
+    },
+    "copyright": "Includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Used under the Darrington Press Community Gaming License; see NOTICE.md."
+  },
+  "records": [
+    {
+      "id": "card.get-back-up",
+      "name": "Get Back Up",
+      "domainId": "domain.blade",
+      "level": 1,
+      "type": "Ability",
+      "recallCost": 1,
+      "text": "When you take Severe damage, you can **mark a Stress** to reduce the severity by one threshold.",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 329",
+          "DH Core 103/270"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "card.not-good-enough",
+      "name": "Not Good Enough",
+      "domainId": "domain.blade",
+      "level": 1,
+      "type": "Ability",
+      "recallCost": 1,
+      "text": "When you roll your damage dice, you can reroll any 1s or 2s.",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 329",
+          "DH Core 104/270"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "card.whirlwind",
+      "name": "Whirlwind",
+      "domainId": "domain.blade",
+      "level": 1,
+      "type": "Ability",
+      "recallCost": 0,
+      "text": "When you make a successful attack against a target within Very Close range, you can **spend a Hope** to use the attack against all other targets within Very Close range. All additional adversaries you succeed against with this ability take half damage.",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 329",
+          "DH Core 105/270"
+        ],
+        "errata": true
+      }
+    },
+    {
+      "id": "card.book-of-ava",
+      "name": "Book of Ava",
+      "domainId": "domain.codex",
+      "level": 1,
+      "type": "Grimoire",
+      "recallCost": 2,
+      "text": "- ***Power Push:*** Make a **Spellcast Roll** against a target within Melee range. On a success, they're knocked back to Far range and take **d10+2** magic damage using your Proficiency.\n- ***Tava's Armor:*** **Spend a Hope** to give a target you can touch a +1 bonus to their Armor Score until their next rest or you cast Tava's Armor again.\n- ***Ice Spike:*** Make a **Spellcast Roll (12)** to summon a large ice spike within Far range. If you use it as a weapon, make the Spellcast Roll against the target's Difficulty instead. On a success, deal **d6** physical damage using your Proficiency.",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 332",
+          "DH Core 145/270"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "card.book-of-illiat",
+      "name": "Book of Illiat",
+      "domainId": "domain.codex",
+      "level": 1,
+      "type": "Grimoire",
+      "recallCost": 2,
+      "text": "- ***Slumber:*** Make a **Spellcast Roll** against a target within Very Close range. On a success, they're *Asleep* until they take damage or the GM spends a Fear on their turn to clear this condition.\n- ***Arcane Barrage:*** Once per rest, **spend any number of Hope** and shoot magical projectiles that strike a target of your choice within Close range. Roll a number of **d6s** equal to the Hope spent and deal that much magic damage to the target.\n- ***Telepathy:*** **Spend a Hope** to open a line of mental communication with one target you can see. This connection lasts until your next rest or you cast Telepathy again.",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 332",
+          "DH Core 146/270"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "card.book-of-tyfar",
+      "name": "Book of Tyfar",
+      "domainId": "domain.codex",
+      "level": 1,
+      "type": "Grimoire",
+      "recallCost": 2,
+      "text": "- ***Wild Flame:*** Make a **Spellcast Roll** against up to three adversaries within Melee range. Targets you succeed against take **2d6** magic damage and must mark a Stress as flames erupt from your hand.\n- ***Magic Hand:*** You conjure a magical hand with the same size and strength as your own within Far range.\n- ***Mysterious Mist:*** Make a **Spellcast Roll (13)** to cast a temporary thick fog that gathers in a stationary area within Very Close range. The fog heavily obscures this area and everything in it.",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 332",
+          "DH Core 147/270"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "card.deft-deceiver",
+      "name": "Deft Deceiver",
+      "domainId": "domain.grace",
+      "level": 1,
+      "type": "Ability",
+      "recallCost": 0,
+      "text": "**Spend a Hope** to gain advantage on a roll to deceive or trick someone into believing a lie you tell them.",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 334",
+          "DH Core 166/270"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "card.enrapture",
+      "name": "Enrapture",
+      "domainId": "domain.grace",
+      "level": 1,
+      "type": "Spell",
+      "recallCost": 0,
+      "text": "Make a **Spellcast Roll** against a target within Close range. On a success, they become temporarily *Enraptured*. While *Enraptured*, a target's attention is fixed on you, narrowing their field of view and drowning out any sound but your voice. Once per rest on a success, you can **mark a Stress** to force the *Enraptured* target to mark a Stress as well.",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 334",
+          "DH Core 167/270"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "card.inspirational-words",
+      "name": "Inspirational Words",
+      "domainId": "domain.grace",
+      "level": 1,
+      "type": "Ability",
+      "recallCost": 1,
+      "text": "Your speech is imbued with power. After a long rest, place a number of tokens on this card equal to your Presence. When you speak with an ally, you can spend a token from this card to give them one benefit from the following options:\n\n- Your ally clears a Stress.\n- Your ally clears a Hit Point.\n- Your ally gains a Hope.\n\nWhen you take a long rest, clear all unspent tokens.",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 334",
+          "DH Core 168/270"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "card.bare-bones",
+      "name": "Bare Bones",
+      "domainId": "domain.valor",
+      "level": 1,
+      "type": "Ability",
+      "recallCost": 0,
+      "text": "When you choose not to equip armor, you have a base Armor Score of 3 + your Strength and use the following as your base damage thresholds:\n\n- ***Tier 1:*** 9/19\n- ***Tier 2:*** 11/24\n- ***Tier 3:*** 13/31\n- ***Tier 4:*** 15/38",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 341",
+          "DH Core 250/270"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "card.forceful-push",
+      "name": "Forceful Push",
+      "domainId": "domain.valor",
+      "level": 1,
+      "type": "Ability",
+      "recallCost": 0,
+      "text": "Make an attack with your primary weapon against a target within Melee range. On a success, you deal damage and knock them back to Close range. On a success with Hope, add a **d6** to your damage roll.\n\nAdditionally, you can **spend a Hope** to make them temporarily *Vulnerable*.",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 341",
+          "DH Core 251/270"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "card.i-am-your-shield",
+      "name": "I Am Your Shield",
+      "domainId": "domain.valor",
+      "level": 1,
+      "type": "Ability",
+      "recallCost": 1,
+      "text": "When an ally within Very Close range would take damage, you can **mark a Stress** to stand in the way and make yourself the target of the attack instead. When you take damage from this attack, you can mark any number of Armor Slots.",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 341",
+          "DH Core 252/270"
+        ],
+        "errata": false
+      }
+    }
+  ]
+}

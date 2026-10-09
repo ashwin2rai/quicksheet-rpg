@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "source": "quicksheet-original",
+    "note": "Original, setting-neutral fantasy names written for QuickSheet. Not tied to any ancestry, and deliberately avoiding names of licensed characters."
+  },
+  "givenNames": [
+    "Aderyn", "Alder", "Amaru", "Anwen", "Arlo", "Asha", "Bastien", "Bram", "Briala", "Calder",
+    "Cassia", "Corin", "Dalia", "Davor", "Edda", "Elio", "Emrys", "Fen", "Fiora", "Galen",
+    "Halden", "Ilse", "Ines", "Ivo", "Jessamy", "Joren", "Kaito", "Kestrel", "Lenna", "Linden",
+    "Lio", "Maren", "Marek", "Mirela", "Nadir", "Nell", "Oriel", "Osric", "Petra", "Quill",
+    "Rhosyn", "Rook", "Sabra", "Selim", "Senna", "Soren", "Talia", "Tamsin", "Teodor", "Ulla",
+    "Vanya", "Wren", "Yara", "Yusuf", "Zinnia", "Thane", "Odile", "Hollis", "Mattea", "Ezio"
+  ],
+  "familyNames": [
+    "Ashgrove", "Barrowell", "Brightwater", "Calloway", "Copperfield", "Deepwell", "Dunmore", "Emberly", "Fairweather", "Fennick",
+    "Glasswright", "Greymantle", "Hallowmere", "Hearthstone", "Ironwood", "Kettleby", "Lanternhill", "Marrow", "Millbrook", "Nightingale",
+    "Oakhart", "Pellow", "Quarrystone", "Redfern", "Rivensong", "Saltmarsh", "Silverbell", "Stonebridge", "Tallowmere", "Thistledown",
+    "Underhill", "Vellacott", "Westerly", "Whitlock", "Wickham", "Windmere", "Yarrow", "Zephyrine", "Brackenridge", "Lowmoor"
+  ],
+  "pronouns": ["she/her", "he/him", "they/them"]
+}

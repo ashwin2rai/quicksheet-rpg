@@ -1,0 +1,10 @@
+{
+  "meta": {
+    "source": "quicksheet-original",
+    "note": "QuickSheet's flavor weighting per class. Influences which original Experiences and concept lines are likely; never restricts rules-legal choices."
+  },
+  "records": [
+    { "classId": "class.bard", "experienceTags": ["performance", "social", "lore"], "conceptTags": ["performance"] },
+    { "classId": "class.guardian", "experienceTags": ["protection", "martial"], "conceptTags": ["protection"] }
+  ]
+}

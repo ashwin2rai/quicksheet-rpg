@@ -1,0 +1,86 @@
+{
+  "$comment": "QuickSheet curation for the core content profile. Selects which Old Gus SRD records are imported and records QuickSheet's structured interpretation of each feature's mechanics. Every imported feature and gear feature MUST have an entry here; the importer fails otherwise. kind: 'modifiers' = fully represented by structured modifiers; 'resolver' = handled by a named, tested resolver in src/resolvers.js; 'resource' = class die/resource derived by level; 'grant' = adds inventory items; 'reference' = situational/at-table effect with no generation-time numbers; 'deferred' = needs progression support (V2) and must never be acquired by the M0 generator.",
+  "milestone": "M0",
+  "sourceSet": "core",
+  "sourceVersion": "2.0",
+  "select": {
+    "classes": ["bard", "guardian"],
+    "subclasses": ["troubadour", "wordsmith", "stalwart", "vengeance"],
+    "ancestries": ["clank", "galapa", "giant", "human", "simiah"],
+    "communities": ["highborne", "loreborne", "wanderborne", "wildborne"],
+    "domains": ["blade", "codex", "grace", "valor"],
+    "domainCardMaxLevel": 1,
+    "weaponTierMax": 1,
+    "armorTierMax": 1,
+    "consumables": ["minor-health-potion", "minor-stamina-potion"]
+  },
+  "excludeFromRandomGear": {
+    "$comment": "Legal SRD equipment kept in data but not chosen by the random generator. See docs/rules-decisions.md (RD-005).",
+    "tags": ["combat-wheelchair"]
+  },
+  "featureMechanics": {
+    "feature.bard.rally": { "kind": "resource", "resource": { "id": "rally-die", "label": "Rally Die", "dieByLevel": [[1, "d6"], [5, "d8"]] } },
+    "feature.bard.make-a-scene": { "kind": "reference" },
+    "feature.guardian.unstoppable": { "kind": "resource", "resource": { "id": "unstoppable-die", "label": "Unstoppable Die", "dieByLevel": [[1, "d4"], [5, "d6"]] } },
+    "feature.guardian.frontline-tank": { "kind": "reference" },
+
+    "feature.troubadour.gifted-performer": { "kind": "reference" },
+    "feature.troubadour.maestro": { "kind": "reference" },
+    "feature.troubadour.virtuoso": { "kind": "reference" },
+    "feature.wordsmith.rousing-speech": { "kind": "reference" },
+    "feature.wordsmith.heart-of-a-poet": { "kind": "reference" },
+    "feature.wordsmith.eloquent": { "kind": "reference" },
+    "feature.wordsmith.epic-poetry": { "kind": "deferred", "note": "Rally Die becomes d10; requires V2 progression to acquire Mastery." },
+    "feature.stalwart.unwavering": { "kind": "modifiers", "modifiers": [{ "target": "thresholds", "value": 1 }] },
+    "feature.stalwart.iron-will": { "kind": "reference" },
+    "feature.stalwart.unrelenting": { "kind": "deferred", "note": "+2 thresholds; requires V2 progression to acquire Specialization." },
+    "feature.stalwart.partners-in-arms": { "kind": "reference" },
+    "feature.stalwart.undaunted": { "kind": "deferred", "note": "+3 thresholds; requires V2 progression to acquire Mastery." },
+    "feature.stalwart.loyal-protector": { "kind": "reference" },
+    "feature.vengeance.at-ease": { "kind": "modifiers", "modifiers": [{ "target": "stressSlots", "value": 1 }] },
+    "feature.vengeance.revenge": { "kind": "reference" },
+    "feature.vengeance.act-of-reprisal": { "kind": "reference" },
+    "feature.vengeance.nemesis": { "kind": "reference" },
+
+    "feature.clank.purposeful-design": { "kind": "resolver", "resolver": "clankPurposefulDesign" },
+    "feature.clank.efficient": { "kind": "reference" },
+    "feature.galapa.shell": { "kind": "modifiers", "modifiers": [{ "target": "thresholds", "value": "proficiency" }] },
+    "feature.galapa.retract": { "kind": "reference" },
+    "feature.giant.endurance": { "kind": "modifiers", "modifiers": [{ "target": "hpSlots", "value": 1 }] },
+    "feature.giant.reach": { "kind": "reference" },
+    "feature.human.high-stamina": { "kind": "modifiers", "modifiers": [{ "target": "stressSlots", "value": 1 }] },
+    "feature.human.adaptability": { "kind": "reference" },
+    "feature.simiah.natural-climber": { "kind": "reference" },
+    "feature.simiah.nimble": { "kind": "modifiers", "modifiers": [{ "target": "evasion", "value": 1 }] },
+
+    "feature.highborne.privilege": { "kind": "reference" },
+    "feature.loreborne.well-read": { "kind": "reference" },
+    "feature.wanderborne.nomadic-pack": { "kind": "grant", "grants": { "items": ["item.nomadic-pack"] } },
+    "feature.wildborne.lightfoot": { "kind": "reference" }
+  },
+  "gearFeatureMechanics": {
+    "Reliable": { "kind": "modifiers", "modifiers": [{ "target": "attackRoll", "value": 1, "scope": "self" }] },
+    "Massive": { "kind": "modifiers", "modifiers": [{ "target": "evasion", "value": -1 }], "alsoAtTable": true },
+    "Cumbersome": { "kind": "modifiers", "modifiers": [{ "target": "trait.finesse", "value": -1 }] },
+    "Heavy": { "kind": "modifiers", "modifiers": [{ "target": "evasion", "value": -1 }] },
+    "Very Heavy": { "kind": "modifiers", "modifiers": [{ "target": "evasion", "value": -2 }, { "target": "trait.agility", "value": -1 }] },
+    "Flexible": { "kind": "modifiers", "modifiers": [{ "target": "evasion", "value": 1 }] },
+    "Protective": { "kind": "modifiers", "modifiers": [{ "target": "armorScore", "value": 1 }] },
+    "Barrier": { "kind": "modifiers", "modifiers": [{ "target": "armorScore", "value": 2 }, { "target": "evasion", "value": -1 }] },
+    "Paired": { "kind": "modifiers", "modifiers": [{ "target": "primaryWeaponDamage", "value": 2, "condition": "targets within Melee range" }] },
+    "Quick": { "kind": "reference" },
+    "Powerful": { "kind": "reference" },
+    "Returning": { "kind": "reference" },
+    "Versatile": { "kind": "reference" },
+    "Hooked": { "kind": "reference" },
+    "Startling": { "kind": "reference" }
+  },
+  "startingKit": [
+    { "id": "item.torch", "name": "Torch", "text": "" },
+    { "id": "item.rope", "name": "50 feet of rope", "text": "" },
+    { "id": "item.basic-supplies", "name": "Basic supplies", "text": "" }
+  ],
+  "grantedItems": [
+    { "id": "item.nomadic-pack", "name": "Nomadic Pack", "text": "See the Wanderborne *Nomadic Pack* feature.", "grantedBy": "feature.wanderborne.nomadic-pack" }
+  ]
+}

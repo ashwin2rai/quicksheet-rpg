@@ -1,0 +1,47 @@
+{
+  "$comment": "Pinned upstream sources reviewed for QuickSheet. Refresh pins only after a human review of the upstream diff (see docs/data-provenance.md). M0 records pins; the scheduled 'SRD Drift Check' workflow that compares them is planned for V1.",
+  "lastReviewed": "2026-10-09",
+  "reviewNote": "M0 import. Old Gus pins verified by direct download. Publisher SRD and DPCGL pages returned HTTP 403 (Cloudflare bot challenge) to automated requests from the build environment, so their hashes are not yet pinned and must be captured manually or by the V1 drift checker with a browser-like client.",
+  "sources": [
+    {
+      "id": "og-dhsrd-index",
+      "role": "primary working reference (rules text, layout)",
+      "url": "https://raw.githubusercontent.com/callmepartario/og-dhsrd/07cac58944b5cf8a2890efa6d263d4fe0f869032/index.html",
+      "currentUrl": "https://raw.githubusercontent.com/callmepartario/og-dhsrd/main/index.html",
+      "repository": "https://github.com/callmepartario/og-dhsrd",
+      "commit": "07cac58944b5cf8a2890efa6d263d4fe0f869032",
+      "commitDate": "2026-09-14T11:43:13-04:00",
+      "sha256": "ae333a4dbe4fb4bbd05a7975ee80fa1be7687f403ea7413522961e83206ea0f1",
+      "observedVersion": "SRD 2.0 (per upstream README)"
+    },
+    {
+      "id": "og-dhsrd-features",
+      "role": "primary working reference (structured game data imported by tools/import-og-dhsrd.mjs)",
+      "url": "https://raw.githubusercontent.com/callmepartario/og-dhsrd/07cac58944b5cf8a2890efa6d263d4fe0f869032/scripts/og-dhsrd-features.js",
+      "currentUrl": "https://raw.githubusercontent.com/callmepartario/og-dhsrd/main/scripts/og-dhsrd-features.js",
+      "repository": "https://github.com/callmepartario/og-dhsrd",
+      "commit": "07cac58944b5cf8a2890efa6d263d4fe0f869032",
+      "commitDate": "2026-09-14T11:43:13-04:00",
+      "sha256": "d309a09e60887a23d2b4b26beadbcc8c9aee6c46de50dd07246f584d759b2b36",
+      "observedVersion": "SRD 2.0 (per upstream README)"
+    },
+    {
+      "id": "official-srd",
+      "role": "publisher authority for rules disputes and version",
+      "url": "https://www.daggerheart.com/srd/",
+      "sha256": null,
+      "artifactUrl": null,
+      "observedVersion": "2.0 (per specification baseline; not yet verified by download)",
+      "status": "unpinned-access-blocked"
+    },
+    {
+      "id": "dpcgl",
+      "role": "license authority",
+      "url": "https://darringtonpress.com/license/",
+      "sha256": null,
+      "artifactUrl": null,
+      "observedVersion": "DPCGL 2.0 (per specification baseline; not yet verified by download)",
+      "status": "unpinned-access-blocked"
+    }
+  ]
+}

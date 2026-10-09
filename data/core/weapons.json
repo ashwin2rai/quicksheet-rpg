@@ -1,0 +1,1116 @@
+{
+  "meta": {
+    "generatedBy": "tools/import-og-dhsrd.mjs",
+    "note": "Generated file. Edit tools/curation/core.json and re-run the importer instead of editing by hand.",
+    "contentProfile": "core",
+    "sourceVersion": "2.0",
+    "upstream": {
+      "repository": "https://github.com/callmepartario/og-dhsrd",
+      "commit": "07cac58944b5cf8a2890efa6d263d4fe0f869032",
+      "file": "scripts/og-dhsrd-features.js",
+      "sha256": "d309a09e60887a23d2b4b26beadbcc8c9aee6c46de50dd07246f584d759b2b36"
+    },
+    "copyright": "Includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Used under the Darrington Press Community Gaming License; see NOTICE.md."
+  },
+  "records": [
+    {
+      "id": "weapon.battleaxe",
+      "name": "Battleaxe",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 10,
+        "bonus": 3
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.broadsword",
+      "name": "Broadsword",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "agility",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 0
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Reliable",
+        "text": "+1 to attack rolls",
+        "mechanics": {
+          "kind": "modifiers",
+          "modifiers": [
+            {
+              "target": "attackRoll",
+              "value": 1,
+              "scope": "self"
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.crossbow",
+      "name": "Crossbow",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "finesse",
+      "range": "Far",
+      "damage": {
+        "die": 6,
+        "bonus": 1
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.cutlass",
+      "name": "Cutlass",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "presence",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 1
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.dagger",
+      "name": "Dagger",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "finesse",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 1
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.greatsword",
+      "name": "Greatsword",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 10,
+        "bonus": 3
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Massive",
+        "text": "-1 to Evasion; on a successful attack, roll an additional damage die and discard the lowest result.",
+        "mechanics": {
+          "kind": "modifiers",
+          "modifiers": [
+            {
+              "target": "evasion",
+              "value": -1
+            }
+          ],
+          "alsoAtTable": true
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.halberd",
+      "name": "Halberd",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "strength",
+      "range": "Very Close",
+      "damage": {
+        "die": 10,
+        "bonus": 2
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Cumbersome",
+        "text": "-1 to Finesse",
+        "mechanics": {
+          "kind": "modifiers",
+          "modifiers": [
+            {
+              "target": "trait.finesse",
+              "value": -1
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.heavy-frame-wheelchair",
+      "name": "Heavy-Frame Wheelchair",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 12,
+        "bonus": 3
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Heavy",
+        "text": "-1 to Evasion",
+        "mechanics": {
+          "kind": "modifiers",
+          "modifiers": [
+            {
+              "target": "evasion",
+              "value": -1
+            }
+          ]
+        }
+      },
+      "tags": [
+        "combat-wheelchair"
+      ],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 123"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.light-frame-wheelchair",
+      "name": "Light-Frame Wheelchair",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "agility",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 0
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Quick",
+        "text": "When you make an attack, you can **mark a Stress** to target another creature within range.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [
+        "combat-wheelchair"
+      ],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 123"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.longbow",
+      "name": "Longbow",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "agility",
+      "range": "Very Far",
+      "damage": {
+        "die": 8,
+        "bonus": 3
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Cumbersome",
+        "text": "-1 to Finesse",
+        "mechanics": {
+          "kind": "modifiers",
+          "modifiers": [
+            {
+              "target": "trait.finesse",
+              "value": -1
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.longsword",
+      "name": "Longsword",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "agility",
+      "range": "Melee",
+      "damage": {
+        "die": 10,
+        "bonus": 3
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": true
+      }
+    },
+    {
+      "id": "weapon.mace",
+      "name": "Mace",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 1
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.quarterstaff",
+      "name": "Quarterstaff",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "instinct",
+      "range": "Melee",
+      "damage": {
+        "die": 10,
+        "bonus": 3
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.rapier",
+      "name": "Rapier",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "presence",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 0
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Quick",
+        "text": "When you make an attack, you can **mark a Stress** to target another creature within range.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.shortbow",
+      "name": "Shortbow",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "agility",
+      "range": "Far",
+      "damage": {
+        "die": 6,
+        "bonus": 3
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.spear",
+      "name": "Spear",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "finesse",
+      "range": "Very Close",
+      "damage": {
+        "die": 8,
+        "bonus": 3
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": true
+      }
+    },
+    {
+      "id": "weapon.warhammer",
+      "name": "Warhammer",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 12,
+        "bonus": 3
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Heavy",
+        "text": "-1 to Evasion",
+        "mechanics": {
+          "kind": "modifiers",
+          "modifiers": [
+            {
+              "target": "evasion",
+              "value": -1
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.arcane-frame-wheelchair",
+      "name": "Arcane-Frame Wheelchair",
+      "slot": "primary",
+      "tier": 1,
+      "magic": true,
+      "trait": "spellcast",
+      "range": "Far",
+      "damage": {
+        "die": 6,
+        "bonus": 0
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Reliable",
+        "text": "+1 to attack rolls",
+        "mechanics": {
+          "kind": "modifiers",
+          "modifiers": [
+            {
+              "target": "attackRoll",
+              "value": 1,
+              "scope": "self"
+            }
+          ]
+        }
+      },
+      "tags": [
+        "combat-wheelchair"
+      ],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 123"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.arcane-gauntlets",
+      "name": "Arcane Gauntlets",
+      "slot": "primary",
+      "tier": 1,
+      "magic": true,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 10,
+        "bonus": 3
+      },
+      "damageType": "mag",
+      "burden": "two-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.dualstaff",
+      "name": "Dualstaff",
+      "slot": "primary",
+      "tier": 1,
+      "magic": true,
+      "trait": "instinct",
+      "range": "Far",
+      "damage": {
+        "die": 6,
+        "bonus": 3
+      },
+      "damageType": "mag",
+      "burden": "two-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.greatstaff",
+      "name": "Greatstaff",
+      "slot": "primary",
+      "tier": 1,
+      "magic": true,
+      "trait": "knowledge",
+      "range": "Very Far",
+      "damage": {
+        "die": 6,
+        "bonus": 0
+      },
+      "damageType": "mag",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Powerful",
+        "text": "On a successful attack, roll an additional damage die and discard the lowest result.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.hallowed-axe",
+      "name": "Hallowed Axe",
+      "slot": "primary",
+      "tier": 1,
+      "magic": true,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 1
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.glowing-rings",
+      "name": "Glowing Rings",
+      "slot": "primary",
+      "tier": 1,
+      "magic": true,
+      "trait": "agility",
+      "range": "Very Close",
+      "damage": {
+        "die": 10,
+        "bonus": 2
+      },
+      "damageType": "mag",
+      "burden": "two-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": true
+      }
+    },
+    {
+      "id": "weapon.hand-runes",
+      "name": "Hand Runes",
+      "slot": "primary",
+      "tier": 1,
+      "magic": true,
+      "trait": "instinct",
+      "range": "Very Close",
+      "damage": {
+        "die": 10,
+        "bonus": 0
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.returning-blade",
+      "name": "Returning Blade",
+      "slot": "primary",
+      "tier": 1,
+      "magic": true,
+      "trait": "finesse",
+      "range": "Close",
+      "damage": {
+        "die": 8,
+        "bonus": 0
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Returning",
+        "text": "When this weapon is thrown within its range, it appears in your hand immediately after the attack.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.shortstaff",
+      "name": "Shortstaff",
+      "slot": "primary",
+      "tier": 1,
+      "magic": true,
+      "trait": "instinct",
+      "range": "Close",
+      "damage": {
+        "die": 8,
+        "bonus": 1
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.scepter",
+      "name": "Scepter",
+      "slot": "primary",
+      "tier": 1,
+      "magic": true,
+      "trait": "presence",
+      "range": "Far",
+      "damage": {
+        "die": 6,
+        "bonus": 0
+      },
+      "damageType": "mag",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Versatile",
+        "text": "This weapon can also be used with these statistics—Presence, Melee, d8.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.wand",
+      "name": "Wand",
+      "slot": "primary",
+      "tier": 1,
+      "magic": true,
+      "trait": "knowledge",
+      "range": "Far",
+      "damage": {
+        "die": 6,
+        "bonus": 1
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 115"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.grappler",
+      "name": "Grappler",
+      "slot": "secondary",
+      "tier": 1,
+      "magic": false,
+      "trait": "finesse",
+      "range": "Close",
+      "damage": {
+        "die": 6,
+        "bonus": 0
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Hooked",
+        "text": "On a successful attack, you can pull the target into Melee range.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 124"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.hand-crossbow",
+      "name": "Hand Crossbow",
+      "slot": "secondary",
+      "tier": 1,
+      "magic": false,
+      "trait": "finesse",
+      "range": "Far",
+      "damage": {
+        "die": 6,
+        "bonus": 1
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 124"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.round-shield",
+      "name": "Round Shield",
+      "slot": "secondary",
+      "tier": 1,
+      "magic": false,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 4,
+        "bonus": 0
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Protective",
+        "text": "+1 to Armor Score",
+        "mechanics": {
+          "kind": "modifiers",
+          "modifiers": [
+            {
+              "target": "armorScore",
+              "value": 1
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 124"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.shortsword",
+      "name": "Shortsword",
+      "slot": "secondary",
+      "tier": 1,
+      "magic": false,
+      "trait": "agility",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 0
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Paired",
+        "text": "+2 to primary weapon damage to targets within Melee range",
+        "mechanics": {
+          "kind": "modifiers",
+          "modifiers": [
+            {
+              "target": "primaryWeaponDamage",
+              "value": 2,
+              "condition": "targets within Melee range"
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 124"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.small-dagger",
+      "name": "Small Dagger",
+      "slot": "secondary",
+      "tier": 1,
+      "magic": false,
+      "trait": "finesse",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 0
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Paired",
+        "text": "+2 to primary weapon damage to targets within Melee range",
+        "mechanics": {
+          "kind": "modifiers",
+          "modifiers": [
+            {
+              "target": "primaryWeaponDamage",
+              "value": 2,
+              "condition": "targets within Melee range"
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 124"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.tower-shield",
+      "name": "Tower Shield",
+      "slot": "secondary",
+      "tier": 1,
+      "magic": false,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 6,
+        "bonus": 0
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Barrier",
+        "text": "+2 to Armor Score; -1 to Evasion",
+        "mechanics": {
+          "kind": "modifiers",
+          "modifiers": [
+            {
+              "target": "armorScore",
+              "value": 2
+            },
+            {
+              "target": "evasion",
+              "value": -1
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 124"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.whip",
+      "name": "Whip",
+      "slot": "secondary",
+      "tier": 1,
+      "magic": false,
+      "trait": "presence",
+      "range": "Very Close",
+      "damage": {
+        "die": 6,
+        "bonus": 0
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Startling",
+        "text": "**Mark a Stress** to crack the whip and force all adversaries within Melee range back to Close range.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 124"
+        ],
+        "errata": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "generatedBy": "tools/import-og-dhsrd.mjs",
+    "note": "Generated file. Edit tools/curation/core.json and re-run the importer instead of editing by hand.",
+    "contentProfile": "core",
+    "sourceVersion": "2.0",
+    "upstream": {
+      "repository": "https://github.com/callmepartario/og-dhsrd",
+      "commit": "07cac58944b5cf8a2890efa6d263d4fe0f869032",
+      "file": "scripts/og-dhsrd-features.js",
+      "sha256": "d309a09e60887a23d2b4b26beadbcc8c9aee6c46de50dd07246f584d759b2b36"
+    },
+    "copyright": "Includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Used under the Darrington Press Community Gaming License; see NOTICE.md."
+  },
+  "records": [
+    {
+      "id": "armor.chainmail-armor",
+      "name": "Chainmail Armor",
+      "tier": 1,
+      "baseThresholds": {
+        "major": 7,
+        "severe": 15
+      },
+      "baseScore": 4,
+      "feature": {
+        "name": "Heavy",
+        "text": "-1 to Evasion",
+        "mechanics": {
+          "kind": "modifiers",
+          "modifiers": [
+            {
+              "target": "evasion",
+              "value": -1
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 126"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.full-plate-armor",
+      "name": "Full Plate Armor",
+      "tier": 1,
+      "baseThresholds": {
+        "major": 8,
+        "severe": 17
+      },
+      "baseScore": 4,
+      "feature": {
+        "name": "Very Heavy",
+        "text": "-2 to Evasion; -1 to Agility",
+        "mechanics": {
+          "kind": "modifiers",
+          "modifiers": [
+            {
+              "target": "evasion",
+              "value": -2
+            },
+            {
+              "target": "trait.agility",
+              "value": -1
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 126"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.gambeson-armor",
+      "name": "Gambeson Armor",
+      "tier": 1,
+      "baseThresholds": {
+        "major": 5,
+        "severe": 11
+      },
+      "baseScore": 3,
+      "feature": {
+        "name": "Flexible",
+        "text": "+1 to Evasion",
+        "mechanics": {
+          "kind": "modifiers",
+          "modifiers": [
+            {
+              "target": "evasion",
+              "value": 1
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 126"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.leather-armor",
+      "name": "Leather Armor",
+      "tier": 1,
+      "baseThresholds": {
+        "major": 6,
+        "severe": 13
+      },
+      "baseScore": 3,
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 126"
+        ],
+        "errata": false
+      }
+    }
+  ]
+}

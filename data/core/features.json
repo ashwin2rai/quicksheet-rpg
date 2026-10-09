@@ -1,0 +1,782 @@
+{
+  "meta": {
+    "generatedBy": "tools/import-og-dhsrd.mjs",
+    "note": "Generated file. Edit tools/curation/core.json and re-run the importer instead of editing by hand.",
+    "contentProfile": "core",
+    "sourceVersion": "2.0",
+    "upstream": {
+      "repository": "https://github.com/callmepartario/og-dhsrd",
+      "commit": "07cac58944b5cf8a2890efa6d263d4fe0f869032",
+      "file": "scripts/og-dhsrd-features.js",
+      "sha256": "d309a09e60887a23d2b4b26beadbcc8c9aee6c46de50dd07246f584d759b2b36"
+    },
+    "copyright": "Includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Used under the Darrington Press Community Gaming License; see NOTICE.md."
+  },
+  "records": [
+    {
+      "id": "feature.bard.rally",
+      "name": "Rally",
+      "ownerId": "class.bard",
+      "category": "class",
+      "text": "Once per session, describe how you rally the party and give yourself and each of your allies a Rally Die. At level 1, your Rally Die is a **d6**. A PC can spend their Rally Die to roll it, adding the result to their action roll, reaction roll, damage roll, or to clear a number of Stress equal to the result. At the end of each session, clear all unspent Rally Dice. At level 5, your Rally Die increases to a **d8**.",
+      "mechanics": {
+        "kind": "resource",
+        "resource": {
+          "id": "rally-die",
+          "label": "Rally Die",
+          "dieByLevel": [
+            [
+              1,
+              "d6"
+            ],
+            [
+              5,
+              "d8"
+            ]
+          ]
+        }
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 28"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.bard.make-a-scene",
+      "name": "Make a Scene",
+      "ownerId": "class.bard",
+      "category": "hope",
+      "text": "**Spend 3 Hope** to temporarily *Distract* a target within Close range, giving them a -2 penalty to their Difficulty.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 28"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.troubadour.gifted-performer",
+      "name": "Gifted Performer",
+      "ownerId": "subclass.troubadour",
+      "category": "subclass-foundation",
+      "text": "You can play three different types of songs, once each per long rest; describe how you perform for others to gain the listed benefit:\n\n- ***Relaxing Song:*** You and all allies within Close range clear a Hit Point.\n- ***Epic Song:*** Make a target within Close range temporarily *Vulnerable*.\n- ***Heartbreaking Song:*** You and all allies within Close range gain a Hope.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 001/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 28"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.troubadour.maestro",
+      "name": "Maestro",
+      "ownerId": "subclass.troubadour",
+      "category": "subclass-specialization",
+      "text": "Your rallying songs steel the courage of those who listen. When you give a Rally Die to an ally, they can gain a Hope or clear a Stress.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 002/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 28"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.troubadour.virtuoso",
+      "name": "Virtuoso",
+      "ownerId": "subclass.troubadour",
+      "category": "subclass-mastery",
+      "text": "You are among the greatest of your craft and your skill is boundless. You can perform each of your \"Gifted Performer\" feature's songs twice per long rest.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 003/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 28"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.wordsmith.rousing-speech",
+      "name": "Rousing Speech",
+      "ownerId": "subclass.wordsmith",
+      "category": "subclass-foundation",
+      "text": "Once per long rest, you can give a heartfelt, inspiring speech. All allies within Far range clear 2 Stress.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 004/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 29"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.wordsmith.heart-of-a-poet",
+      "name": "Heart of a Poet",
+      "ownerId": "subclass.wordsmith",
+      "category": "subclass-foundation",
+      "text": "After you make an action roll to impress, persuade, or offend someone, you can **spend a Hope** to add a **d4** to the roll.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 004/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 29"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.wordsmith.eloquent",
+      "name": "Eloquent",
+      "ownerId": "subclass.wordsmith",
+      "category": "subclass-specialization",
+      "text": "Your moving words boost morale. Once per session, when you encourage an ally, you can do one of the following:\n\n- Allow them to find a mundane object or tool they need.\n- Help an Ally without spending Hope.\n- Give them an additional downtime move during their next rest.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 005/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 29"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.wordsmith.epic-poetry",
+      "name": "Epic Poetry",
+      "ownerId": "subclass.wordsmith",
+      "category": "subclass-mastery",
+      "text": "Your Rally Die increases to a **d10**. Additionally, when you Help an Ally, you can narrate the moment as if you were writing the tale of their heroism in a memoir. When you do, roll a **d10** as your advantage die.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Rally Die becomes d10; requires V2 progression to acquire Mastery."
+      },
+      "card": "DH Core 006/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 29"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.guardian.unstoppable",
+      "name": "Unstoppable",
+      "ownerId": "class.guardian",
+      "category": "class",
+      "text": "Once per long rest, you can become *Unstoppable*. You gain an Unstoppable Die. At level 1, your Unstoppable Die is a **d4**. Place it on your character sheet in the space provided, starting with the 1 value facing up. After you make a damage roll that deals 1 or more Hit Points to a target, increase the Unstoppable Die value by one. When the die's value would exceed its maximum value or when the scene ends, remove the die and drop out of *Unstoppable*. At level 5, your Unstoppable Die increases to a **d6**.\n\nWhile *Unstoppable*, you gain the following benefits:\n\n- You reduce the severity of physical damage by one threshold (Severe to Major, Major to Minor, Minor to None).\n- You add the current value of the Unstoppable Die to your damage roll.\n- You can't be *Restrained* or *Vulnerable*.",
+      "mechanics": {
+        "kind": "resource",
+        "resource": {
+          "id": "unstoppable-die",
+          "label": "Unstoppable Die",
+          "dieByLevel": [
+            [
+              1,
+              "d4"
+            ],
+            [
+              5,
+              "d6"
+            ]
+          ]
+        }
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 36"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.guardian.frontline-tank",
+      "name": "Frontline Tank",
+      "ownerId": "class.guardian",
+      "category": "hope",
+      "text": "**Spend 3 Hope** to clear 2 Armor Slots.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 36"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.stalwart.unwavering",
+      "name": "Unwavering",
+      "ownerId": "subclass.stalwart",
+      "category": "subclass-foundation",
+      "text": "Gain a permanent +1 bonus to your damage thresholds.",
+      "mechanics": {
+        "kind": "modifiers",
+        "modifiers": [
+          {
+            "target": "thresholds",
+            "value": 1
+          }
+        ]
+      },
+      "card": "DH Core 013/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 36"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.stalwart.iron-will",
+      "name": "Iron Will",
+      "ownerId": "subclass.stalwart",
+      "category": "subclass-foundation",
+      "text": "When you take physical damage, you can **mark an additional Armor Slot** to reduce the severity.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 013/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 36"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.stalwart.unrelenting",
+      "name": "Unrelenting",
+      "ownerId": "subclass.stalwart",
+      "category": "subclass-specialization",
+      "text": "Gain a permanent +2 bonus to your damage thresholds.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "+2 thresholds; requires V2 progression to acquire Specialization."
+      },
+      "card": "DH Core 014/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 36"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.stalwart.partners-in-arms",
+      "name": "Partners-in-Arms",
+      "ownerId": "subclass.stalwart",
+      "category": "subclass-specialization",
+      "text": "When an ally within Very Close range takes damage, you can **mark an Armor Slot** to reduce the severity by one threshold.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 014/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 36"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.stalwart.undaunted",
+      "name": "Undaunted",
+      "ownerId": "subclass.stalwart",
+      "category": "subclass-mastery",
+      "text": "Gain a permanent +3 bonus to your damage thresholds.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "+3 thresholds; requires V2 progression to acquire Mastery."
+      },
+      "card": "DH Core 015/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 36"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.stalwart.loyal-protector",
+      "name": "Loyal Protector",
+      "ownerId": "subclass.stalwart",
+      "category": "subclass-mastery",
+      "text": "When an ally within Close range has 2 or fewer Hit Points and would take damage, you can **mark a Stress** to sprint to their side and take the damage instead.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 015/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 36"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.vengeance.at-ease",
+      "name": "At Ease",
+      "ownerId": "subclass.vengeance",
+      "category": "subclass-foundation",
+      "text": "Gain an additional Stress slot.",
+      "mechanics": {
+        "kind": "modifiers",
+        "modifiers": [
+          {
+            "target": "stressSlots",
+            "value": 1
+          }
+        ]
+      },
+      "card": "DH Core 016/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 36"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.vengeance.revenge",
+      "name": "Revenge",
+      "ownerId": "subclass.vengeance",
+      "category": "subclass-foundation",
+      "text": "When an adversary within Melee range succeeds on an attack against you, you can **mark 2 Stress** to force the attacker to mark a Hit Point.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 016/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 36"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.vengeance.act-of-reprisal",
+      "name": "Act of Reprisal",
+      "ownerId": "subclass.vengeance",
+      "category": "subclass-specialization",
+      "text": "When an adversary damages an ally within Melee range, you gain a +1 bonus to your Proficiency for the next successful attack you make against that adversary.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 017/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 36"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.vengeance.nemesis",
+      "name": "Nemesis",
+      "ownerId": "subclass.vengeance",
+      "category": "subclass-mastery",
+      "text": "**Spend 2 Hope** to *Prioritize* an adversary until your next rest. When you make an attack against your *Prioritized* adversary, you can swap the results of your Hope and Fear Dice. You can only Prioritize one adversary at a time.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 018/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 36"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.clank.purposeful-design",
+      "name": "Purposeful Design",
+      "ownerId": "ancestry.clank",
+      "category": "ancestry",
+      "text": "Decide who made you and for what purpose. At character creation, choose one of your Experiences that best aligns with this purpose and gain a permanent +1 bonus to it.",
+      "mechanics": {
+        "kind": "resolver",
+        "resolver": "clankPurposefulDesign"
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 53"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.clank.efficient",
+      "name": "Efficient",
+      "ownerId": "ancestry.clank",
+      "category": "ancestry",
+      "text": "When you take a short rest, you can choose a long rest move instead of a short rest move.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 53"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.galapa.shell",
+      "name": "Shell",
+      "ownerId": "ancestry.galapa",
+      "category": "ancestry",
+      "text": "Gain a bonus to your damage thresholds equal to your Proficiency.",
+      "mechanics": {
+        "kind": "modifiers",
+        "modifiers": [
+          {
+            "target": "thresholds",
+            "value": "proficiency"
+          }
+        ]
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 61"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.galapa.retract",
+      "name": "Retract",
+      "ownerId": "ancestry.galapa",
+      "category": "ancestry",
+      "text": "**Mark a Stress** to retract into your shell. While in your shell, you have resistance to physical damage, you have disadvantage on action rolls, and you can't move.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 61"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.giant.endurance",
+      "name": "Endurance",
+      "ownerId": "ancestry.giant",
+      "category": "ancestry",
+      "text": "Gain an additional Hit Point slot at character creation.",
+      "mechanics": {
+        "kind": "modifiers",
+        "modifiers": [
+          {
+            "target": "hpSlots",
+            "value": 1
+          }
+        ]
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 62"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.giant.reach",
+      "name": "Reach",
+      "ownerId": "ancestry.giant",
+      "category": "ancestry",
+      "text": "Treat any weapon, ability, spell, or other feature that has a Melee range as though it has a Very Close range instead.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 62"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.human.high-stamina",
+      "name": "High Stamina",
+      "ownerId": "ancestry.human",
+      "category": "ancestry",
+      "text": "Gain an additional Stress slot at character creation.",
+      "mechanics": {
+        "kind": "modifiers",
+        "modifiers": [
+          {
+            "target": "stressSlots",
+            "value": 1
+          }
+        ]
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 65"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.human.adaptability",
+      "name": "Adaptability",
+      "ownerId": "ancestry.human",
+      "category": "ancestry",
+      "text": "When you fail a roll that utilized one of your Experiences, you can **mark a Stress** to reroll.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 65"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.simiah.natural-climber",
+      "name": "Natural Climber",
+      "ownerId": "ancestry.simiah",
+      "category": "ancestry",
+      "text": "You have advantage on Agility Rolls that involve balancing and climbing.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 70"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.simiah.nimble",
+      "name": "Nimble",
+      "ownerId": "ancestry.simiah",
+      "category": "ancestry",
+      "text": "Gain a permanent +1 bonus to your Evasion at character creation.",
+      "mechanics": {
+        "kind": "modifiers",
+        "modifiers": [
+          {
+            "target": "evasion",
+            "value": 1
+          }
+        ]
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 70"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.highborne.privilege",
+      "name": "Privilege",
+      "ownerId": "community.highborne",
+      "category": "community",
+      "text": "You have advantage on rolls to consort with nobles, negotiate prices, or leverage your reputation to get what you want.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 73"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.loreborne.well-read",
+      "name": "Well-Read",
+      "ownerId": "community.loreborne",
+      "category": "community",
+      "text": "You have advantage on rolls that involve the history, culture, or politics of a prominent person or place.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 74"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.wanderborne.nomadic-pack",
+      "name": "Nomadic Pack",
+      "ownerId": "community.wanderborne",
+      "category": "community",
+      "text": "Add a ***Nomadic Pack*** to your inventory. Once per session, you can **spend a Hope** to reach into this pack and pull out a mundane item that's useful to your situation. Work with the GM to figure out what item you take out.",
+      "mechanics": {
+        "kind": "grant",
+        "grants": {
+          "items": [
+            "item.nomadic-pack"
+          ]
+        }
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 80"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.wildborne.lightfoot",
+      "name": "Lightfoot",
+      "ownerId": "community.wildborne",
+      "category": "community",
+      "text": "Your movement is naturally silent. You have advantage on rolls to move without being heard.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 81"
+        ],
+        "errata": false
+      }
+    }
+  ]
+}

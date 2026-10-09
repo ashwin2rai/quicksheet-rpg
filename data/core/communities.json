@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "generatedBy": "tools/import-og-dhsrd.mjs",
+    "note": "Generated file. Edit tools/curation/core.json and re-run the importer instead of editing by hand.",
+    "contentProfile": "core",
+    "sourceVersion": "2.0",
+    "upstream": {
+      "repository": "https://github.com/callmepartario/og-dhsrd",
+      "commit": "07cac58944b5cf8a2890efa6d263d4fe0f869032",
+      "file": "scripts/og-dhsrd-features.js",
+      "sha256": "d309a09e60887a23d2b4b26beadbcc8c9aee6c46de50dd07246f584d759b2b36"
+    },
+    "copyright": "Includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Used under the Darrington Press Community Gaming License; see NOTICE.md."
+  },
+  "records": [
+    {
+      "id": "community.highborne",
+      "name": "Highborne",
+      "summary": "Being part of a Highborne community means you're accustomed to a life of elegance, opulence, and prestige within the upper echelons of society.",
+      "featureId": "feature.highborne.privilege",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 73"
+        ],
+        "errata": false,
+        "card": "DH Core 073/270"
+      }
+    },
+    {
+      "id": "community.loreborne",
+      "name": "Loreborne",
+      "summary": "Being part of a Loreborne community means you're from a society that favors strong academic or political prowess.",
+      "featureId": "feature.loreborne.well-read",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 74"
+        ],
+        "errata": false,
+        "card": "DH Core 074/270"
+      }
+    },
+    {
+      "id": "community.wanderborne",
+      "name": "Wanderborne",
+      "summary": "Being part of a Wanderborne community means you've lived as a nomad, forgoing a permanent home and experiencing a wide variety of cultures.",
+      "featureId": "feature.wanderborne.nomadic-pack",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 80"
+        ],
+        "errata": false,
+        "card": "DH Core 080/270"
+      }
+    },
+    {
+      "id": "community.wildborne",
+      "name": "Wildborne",
+      "summary": "Being part of a Wildborne community means you lived deep within the forest.",
+      "featureId": "feature.wildborne.lightfoot",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 81"
+        ],
+        "errata": false,
+        "card": "DH Core 081/270"
+      }
+    }
+  ]
+}
