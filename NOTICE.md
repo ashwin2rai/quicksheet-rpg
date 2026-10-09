@@ -17,6 +17,8 @@ Darrington Press created the SRD material, and QuickSheet uses it subject to the
 
 **Modifications.** QuickSheet uses [Old Gus' Daggerheart System Reference Document](https://github.com/callmepartario/og-dhsrd) as its working reference. That is an edited and reorganized web edition of the SRD, prepared by Old Gus. QuickSheet further selects eligible game data from it, restructures it into JSON records with source tags, converts its text to Markdown, and formats it into generated character sheets. The SRD-derived files are `data/core/*.json`. See `docs/data-provenance.md` for details.
 
+The SRD's Combat Wheelchair rules, which QuickSheet includes in its equipment data, are credited in the SRD to **Mark Thompson**.
+
 ## Original QuickSheet content
 
 The following are original works by the QuickSheet contributors:

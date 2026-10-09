@@ -22,7 +22,7 @@
 
     <section class="controls" aria-labelledby="controls-heading">
       <h2 id="controls-heading" class="visually-hidden">Character options</h2>
-      <p class="scope"><strong>Proof of concept:</strong> Level 1 only, with a partial core subset - Bard and Guardian classes, 5 ancestries, 4 communities. More options arrive in later releases.</p>
+      <p class="scope">Generates complete <strong>Level 1</strong> characters from the core SRD: all 9 classes, 18 subclasses, 18 ancestries and 9 communities. Higher levels and the Hope &amp; Fear expansion arrive in later releases.</p>
       <form id="generator-form" novalidate>
         <div class="fields">
           <label for="ancestry">Ancestry
@@ -38,6 +38,7 @@
             <select id="subclass" name="subclass" disabled><option value="">Random</option></select>
           </label>
         </div>
+        <label class="checkbox" for="mixed"><input type="checkbox" id="mixed" name="mixed"> Mixed Ancestry <span class="hint">(top feature from one ancestry, bottom feature from another)</span></label>
         <button id="generate" type="submit" class="primary" disabled>Generate Character</button>
       </form>
       <p id="error" class="error" role="alert" hidden></p>

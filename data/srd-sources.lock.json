@@ -1,7 +1,7 @@
 {
-  "$comment": "Pinned upstream sources reviewed for QuickSheet. Refresh pins only after a human review of the upstream diff (see docs/data-provenance.md). M0 records pins; the scheduled 'SRD Drift Check' workflow that compares them is planned for V1.",
+  "$comment": "Pinned upstream sources reviewed for QuickSheet. Checked weekly by the 'SRD Drift Check' workflow (tools/check-srd-drift.mjs), which compares fingerprints of currentUrl against sha256. Refresh pins only after a human review of the upstream diff (see docs/data-provenance.md). mode: 'sha256' = raw bytes; 'pdf-links' = sorted set of linked PDF URLs (a changed download pointer counts as drift); 'text' = normalized visible page text.",
   "lastReviewed": "2026-10-09",
-  "reviewNote": "M0 import. Old Gus pins verified by direct download. Publisher SRD and DPCGL pages returned HTTP 403 (Cloudflare bot challenge) to automated requests from the build environment, so their hashes are not yet pinned and must be captured manually or by the V1 drift checker with a browser-like client.",
+  "reviewNote": "V1 review (2026-10-09). Old Gus pins unchanged. Publisher pages were reachable with a browser-like User-Agent (the M0 403s came from curl's default agent). Official SRD 2.0 and DPCGL 2.0 PDFs downloaded, hashed and pinned. All 135 imported Level 1 texts were compared with the official SRD: 127 match word-for-word, 4 differ only by PDF extraction artifacts or quotation marks, and 4 real Old Gus differences are corrected via officialOverrides in tools/curation/core.json (RD-025). All class Evasion/HP, card recall costs, weapon and armor statistics match.",
   "sources": [
     {
       "id": "og-dhsrd-index",
@@ -12,7 +12,8 @@
       "commit": "07cac58944b5cf8a2890efa6d263d4fe0f869032",
       "commitDate": "2026-09-14T11:43:13-04:00",
       "sha256": "ae333a4dbe4fb4bbd05a7975ee80fa1be7687f403ea7413522961e83206ea0f1",
-      "observedVersion": "SRD 2.0 (per upstream README)"
+      "observedVersion": "SRD 2.0 (per upstream README)",
+      "mode": "sha256"
     },
     {
       "id": "og-dhsrd-features",
@@ -23,25 +24,49 @@
       "commit": "07cac58944b5cf8a2890efa6d263d4fe0f869032",
       "commitDate": "2026-09-14T11:43:13-04:00",
       "sha256": "d309a09e60887a23d2b4b26beadbcc8c9aee6c46de50dd07246f584d759b2b36",
-      "observedVersion": "SRD 2.0 (per upstream README)"
+      "observedVersion": "SRD 2.0 (per upstream README)",
+      "mode": "sha256"
     },
     {
       "id": "official-srd",
-      "role": "publisher authority for rules disputes and version",
+      "role": "publisher download pointer for the SRD (a changed PDF link counts as drift)",
       "url": "https://www.daggerheart.com/srd/",
-      "sha256": null,
-      "artifactUrl": null,
-      "observedVersion": "2.0 (per specification baseline; not yet verified by download)",
-      "status": "unpinned-access-blocked"
+      "mode": "pdf-links",
+      "sha256": "6351241f3e7b69cde45d8004724c0a1f687afc219a30193c4fd0636eeb8d8125",
+      "observedLinks": [
+        "https://www.daggerheart.com/wp-content/uploads/2026/08/DH_SRD_2_2026_08_25.pdf"
+      ],
+      "observedVersion": "SRD 2.0"
+    },
+    {
+      "id": "official-srd-pdf",
+      "role": "publisher authority for rules disputes; all imported Level 1 text cross-checked against it",
+      "url": "https://www.daggerheart.com/wp-content/uploads/2026/08/DH_SRD_2_2026_08_25.pdf",
+      "mode": "sha256",
+      "sha256": "55d8b92b7e58aa1da99a4a59aa77352483ef4fbda71baddb9af9bfc1f333bd2a",
+      "observedVersion": "SRD 2.0 (dated 2026-08-25, 224 pages)"
     },
     {
       "id": "dpcgl",
-      "role": "license authority",
+      "role": "license page pointer (a changed PDF link counts as drift)",
       "url": "https://darringtonpress.com/license/",
-      "sha256": null,
-      "artifactUrl": null,
-      "observedVersion": "DPCGL 2.0 (per specification baseline; not yet verified by download)",
-      "status": "unpinned-access-blocked"
+      "mode": "pdf-links",
+      "sha256": "6fa5d67b1a172dc8e946ce1df86942214b684a466fd82e9215a10df2e99d4e2f",
+      "observedLinks": [
+        "https://darringtonpress.com/wp-content/uploads/2025/05/DRP-CGL-May-19-2025.pdf",
+        "https://darringtonpress.com/wp-content/uploads/2025/06/DPCGL-June-26-2025.pdf",
+        "https://darringtonpress.com/wp-content/uploads/2025/07/DPCGL-July-30th-2025.pdf",
+        "https://darringtonpress.com/wp-content/uploads/2026/08/DPCGL_2.0_AUG_26_2026.pdf"
+      ],
+      "observedVersion": "DPCGL 2.0"
+    },
+    {
+      "id": "dpcgl-pdf",
+      "role": "current license text",
+      "url": "https://darringtonpress.com/wp-content/uploads/2026/08/DPCGL_2.0_AUG_26_2026.pdf",
+      "mode": "sha256",
+      "sha256": "f7f62d775a43eecc4ad8f438a233a6aaf92f50396cb412c5ea91c0a988be6eca",
+      "observedVersion": "DPCGL 2.0 (dated 2026-08-26)"
     }
   ]
 }

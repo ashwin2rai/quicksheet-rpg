@@ -1,86 +1,897 @@
 {
-  "$comment": "QuickSheet curation for the core content profile. Selects which Old Gus SRD records are imported and records QuickSheet's structured interpretation of each feature's mechanics. Every imported feature and gear feature MUST have an entry here; the importer fails otherwise. kind: 'modifiers' = fully represented by structured modifiers; 'resolver' = handled by a named, tested resolver in src/resolvers.js; 'resource' = class die/resource derived by level; 'grant' = adds inventory items; 'reference' = situational/at-table effect with no generation-time numbers; 'deferred' = needs progression support (V2) and must never be acquired by the M0 generator.",
-  "milestone": "M0",
+  "$comment": "QuickSheet curation for the core content profile. Selects which Old Gus SRD records are imported and records QuickSheet's structured reading of each feature's mechanics. Every imported class/ancestry/community feature, subclass Foundation feature, domain card and gear feature MUST have an entry; the importer fails otherwise. Subclass Specialization/Mastery features without an entry default to 'deferred' (see defaults). kind: 'effects' = implemented by one or more effect properties (modifiers, resource, attack, flags, grants, resolver, companion, display); 'reference' = situational/at-table effect with no generation-time numbers; 'deferred' = needs progression support (V2) and must never be acquired by the generator. Modifier values: a number, 'proficiency', 'level', or 'halfUp:<trait>' (half the effective trait, rounded up, minimum 0). Resource counts: 'tier', 'level', 'proficiency', 'trait:<trait>' or 'trait:spellcast'.",
+  "milestone": "M1",
   "sourceSet": "core",
   "sourceVersion": "2.0",
   "select": {
-    "classes": ["bard", "guardian"],
-    "subclasses": ["troubadour", "wordsmith", "stalwart", "vengeance"],
-    "ancestries": ["clank", "galapa", "giant", "human", "simiah"],
-    "communities": ["highborne", "loreborne", "wanderborne", "wildborne"],
-    "domains": ["blade", "codex", "grace", "valor"],
+    "classes": [
+      "bard",
+      "druid",
+      "guardian",
+      "ranger",
+      "rogue",
+      "seraph",
+      "sorcerer",
+      "warrior",
+      "wizard"
+    ],
+    "subclasses": [
+      "troubadour",
+      "wordsmith",
+      "warden-of-the-elements",
+      "warden-of-renewal",
+      "stalwart",
+      "vengeance",
+      "beastbound",
+      "wayfinder",
+      "nightwalker",
+      "syndicate",
+      "divine-wielder",
+      "winged-sentinel",
+      "elemental-origin",
+      "primal-origin",
+      "call-of-the-brave",
+      "call-of-the-slayer",
+      "school-of-knowledge",
+      "school-of-war"
+    ],
+    "ancestries": [
+      "clank",
+      "drakona",
+      "dwarf",
+      "elf",
+      "faerie",
+      "faun",
+      "firbolg",
+      "fungril",
+      "galapa",
+      "giant",
+      "goblin",
+      "halfling",
+      "human",
+      "infernis",
+      "katari",
+      "orc",
+      "ribbet",
+      "simiah"
+    ],
+    "communities": [
+      "highborne",
+      "loreborne",
+      "orderborne",
+      "ridgeborne",
+      "seaborne",
+      "slyborne",
+      "underborne",
+      "wanderborne",
+      "wildborne"
+    ],
+    "domains": [
+      "arcana",
+      "blade",
+      "bone",
+      "codex",
+      "grace",
+      "midnight",
+      "sage",
+      "splendor",
+      "valor"
+    ],
     "domainCardMaxLevel": 1,
     "weaponTierMax": 1,
     "armorTierMax": 1,
-    "consumables": ["minor-health-potion", "minor-stamina-potion"]
+    "beastforms": true,
+    "consumables": [
+      "minor-health-potion",
+      "minor-stamina-potion"
+    ]
+  },
+  "defaults": {
+    "subclassUpperTierMechanics": {
+      "kind": "deferred",
+      "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+    }
+  },
+  "nameCorrections": {
+    "$comment": "Upstream typos corrected on import; each is recorded in docs/rules-decisions.md.",
+    "Fleting Shadow": "Fleeting Shadow"
+  },
+  "officialOverrides": {
+    "$comment": "Where Old Gus differs from the official SRD 2.0 PDF (DH_SRD_2_2026_08_25.pdf), the official wording wins. Found by cross-checking all imported Level 1 text; see docs/rules-decisions.md RD-025.",
+    "features": {
+      "feature.rogue.cloaked": {
+        "text": "Any time you would be *Hidden*, you are instead *Cloaked*. In addition to the benefits of the *Hidden* condition, while *Cloaked* you remain unseen if you are stationary when an adversary moves to where they would normally see you. After you make an attack or end a move within line of sight of an adversary, you are no longer *Cloaked*.",
+        "reason": "Old Gus appends 'Otherwise, this bonus lasts until your next rest.', which is not in the official text (it belongs to Rogue's Dodge)."
+      },
+      "feature.beastbound.companion": {
+        "text": "You have an animal companion of your choice (at the GM's discretion). They stay by your side unless you tell them otherwise.\n\nTake the Ranger Companion sheet. When you level up your character, choose a level-up option for your companion from this sheet as well.",
+        "reason": "Old Gus paraphrases the second sentence."
+      }
+    },
+    "classItems": {
+      "class.wizard": {
+        "items": [
+          "a book you're trying to translate",
+          "a tiny, harmless elemental pet"
+        ],
+        "reason": "Old Gus omits 'pet'."
+      },
+      "class.warrior": {
+        "items": [
+          "the drawing of a lover",
+          "a sharpening stone"
+        ],
+        "reason": "Official text reads 'The drawing of a lover'."
+      }
+    }
   },
   "excludeFromRandomGear": {
     "$comment": "Legal SRD equipment kept in data but not chosen by the random generator. See docs/rules-decisions.md (RD-005).",
-    "tags": ["combat-wheelchair"]
+    "tags": [
+      "combat-wheelchair"
+    ]
   },
   "featureMechanics": {
-    "feature.bard.rally": { "kind": "resource", "resource": { "id": "rally-die", "label": "Rally Die", "dieByLevel": [[1, "d6"], [5, "d8"]] } },
-    "feature.bard.make-a-scene": { "kind": "reference" },
-    "feature.guardian.unstoppable": { "kind": "resource", "resource": { "id": "unstoppable-die", "label": "Unstoppable Die", "dieByLevel": [[1, "d4"], [5, "d6"]] } },
-    "feature.guardian.frontline-tank": { "kind": "reference" },
-
-    "feature.troubadour.gifted-performer": { "kind": "reference" },
-    "feature.troubadour.maestro": { "kind": "reference" },
-    "feature.troubadour.virtuoso": { "kind": "reference" },
-    "feature.wordsmith.rousing-speech": { "kind": "reference" },
-    "feature.wordsmith.heart-of-a-poet": { "kind": "reference" },
-    "feature.wordsmith.eloquent": { "kind": "reference" },
-    "feature.wordsmith.epic-poetry": { "kind": "deferred", "note": "Rally Die becomes d10; requires V2 progression to acquire Mastery." },
-    "feature.stalwart.unwavering": { "kind": "modifiers", "modifiers": [{ "target": "thresholds", "value": 1 }] },
-    "feature.stalwart.iron-will": { "kind": "reference" },
-    "feature.stalwart.unrelenting": { "kind": "deferred", "note": "+2 thresholds; requires V2 progression to acquire Specialization." },
-    "feature.stalwart.partners-in-arms": { "kind": "reference" },
-    "feature.stalwart.undaunted": { "kind": "deferred", "note": "+3 thresholds; requires V2 progression to acquire Mastery." },
-    "feature.stalwart.loyal-protector": { "kind": "reference" },
-    "feature.vengeance.at-ease": { "kind": "modifiers", "modifiers": [{ "target": "stressSlots", "value": 1 }] },
-    "feature.vengeance.revenge": { "kind": "reference" },
-    "feature.vengeance.act-of-reprisal": { "kind": "reference" },
-    "feature.vengeance.nemesis": { "kind": "reference" },
-
-    "feature.clank.purposeful-design": { "kind": "resolver", "resolver": "clankPurposefulDesign" },
-    "feature.clank.efficient": { "kind": "reference" },
-    "feature.galapa.shell": { "kind": "modifiers", "modifiers": [{ "target": "thresholds", "value": "proficiency" }] },
-    "feature.galapa.retract": { "kind": "reference" },
-    "feature.giant.endurance": { "kind": "modifiers", "modifiers": [{ "target": "hpSlots", "value": 1 }] },
-    "feature.giant.reach": { "kind": "reference" },
-    "feature.human.high-stamina": { "kind": "modifiers", "modifiers": [{ "target": "stressSlots", "value": 1 }] },
-    "feature.human.adaptability": { "kind": "reference" },
-    "feature.simiah.natural-climber": { "kind": "reference" },
-    "feature.simiah.nimble": { "kind": "modifiers", "modifiers": [{ "target": "evasion", "value": 1 }] },
-
-    "feature.highborne.privilege": { "kind": "reference" },
-    "feature.loreborne.well-read": { "kind": "reference" },
-    "feature.wanderborne.nomadic-pack": { "kind": "grant", "grants": { "items": ["item.nomadic-pack"] } },
-    "feature.wildborne.lightfoot": { "kind": "reference" }
+    "feature.bard.rally": {
+      "kind": "effects",
+      "resource": {
+        "id": "rally-die",
+        "label": "Rally Die",
+        "dieByLevel": [
+          [
+            1,
+            "d6"
+          ],
+          [
+            5,
+            "d8"
+          ]
+        ]
+      }
+    },
+    "feature.bard.make-a-scene": {
+      "kind": "reference"
+    },
+    "feature.druid.beastform": {
+      "kind": "effects",
+      "display": "beastforms"
+    },
+    "feature.druid.wildtouch": {
+      "kind": "reference"
+    },
+    "feature.druid.evolution": {
+      "kind": "reference"
+    },
+    "feature.guardian.unstoppable": {
+      "kind": "effects",
+      "resource": {
+        "id": "unstoppable-die",
+        "label": "Unstoppable Die",
+        "dieByLevel": [
+          [
+            1,
+            "d4"
+          ],
+          [
+            5,
+            "d6"
+          ]
+        ]
+      }
+    },
+    "feature.guardian.frontline-tank": {
+      "kind": "reference"
+    },
+    "feature.ranger.rangers-focus": {
+      "kind": "reference"
+    },
+    "feature.ranger.hold-them-off": {
+      "kind": "reference"
+    },
+    "feature.rogue.cloaked": {
+      "kind": "reference"
+    },
+    "feature.rogue.sneak-attack": {
+      "kind": "effects",
+      "resource": {
+        "id": "sneak-attack",
+        "label": "Sneak Attack damage",
+        "count": "tier",
+        "die": "d6",
+        "prefix": "+"
+      }
+    },
+    "feature.rogue.rogues-dodge": {
+      "kind": "reference"
+    },
+    "feature.seraph.prayer-dice": {
+      "kind": "effects",
+      "resource": {
+        "id": "prayer-dice",
+        "label": "Prayer Dice per session",
+        "count": "trait:spellcast",
+        "die": "d4"
+      }
+    },
+    "feature.seraph.life-support": {
+      "kind": "reference"
+    },
+    "feature.sorcerer.arcane-sense": {
+      "kind": "reference"
+    },
+    "feature.sorcerer.minor-illusion": {
+      "kind": "reference"
+    },
+    "feature.sorcerer.channel-raw-power": {
+      "kind": "reference"
+    },
+    "feature.sorcerer.volatile-magic": {
+      "kind": "reference"
+    },
+    "feature.warrior.attack-of-opportunity": {
+      "kind": "reference"
+    },
+    "feature.warrior.combat-training": {
+      "kind": "effects",
+      "flags": [
+        "ignore-burden"
+      ],
+      "modifiers": [
+        {
+          "target": "physicalDamage",
+          "value": "level"
+        }
+      ]
+    },
+    "feature.warrior.no-mercy": {
+      "kind": "reference"
+    },
+    "feature.wizard.prestidigitation": {
+      "kind": "reference"
+    },
+    "feature.wizard.strange-patterns": {
+      "kind": "effects",
+      "resolver": "chooseNumber",
+      "choice": {
+        "label": "Chosen number",
+        "min": 1,
+        "max": 12,
+        "note": "Can be changed on a long rest."
+      }
+    },
+    "feature.wizard.not-this-time": {
+      "kind": "reference"
+    },
+    "feature.troubadour.gifted-performer": {
+      "kind": "reference"
+    },
+    "feature.troubadour.maestro": {
+      "kind": "reference"
+    },
+    "feature.troubadour.virtuoso": {
+      "kind": "reference"
+    },
+    "feature.wordsmith.rousing-speech": {
+      "kind": "reference"
+    },
+    "feature.wordsmith.heart-of-a-poet": {
+      "kind": "reference"
+    },
+    "feature.wordsmith.eloquent": {
+      "kind": "reference"
+    },
+    "feature.wordsmith.epic-poetry": {
+      "kind": "deferred",
+      "note": "Rally Die becomes d10; requires V2 progression to acquire Mastery."
+    },
+    "feature.warden-of-the-elements.elemental-incarnation": {
+      "kind": "reference",
+      "note": "Channeled element is chosen when the feature is used; Earth's threshold bonus applies only while channeling."
+    },
+    "feature.warden-of-renewal.clarity-of-nature": {
+      "kind": "reference"
+    },
+    "feature.warden-of-renewal.regeneration": {
+      "kind": "reference"
+    },
+    "feature.stalwart.unwavering": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "thresholds",
+          "value": 1
+        }
+      ]
+    },
+    "feature.stalwart.iron-will": {
+      "kind": "reference"
+    },
+    "feature.stalwart.unrelenting": {
+      "kind": "deferred",
+      "note": "+2 thresholds; requires V2 progression to acquire Specialization."
+    },
+    "feature.stalwart.partners-in-arms": {
+      "kind": "reference"
+    },
+    "feature.stalwart.undaunted": {
+      "kind": "deferred",
+      "note": "+3 thresholds; requires V2 progression to acquire Mastery."
+    },
+    "feature.stalwart.loyal-protector": {
+      "kind": "reference"
+    },
+    "feature.vengeance.at-ease": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "stressSlots",
+          "value": 1
+        }
+      ]
+    },
+    "feature.vengeance.revenge": {
+      "kind": "reference"
+    },
+    "feature.vengeance.act-of-reprisal": {
+      "kind": "reference"
+    },
+    "feature.vengeance.nemesis": {
+      "kind": "reference"
+    },
+    "feature.beastbound.companion": {
+      "kind": "effects",
+      "resolver": "beastboundCompanion",
+      "companion": {
+        "evasion": 10,
+        "stressSlots": 3,
+        "attackRange": "Melee",
+        "damageDie": 6,
+        "experienceCount": 2,
+        "experienceModifier": 2,
+        "source": "Evasion 10, Melee d6 attack, physical-or-magic choice and two +2 Experiences (with the example list): SRD 2.0 'Ranger Companion' section. Starting Stress slots (3): the official Ranger Companion character sheet as transcribed by Old Gus; not stated in the SRD 2.0 text (RD-029).",
+        "exampleExperiences": [
+          "Bold Distraction",
+          "Expert Climber",
+          "Fetch",
+          "Friendly",
+          "Guardian of the Forest",
+          "Horrifying",
+          "Intimidating",
+          "Loyal Until the End",
+          "Navigation",
+          "Nimble",
+          "Nobody Left Behind",
+          "On High Alert",
+          "Protective",
+          "Royal Companion",
+          "Scout",
+          "Service Animal",
+          "Trusted Mount",
+          "Vigilant",
+          "We Always Find Them",
+          "You Can't Hit What You Can't Find"
+        ]
+      }
+    },
+    "feature.wayfinder.ruthless-predator": {
+      "kind": "reference"
+    },
+    "feature.wayfinder.path-forward": {
+      "kind": "reference"
+    },
+    "feature.nightwalker.shadow-stepper": {
+      "kind": "reference"
+    },
+    "feature.syndicate.well-connected": {
+      "kind": "reference",
+      "note": "Contacts are created when arriving somewhere, not at character creation."
+    },
+    "feature.divine-wielder.spirit-weapon": {
+      "kind": "reference"
+    },
+    "feature.divine-wielder.sparing-touch": {
+      "kind": "reference"
+    },
+    "feature.winged-sentinel.wings-of-light": {
+      "kind": "reference"
+    },
+    "feature.elemental-origin.elementalist": {
+      "kind": "effects",
+      "resolver": "chooseOption",
+      "choice": {
+        "label": "Element",
+        "options": [
+          "air",
+          "earth",
+          "fire",
+          "lightning",
+          "water"
+        ]
+      }
+    },
+    "feature.primal-origin.manipulate-magic": {
+      "kind": "reference"
+    },
+    "feature.call-of-the-brave.courage": {
+      "kind": "reference"
+    },
+    "feature.call-of-the-brave.battle-ritual": {
+      "kind": "reference"
+    },
+    "feature.call-of-the-slayer.slayer": {
+      "kind": "effects",
+      "resource": {
+        "id": "slayer-dice",
+        "label": "Slayer Dice (maximum stored)",
+        "count": "proficiency",
+        "die": "d6"
+      }
+    },
+    "feature.school-of-knowledge.prepared": {
+      "kind": "effects",
+      "grants": {
+        "domainCards": 1
+      }
+    },
+    "feature.school-of-knowledge.adept": {
+      "kind": "reference"
+    },
+    "feature.school-of-war.battlemage": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "hpSlots",
+          "value": 1
+        }
+      ]
+    },
+    "feature.school-of-war.face-your-fear": {
+      "kind": "reference"
+    },
+    "feature.clank.purposeful-design": {
+      "kind": "effects",
+      "resolver": "clankPurposefulDesign"
+    },
+    "feature.clank.efficient": {
+      "kind": "reference"
+    },
+    "feature.drakona.scales": {
+      "kind": "reference"
+    },
+    "feature.drakona.elemental-breath": {
+      "kind": "effects",
+      "resolver": "chooseOption",
+      "attack": {
+        "name": "Elemental Breath",
+        "trait": "instinct",
+        "range": "Very Close",
+        "damage": {
+          "die": 8,
+          "bonus": 0
+        },
+        "damageType": "mag",
+        "cost": null
+      },
+      "choice": {
+        "label": "Breath element",
+        "options": [
+          "electricity",
+          "fire",
+          "ice"
+        ],
+        "note": "Options limited to the SRD's examples."
+      }
+    },
+    "feature.dwarf.thick-skin": {
+      "kind": "reference"
+    },
+    "feature.dwarf.increased-fortitude": {
+      "kind": "reference"
+    },
+    "feature.elf.quick-reactions": {
+      "kind": "reference"
+    },
+    "feature.elf.celestial-trance": {
+      "kind": "reference"
+    },
+    "feature.faerie.luckbender": {
+      "kind": "reference"
+    },
+    "feature.faerie.wings": {
+      "kind": "reference"
+    },
+    "feature.faun.caprine-leap": {
+      "kind": "reference"
+    },
+    "feature.faun.kick": {
+      "kind": "reference"
+    },
+    "feature.firbolg.charge": {
+      "kind": "reference"
+    },
+    "feature.firbolg.unshakable": {
+      "kind": "reference"
+    },
+    "feature.fungril.fungril-network": {
+      "kind": "reference"
+    },
+    "feature.fungril.death-connection": {
+      "kind": "reference"
+    },
+    "feature.galapa.shell": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "thresholds",
+          "value": "proficiency"
+        }
+      ]
+    },
+    "feature.galapa.retract": {
+      "kind": "reference"
+    },
+    "feature.giant.endurance": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "hpSlots",
+          "value": 1
+        }
+      ]
+    },
+    "feature.giant.reach": {
+      "kind": "reference"
+    },
+    "feature.goblin.surefooted": {
+      "kind": "reference"
+    },
+    "feature.goblin.danger-sense": {
+      "kind": "reference"
+    },
+    "feature.halfling.luckbringer": {
+      "kind": "reference"
+    },
+    "feature.halfling.internal-compass": {
+      "kind": "reference"
+    },
+    "feature.human.high-stamina": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "stressSlots",
+          "value": 1
+        }
+      ]
+    },
+    "feature.human.adaptability": {
+      "kind": "reference"
+    },
+    "feature.infernis.fearless": {
+      "kind": "reference"
+    },
+    "feature.infernis.dread-visage": {
+      "kind": "reference"
+    },
+    "feature.katari.feline-instincts": {
+      "kind": "reference"
+    },
+    "feature.katari.retracting-claws": {
+      "kind": "reference"
+    },
+    "feature.orc.sturdy": {
+      "kind": "reference"
+    },
+    "feature.orc.tusks": {
+      "kind": "reference"
+    },
+    "feature.ribbet.amphibious": {
+      "kind": "reference"
+    },
+    "feature.ribbet.long-tongue": {
+      "kind": "effects",
+      "attack": {
+        "name": "Long Tongue",
+        "trait": "finesse",
+        "range": "Close",
+        "damage": {
+          "die": 12,
+          "bonus": 0
+        },
+        "damageType": "phy",
+        "cost": "Mark a Stress"
+      }
+    },
+    "feature.simiah.natural-climber": {
+      "kind": "reference"
+    },
+    "feature.simiah.nimble": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "evasion",
+          "value": 1
+        }
+      ]
+    },
+    "feature.highborne.privilege": {
+      "kind": "reference"
+    },
+    "feature.loreborne.well-read": {
+      "kind": "reference"
+    },
+    "feature.orderborne.dedicated": {
+      "kind": "effects",
+      "resolver": "orderborneDedicated"
+    },
+    "feature.ridgeborne.steady": {
+      "kind": "reference"
+    },
+    "feature.seaborne.know-the-tide": {
+      "kind": "effects",
+      "resource": {
+        "id": "know-the-tide",
+        "label": "Know the Tide tokens (maximum held)",
+        "count": "level"
+      }
+    },
+    "feature.slyborne.scoundrel": {
+      "kind": "reference"
+    },
+    "feature.underborne.low-light-living": {
+      "kind": "reference"
+    },
+    "feature.wanderborne.nomadic-pack": {
+      "kind": "effects",
+      "grants": {
+        "items": [
+          "item.nomadic-pack"
+        ]
+      }
+    },
+    "feature.wildborne.lightfoot": {
+      "kind": "reference"
+    }
+  },
+  "cardMechanics": {
+    "card.rune-ward": {
+      "kind": "reference"
+    },
+    "card.unleash-chaos": {
+      "kind": "effects",
+      "resource": {
+        "id": "unleash-chaos",
+        "label": "Unleash Chaos tokens per session",
+        "count": "trait:spellcast"
+      }
+    },
+    "card.wall-walk": {
+      "kind": "reference"
+    },
+    "card.get-back-up": {
+      "kind": "reference"
+    },
+    "card.not-good-enough": {
+      "kind": "reference"
+    },
+    "card.whirlwind": {
+      "kind": "reference"
+    },
+    "card.deft-maneuvers": {
+      "kind": "reference"
+    },
+    "card.i-see-it-coming": {
+      "kind": "reference"
+    },
+    "card.untouchable": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "evasion",
+          "value": "halfUp:agility"
+        }
+      ]
+    },
+    "card.book-of-ava": {
+      "kind": "reference"
+    },
+    "card.book-of-illiat": {
+      "kind": "reference"
+    },
+    "card.book-of-tyfar": {
+      "kind": "reference"
+    },
+    "card.deft-deceiver": {
+      "kind": "reference"
+    },
+    "card.enrapture": {
+      "kind": "reference"
+    },
+    "card.inspirational-words": {
+      "kind": "effects",
+      "resource": {
+        "id": "inspirational-words",
+        "label": "Inspirational Words tokens per long rest",
+        "count": "trait:presence"
+      }
+    },
+    "card.pick-and-pull": {
+      "kind": "reference"
+    },
+    "card.rain-of-blades": {
+      "kind": "reference"
+    },
+    "card.uncanny-disguise": {
+      "kind": "effects",
+      "resource": {
+        "id": "uncanny-disguise",
+        "label": "Uncanny Disguise tokens per disguise",
+        "count": "trait:spellcast"
+      }
+    },
+    "card.gifted-tracker": {
+      "kind": "reference"
+    },
+    "card.natures-tongue": {
+      "kind": "reference"
+    },
+    "card.vicious-entangle": {
+      "kind": "reference"
+    },
+    "card.bolt-beacon": {
+      "kind": "reference"
+    },
+    "card.mending-touch": {
+      "kind": "reference"
+    },
+    "card.reassurance": {
+      "kind": "reference"
+    },
+    "card.bare-bones": {
+      "kind": "reference",
+      "note": "QuickSheet always equips armor, so the unarmored alternative is not computed (RD-010)."
+    },
+    "card.forceful-push": {
+      "kind": "reference"
+    },
+    "card.i-am-your-shield": {
+      "kind": "reference"
+    }
   },
   "gearFeatureMechanics": {
-    "Reliable": { "kind": "modifiers", "modifiers": [{ "target": "attackRoll", "value": 1, "scope": "self" }] },
-    "Massive": { "kind": "modifiers", "modifiers": [{ "target": "evasion", "value": -1 }], "alsoAtTable": true },
-    "Cumbersome": { "kind": "modifiers", "modifiers": [{ "target": "trait.finesse", "value": -1 }] },
-    "Heavy": { "kind": "modifiers", "modifiers": [{ "target": "evasion", "value": -1 }] },
-    "Very Heavy": { "kind": "modifiers", "modifiers": [{ "target": "evasion", "value": -2 }, { "target": "trait.agility", "value": -1 }] },
-    "Flexible": { "kind": "modifiers", "modifiers": [{ "target": "evasion", "value": 1 }] },
-    "Protective": { "kind": "modifiers", "modifiers": [{ "target": "armorScore", "value": 1 }] },
-    "Barrier": { "kind": "modifiers", "modifiers": [{ "target": "armorScore", "value": 2 }, { "target": "evasion", "value": -1 }] },
-    "Paired": { "kind": "modifiers", "modifiers": [{ "target": "primaryWeaponDamage", "value": 2, "condition": "targets within Melee range" }] },
-    "Quick": { "kind": "reference" },
-    "Powerful": { "kind": "reference" },
-    "Returning": { "kind": "reference" },
-    "Versatile": { "kind": "reference" },
-    "Hooked": { "kind": "reference" },
-    "Startling": { "kind": "reference" }
+    "Reliable": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "attackRoll",
+          "value": 1,
+          "scope": "self"
+        }
+      ]
+    },
+    "Massive": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "evasion",
+          "value": -1
+        }
+      ],
+      "alsoAtTable": true
+    },
+    "Cumbersome": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "trait.finesse",
+          "value": -1
+        }
+      ]
+    },
+    "Heavy": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "evasion",
+          "value": -1
+        }
+      ]
+    },
+    "Very Heavy": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "evasion",
+          "value": -2
+        },
+        {
+          "target": "trait.agility",
+          "value": -1
+        }
+      ]
+    },
+    "Flexible": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "evasion",
+          "value": 1
+        }
+      ]
+    },
+    "Protective": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "armorScore",
+          "value": 1
+        }
+      ]
+    },
+    "Barrier": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "armorScore",
+          "value": 2
+        },
+        {
+          "target": "evasion",
+          "value": -1
+        }
+      ]
+    },
+    "Paired": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "primaryWeaponDamage",
+          "value": 2,
+          "condition": "targets within Melee range"
+        }
+      ]
+    },
+    "Quick": {
+      "kind": "reference"
+    },
+    "Powerful": {
+      "kind": "reference"
+    },
+    "Returning": {
+      "kind": "reference"
+    },
+    "Versatile": {
+      "kind": "reference"
+    },
+    "Hooked": {
+      "kind": "reference"
+    },
+    "Startling": {
+      "kind": "reference"
+    }
   },
   "startingKit": [
-    { "id": "item.torch", "name": "Torch", "text": "" },
-    { "id": "item.rope", "name": "50 feet of rope", "text": "" },
-    { "id": "item.basic-supplies", "name": "Basic supplies", "text": "" }
+    {
+      "id": "item.torch",
+      "name": "Torch",
+      "text": ""
+    },
+    {
+      "id": "item.rope",
+      "name": "50 feet of rope",
+      "text": ""
+    },
+    {
+      "id": "item.basic-supplies",
+      "name": "Basic supplies",
+      "text": ""
+    }
   ],
   "grantedItems": [
-    { "id": "item.nomadic-pack", "name": "Nomadic Pack", "text": "See the Wanderborne *Nomadic Pack* feature.", "grantedBy": "feature.wanderborne.nomadic-pack" }
+    {
+      "id": "item.nomadic-pack",
+      "name": "Nomadic Pack",
+      "text": "See the Wanderborne *Nomadic Pack* feature.",
+      "grantedBy": "feature.wanderborne.nomadic-pack"
+    }
   ]
 }

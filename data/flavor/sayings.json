@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "source": "quicksheet-original",
+    "note": "Original sayings and values for the Orderborne 'Dedicated' feature, which asks the player to record three. Setting-neutral; no gods, orders or places are named."
+  },
+  "orderborneSayings": [
+    "Duty before comfort.",
+    "A promise kept is a wall that never falls.",
+    "Speak plainly, act fairly.",
+    "The many are stronger than the one.",
+    "Every tool has its purpose; so does every person.",
+    "Order is a kindness we give to each other.",
+    "Rise before the sun, rest after the work.",
+    "Never leave a task half-done.",
+    "Owe nothing you cannot repay.",
+    "Respect is earned in deeds, not words.",
+    "The ledger must balance.",
+    "Patience is a weapon.",
+    "Guard the gate you were given.",
+    "Teach what you have learned.",
+    "Waste nothing.",
+    "Truth spoken softly still carries.",
+    "Discipline today, freedom tomorrow.",
+    "Stand where you are needed."
+  ]
+}

@@ -46,6 +46,86 @@
       }
     },
     {
+      "id": "community.orderborne",
+      "name": "Orderborne",
+      "summary": "Being part of an Orderborne community means you're from a collective that focuses on discipline or faith, and you uphold a set of principles that reflect your experience there.",
+      "featureId": "feature.orderborne.dedicated",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 75"
+        ],
+        "errata": false,
+        "card": "DH Core 075/270"
+      }
+    },
+    {
+      "id": "community.ridgeborne",
+      "name": "Ridgeborne",
+      "summary": "Being part of a Ridgeborne community means you've called the rocky peaks and sharp cliffs of the mountainside home.",
+      "featureId": "feature.ridgeborne.steady",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 76"
+        ],
+        "errata": false,
+        "card": "DH Core 076/270"
+      }
+    },
+    {
+      "id": "community.seaborne",
+      "name": "Seaborne",
+      "summary": "Being part of a Seaborne community means you lived on or near a large body of water.",
+      "featureId": "feature.seaborne.know-the-tide",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 77"
+        ],
+        "errata": false,
+        "card": "DH Core 077/270"
+      }
+    },
+    {
+      "id": "community.slyborne",
+      "name": "Slyborne",
+      "summary": "Being part of a Slyborne community means you come from a group that operates outside the law, including all manner of criminals, grifters, and con artists.",
+      "featureId": "feature.slyborne.scoundrel",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 78"
+        ],
+        "errata": false,
+        "card": "DH Core 078/270"
+      }
+    },
+    {
+      "id": "community.underborne",
+      "name": "Underborne",
+      "summary": "Being part of an Underborne community means you're from a subterranean society.",
+      "featureId": "feature.underborne.low-light-living",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 79"
+        ],
+        "errata": false,
+        "card": "DH Core 079/270"
+      }
+    },
+    {
       "id": "community.wanderborne",
       "name": "Wanderborne",
       "summary": "Being part of a Wanderborne community means you've lived as a nomad, forgoing a permanent home and experiencing a wide variety of cultures.",

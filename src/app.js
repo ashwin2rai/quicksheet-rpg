@@ -15,6 +15,7 @@ const els = {
   community: $('community'),
   cls: $('class'),
   subclass: $('subclass'),
+  mixed: $('mixed'),
   generate: $('generate'),
   status: $('status'),
   error: $('error'),
@@ -65,6 +66,7 @@ function generate() {
       classId: els.cls.value || null,
       subclassId: els.subclass.value || null,
       contentProfile: 'core',
+      options: { mixedAncestry: els.mixed.checked },
     }, state.catalog);
     state.character = character;
     state.markdown = renderCharacterMarkdown(character, state.catalog);

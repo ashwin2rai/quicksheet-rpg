@@ -1,0 +1,24 @@
+name: SRD Drift Check
+
+# Monitors upstream SRD/license sources against data/srd-sources.lock.json.
+# Independent of CI and of any deployment: a failure here never blocks PRs or Pages.
+# Scheduled workflows pause on inactive public repos; use "Run workflow" (workflow_dispatch) as the fallback.
+on:
+  schedule:
+    - cron: '17 6 * * 1' # Mondays 06:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Compare upstream fingerprints with approved pins
+        run: node tools/check-srd-drift.mjs

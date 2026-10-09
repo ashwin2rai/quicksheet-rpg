@@ -57,7 +57,7 @@
         "name": "Reliable",
         "text": "+1 to attack rolls",
         "mechanics": {
-          "kind": "modifiers",
+          "kind": "effects",
           "modifiers": [
             {
               "target": "attackRoll",
@@ -174,7 +174,7 @@
         "name": "Massive",
         "text": "-1 to Evasion; on a successful attack, roll an additional damage die and discard the lowest result.",
         "mechanics": {
-          "kind": "modifiers",
+          "kind": "effects",
           "modifiers": [
             {
               "target": "evasion",
@@ -213,7 +213,7 @@
         "name": "Cumbersome",
         "text": "-1 to Finesse",
         "mechanics": {
-          "kind": "modifiers",
+          "kind": "effects",
           "modifiers": [
             {
               "target": "trait.finesse",
@@ -251,7 +251,7 @@
         "name": "Heavy",
         "text": "-1 to Evasion",
         "mechanics": {
-          "kind": "modifiers",
+          "kind": "effects",
           "modifiers": [
             {
               "target": "evasion",
@@ -325,7 +325,7 @@
         "name": "Cumbersome",
         "text": "-1 to Finesse",
         "mechanics": {
-          "kind": "modifiers",
+          "kind": "effects",
           "modifiers": [
             {
               "target": "trait.finesse",
@@ -525,7 +525,7 @@
         "name": "Heavy",
         "text": "-1 to Evasion",
         "mechanics": {
-          "kind": "modifiers",
+          "kind": "effects",
           "modifiers": [
             {
               "target": "evasion",
@@ -563,7 +563,7 @@
         "name": "Reliable",
         "text": "+1 to attack rolls",
         "mechanics": {
-          "kind": "modifiers",
+          "kind": "effects",
           "modifiers": [
             {
               "target": "attackRoll",
@@ -940,7 +940,7 @@
         "name": "Protective",
         "text": "+1 to Armor Score",
         "mechanics": {
-          "kind": "modifiers",
+          "kind": "effects",
           "modifiers": [
             {
               "target": "armorScore",
@@ -978,7 +978,7 @@
         "name": "Paired",
         "text": "+2 to primary weapon damage to targets within Melee range",
         "mechanics": {
-          "kind": "modifiers",
+          "kind": "effects",
           "modifiers": [
             {
               "target": "primaryWeaponDamage",
@@ -1017,7 +1017,7 @@
         "name": "Paired",
         "text": "+2 to primary weapon damage to targets within Melee range",
         "mechanics": {
-          "kind": "modifiers",
+          "kind": "effects",
           "modifiers": [
             {
               "target": "primaryWeaponDamage",
@@ -1056,7 +1056,7 @@
         "name": "Barrier",
         "text": "+2 to Armor Score; -1 to Evasion",
         "mechanics": {
-          "kind": "modifiers",
+          "kind": "effects",
           "modifiers": [
             {
               "target": "armorScore",

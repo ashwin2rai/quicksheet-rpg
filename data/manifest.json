@@ -1,10 +1,12 @@
 {
-  "dataVersion": "0.1.0-m0",
+  "dataVersion": "0.2.0-m1",
   "srdVersion": "2.0",
   "profiles": {
     "core": {
       "label": "Core Only",
-      "sourceSets": ["core"],
+      "sourceSets": [
+        "core"
+      ],
       "files": {
         "classes": "core/classes.json",
         "subclasses": "core/subclasses.json",
@@ -15,7 +17,8 @@
         "domainCards": "core/domain-cards.json",
         "weapons": "core/weapons.json",
         "armor": "core/armor.json",
-        "items": "core/items.json"
+        "items": "core/items.json",
+        "beastforms": "core/beastforms.json"
       }
     }
   },
@@ -23,6 +26,8 @@
     "names": "flavor/names.json",
     "details": "flavor/details.json",
     "experiences": "flavor/experiences.json",
-    "classStyles": "flavor/class-styles.json"
+    "classStyles": "flavor/class-styles.json",
+    "companions": "flavor/companions.json",
+    "sayings": "flavor/sayings.json"
   }
 }

@@ -23,7 +23,7 @@ test(`${SEEDS_PER_SUBCLASS} seeded samples per supported subclass all validate`,
 test('all-Random generation validates and covers every supported option', async () => {
   const catalog = await getCatalog();
   const seen = { ancestryId: new Set(), communityId: new Set(), classId: new Set(), subclassId: new Set(), cards: new Set(), primary: new Set(), armor: new Set() };
-  for (let i = 0; i < 400; i++) {
+  for (let i = 0; i < 900; i++) {
     const c = generateCharacter({ seed: `random-${i}` }, catalog);
     assert.ok(validateCharacter(c, catalog).valid);
     for (const key of ['ancestryId', 'communityId', 'classId', 'subclassId']) seen[key].add(c.selections[key]);
@@ -57,7 +57,7 @@ test('fixed selections survive rerolls while everything else varies', async () =
   const names = new Set();
   for (let i = 0; i < 50; i++) {
     const c = generateCharacter({ ...fixed, seed: `reroll-${i}` }, catalog);
-    assert.deepEqual(c.selections, fixed);
+    assert.deepEqual(c.selections, { ...fixed, secondAncestryId: null });
     assert.deepEqual(c.requested, fixed);
     names.add(c.flavor.name);
   }
@@ -80,7 +80,7 @@ test('incompatible or unknown selections fail loudly instead of emitting a sheet
   const catalog = await getCatalog();
   const expectCode = (input, code) => assert.throws(() => generateCharacter(input, catalog), (e) => e instanceof GenerationError && e.code === code);
   expectCode({ classId: 'class.guardian', subclassId: 'subclass.troubadour' }, 'subclass-class-mismatch');
-  expectCode({ classId: 'class.wizard' }, 'unknown-id');
+  expectCode({ classId: 'class.assassin' }, 'unknown-id'); // Hope & Fear class: not in Core Only
   expectCode({ ancestryId: 'community.highborne' }, 'unknown-id');
   expectCode({ level: 2 }, 'unsupported-level');
   expectCode({ contentProfile: 'core+hope-fear' }, 'unsupported-profile');
@@ -88,21 +88,66 @@ test('incompatible or unknown selections fail loudly instead of emitting a sheet
 
 test('class-specific rules hold across many seeds', async () => {
   const catalog = await getCatalog();
-  for (let i = 0; i < 200; i++) {
+  let warriorTwoHandedWithSecondary = 0;
+  for (let i = 0; i < 600; i++) {
     const c = generateCharacter({ seed: `rules-${i}` }, catalog);
     const subclass = catalog.get(c.selections.subclassId);
     const weapons = [c.equipment.primaryWeaponId, c.equipment.secondaryWeaponId].filter(Boolean).map((id) => catalog.get(id));
     if (!subclass.spellcastTrait) assert.ok(weapons.every((w) => !w.magic), `seed ${i}: magic weapon without Spellcast trait`);
     assert.ok(weapons.every((w) => !w.tags.includes('combat-wheelchair')));
-    if (c.selections.ancestryId === 'ancestry.clank') {
-      const choice = c.featureChoices['feature.clank.purposeful-design'];
-      assert.ok(c.experiences.some((e) => e.id === choice.experienceId));
-      assert.equal(Math.max(...c.derived.experiences.map((e) => e.modifier)), 3);
-    } else {
-      assert.deepEqual(c.featureChoices, {});
-      assert.ok(c.derived.experiences.every((e) => e.modifier === 2));
+    const twoHandedPlusSecondary = weapons[0].burden === 'two-handed' && weapons.length === 2;
+    if (twoHandedPlusSecondary) {
+      assert.equal(c.selections.classId, 'class.warrior', `seed ${i}: only burden-ignoring characters may do this`);
+      warriorTwoHandedWithSecondary++;
     }
+    const isClank = c.selections.ancestryId === 'ancestry.clank';
+    assert.equal(Math.max(...c.derived.experiences.map((e) => e.modifier)), isClank ? 3 : 2);
     const hasPack = c.inventory.some((x) => x.itemId === 'item.nomadic-pack');
     assert.equal(hasPack, c.selections.communityId === 'community.wanderborne');
+    const expectedCards = c.selections.subclassId === 'subclass.school-of-knowledge' ? 3 : 2;
+    assert.equal(c.domainCards.length, expectedCards, `seed ${i}`);
+    if (c.selections.classId === 'class.seraph') {
+      assert.ok(c.derived.resources.find((r) => r.id === 'prayer-dice').count > 0, `seed ${i}: Seraph with no Prayer Dice`);
+    }
+    assert.equal(Boolean(c.derived.companion), c.selections.subclassId === 'subclass.beastbound');
+    assert.equal(c.derived.beastforms.length > 0, c.selections.classId === 'class.druid');
   }
+  assert.ok(warriorTwoHandedWithSecondary > 0, 'Combat Training loadouts should appear');
+});
+
+test('every mandatory choice is resolved', async () => {
+  const catalog = await getCatalog();
+  const cases = [
+    [{ ancestryId: 'ancestry.clank' }, 'feature.clank.purposeful-design', (x) => typeof x.experienceId === 'string'],
+    [{ ancestryId: 'ancestry.drakona' }, 'feature.drakona.elemental-breath', (x) => ['electricity', 'fire', 'ice'].includes(x.option)],
+    [{ communityId: 'community.orderborne' }, 'feature.orderborne.dedicated', (x) => x.sayings.length === 3],
+    [{ subclassId: 'subclass.elemental-origin' }, 'feature.elemental-origin.elementalist', (x) => ['air', 'earth', 'fire', 'lightning', 'water'].includes(x.option)],
+    [{ classId: 'class.wizard' }, 'feature.wizard.strange-patterns', (x) => x.number >= 1 && x.number <= 12],
+    [{ subclassId: 'subclass.beastbound' }, 'feature.beastbound.companion', (x) => x.name && x.animal && x.experiences.length === 2],
+  ];
+  for (const [input, featureId, check] of cases) {
+    for (let i = 0; i < 25; i++) {
+      const c = generateCharacter({ ...input, seed: `choice-${featureId}-${i}` }, catalog);
+      const choice = c.featureChoices[featureId];
+      assert.ok(choice && check(choice), `${featureId} seed ${i}: ${JSON.stringify(choice)}`);
+    }
+  }
+});
+
+test('Mixed Ancestry takes the top feature of one ancestry and the bottom of another', async () => {
+  const catalog = await getCatalog();
+  const seen = new Set();
+  for (let i = 0; i < 100; i++) {
+    const c = generateCharacter({ seed: `mixed-${i}`, ancestryId: 'ancestry.galapa', options: { mixedAncestry: true } }, catalog);
+    assert.ok(validateCharacter(c, catalog).valid);
+    assert.equal(c.selections.ancestryId, 'ancestry.galapa');
+    assert.ok(c.selections.secondAncestryId && c.selections.secondAncestryId !== 'ancestry.galapa');
+    seen.add(c.selections.secondAncestryId);
+    const md = renderCharacterMarkdown(c, catalog);
+    assert.match(md, /\*\*Shell\.\*\*/);
+    assert.doesNotMatch(md, /\*\*Retract\.\*\*/);
+  }
+  assert.ok(seen.size > 10);
+  const plain = generateCharacter({ seed: 'not-mixed' }, catalog);
+  assert.equal(plain.selections.secondAncestryId, null);
 });

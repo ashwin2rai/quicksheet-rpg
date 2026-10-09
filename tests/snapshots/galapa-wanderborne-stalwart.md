@@ -1,20 +1,22 @@
-# Amaru Ashgrove
+# Amaru Silverbell
 
-*A Galapa guardian raised among the Wanderborne who measures life by the people kept safe.*
+*A Galapa guardian raised among the Wanderborne who left home with more questions than answers.*
 
 **Level:** 1 (Tier 1) | **Class:** Guardian - Stalwart  
-**Heritage:** Galapa / Wanderborne | **Pronouns:** he/him
+**Heritage:** Galapa / Wanderborne | **Pronouns:** she/her
 
 ## At a Glance
 
 | Agility | Strength | Finesse | Instinct | Presence | Knowledge |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| +0 | +2 | -1 | +1 | +1 | +0 |
+| +0 | +0 | +1 | -1 | +2 | +0 |
+
+*Trait totals include equipment: Agility -1 from Full Plate Armor (Very Heavy).*
 
 **Evasion** 7 | **Proficiency** 1  
 **HP** 7 slots (0 marked) | **Stress** 6 slots (0 marked)  
 **Hope** 2 (max 6) | **Armor Score** 4 (4 Armor Slots, 0 marked)  
-**Damage Thresholds** Major 10 / Severe 18
+**Damage Thresholds** Major 11 / Severe 20
 
 **Unstoppable Die** d4
 
@@ -24,15 +26,18 @@
 
 | Slot | Weapon | Attack | Range | Damage | Burden |
 | --- | --- | --- | --- | --- | --- |
-| Primary | Warhammer | Strength +2 | Melee | 1d12+3 phy | Two-Handed |
+| Primary | Rapier | Presence +2 | Melee | 1d8 phy | One-Handed |
+| Secondary | Small Dagger | Finesse +1 | Melee | 1d8 phy | One-Handed |
 
-- **Warhammer - Heavy:** -1 to Evasion
+- **Rapier - Quick:** When you make an attack, you can **mark a Stress** to target another creature within range.
+- **Rapier** deals **1d8+2** phy against targets within Melee range while paired with your secondary weapon.
+- **Small Dagger - Paired:** +2 to primary weapon damage to targets within Melee range
 
 ### Armor
 
-**Chainmail Armor** - base thresholds 7 / 15, base score 4
+**Full Plate Armor** - base thresholds 8 / 17, base score 4
 
-- **Heavy:** -1 to Evasion
+- **Very Heavy:** -2 to Evasion; -1 to Agility
 
 ### Inventory
 
@@ -46,8 +51,8 @@
 
 ## Experiences
 
-- **Militia Sergeant** +2
-- **Caravan Guard** +2
+- **Mender of the Sick** +2
+- **Smells a Coming Storm** +2
 
 ## Features
 
@@ -63,7 +68,7 @@
 
 ### Class: Guardian
 
-**Unstoppable.** *(your Unstoppable Die: d4)* Once per long rest, you can become *Unstoppable*. You gain an Unstoppable Die. At level 1, your Unstoppable Die is a **d4**. Place it on your character sheet in the space provided, starting with the 1 value facing up. After you make a damage roll that deals 1 or more Hit Points to a target, increase the Unstoppable Die value by one. When the die's value would exceed its maximum value or when the scene ends, remove the die and drop out of *Unstoppable*. At level 5, your Unstoppable Die increases to a **d6**.
+**Unstoppable.** *(Unstoppable Die: d4)* Once per long rest, you can become *Unstoppable*. You gain an Unstoppable Die. At level 1, your Unstoppable Die is a **d4**. Place it on your character sheet in the space provided, starting with the 1 value facing up. After you make a damage roll that deals 1 or more Hit Points to a target, increase the Unstoppable Die value by one. When the die's value would exceed its maximum value or when the scene ends, remove the die and drop out of *Unstoppable*. At level 5, your Unstoppable Die increases to a **d6**.
 
 While *Unstoppable*, you gain the following benefits:
 
@@ -83,39 +88,42 @@ While *Unstoppable*, you gain the following benefits:
 
 | Card | Domain | Level | Type | Recall |
 | --- | --- | :---: | --- | :---: |
-| Not Good Enough | Blade | 1 | Ability | 1 |
-| Forceful Push | Valor | 1 | Ability | 0 |
+| I Am Your Shield | Valor | 1 | Ability | 1 |
+| Bare Bones | Valor | 1 | Ability | 0 |
 
-### Not Good Enough
+### I Am Your Shield
 
-*Blade 1 - Ability - Recall 1*
+*Valor 1 - Ability - Recall 1*
 
-When you roll your damage dice, you can reroll any 1s or 2s.
+When an ally within Very Close range would take damage, you can **mark a Stress** to stand in the way and make yourself the target of the attack instead. When you take damage from this attack, you can mark any number of Armor Slots.
 
-### Forceful Push
+### Bare Bones
 
 *Valor 1 - Ability - Recall 0*
 
-Make an attack with your primary weapon against a target within Melee range. On a success, you deal damage and knock them back to Close range. On a success with Hope, add a **d6** to your damage roll.
+When you choose not to equip armor, you have a base Armor Score of 3 + your Strength and use the following as your base damage thresholds:
 
-Additionally, you can **spend a Hope** to make them temporarily *Vulnerable*.
+- ***Tier 1:*** 9/19
+- ***Tier 2:*** 11/24
+- ***Tier 3:*** 13/31
+- ***Tier 4:*** 15/38
 
 ## Character Hook
 
-**Appearance:** Dresses in intricate clothes, has the air of a wrestler, and is recognizable by a patched cloak in three different colors.  
-**Personality:** Quick to forgive and slow to forget.  
-**Motivation:** Wants to find a sibling who left home without a word.  
-**Backstory:** Amaru Ashgrove grew up in a sleepy farming village. Everything changed when he witnessed something never meant to be seen. Now Amaru wants to find a sibling who left home without a word.
+**Appearance:** Dresses in casual clothes, has the air of an elephant, and is recognizable by an old burn scar across the back of one hand.  
+**Personality:** An incurable optimist.  
+**Motivation:** Wants to prove that a long-held family story is true.  
+**Backstory:** Amaru Silverbell grew up in a hamlet at the edge of an old forest. Everything changed when a bargain went wrong in front of the whole town. Now Amaru wants to prove that a long-held family story is true.
 
-**Background question:** You've been tasked with protecting something important and delivering it somewhere dangerous. What is it, and where does it need to go?
+**Background question:** Who from your community did you fail to protect, and why do you still think of them?
 
 **Connection prompts** (ask another player):
 
-- What lie have you told me about yourself that I absolutely believe?
+- What small gift did you give me that you notice I always carry with me?
 
 ---
 
-*Generated by QuickSheet 0.1.0-m0 - seed `fixture-stalwart` - data 0.1.0-m0 - SRD 2.0 - Core content.*
+*Generated by QuickSheet 0.2.0-m1 - seed `fixture-galapa` - data 0.2.0-m1 - SRD 2.0 - Core content.*
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 

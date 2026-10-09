@@ -1,18 +1,18 @@
-# Soren Greymantle
+# Nell Underhill
 
-*A Clank bard raised among the Wanderborne who collects forgotten songs.*
+*A Giant bard raised among the Wanderborne who collects forgotten songs.*
 
 **Level:** 1 (Tier 1) | **Class:** Bard - Wordsmith  
-**Heritage:** Clank / Wanderborne | **Pronouns:** he/him
+**Heritage:** Giant / Wanderborne | **Pronouns:** they/them
 
 ## At a Glance
 
 | Agility | Strength | Finesse | Instinct | Presence | Knowledge |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| +0 | -1 | +1 | +1 | +0 | +2 |
+| +1 | -1 | +1 | +2 | +0 | +0 |
 
 **Evasion** 10 | **Proficiency** 1 | **Spellcast trait** Presence  
-**HP** 5 slots (0 marked) | **Stress** 6 slots (0 marked)  
+**HP** 6 slots (0 marked) | **Stress** 6 slots (0 marked)  
 **Hope** 2 (max 6) | **Armor Score** 3 (3 Armor Slots, 0 marked)  
 **Damage Thresholds** Major 7 / Severe 14
 
@@ -24,13 +24,9 @@
 
 | Slot | Weapon | Attack | Range | Damage | Burden |
 | --- | --- | --- | --- | --- | --- |
-| Primary | Returning Blade | Finesse +1 | Close | 1d8 mag | One-Handed |
-| Secondary | Small Dagger | Finesse +1 | Melee | 1d8 phy | One-Handed |
+| Primary | Dualstaff | Instinct +2 | Far | 1d6+3 mag | Two-Handed |
 
-- **Returning Blade** is a magic weapon (requires a Spellcast trait).
-- **Returning Blade - Returning:** When this weapon is thrown within its range, it appears in your hand immediately after the attack.
-- **Returning Blade** deals **1d8+2** mag against targets within Melee range while paired with your secondary weapon.
-- **Small Dagger - Paired:** +2 to primary weapon damage to targets within Melee range
+- **Dualstaff** is a magic weapon (requires a Spellcast trait).
 
 ### Armor
 
@@ -43,21 +39,21 @@
 - Basic supplies
 - Minor Stamina Potion - Clear **1d4** Stress.
 - Nomadic Pack - See the Wanderborne *Nomadic Pack* feature.
-- A romance novel (class item)
+- A letter never opened (class item)
 - Gold: 1 handful
 
 ## Experiences
 
-- **Village Blacksmith** +2
-- **Former Court Musician** +3 (+2 base, +1 Purposeful Design)
+- **Seasoned Pilgrim** +2
+- **Reads a Room Quickly** +2
 
 ## Features
 
-### Ancestry: Clank
+### Ancestry: Giant
 
-**Purposeful Design.** *(Purpose-aligned Experience: Former Court Musician (+1))* Decide who made you and for what purpose. At character creation, choose one of your Experiences that best aligns with this purpose and gain a permanent +1 bonus to it.
+**Endurance.** Gain an additional Hit Point slot at character creation.
 
-**Efficient.** When you take a short rest, you can choose a long rest move instead of a short rest move.
+**Reach.** Treat any weapon, ability, spell, or other feature that has a Melee range as though it has a Very Close range instead.
 
 ### Community: Wanderborne
 
@@ -65,7 +61,7 @@
 
 ### Class: Bard
 
-**Rally.** *(your Rally Die: d6)* Once per session, describe how you rally the party and give yourself and each of your allies a Rally Die. At level 1, your Rally Die is a **d6**. A PC can spend their Rally Die to roll it, adding the result to their action roll, reaction roll, damage roll, or to clear a number of Stress equal to the result. At the end of each session, clear all unspent Rally Dice. At level 5, your Rally Die increases to a **d8**.
+**Rally.** *(Rally Die: d6)* Once per session, describe how you rally the party and give yourself and each of your allies a Rally Die. At level 1, your Rally Die is a **d6**. A PC can spend their Rally Die to roll it, adding the result to their action roll, reaction roll, damage roll, or to clear a number of Stress equal to the result. At the end of each session, clear all unspent Rally Dice. At level 5, your Rally Die increases to a **d8**.
 
 **Make a Scene.** *(Hope feature)* **Spend 3 Hope** to temporarily *Distract* a target within Close range, giving them a -2 penalty to their Difficulty.
 
@@ -100,20 +96,20 @@
 
 ## Character Hook
 
-**Appearance:** Dresses in loud clothes, has the air of a ringmaster, and is recognizable by a habit of humming quietly.  
+**Appearance:** Dresses in extravagant clothes, has the air of a magician, and is recognizable by a faded tattoo of a compass rose.  
 **Personality:** Patient with people, impatient with excuses.  
-**Motivation:** Wants to outshine a rival who never takes him seriously.  
-**Backstory:** Few in a hamlet at the edge of an old forest expected much of Soren Greymantle, until a fire destroyed everything he knew. Since then, Soren has set out to outshine a rival who never takes him seriously.
+**Motivation:** Wants to prove that a long-held family story is true.  
+**Backstory:** Nell Underhill left a traveling caravan the season they won a contest that was meant to be lost, and has spent every day since trying to prove that a long-held family story is true.
 
 **Background question:** You were in love once. Who did you adore, and how did they hurt you?
 
 **Connection prompts** (ask another player):
 
-- What made you realize we were going to be such good friends?
+- What do I do that annoys you?
 
 ---
 
-*Generated by QuickSheet 0.1.0-m0 - seed `fixture-wordsmith` - data 0.1.0-m0 - SRD 2.0 - Core content.*
+*Generated by QuickSheet 0.2.0-m1 - seed `fixture-wordsmith` - data 0.2.0-m1 - SRD 2.0 - Core content.*
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 

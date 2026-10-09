@@ -4,8 +4,15 @@ Rules interpretations QuickSheet makes, with the source each relies on. Add a nu
 
 ## Sources and verification
 
-**RD-001: Source precedence and verification status (M0).**
-Game data is imported from Old Gus (`scripts/og-dhsrd-features.js`) by `tools/import-og-dhsrd.mjs`. When Old Gus and the official SRD disagree, the official SRD wins. 
+**RD-001: Source precedence and verification status.**
+Game data is imported from Old Gus (`scripts/og-dhsrd-features.js`) by `tools/import-og-dhsrd.mjs`. When Old Gus and the official SRD disagree, the official SRD wins.
+
+In V1 the official SRD 2.0 PDF (`DH_SRD_2_2026_08_25.pdf`, pinned in `data/srd-sources.lock.json`) was downloaded and every imported Level 1 text was compared with it:
+- Of 135 texts (class, ancestry, community and Foundation features, Level 1 domain cards, Tier 1 Beastform features), 127 match word-for-word.
+- Four differ only because of PDF text-extraction artifacts or quotation marks.
+- Four are real Old Gus differences, corrected as described in RD-025.
+
+All class Evasion/HP values, class items, domain card recall costs, and Tier 1 weapon and armor statistics were also checked against the PDF.
 
 **RD-002: Errata.** Old Gus marks errata-updated entries (for example the Tier 1 Longsword, Spear and Glowing Rings, and the Whirlwind card) with an `Errata` page tag. QuickSheet imports the errata version and records `source.errata: true`.
 
@@ -17,29 +24,33 @@ Game data is imported from Old Gus (`scripts/og-dhsrd-features.js`) by `tools/im
 
 ## Equipment
 
-**RD-005: Combat wheelchairs** (Light-, Heavy- and Arcane-Frame) are legal Tier 1 primary weapons and are kept in the data. The random generator does not choose them, because choosing one decides something about the character's body that the player should decide. **Planned:** add an explicit opt-in or a fixed-weapon option in V1.
+**RD-005: Combat wheelchairs** (Light-, Heavy- and Arcane-Frame; the SRD credits Mark Thompson for these rules) are legal Tier 1 primary weapons and are kept in the data. The random generator does not choose them, because choosing one decides something about the character's body that the player should decide. **Planned:** an explicit opt-in or a fixed-weapon option.
 
 **RD-006: Campaign-frame and setting-specific equipment.** Old Gus flags some Tier 1 weapons as GM- or setting-dependent (the dagger marker; for example the Sickle, Revolver and Repeating Crossbow from Core pp. 152, 275–276 and 317). These are excluded from the core generation pool. Hope & Fear equipment (`DH HF` pages) is excluded from the core profile.
 
-**RD-007: Starting loadout shape.** Following SRD step 5, a character has either one two-handed primary weapon, or one one-handed primary weapon plus one one-handed secondary weapon. The validator rejects a one-handed primary without a secondary.
+**RD-007: Starting loadout shape.** Following SRD step 5, a character has either one two-handed primary weapon, or one one-handed primary weapon plus one one-handed secondary weapon. The validator rejects a one-handed primary without a secondary. Warrior's *Combat Training* is the one exception (RD-026).
 
-**RD-008: Magic weapons need a Spellcast trait.** "If your subclass didn't assign you a Spellcast trait, you can't use magic weapons" (Old Gus, Weapons). Neither Guardian subclass grants a Spellcast trait, so Guardians never get magic weapons. Both Bard subclasses use Presence.
+**RD-008: Magic weapons need a Spellcast trait.** "If your subclass didn't assign you a Spellcast trait, you can't use magic weapons" (Old Gus, Weapons). Guardians and Warriors have no Spellcast trait, so they never get magic weapons. Every other core subclass has one.
 
-**RD-009: Starting items.** Every character gets a torch, 50 feet of rope, basic supplies, one handful of gold, one Minor Health Potion *or* one Minor Stamina Potion (chosen at random), and one of the two class items (chosen at random). The SRD adds "whichever class-specific item you selected to carry your spells, if applicable". The Bard and Guardian class item options are not spell carriers, so neither class needs one. **V1:** check this for every class.
+**RD-009: Starting items.** Every character gets a torch, 50 feet of rope, basic supplies, one handful of gold, one Minor Health Potion *or* one Minor Stamina Potion (chosen at random), and one of the two class items (chosen at random). The SRD adds "whichever class-specific item you selected to carry your spells, if applicable". In V1 all nine core class item lists were checked against the official SRD 2.0, and none includes a separate spell-carrying item. QuickSheet therefore adds no mandatory focus. If a future source adds one, it should be modeled as an item grant.
 
 **RD-010: Bare Bones (Valor 1).** QuickSheet always equips armor, so the card's unarmored alternative does not apply. The card text is shown in full. The alternative statistics are not calculated.
 
 ## Features and choices
 
-**RD-011: Mechanics classification.** Every imported feature has a curated `mechanics.kind` in `tools/curation/core.json`:
-- `modifiers`: fully represented as numbers.
-- `resolver`: a named, tested function in `src/resolvers.js`.
-- `resource`: a class die by level.
-- `grant`: adds items.
+**RD-011: Mechanics classification.** Every imported feature, Level 1 domain card and gear feature has a curated `mechanics.kind` in `tools/curation/core.json`:
+- `effects`: implemented by one or more effect properties:
+  - `modifiers`: plain numbers, or the expressions `proficiency`, `level` or `halfUp:<trait>`.
+  - `resource`: a die by level, or a count from tier, level, Proficiency or a trait.
+  - `attack`: an innate attack.
+  - `flags`: for example `ignore-burden`.
+  - `grants`: items or extra domain cards.
+  - `resolver`: a named, tested function in `src/resolvers.js`.
+  - `companion` and `display: beastforms`.
 - `reference`: situational, resolved at the table.
 - `deferred`: needs V2 progression.
 
-The validator rejects any character that acquires a `deferred` feature. A rules effect is never assumed to work just because its text appears on the sheet.
+Subclass Specialization and Mastery features default to `deferred` until V2 classifies them. The validator rejects any character that acquires a `deferred` feature. A rules effect is never assumed to work just because its text appears on the sheet.
 
 **RD-012: Galapa Shell** adds the *current* Proficiency to both thresholds. It is recomputed from Proficiency rather than stored, so V2 level-ups update it automatically.
 
@@ -47,15 +58,15 @@ The validator rejects any character that acquires a `deferred` feature. A rules 
 
 **RD-014: Wanderborne Nomadic Pack** adds a *Nomadic Pack* item to the inventory, as the feature text instructs.
 
-**RD-015: Class dice.** The Rally Die (Bard: d6, d8 at level 5) and the Unstoppable Die (Guardian: d4, d6 at level 5) are stored as level-indexed resources. Wordsmith's Epic Poetry (Rally Die d10) is a Mastery feature and marked `deferred`.
+**RD-015: Class dice.** The Rally Die (Bard: d6, d8 at level 5) and the Unstoppable Die (Guardian: d4, d6 at level 5) are stored as level-indexed resources. Wordsmith's Epic Poetry (Rally Die d10) is a Mastery feature and marked `deferred`. Counted resources are covered in RD-027.
 
 **RD-016: Stalwart threshold bonuses.** Unwavering (+1) is applied at Level 1. Unrelenting (+2) and Undaunted (+3) are `deferred`. **Open for V2:** confirm from the official text that these bonuses stack (a total of +6 at Mastery).
 
-**RD-017: Inspirational Words** (Grace 1) places tokens equal to Presence after a long rest. This is tracked at the table and not computed.
+**RD-017: Card tokens.** Inspirational Words (tokens equal to Presence), Unleash Chaos and Uncanny Disguise (tokens equal to the Spellcast trait) show their token count on the sheet. Tokens are spent and tracked at the table.
 
 ## Domain cards, Experiences and flavor
 
-**RD-018: Domain cards.** Two distinct Level 1 cards are drawn uniformly from the class's two domains; both may come from the same domain (SRD step 8). Both go in the active loadout.
+**RD-018: Domain cards.** Two distinct Level 1 cards are drawn uniformly from the class's two domains; both may come from the same domain (SRD step 8). School of Knowledge's *Prepared* adds a third (RD-030). All starting cards go in the active loadout. Card mechanics, such as Untouchable, apply only while a card is in the loadout.
 
 **RD-019: Experiences** come from QuickSheet's own original table (`data/flavor/experiences.json`). Each is a narrow descriptor at +2 and grants no mechanics. Selection is weighted toward the class's style tags but never restricted to them.
 
@@ -63,6 +74,60 @@ The validator rejects any character that acquires a `deferred` feature. A rules 
 
 ## Upstream data notes
 
-**RD-021: Old Gus card number duplication.** The Highborne community lists feature card `DH Core 073/270`, the same number as the Simiah ancestry card. This is probably an upstream typo. Card numbers are kept for provenance only and are never used mechanically. Report it upstream after checking against the official SRD.
+**RD-021: Old Gus card number duplication.** The Highborne community lists feature card `DH Core 073/270`, the same number as the Simiah ancestry card. This is probably an upstream typo. Card numbers are kept for provenance only and are never used mechanically. The official SRD PDF does not print card numbers in its text, so this could not be resolved. It could be reported upstream.
 
 **RD-022: Domain order.** Old Gus lists the Bard's domains as Grace, Codex. The specification lists them as Codex + Grace. They are the same set, and QuickSheet treats domains as unordered.
+
+## V1 additions
+
+**RD-023: Mixed Ancestry** is opt-in through `options.mixedAncestry` (the "Mixed Ancestry" checkbox).
+- The chosen ancestry, or a random one, provides its top (first-listed) feature. A different random ancestry provides its bottom feature, as SRD step 2 describes.
+- The two ancestries are always different.
+- The sheet labels each feature with the ancestry it came from.
+
+**RD-024: Beastforms.** Druid sheets list the Beastform options of the character's tier or lower, with numbers already derived:
+- Evasion is the current Evasion plus the form's bonus.
+- The attack uses the current trait for the form's attack trait, plus the form's trait bonus when they match.
+- Damage dice equal Proficiency.
+
+Armor stays part of the body, so armor effects persist. The *Evolution* Hope feature's temporary +1 is not pre-applied. Tier 3–4 Legendary/Mythic Beast and Hybrid forms are built from other forms. They are imported with `variant: 'composite'` and excluded until V2 can expand them.
+
+**RD-025: Upstream corrections.** These are recorded in `tools/curation/core.json` (`officialOverrides`, `nameCorrections`) and applied by the importer:
+- **Rogue *Cloaked*.** Old Gus appends "Otherwise, this bonus lasts until your next rest.", which belongs to *Rogue's Dodge*. Official text used.
+- **Beastbound *Companion*.** Old Gus paraphrases the second sentence. Official text used.
+- **Wizard class item.** Changed to "a tiny, harmless elemental pet" (Old Gus omits "pet").
+- **Warrior class item.** Changed to "the drawing of a lover".
+- **Nightwalker.** Old Gus merges each tier's two features into one string. The importer splits them.
+- **Nightwalker "Fleting Shadow".** Corrected to "Fleeting Shadow".
+
+**RD-026: Warrior *Combat Training*.**
+- "You ignore burden when equipping weapons": a Warrior may equip a secondary weapon alongside a two-handed primary. The generator does this about 40% of the time, and the validator allows it only for characters with the `ignore-burden` flag.
+- "When you deal physical damage, you gain a bonus to your damage roll equal to your level": the bonus is added to every physical damage roll shown (weapons, and innate physical attacks such as Ribbet *Long Tongue*), with a note on the sheet.
+
+**RD-027: Counted resources.**
+- Seraph *Prayer Dice*: d4s equal to the Spellcast trait, minimum 0.
+- Rogue *Sneak Attack*: d6s equal to tier.
+- Call of the Slayer *Slayer Dice*: maximum stored equal to Proficiency.
+- Seaborne *Know the Tide*: maximum tokens equal to level.
+
+A Seraph with a Spellcast trait of 0 or less would have no Prayer Dice. That is legal but makes a poor instant character, so the generator treats a zero class resource as a quality issue and rerolls that candidate. The legality rules are never bent.
+
+**RD-028: Untouchable (Bone 1)** adds half the effective Agility to Evasion. It is rounded up per the SRD rule "Round up to the nearest whole number. Resolve any ambiguity in favor of the PCs", and never goes below 0.
+
+**RD-029: Mandatory choices and their sources.**
+- **Sorcerer *Elementalist*.** One of the SRD's five elements.
+- **Drakona *Elemental Breath*.** Limited to the SRD's examples (electricity, fire, ice).
+- **Wizard *Strange Patterns*.** A random number from 1 to 12, changeable on a long rest.
+- **Orderborne *Dedicated*.** Three original QuickSheet sayings.
+- **Beastbound companion.**
+  - The animal type and name are original QuickSheet suggestions, labeled on the sheet as things to settle with the GM.
+  - Damage type is physical or magic, weighted 3:1 toward physical.
+  - The two +2 Experiences come from the SRD's example list.
+  - Evasion 10 and the Melee d6 attack come from the SRD 2.0 "Ranger Companion" section.
+  - The starting Stress slots (3) appear on the official Ranger Companion sheet, as transcribed by Old Gus, but are not stated in the SRD 2.0 text. **Open:** confirm against the official companion sheet.
+
+**RD-030: School of Knowledge *Prepared*** ("Take an additional domain card of your level or lower from a domain you have access to") gives a third Level 1 card from the Wizard's domains at creation.
+
+**RD-031: Warden of the Elements *Elemental Incarnation*.** The element is chosen each time the feature is used, so no choice is made at creation. Earth's threshold bonus applies only while channeling and is not added to the sheet's thresholds.
+
+**RD-032: Syndicate *Well-Connected*** contacts are created on arrival somewhere, not at character creation, so no contact is generated.

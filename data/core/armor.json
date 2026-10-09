@@ -26,7 +26,7 @@
         "name": "Heavy",
         "text": "-1 to Evasion",
         "mechanics": {
-          "kind": "modifiers",
+          "kind": "effects",
           "modifiers": [
             {
               "target": "evasion",
@@ -59,7 +59,7 @@
         "name": "Very Heavy",
         "text": "-2 to Evasion; -1 to Agility",
         "mechanics": {
-          "kind": "modifiers",
+          "kind": "effects",
           "modifiers": [
             {
               "target": "evasion",
@@ -96,7 +96,7 @@
         "name": "Flexible",
         "text": "+1 to Evasion",
         "mechanics": {
-          "kind": "modifiers",
+          "kind": "effects",
           "modifiers": [
             {
               "target": "evasion",

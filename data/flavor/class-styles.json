@@ -4,7 +4,103 @@
     "note": "QuickSheet's flavor weighting per class. Influences which original Experiences and concept lines are likely; never restricts rules-legal choices."
   },
   "records": [
-    { "classId": "class.bard", "experienceTags": ["performance", "social", "lore"], "conceptTags": ["performance"] },
-    { "classId": "class.guardian", "experienceTags": ["protection", "martial"], "conceptTags": ["protection"] }
+    {
+      "classId": "class.bard",
+      "experienceTags": [
+        "performance",
+        "social",
+        "lore"
+      ],
+      "conceptTags": [
+        "performance"
+      ]
+    },
+    {
+      "classId": "class.druid",
+      "experienceTags": [
+        "nature",
+        "wilderness",
+        "lore"
+      ],
+      "conceptTags": [
+        "nature"
+      ]
+    },
+    {
+      "classId": "class.guardian",
+      "experienceTags": [
+        "protection",
+        "martial"
+      ],
+      "conceptTags": [
+        "protection"
+      ]
+    },
+    {
+      "classId": "class.ranger",
+      "experienceTags": [
+        "wilderness",
+        "travel",
+        "martial"
+      ],
+      "conceptTags": [
+        "wilderness"
+      ]
+    },
+    {
+      "classId": "class.rogue",
+      "experienceTags": [
+        "stealth",
+        "urban",
+        "social"
+      ],
+      "conceptTags": [
+        "stealth"
+      ]
+    },
+    {
+      "classId": "class.seraph",
+      "experienceTags": [
+        "faith",
+        "protection",
+        "social"
+      ],
+      "conceptTags": [
+        "faith"
+      ]
+    },
+    {
+      "classId": "class.sorcerer",
+      "experienceTags": [
+        "arcane",
+        "social",
+        "travel"
+      ],
+      "conceptTags": [
+        "arcane"
+      ]
+    },
+    {
+      "classId": "class.warrior",
+      "experienceTags": [
+        "martial",
+        "protection",
+        "travel"
+      ],
+      "conceptTags": [
+        "martial"
+      ]
+    },
+    {
+      "classId": "class.wizard",
+      "experienceTags": [
+        "arcane",
+        "lore",
+        "craft"
+      ],
+      "conceptTags": [
+        "arcane"
+      ]
+    }
   ]
 }

@@ -65,6 +65,58 @@
       }
     },
     {
+      "id": "subclass.warden-of-the-elements",
+      "name": "Warden of the Elements",
+      "classId": "class.druid",
+      "summary": "Play the Warden of the Elements if you want to embody the natural elements of the wild.",
+      "spellcastTrait": "instinct",
+      "foundationFeatureIds": [
+        "feature.warden-of-the-elements.elemental-incarnation"
+      ],
+      "specializationFeatureIds": [
+        "feature.warden-of-the-elements.elemental-aura"
+      ],
+      "masteryFeatureIds": [
+        "feature.warden-of-the-elements.elemental-dominion"
+      ],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 30"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "subclass.warden-of-renewal",
+      "name": "Warden of Renewal",
+      "classId": "class.druid",
+      "summary": "Play the Warden of Renewal if you want to use powerful magic to heal your party.",
+      "spellcastTrait": "instinct",
+      "foundationFeatureIds": [
+        "feature.warden-of-renewal.clarity-of-nature",
+        "feature.warden-of-renewal.regeneration"
+      ],
+      "specializationFeatureIds": [
+        "feature.warden-of-renewal.regenerative-reach",
+        "feature.warden-of-renewal.wardens-protection"
+      ],
+      "masteryFeatureIds": [
+        "feature.warden-of-renewal.defender"
+      ],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 31"
+        ],
+        "errata": false
+      }
+    },
+    {
       "id": "subclass.stalwart",
       "name": "Stalwart",
       "classId": "class.guardian",
@@ -114,6 +166,319 @@
         "reference": "og-dhsrd",
         "pages": [
           "DH Core 36"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "subclass.beastbound",
+      "name": "Beastbound",
+      "classId": "class.ranger",
+      "summary": "Play the Beastbound if you want to form a deep bond with an animal ally.",
+      "spellcastTrait": "agility",
+      "foundationFeatureIds": [
+        "feature.beastbound.companion"
+      ],
+      "specializationFeatureIds": [
+        "feature.beastbound.expert-training"
+      ],
+      "masteryFeatureIds": [
+        "feature.beastbound.advanced-training",
+        "feature.beastbound.loyal-friend"
+      ],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 38"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "subclass.wayfinder",
+      "name": "Wayfinder",
+      "classId": "class.ranger",
+      "summary": "Play the Wayfinder if you want to hunt your prey and strike with deadly force.",
+      "spellcastTrait": "agility",
+      "foundationFeatureIds": [
+        "feature.wayfinder.ruthless-predator",
+        "feature.wayfinder.path-forward"
+      ],
+      "specializationFeatureIds": [
+        "feature.wayfinder.elusive-predator"
+      ],
+      "masteryFeatureIds": [
+        "feature.wayfinder.apex-predator"
+      ],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 39"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "subclass.nightwalker",
+      "name": "Nightwalker",
+      "classId": "class.rogue",
+      "summary": "Play the Nightwalker if you want to manipulate shadows to maneuver through the environment.",
+      "spellcastTrait": "finesse",
+      "foundationFeatureIds": [
+        "feature.nightwalker.shadow-stepper"
+      ],
+      "specializationFeatureIds": [
+        "feature.nightwalker.dark-cloud",
+        "feature.nightwalker.adrenaline"
+      ],
+      "masteryFeatureIds": [
+        "feature.nightwalker.fleeting-shadow",
+        "feature.nightwalker.vanishing-act"
+      ],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 42"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "subclass.syndicate",
+      "name": "Syndicate",
+      "classId": "class.rogue",
+      "summary": "Play the Syndicate if you want to have a web of contacts everywhere you go.",
+      "spellcastTrait": "finesse",
+      "foundationFeatureIds": [
+        "feature.syndicate.well-connected"
+      ],
+      "specializationFeatureIds": [
+        "feature.syndicate.contacts-everywhere"
+      ],
+      "masteryFeatureIds": [
+        "feature.syndicate.reliable-backup"
+      ],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 43"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "subclass.divine-wielder",
+      "name": "Divine Wielder",
+      "classId": "class.seraph",
+      "summary": "Play the Divine Wielder if you want to dominate the battlefield with a legendary weapon.",
+      "spellcastTrait": "strength",
+      "foundationFeatureIds": [
+        "feature.divine-wielder.spirit-weapon",
+        "feature.divine-wielder.sparing-touch"
+      ],
+      "specializationFeatureIds": [
+        "feature.divine-wielder.devout"
+      ],
+      "masteryFeatureIds": [
+        "feature.divine-wielder.sacred-resonance"
+      ],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 44"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "subclass.winged-sentinel",
+      "name": "Winged Sentinel",
+      "classId": "class.seraph",
+      "summary": "Play the Winged Sentinel if you want to take flight and strike crushing blows from the sky.",
+      "spellcastTrait": "strength",
+      "foundationFeatureIds": [
+        "feature.winged-sentinel.wings-of-light"
+      ],
+      "specializationFeatureIds": [
+        "feature.winged-sentinel.ethereal-visage"
+      ],
+      "masteryFeatureIds": [
+        "feature.winged-sentinel.ascendant",
+        "feature.winged-sentinel.power-of-the-gods"
+      ],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 45"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "subclass.elemental-origin",
+      "name": "Elemental Origin",
+      "classId": "class.sorcerer",
+      "summary": "Play the Elemental Origin if you want to channel raw magic to take the shape of a particular element.",
+      "spellcastTrait": "instinct",
+      "foundationFeatureIds": [
+        "feature.elemental-origin.elementalist"
+      ],
+      "specializationFeatureIds": [
+        "feature.elemental-origin.natural-evasion"
+      ],
+      "masteryFeatureIds": [
+        "feature.elemental-origin.transcendence"
+      ],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 46"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "subclass.primal-origin",
+      "name": "Primal Origin",
+      "classId": "class.sorcerer",
+      "summary": "Play the Primal Origin if you want to extend the versatility of your spells in powerful ways.",
+      "spellcastTrait": "instinct",
+      "foundationFeatureIds": [
+        "feature.primal-origin.manipulate-magic"
+      ],
+      "specializationFeatureIds": [
+        "feature.primal-origin.enchanted-aid"
+      ],
+      "masteryFeatureIds": [
+        "feature.primal-origin.arcane-charge"
+      ],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 47"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "subclass.call-of-the-brave",
+      "name": "Call of the Brave",
+      "classId": "class.warrior",
+      "summary": "Play the Call of the Brave if you want to use the might of your enemies to fuel your own power.",
+      "spellcastTrait": null,
+      "foundationFeatureIds": [
+        "feature.call-of-the-brave.courage",
+        "feature.call-of-the-brave.battle-ritual"
+      ],
+      "specializationFeatureIds": [
+        "feature.call-of-the-brave.rise-to-the-challenge"
+      ],
+      "masteryFeatureIds": [
+        "feature.call-of-the-brave.camaraderie"
+      ],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 48"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "subclass.call-of-the-slayer",
+      "name": "Call of the Slayer",
+      "classId": "class.warrior",
+      "summary": "Play the Call of the Slayer if you want to strike down adversaries with immense force.",
+      "spellcastTrait": null,
+      "foundationFeatureIds": [
+        "feature.call-of-the-slayer.slayer"
+      ],
+      "specializationFeatureIds": [
+        "feature.call-of-the-slayer.weapon-specialist"
+      ],
+      "masteryFeatureIds": [
+        "feature.call-of-the-slayer.martial-preparation"
+      ],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 49"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "subclass.school-of-knowledge",
+      "name": "School of Knowledge",
+      "classId": "class.wizard",
+      "summary": "Play the School of Knowledge if you want a keen understanding of the world around you.",
+      "spellcastTrait": "knowledge",
+      "foundationFeatureIds": [
+        "feature.school-of-knowledge.prepared",
+        "feature.school-of-knowledge.adept"
+      ],
+      "specializationFeatureIds": [
+        "feature.school-of-knowledge.accomplished",
+        "feature.school-of-knowledge.perfect-recall"
+      ],
+      "masteryFeatureIds": [
+        "feature.school-of-knowledge.brilliant",
+        "feature.school-of-knowledge.honed-expertise"
+      ],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "subclass.school-of-war",
+      "name": "School of War",
+      "classId": "class.wizard",
+      "summary": "Play the School of War if you want to utilize trained magic for violence.",
+      "spellcastTrait": "knowledge",
+      "foundationFeatureIds": [
+        "feature.school-of-war.battlemage",
+        "feature.school-of-war.face-your-fear"
+      ],
+      "specializationFeatureIds": [
+        "feature.school-of-war.conjure-shield",
+        "feature.school-of-war.fueled-by-fear"
+      ],
+      "masteryFeatureIds": [
+        "feature.school-of-war.thrive-in-chaos",
+        "feature.school-of-war.have-no-fear"
+      ],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 51"
         ],
         "errata": false
       }

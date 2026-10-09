@@ -5,9 +5,12 @@ import { TRAITS } from '../../src/catalog.js';
 import { RULES } from '../../src/rules.js';
 
 const SOURCE_SETS = ['core', 'hope-fear'];
-const MECHANIC_KINDS = ['modifiers', 'resolver', 'resource', 'grant', 'reference', 'deferred'];
+const MECHANIC_KINDS = ['effects', 'reference', 'deferred'];
+const EFFECT_KEYS = ['modifiers', 'resource', 'attack', 'flags', 'grants', 'resolver', 'companion', 'display'];
+const KNOWN_FLAGS = ['ignore-burden'];
+const RESOURCE_COUNTS = /^(tier|level|proficiency|trait:(spellcast|agility|strength|finesse|instinct|presence|knowledge))$/;
 const MODIFIER_TARGETS = new Set([
-  'evasion', 'hpSlots', 'stressSlots', 'armorScore', 'thresholds', 'attackRoll', 'primaryWeaponDamage', 'proficiency',
+  'evasion', 'hpSlots', 'stressSlots', 'armorScore', 'thresholds', 'attackRoll', 'primaryWeaponDamage', 'physicalDamage',
   ...TRAITS.map((t) => `trait.${t}`),
 ]);
 const RANGES = ['Melee', 'Very Close', 'Close', 'Far', 'Very Far'];
@@ -95,6 +98,7 @@ export function checkData({ manifest, gameDataByProfile, flavor }) {
       if (!Number.isInteger(card.level) || card.level < 1 || card.level > 10) p(`${card.id}: bad level ${card.level}`);
       if (!Number.isInteger(card.recallCost) || card.recallCost < 0) p(`${card.id}: bad recall cost`);
       if (!card.text?.trim()) p(`${card.id}: empty text`);
+      checkMechanics(card.mechanics, card.id, p, get);
     }
     for (const w of records('weapons')) {
       if (!['primary', 'secondary'].includes(w.slot)) p(`${w.id}: bad slot`);
@@ -113,6 +117,17 @@ export function checkData({ manifest, gameDataByProfile, flavor }) {
       if (a.feature) checkMechanics(a.feature.mechanics, `${a.id} feature`, p, get);
     }
     for (const id of [...RULES.STARTING_KIT, ...RULES.STARTING_POTIONS]) get(id, 'items', 'RULES');
+    for (const b of records('beastforms')) {
+      if (!(b.tier >= 1 && b.tier <= 4)) p(`${b.id}: bad tier`);
+      if (!b.variant && (!b.attack || !TRAITS.includes(b.attack.trait) || !RANGES.includes(b.attack.range))) p(`${b.id}: bad attack`);
+      if (b.variant && b.tier < 3) p(`${b.id}: composite forms are expected only at Tier 3+`);
+      if (!Number.isInteger(b.evasionBonus)) p(`${b.id}: bad evasion bonus`);
+      if (b.traitBonus && !TRAITS.includes(b.traitBonus.trait)) p(`${b.id}: bad trait bonus`);
+      if (!b.features?.length) p(`${b.id}: no features`);
+    }
+    if (records('features').some((f) => f.mechanics?.display === 'beastforms') && !records('beastforms').some((b) => b.tier === 1)) {
+      p('Beastform feature present but no Tier 1 beastforms');
+    }
   }
 
   // Flavor tables (original QuickSheet content)
@@ -128,25 +143,56 @@ export function checkData({ manifest, gameDataByProfile, flavor }) {
   for (const key of ['distinguishingDetails', 'personalities', 'motivations', 'origins', 'turningPoints', 'hookTemplates']) {
     if (!flavor.details[key]?.length) err(`flavor details.${key} is empty`);
   }
+  for (const s of flavor.classStyles.records) {
+    for (const tag of s.conceptTags) if (!flavor.details.conceptTails[tag]?.length) err(`flavor: concept tag ${tag} for ${s.classId} has no tails`);
+    for (const tag of s.experienceTags) if (!exps.some((e) => e.tags.includes(tag))) err(`flavor: no Experiences tagged ${tag} (${s.classId})`);
+  }
+  if ((flavor.companions?.companionAnimals?.length ?? 0) < 5 || (flavor.companions?.companionNames?.length ?? 0) < 5) err('flavor companions: need animals and names');
+  const sayings = flavor.sayings?.orderborneSayings ?? [];
+  if (sayings.length < 6 || new Set(sayings).size !== sayings.length) err('flavor sayings: need at least 6 distinct Orderborne sayings');
   return errors;
 }
 
 function checkMechanics(m, where, p, get) {
   if (!m) { p(`${where}: missing mechanics classification`); return; }
   if (!MECHANIC_KINDS.includes(m.kind)) p(`${where}: unknown mechanics kind ${m.kind}`);
-  if (m.kind === 'modifiers') {
-    if (!m.modifiers?.length) p(`${where}: modifiers kind without modifiers`);
-    for (const mod of m.modifiers ?? []) {
-      if (!MODIFIER_TARGETS.has(mod.target)) p(`${where}: unknown modifier target ${mod.target}`);
-      if (typeof mod.value !== 'number' && mod.value !== 'proficiency') p(`${where}: bad modifier value ${mod.value}`);
-    }
+  const effects = EFFECT_KEYS.filter((k) => m[k] !== undefined);
+  if (m.kind === 'effects' && !effects.length) p(`${where}: 'effects' kind without any effect`);
+  if (m.kind !== 'effects' && effects.length) p(`${where}: '${m.kind}' kind must not declare effects (${effects.join(', ')})`);
+  for (const mod of m.modifiers ?? []) {
+    if (!MODIFIER_TARGETS.has(mod.target)) p(`${where}: unknown modifier target ${mod.target}`);
+    const okValue = typeof mod.value === 'number' || ['proficiency', 'level'].includes(mod.value) || /^halfUp:(agility|strength|finesse|instinct|presence|knowledge)$/.test(mod.value);
+    if (!okValue) p(`${where}: bad modifier value ${mod.value}`);
+    if (mod.target.startsWith('trait.') && typeof mod.value !== 'number') p(`${where}: trait modifiers must be plain numbers`);
   }
-  if (m.kind === 'resolver' && !RESOLVERS[m.resolver]) p(`${where}: resolver ${m.resolver} is not implemented`);
-  if (m.kind === 'resource') {
-    const steps = m.resource?.dieByLevel ?? [];
-    if (!steps.length || steps[0][0] !== 1) p(`${where}: resource must define a die from level 1`);
+  if (m.resolver) {
+    const resolver = RESOLVERS[m.resolver];
+    if (!resolver) p(`${where}: resolver ${m.resolver} is not implemented`);
+    if (m.resolver === 'chooseOption' && !(m.choice?.options?.length > 1 && m.choice.label)) p(`${where}: chooseOption needs a label and at least two options`);
+    if (m.resolver === 'chooseNumber' && !(Number.isInteger(m.choice?.min) && Number.isInteger(m.choice?.max) && m.choice.min < m.choice.max)) p(`${where}: chooseNumber needs integer min < max`);
   }
-  if (m.kind === 'grant') (m.grants?.items ?? []).forEach((id) => get(id, 'items', where));
+  if (m.resource) {
+    const r = m.resource;
+    if (!r.id || !r.label) p(`${where}: resource needs id and label`);
+    if (r.dieByLevel) {
+      if (!r.dieByLevel.length || r.dieByLevel[0][0] !== 1) p(`${where}: resource must define a die from level 1`);
+    } else if (!RESOURCE_COUNTS.test(r.count ?? '')) p(`${where}: resource needs dieByLevel or a valid count`);
+  }
+  if (m.attack) {
+    const a = m.attack;
+    if (!TRAITS.includes(a.trait) || !RANGES.includes(a.range) || !Number.isInteger(a.damage?.die) || !['phy', 'mag'].includes(a.damageType)) p(`${where}: bad attack definition`);
+  }
+  for (const flag of m.flags ?? []) if (!KNOWN_FLAGS.includes(flag)) p(`${where}: unknown flag ${flag}`);
+  (m.grants?.items ?? []).forEach((id) => get(id, 'items', where));
+  if (m.grants?.domainCards !== undefined && !(Number.isInteger(m.grants.domainCards) && m.grants.domainCards > 0)) p(`${where}: bad domainCards grant`);
+  if (m.companion) {
+    const c = m.companion;
+    for (const key of ['evasion', 'stressSlots', 'damageDie', 'experienceCount', 'experienceModifier']) if (!Number.isInteger(c[key])) p(`${where}: companion.${key} must be an integer`);
+    if (!RANGES.includes(c.attackRange)) p(`${where}: companion attack range`);
+    if (!(c.exampleExperiences?.length >= c.experienceCount)) p(`${where}: companion needs enough example Experiences`);
+    if (m.resolver !== 'beastboundCompanion') p(`${where}: companion requires the beastboundCompanion resolver`);
+  }
+  if (m.display !== undefined && m.display !== 'beastforms') p(`${where}: unknown display ${m.display}`);
 }
 
 export async function loadAllData(readJson) {

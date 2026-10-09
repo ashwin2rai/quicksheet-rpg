@@ -14,6 +14,22 @@
   },
   "records": [
     {
+      "id": "domain.arcana",
+      "name": "Arcana",
+      "theme": "Innate and instinctual magic",
+      "summary": "Arcana offers wielders a volatile power, but it is incredibly potent when correctly channeled.",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 24",
+          "DH Core 328"
+        ],
+        "errata": false
+      }
+    },
+    {
       "id": "domain.blade",
       "name": "Blade",
       "theme": "Weapon mastery",
@@ -25,6 +41,22 @@
         "pages": [
           "DH Core 24",
           "DH Core 329"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "domain.bone",
+      "name": "Bone",
+      "theme": "Tactics and the body",
+      "summary": "Adherents to Bone gain an unparalleled understanding of bodies and their movements.",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 24",
+          "DH Core 331"
         ],
         "errata": false
       }
@@ -59,6 +91,54 @@
           "DH Core 334"
         ],
         "errata": false
+      }
+    },
+    {
+      "id": "domain.midnight",
+      "name": "Midnight",
+      "theme": "Shadows and secrecy",
+      "summary": "Midnight offers practitioners the power to control and create enigmas.",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 24",
+          "DH Core 336"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "domain.sage",
+      "name": "Sage",
+      "theme": "The natural world",
+      "summary": "Sage grants its adherents the vitality of a blooming flower and the ferocity of a ravenous predator.",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 24",
+          "DH Core 338"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "domain.splendor",
+      "name": "Splendor",
+      "theme": "Life",
+      "summary": "Splendor is the domain of life. Through this magic, followers gain the ability to heal and, to an extent, control death.",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 24",
+          "DH Core 340"
+        ],
+        "errata": true
       }
     },
     {

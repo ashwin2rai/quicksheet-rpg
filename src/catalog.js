@@ -9,7 +9,7 @@ export const TRAIT_LABELS = Object.freeze({
   instinct: 'Instinct', presence: 'Presence', knowledge: 'Knowledge',
 });
 
-const COLLECTIONS = ['classes', 'subclasses', 'features', 'ancestries', 'communities', 'domains', 'domainCards', 'weapons', 'armor', 'items'];
+const COLLECTIONS = ['classes', 'subclasses', 'features', 'ancestries', 'communities', 'domains', 'domainCards', 'weapons', 'armor', 'items', 'beastforms'];
 
 export class CatalogError extends Error {}
 
@@ -52,7 +52,14 @@ export function createCatalog({ manifest, contentProfile, gameData, flavor }) {
     dataVersion: manifest.dataVersion,
     srdVersion: manifest.srdVersion,
     ...lists,
-    flavor: Object.freeze({ ...withoutMeta(flavor.names), ...withoutMeta(flavor.details), experiences, classStyles }),
+    flavor: Object.freeze({
+      ...withoutMeta(flavor.names),
+      ...withoutMeta(flavor.details),
+      ...withoutMeta(flavor.companions),
+      ...withoutMeta(flavor.sayings),
+      experiences,
+      classStyles,
+    }),
 
     has: (id) => byId.has(id),
     get(id) {

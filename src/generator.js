@@ -6,7 +6,7 @@ import { TRAITS, tierForLevel } from './catalog.js';
 import { createRng, randomSeed } from './rng.js';
 import { RULES } from './rules.js';
 import { RESOLVERS } from './resolvers.js';
-import { acquiredFeatures, deriveStats } from './derive.js';
+import { acquiredFeatures, deriveStats, featureFlags, grantedDomainCards } from './derive.js';
 import { validateCharacter } from './validate.js';
 import { GENERATOR_VERSION, SRD_VERSION, CHARACTER_SCHEMA_VERSION, SUPPORTED_LEVELS } from './version.js';
 
@@ -60,8 +60,9 @@ export function generateCharacter(input, catalog) {
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
     const character = buildCandidate({ fixed, level, seed: String(seed), contentProfile, options, rng, catalog });
     const result = validateCharacter(character, catalog);
-    if (result.valid) return character;
-    failures.push({ attempt, errors: result.errors });
+    const quality = qualityIssues(character, catalog);
+    if (result.valid && quality.length === 0) return character;
+    failures.push({ attempt, errors: result.errors, quality });
   }
   throw new GenerationError(`Could not generate a valid character after ${MAX_ATTEMPTS} attempts.`, { code: 'generation-failed', details: failures });
 }
@@ -94,10 +95,26 @@ export function resolveFixedSelections({ ancestryId, communityId, classId, subcl
   return fixed;
 }
 
+/**
+ * Coherence checks that are not rules violations but would make a poor sheet,
+ * e.g. a Seraph whose Prayer Dice count (equal to the Spellcast trait) is zero.
+ * Candidates with issues are rerolled; the rules themselves are never bent.
+ */
+export function qualityIssues(character, catalog) {
+  const issues = [];
+  const classFeatureIds = new Set(catalog.get(character.selections.classId).featureIds);
+  for (const r of character.derived.resources) {
+    if (r.count === 0 && classFeatureIds.has(r.sourceId)) issues.push(`${r.label} would be zero`);
+  }
+  return issues;
+}
+
 function buildCandidate({ fixed, level, seed, contentProfile, options, rng, catalog }) {
   const cls = fixed.classId ? catalog.get(fixed.classId) : rng.pick(catalog.classes);
   const subclass = fixed.subclassId ? catalog.get(fixed.subclassId) : rng.pick(catalog.subclassesOf(cls.id));
   const ancestry = fixed.ancestryId ? catalog.get(fixed.ancestryId) : rng.pick(catalog.ancestries);
+  // Mixed Ancestry: top feature from `ancestry`, bottom feature from a different ancestry.
+  const secondAncestry = options.mixedAncestry ? rng.pick(catalog.ancestries.filter((a) => a.id !== ancestry.id)) : null;
   const community = fixed.communityId ? catalog.get(fixed.communityId) : rng.pick(catalog.communities);
   const tier = tierForLevel(level);
 
@@ -109,9 +126,9 @@ function buildCandidate({ fixed, level, seed, contentProfile, options, rng, cata
     contentProfile,
     seed,
     requested: { ...fixed },
-    options: { ...options },
+    options: { mixedAncestry: Boolean(options.mixedAncestry) },
     level,
-    selections: { ancestryId: ancestry.id, communityId: community.id, classId: cls.id, subclassId: subclass.id },
+    selections: { ancestryId: ancestry.id, secondAncestryId: secondAncestry ? secondAncestry.id : null, communityId: community.id, classId: cls.id, subclassId: subclass.id },
     subclassTiers: ['foundation'],
     traits: allocateTraits(rng, cls, subclass),
     equipment: null,
@@ -126,7 +143,8 @@ function buildCandidate({ fixed, level, seed, contentProfile, options, rng, cata
     derived: null,
   };
 
-  character.equipment = chooseLoadout(rng, catalog, { cls, subclass, traits: character.traits, tier });
+  const flags = featureFlags(character, catalog);
+  character.equipment = chooseLoadout(rng, catalog, { cls, subclass, traits: character.traits, tier, ignoreBurden: flags.has('ignore-burden') });
 
   character.inventory = [
     ...RULES.STARTING_KIT.map((itemId) => ({ itemId, quantity: 1, source: 'starting-kit' })),
@@ -134,7 +152,7 @@ function buildCandidate({ fixed, level, seed, contentProfile, options, rng, cata
   ];
 
   character.domainCards = rng
-    .weightedSample(catalog.domainCardsFor(cls.id, level), RULES.STARTING_DOMAIN_CARDS)
+    .weightedSample(catalog.domainCardsFor(cls.id, level), RULES.STARTING_DOMAIN_CARDS + grantedDomainCards(character, catalog))
     .map((card) => ({ cardId: card.id, acquiredAtLevel: 1, location: 'loadout' }));
 
   const style = catalog.classStyle(cls.id);
@@ -145,14 +163,11 @@ function buildCandidate({ fixed, level, seed, contentProfile, options, rng, cata
   // Grants and mandatory choices from every acquired feature.
   for (const feature of acquiredFeatures(character, catalog)) {
     const m = feature.mechanics;
-    if (m.kind === 'grant') {
-      for (const itemId of m.grants.items) character.inventory.push({ itemId, quantity: 1, source: feature.id });
-    } else if (m.kind === 'resolver') {
-      character.featureChoices[feature.id] = RESOLVERS[m.resolver].resolve({ character, rng, catalog });
-    }
+    for (const itemId of m.grants?.items ?? []) character.inventory.push({ itemId, quantity: 1, source: feature.id });
+    if (m.resolver) character.featureChoices[feature.id] = RESOLVERS[m.resolver].resolve({ character, rng, catalog, mechanics: m });
   }
 
-  character.flavor = generateFlavor(rng, catalog, { cls, ancestry, community });
+  character.flavor = generateFlavor(rng, catalog, { cls, ancestry, secondAncestry, community });
   character.derived = deriveStats(character, catalog);
   return character;
 }
@@ -160,13 +175,13 @@ function buildCandidate({ fixed, level, seed, contentProfile, options, rng, cata
 /** Assigns +2, +1, +1, +0, +0, -1, favouring the class's suggested priorities and spellcast trait. */
 function allocateTraits(rng, cls, subclass) {
   const weightOf = (trait) =>
-    TRAIT_PRIORITY_WEIGHT[cls.suggested.traits[trait]] * (subclass.spellcastTrait === trait ? 2 : 1);
+    TRAIT_PRIORITY_WEIGHT[cls.suggested.traits[trait]] * (subclass.spellcastTrait === trait ? 3 : 1);
   const order = rng.weightedSample(TRAITS, TRAITS.length, weightOf);
   const values = [...RULES.TRAIT_ARRAY].sort((a, b) => b - a);
   return Object.fromEntries(TRAITS.map((trait) => [trait, values[order.indexOf(trait)]]));
 }
 
-function chooseLoadout(rng, catalog, { cls, subclass, traits, tier }) {
+function chooseLoadout(rng, catalog, { cls, subclass, traits, tier, ignoreBurden }) {
   const usable = (w) =>
     w.tier <= tier &&
     (!w.magic || Boolean(subclass.spellcastTrait)) &&
@@ -176,7 +191,10 @@ function chooseLoadout(rng, catalog, { cls, subclass, traits, tier }) {
 
   const primary = rng.weighted(catalog.weapons.filter((w) => w.slot === 'primary' && usable(w)), weightOf(cls.suggested.primaryWeaponId));
   let secondary = null;
-  if (primary.burden === 'one-handed') {
+  // Two-handed primary alone, or one-handed primary + one-handed secondary. Features that
+  // ignore burden (Warrior "Combat Training") may also add a secondary to a two-handed primary.
+  const wantsSecondary = primary.burden === 'one-handed' || (ignoreBurden && rng.next() < 0.4);
+  if (wantsSecondary) {
     const options = catalog.weapons.filter((w) => w.slot === 'secondary' && w.burden === 'one-handed' && usable(w));
     secondary = rng.weighted(options, weightOf(cls.suggested.secondaryWeaponId));
   }
@@ -193,7 +211,7 @@ function chooseLoadout(rng, catalog, { cls, subclass, traits, tier }) {
 const article = (word) => (/^[aeiou]/i.test(word) ? 'an' : 'a');
 const capitalize = (text) => text.charAt(0).toUpperCase() + text.slice(1);
 
-function generateFlavor(rng, catalog, { cls, ancestry, community }) {
+function generateFlavor(rng, catalog, { cls, ancestry, secondAncestry, community }) {
   const f = catalog.flavor;
   const pronouns = rng.pick(f.pronouns);
   const forms = PRONOUN_FORMS[pronouns];
@@ -218,7 +236,9 @@ function generateFlavor(rng, catalog, { cls, ancestry, community }) {
   return {
     name,
     pronouns,
-    concept: `${capitalize(article(ancestry.name))} ${ancestry.name} ${cls.name.toLowerCase()} raised among the ${community.name} ${rng.pick(tails)}.`,
+    concept: secondAncestry
+      ? `${capitalize(article(cls.name))} ${cls.name.toLowerCase()} of mixed ${ancestry.name} and ${secondAncestry.name} heritage, raised among the ${community.name}, ${rng.pick(tails)}.`
+      : `${capitalize(article(ancestry.name))} ${ancestry.name} ${cls.name.toLowerCase()} raised among the ${community.name} ${rng.pick(tails)}.`,
     appearance: {
       clothes: rng.pick(cls.descriptionSuggestions.clothes),
       attitude: rng.pick(cls.descriptionSuggestions.attitudes),

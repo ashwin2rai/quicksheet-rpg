@@ -31,6 +31,125 @@
       }
     },
     {
+      "id": "ancestry.drakona",
+      "name": "Drakona",
+      "summary": "Drakona resemble wingless dragons in humanoid form and possess a powerful elemental breath.",
+      "topFeatureId": "feature.drakona.scales",
+      "bottomFeatureId": "feature.drakona.elemental-breath",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 54"
+        ],
+        "errata": false,
+        "card": "DH Core 057/270"
+      }
+    },
+    {
+      "id": "ancestry.dwarf",
+      "name": "Dwarf",
+      "summary": "Dwarves are most easily recognized as short humanoids with square frames, dense musculature, and thick hair.",
+      "topFeatureId": "feature.dwarf.thick-skin",
+      "bottomFeatureId": "feature.dwarf.increased-fortitude",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 55"
+        ],
+        "errata": false,
+        "card": "DH Core 058/270"
+      }
+    },
+    {
+      "id": "ancestry.elf",
+      "name": "Elf",
+      "summary": "Elves are typically tall humanoids with pointed ears and acutely attuned senses.",
+      "topFeatureId": "feature.elf.quick-reactions",
+      "bottomFeatureId": "feature.elf.celestial-trance",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 56"
+        ],
+        "errata": false,
+        "card": "DH Core 059/270"
+      }
+    },
+    {
+      "id": "ancestry.faerie",
+      "name": "Faerie",
+      "summary": "Faeries are winged humanoid creatures with insectile features.",
+      "topFeatureId": "feature.faerie.luckbender",
+      "bottomFeatureId": "feature.faerie.wings",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 57"
+        ],
+        "errata": false,
+        "card": "DH Core 060/270"
+      }
+    },
+    {
+      "id": "ancestry.faun",
+      "name": "Faun",
+      "summary": "Fauns resemble humanoid goats with curving horns, square pupils, and cloven hooves.",
+      "topFeatureId": "feature.faun.caprine-leap",
+      "bottomFeatureId": "feature.faun.kick",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 58"
+        ],
+        "errata": false,
+        "card": "DH Core 063/270"
+      }
+    },
+    {
+      "id": "ancestry.firbolg",
+      "name": "Firbolg",
+      "summary": "Firbolgs are bovine humanoids typically recognized by their broad noses and long, drooping ears.",
+      "topFeatureId": "feature.firbolg.charge",
+      "bottomFeatureId": "feature.firbolg.unshakable",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 59"
+        ],
+        "errata": false,
+        "card": "DH Core 061/270"
+      }
+    },
+    {
+      "id": "ancestry.fungril",
+      "name": "Fungril",
+      "summary": "Fungril resemble humanoid mushrooms.",
+      "topFeatureId": "feature.fungril.fungril-network",
+      "bottomFeatureId": "feature.fungril.death-connection",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 60"
+        ],
+        "errata": false,
+        "card": "DH Core 062/270"
+      }
+    },
+    {
       "id": "ancestry.galapa",
       "name": "Galapa",
       "summary": "Galapa resemble anthropomorphic turtles with large, domed shells into which they can retract.",
@@ -65,6 +184,40 @@
       }
     },
     {
+      "id": "ancestry.goblin",
+      "name": "Goblin",
+      "summary": "Goblins are small humanoids easily recognizable by their large eyes and massive membranous ears.",
+      "topFeatureId": "feature.goblin.surefooted",
+      "bottomFeatureId": "feature.goblin.danger-sense",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 63"
+        ],
+        "errata": false,
+        "card": "DH Core 066/270"
+      }
+    },
+    {
+      "id": "ancestry.halfling",
+      "name": "Halfling",
+      "summary": "Halflings are small humanoids with large hairy feet and prominent rounded ears.",
+      "topFeatureId": "feature.halfling.luckbringer",
+      "bottomFeatureId": "feature.halfling.internal-compass",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 64"
+        ],
+        "errata": false,
+        "card": "DH Core 067/270"
+      }
+    },
+    {
       "id": "ancestry.human",
       "name": "Human",
       "summary": "Humans are most easily recognized by their dexterous hands, rounded ears, and bodies built for endurance.",
@@ -79,6 +232,74 @@
         ],
         "errata": false,
         "card": "DH Core 068/270"
+      }
+    },
+    {
+      "id": "ancestry.infernis",
+      "name": "Infernis",
+      "summary": "Infernis are humanoids who possess sharp canine teeth, pointed ears, and horns.",
+      "topFeatureId": "feature.infernis.fearless",
+      "bottomFeatureId": "feature.infernis.dread-visage",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 66"
+        ],
+        "errata": false,
+        "card": "DH Core 069/270"
+      }
+    },
+    {
+      "id": "ancestry.katari",
+      "name": "Katari",
+      "summary": "Katari are feline humanoids with retractable claws, vertically slit pupils, and high, triangular ears.",
+      "topFeatureId": "feature.katari.feline-instincts",
+      "bottomFeatureId": "feature.katari.retracting-claws",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 67"
+        ],
+        "errata": false,
+        "card": "DH Core 070/270"
+      }
+    },
+    {
+      "id": "ancestry.orc",
+      "name": "Orc",
+      "summary": "Orcs are humanoids most easily recognized by their square features and boar-like tusks that protrude from their lower jaw.",
+      "topFeatureId": "feature.orc.sturdy",
+      "bottomFeatureId": "feature.orc.tusks",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 68"
+        ],
+        "errata": false,
+        "card": "DH Core 071/270"
+      }
+    },
+    {
+      "id": "ancestry.ribbet",
+      "name": "Ribbet",
+      "summary": "Ribbets resemble anthropomorphic frogs with protruding eyes and webbed hands and feet.",
+      "topFeatureId": "feature.ribbet.amphibious",
+      "bottomFeatureId": "feature.ribbet.long-tongue",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 69"
+        ],
+        "errata": false,
+        "card": "DH Core 072/270"
       }
     },
     {

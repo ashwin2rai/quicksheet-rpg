@@ -7,11 +7,31 @@ import { getCatalog } from './helpers.js';
 
 // Seeded, SRD-backed regression fixtures: one per subclass plus awkward-choice cases.
 const FIXTURES = [
-  { name: 'bard-troubadour', input: { seed: 'fixture-troubadour', subclassId: 'subclass.troubadour' } },
-  { name: 'bard-wordsmith-clank', input: { seed: 'fixture-wordsmith', subclassId: 'subclass.wordsmith', ancestryId: 'ancestry.clank' } },
-  { name: 'guardian-stalwart-galapa', input: { seed: 'fixture-stalwart', subclassId: 'subclass.stalwart', ancestryId: 'ancestry.galapa' } },
-  { name: 'guardian-vengeance-wanderborne', input: { seed: 'fixture-vengeance', subclassId: 'subclass.vengeance', communityId: 'community.wanderborne', ancestryId: 'ancestry.human' } },
+  { name: 'troubadour', input: { seed: 'fixture-troubadour', subclassId: 'subclass.troubadour' } },
+  { name: 'wordsmith', input: { seed: 'fixture-wordsmith', subclassId: 'subclass.wordsmith' } },
+  { name: 'warden-of-the-elements', input: { seed: 'fixture-warden-of-the-elements', subclassId: 'subclass.warden-of-the-elements' } },
+  { name: 'warden-of-renewal', input: { seed: 'fixture-warden-of-renewal', subclassId: 'subclass.warden-of-renewal' } },
+  { name: 'stalwart', input: { seed: 'fixture-stalwart', subclassId: 'subclass.stalwart' } },
+  { name: 'vengeance', input: { seed: 'fixture-vengeance', subclassId: 'subclass.vengeance' } },
+  { name: 'beastbound', input: { seed: 'fixture-beastbound', subclassId: 'subclass.beastbound' } },
+  { name: 'wayfinder', input: { seed: 'fixture-wayfinder', subclassId: 'subclass.wayfinder' } },
+  { name: 'nightwalker', input: { seed: 'fixture-nightwalker', subclassId: 'subclass.nightwalker' } },
+  { name: 'syndicate', input: { seed: 'fixture-syndicate', subclassId: 'subclass.syndicate' } },
+  { name: 'divine-wielder', input: { seed: 'fixture-divine-wielder', subclassId: 'subclass.divine-wielder' } },
+  { name: 'winged-sentinel', input: { seed: 'fixture-winged-sentinel', subclassId: 'subclass.winged-sentinel' } },
+  { name: 'elemental-origin', input: { seed: 'fixture-elemental-origin', subclassId: 'subclass.elemental-origin' } },
+  { name: 'primal-origin', input: { seed: 'fixture-primal-origin', subclassId: 'subclass.primal-origin' } },
+  { name: 'call-of-the-brave', input: { seed: 'fixture-call-of-the-brave', subclassId: 'subclass.call-of-the-brave' } },
+  { name: 'call-of-the-slayer', input: { seed: 'fixture-call-of-the-slayer', subclassId: 'subclass.call-of-the-slayer' } },
+  { name: 'school-of-knowledge', input: { seed: 'fixture-school-of-knowledge', subclassId: 'subclass.school-of-knowledge' } },
+  { name: 'school-of-war', input: { seed: 'fixture-school-of-war', subclassId: 'subclass.school-of-war' } },
+  { name: 'clank-purposeful-design', input: { seed: 'fixture-clank', ancestryId: 'ancestry.clank', subclassId: 'subclass.wordsmith' } },
+  { name: 'drakona-orderborne', input: { seed: 'fixture-drakona', ancestryId: 'ancestry.drakona', communityId: 'community.orderborne' } },
+  { name: 'ribbet-warrior', input: { seed: 'fixture-ribbet', ancestryId: 'ancestry.ribbet', classId: 'class.warrior' } },
+  { name: 'galapa-wanderborne-stalwart', input: { seed: 'fixture-galapa', ancestryId: 'ancestry.galapa', communityId: 'community.wanderborne', subclassId: 'subclass.stalwart' } },
+  { name: 'mixed-ancestry', input: { seed: 'fixture-mixed', options: { mixedAncestry: true } } },
 ];
+
 const SECTION_ORDER = ['# ', '## At a Glance', '## Combat & Gear', '## Experiences', '## Features', '## Domain Cards - Active Loadout', '## Character Hook', '---'];
 
 for (const fixture of FIXTURES) {
@@ -27,8 +47,8 @@ for (const fixture of FIXTURES) {
 
 test('every sheet has the required sections in order and no placeholder text', async () => {
   const catalog = await getCatalog();
-  for (let i = 0; i < 150; i++) {
-    const c = generateCharacter({ seed: `md-${i}` }, catalog);
+  for (let i = 0; i < 300; i++) {
+    const c = generateCharacter({ seed: `md-${i}`, options: { mixedAncestry: i % 5 === 0 } }, catalog);
     const md = renderCharacterMarkdown(c, catalog);
     const lines = md.split('\n');
     const positions = SECTION_ORDER.map((marker) => lines.findIndex((line) => (marker === '# ' ? line.startsWith('# ') : line === marker)));
@@ -44,6 +64,11 @@ test('every sheet has the required sections in order and no placeholder text', a
     for (const e of c.derived.experiences) assert.ok(md.includes(`**${e.name}** +${e.modifier}`));
     for (const card of c.domainCards) assert.ok(md.includes(`### ${catalog.get(card.cardId).name}`));
     for (const w of c.derived.weapons) assert.ok(md.includes(`| ${w.damage} ${w.damageType} |`));
+    for (const a of c.derived.extraAttacks) assert.ok(md.includes(`| ${a.damage} ${a.damageType} |`));
+    for (const r of c.derived.resources) assert.ok(md.includes(r.value), `resource ${r.id}`);
+    assert.equal(md.includes('### Companion: '), Boolean(c.derived.companion));
+    assert.equal(md.includes('### Beastform Options'), c.derived.beastforms.length > 0);
+    assert.equal(md.includes('### Other Attacks'), c.derived.extraAttacks.length > 0);
   }
 });
 

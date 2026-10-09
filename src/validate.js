@@ -39,14 +39,18 @@ function runChecks(c, catalog, err) {
   // ---- heritage, class, subclass
   const sel = c.selections ?? {};
   const ancestry = inProfile(sel.ancestryId, 'ancestry.');
+  const secondAncestry = sel.secondAncestryId ? inProfile(sel.secondAncestryId, 'ancestry.') : null;
   const community = inProfile(sel.communityId, 'community.');
   const cls = inProfile(sel.classId, 'class.');
   const subclass = inProfile(sel.subclassId, 'subclass.');
   if (!ancestry) err(`invalid ancestry ${sel.ancestryId}`);
+  if (sel.secondAncestryId && !secondAncestry) err(`invalid second ancestry ${sel.secondAncestryId}`);
   if (!community) err(`invalid community ${sel.communityId}`);
   if (!cls) err(`invalid class ${sel.classId}`);
   if (!subclass) err(`invalid subclass ${sel.subclassId}`);
-  if (!ancestry || !community || !cls || !subclass) return;
+  if (!ancestry || !community || !cls || !subclass || (sel.secondAncestryId && !secondAncestry)) return;
+  if (secondAncestry && secondAncestry.id === ancestry.id) err('a Mixed Ancestry must combine two different ancestries');
+  if (Boolean(c.options?.mixedAncestry) !== Boolean(secondAncestry)) err('Mixed Ancestry option and selections disagree');
   if (subclass.classId !== cls.id) err(`subclass ${subclass.name} does not belong to class ${cls.name}`);
   if (!cls.subclassIds.includes(subclass.id)) err(`class ${cls.name} does not list subclass ${subclass.name}`);
   for (const [key, value] of Object.entries(c.requested ?? {})) {
@@ -64,8 +68,15 @@ function runChecks(c, catalog, err) {
   const expected = [...RULES.TRAIT_ARRAY].sort((a, b) => a - b).join(',');
   if (values !== expected) err(`base traits must be exactly +2, +1, +1, +0, +0, -1 (got ${values})`);
 
-  // ---- features acquired (independent enumeration)
-  const featureIds = [ancestry.topFeatureId, ancestry.bottomFeatureId, community.featureId, ...cls.featureIds, cls.hopeFeatureId, ...subclass.foundationFeatureIds];
+  // ---- features acquired (independent enumeration). Mixed Ancestry: top of the first, bottom of the second.
+  const featureIds = [
+    ancestry.topFeatureId,
+    (secondAncestry ?? ancestry).bottomFeatureId,
+    community.featureId,
+    ...cls.featureIds,
+    cls.hopeFeatureId,
+    ...subclass.foundationFeatureIds,
+  ];
   if (tiers.includes('specialization')) featureIds.push(...subclass.specializationFeatureIds);
   if (tiers.includes('mastery')) featureIds.push(...subclass.masteryFeatureIds);
   const features = [];
@@ -76,20 +87,24 @@ function runChecks(c, catalog, err) {
     else if (f.mechanics.kind === 'deferred') err(`feature ${f.name} requires progression support that is not implemented`);
     features.push(f);
   }
+  const top = catalog.find(ancestry.topFeatureId);
+  const bottom = catalog.find((secondAncestry ?? ancestry).bottomFeatureId);
+  if (top?.position !== 'top' || bottom?.position !== 'bottom') err('ancestry features must be one top and one bottom feature');
 
   // ---- mandatory choices
   const choices = c.featureChoices ?? {};
-  for (const f of features.filter((x) => x.mechanics?.kind === 'resolver')) {
+  for (const f of features.filter((x) => x.mechanics?.resolver)) {
     const resolver = RESOLVERS[f.mechanics.resolver];
     if (!resolver) { err(`no resolver named ${f.mechanics.resolver} for ${f.name}`); continue; }
-    for (const message of resolver.validate(choices[f.id], c)) err(`${f.name}: ${message}`);
+    for (const message of resolver.validate(choices[f.id], c, f.mechanics, catalog)) err(`${f.name}: ${message}`);
   }
   for (const id of Object.keys(choices)) {
-    if (!featureIds.includes(id)) err(`choice recorded for feature ${id} that the character does not have`);
+    if (!features.some((f) => f.id === id && f.mechanics?.resolver)) err(`choice recorded for feature ${id} that the character does not have or that needs no choice`);
   }
 
   // ---- equipment
   const tier = tierForLevel(c.level);
+  const ignoresBurden = features.some((f) => f.mechanics?.flags?.includes('ignore-burden'));
   const eq = c.equipment ?? {};
   const primary = inProfile(eq.primaryWeaponId, 'weapon.');
   const secondary = eq.secondaryWeaponId ? inProfile(eq.secondaryWeaponId, 'weapon.') : null;
@@ -99,7 +114,7 @@ function runChecks(c, catalog, err) {
   if (!armor) err(`invalid armor ${eq.armorId}`);
   if (!primary || !armor || (eq.secondaryWeaponId && !secondary)) return;
   if (primary.slot !== 'primary') err(`${primary.name} is not a primary weapon`);
-  if (primary.burden === 'two-handed' && secondary) err(`${primary.name} is two-handed, so no secondary weapon can be equipped`);
+  if (primary.burden === 'two-handed' && secondary && !ignoresBurden) err(`${primary.name} is two-handed, so no secondary weapon can be equipped`);
   if (primary.burden === 'one-handed' && !secondary) err(`a one-handed primary weapon must be paired with a one-handed secondary weapon at creation`);
   if (secondary && (secondary.slot !== 'secondary' || secondary.burden !== 'one-handed')) err(`${secondary.name} is not a one-handed secondary weapon`);
   for (const item of [primary, secondary, armor].filter(Boolean)) {
@@ -115,7 +130,7 @@ function runChecks(c, catalog, err) {
   const potions = inventoryIds.filter((id) => RULES.STARTING_POTIONS.includes(id));
   if (potions.length !== 1) err(`inventory must hold exactly one of the two minor potions (has ${potions.length})`);
   for (const id of inventoryIds) if (!inProfile(id, 'item.')) err(`unknown inventory item ${id}`);
-  const grantedIds = features.filter((f) => f.mechanics?.kind === 'grant').flatMap((f) => f.mechanics.grants.items);
+  const grantedIds = features.flatMap((f) => f.mechanics?.grants?.items ?? []);
   for (const id of grantedIds) if (!inventoryIds.includes(id)) err(`inventory is missing granted item ${id}`);
   for (const item of c.inventory ?? []) {
     if (item.source?.startsWith('feature.') && !grantedIds.includes(item.itemId)) err(`inventory item ${item.itemId} claims a grant the character does not have`);
@@ -126,8 +141,11 @@ function runChecks(c, catalog, err) {
   // ---- domain cards
   const cards = c.domainCards ?? [];
   const cardIds = cards.map((x) => x.cardId);
-  if (c.level === 1 && cards.length !== RULES.STARTING_DOMAIN_CARDS) err(`a Level 1 character has exactly ${RULES.STARTING_DOMAIN_CARDS} domain cards (has ${cards.length})`);
+  const extraCards = features.reduce((n, f) => n + (f.mechanics?.grants?.domainCards ?? 0), 0);
+  const expectedCards = RULES.STARTING_DOMAIN_CARDS + extraCards;
+  if (c.level === 1 && cards.length !== expectedCards) err(`a Level 1 ${subclass.name} has exactly ${expectedCards} domain cards (has ${cards.length})`);
   if (new Set(cardIds).size !== cardIds.length) err('domain cards must be distinct');
+  const loadoutCards = [];
   for (const entry of cards) {
     const card = inProfile(entry.cardId, 'card.');
     if (!card) { err(`invalid domain card ${entry.cardId}`); continue; }
@@ -135,8 +153,10 @@ function runChecks(c, catalog, err) {
     if (card.level > c.level) err(`${card.name} is level ${card.level}, above character level ${c.level}`);
     if (entry.acquiredAtLevel < card.level || entry.acquiredAtLevel > c.level) err(`${card.name} has an impossible acquisition level ${entry.acquiredAtLevel}`);
     if (!['loadout', 'vault'].includes(entry.location)) err(`${card.name} has an invalid location ${entry.location}`);
+    if (!card.mechanics || card.mechanics.kind === 'deferred') err(`${card.name} has no implemented mechanics classification`);
+    if (entry.location === 'loadout') loadoutCards.push(card);
   }
-  if (cards.filter((x) => x.location === 'loadout').length > RULES.MAX_LOADOUT) err(`more than ${RULES.MAX_LOADOUT} cards in the active loadout`);
+  if (loadoutCards.length > RULES.MAX_LOADOUT) err(`more than ${RULES.MAX_LOADOUT} cards in the active loadout`);
 
   // ---- experiences
   const exps = c.experiences ?? [];
@@ -154,30 +174,49 @@ function runChecks(c, catalog, err) {
   if (!Array.isArray(fl.connectionPrompts) || fl.connectionPrompts.length < 1 || fl.connectionPrompts.length > 2) err('flavor needs 1-2 connection prompts');
 
   // ---- derived statistics, recomputed independently
-  checkDerived(c, { cls, subclass, features, primary, secondary, armor, choices }, err);
+  checkDerived(c, catalog, { cls, subclass, features, loadoutCards, primary, secondary, armor, choices, tier }, err);
 }
 
-function checkDerived(c, { cls, subclass, features, primary, secondary, armor, choices }, err) {
+function checkDerived(c, catalog, { cls, subclass, features, loadoutCards, primary, secondary, armor, choices, tier }, err) {
   const d = c.derived;
   if (!d) { err('derived statistics are missing'); return; }
   const proficiency = RULES.BASE_PROFICIENCY + (c.advancementHistory ?? []).reduce((t, h) => t + (h.gains?.proficiency ?? 0), 0);
+  const spell = subclass.spellcastTrait;
 
   const mods = [];
-  for (const f of features) {
-    if (f.mechanics?.kind === 'modifiers') mods.push(...f.mechanics.modifiers.map((m) => ({ ...m, from: f.id })));
-    if (f.mechanics?.kind === 'resolver' && choices[f.id]) mods.push(...RESOLVERS[f.mechanics.resolver].modifiers(choices[f.id]).map((m) => ({ ...m, from: f.id })));
+  for (const src of [...features, ...loadoutCards]) {
+    const m = src.mechanics ?? {};
+    for (const mod of m.modifiers ?? []) mods.push({ ...mod, from: src.id });
+    if (m.resolver && choices[src.id]) mods.push(...RESOLVERS[m.resolver].modifiers(choices[src.id], m).map((x) => ({ ...x, from: src.id })));
   }
   for (const item of [primary, secondary, armor]) {
-    if (item?.feature?.mechanics?.kind === 'modifiers') mods.push(...item.feature.mechanics.modifiers.map((m) => ({ ...m, from: item.id })));
+    for (const mod of item?.feature?.mechanics?.modifiers ?? []) mods.push({ ...mod, from: item.id });
   }
-  const add = (target) => mods.filter((m) => m.target === target).reduce((t, m) => t + (m.value === 'proficiency' ? proficiency : m.value), 0);
 
+  const traits = {};
+  for (const t of TRAITS) {
+    traits[t] = c.traits[t] + mods.filter((m) => m.target === `trait.${t}`).reduce((s, m) => s + m.value, 0);
+  }
+  const value = (v) => {
+    if (typeof v === 'number') return v;
+    if (v === 'proficiency') return proficiency;
+    if (v === 'level') return c.level;
+    if (typeof v === 'string' && v.startsWith('halfUp:')) return Math.max(0, Math.ceil(traits[v.slice(7)] / 2));
+    throw new Error(`unknown modifier value ${v}`);
+  };
+  const add = (target) => mods.filter((m) => m.target === target).reduce((t, m) => t + value(m.value), 0);
+  const dmg = (die, bonus, type) => {
+    const b = bonus + (type === 'phy' ? add('physicalDamage') : 0);
+    return `${proficiency}d${die}${b ? `+${b}` : ''}`;
+  };
   const expect = (label, actual, wanted) => {
     if (actual !== wanted) err(`derived ${label} is ${actual}, expected ${wanted}`);
   };
+  const evasion = cls.startingEvasion + add('evasion');
+
   expect('proficiency', d.proficiency, proficiency);
-  expect('tier', d.tier, tierForLevel(c.level));
-  expect('evasion', d.evasion, cls.startingEvasion + add('evasion'));
+  expect('tier', d.tier, tier);
+  expect('evasion', d.evasion, evasion);
   expect('hpSlots', d.hpSlots, cls.startingHp + add('hpSlots'));
   expect('stressSlots', d.stressSlots, RULES.BASE_STRESS_SLOTS + add('stressSlots'));
   expect('hope.starting', d.hope?.starting, RULES.STARTING_HOPE);
@@ -185,19 +224,27 @@ function checkDerived(c, { cls, subclass, features, primary, secondary, armor, c
   expect('armorScore', d.armorScore, Math.min(RULES.MAX_ARMOR_SCORE, armor.baseScore + add('armorScore')));
   expect('thresholds.major', d.thresholds?.major, armor.baseThresholds.major + c.level + add('thresholds'));
   expect('thresholds.severe', d.thresholds?.severe, armor.baseThresholds.severe + c.level + add('thresholds'));
-  expect('spellcastTrait', d.spellcastTrait, subclass.spellcastTrait);
-  for (const t of TRAITS) expect(`traits.${t}`, d.traits?.[t], c.traits[t] + add(`trait.${t}`));
+  expect('spellcastTrait', d.spellcastTrait, spell);
+  for (const t of TRAITS) expect(`traits.${t}`, d.traits?.[t], traits[t]);
 
   const weapons = [primary, secondary].filter(Boolean);
   expect('weapon count', d.weapons?.length, weapons.length);
   weapons.forEach((w, i) => {
     const dw = d.weapons?.[i] ?? {};
-    const trait = w.trait === 'spellcast' ? subclass.spellcastTrait : w.trait;
+    const trait = w.trait === 'spellcast' ? spell : w.trait;
     const ownAttack = mods.filter((m) => m.target === 'attackRoll' && m.from === w.id).reduce((t, m) => t + m.value, 0);
     expect(`${w.name} weaponId`, dw.weaponId, w.id);
     expect(`${w.name} attack trait`, dw.attackTrait, trait);
-    expect(`${w.name} attack modifier`, dw.attackModifier, c.traits[trait] + add(`trait.${trait}`) + ownAttack);
-    expect(`${w.name} damage`, dw.damage, `${proficiency}d${w.damage.die}${w.damage.bonus ? `+${w.damage.bonus}` : ''}`);
+    expect(`${w.name} attack modifier`, dw.attackModifier, traits[trait] + ownAttack);
+    expect(`${w.name} damage`, dw.damage, dmg(w.damage.die, w.damage.bonus, w.damageType));
+  });
+
+  const attackFeatures = features.filter((f) => f.mechanics?.attack);
+  expect('extra attack count', d.extraAttacks?.length, attackFeatures.length);
+  attackFeatures.forEach((f, i) => {
+    const a = f.mechanics.attack;
+    expect(`${a.name} attack modifier`, d.extraAttacks?.[i]?.attackModifier, traits[a.trait]);
+    expect(`${a.name} damage`, d.extraAttacks?.[i]?.damage, dmg(a.damage.die, a.damage.bonus, a.damageType));
   });
 
   expect('experience count', d.experiences?.length, c.experiences.length);
@@ -205,10 +252,45 @@ function checkDerived(c, { cls, subclass, features, primary, secondary, armor, c
     expect(`experience ${e.name} modifier`, d.experiences?.[i]?.modifier, e.modifier + add(`experience:${e.id}`));
   });
 
-  const resourceFeatures = features.filter((f) => f.mechanics?.kind === 'resource');
-  expect('class resource count', d.resources?.length, resourceFeatures.length);
-  resourceFeatures.forEach((f, i) => {
-    const steps = f.mechanics.resource.dieByLevel.filter(([lvl]) => lvl <= c.level);
-    expect(`${f.mechanics.resource.label}`, d.resources?.[i]?.die, steps[steps.length - 1]?.[1]);
+  const resourceSources = [...features, ...loadoutCards].filter((s) => s.mechanics?.resource);
+  expect('resource count', d.resources?.length, resourceSources.length);
+  resourceSources.forEach((s, i) => {
+    const r = s.mechanics.resource;
+    let wanted;
+    if (r.dieByLevel) {
+      const steps = r.dieByLevel.filter(([lvl]) => lvl <= c.level);
+      wanted = steps[steps.length - 1][1];
+    } else {
+      const key = r.count.startsWith('trait:') ? r.count.slice(6) : null;
+      const n = key ? Math.max(0, traits[key === 'spellcast' ? spell : key]) : { tier, level: c.level, proficiency }[r.count];
+      wanted = r.die ? (n > 0 ? `${r.prefix ?? ''}${n}${r.die}` : 'none') : String(n);
+    }
+    expect(`${r.label}`, d.resources?.[i]?.value, wanted);
+  });
+
+  const companionFeature = features.find((f) => f.mechanics?.companion);
+  if (companionFeature) {
+    const base = companionFeature.mechanics.companion;
+    const choice = choices[companionFeature.id] ?? {};
+    const dc = d.companion ?? {};
+    expect('companion evasion', dc.evasion, base.evasion);
+    expect('companion stress slots', dc.stressSlots, base.stressSlots);
+    expect('companion damage', dc.damage, `${proficiency}d${base.damageDie}`);
+    expect('companion damage type', dc.damageType, choice.damageType);
+    expect('companion command modifier', dc.commandModifier, traits[spell]);
+    expect('companion experiences', (dc.experiences ?? []).map((e) => `${e.name}+${e.modifier}`).join(','), (choice.experiences ?? []).map((n) => `${n}+${base.experienceModifier}`).join(','));
+  } else if (d.companion) {
+    err('derived companion present without a companion feature');
+  }
+
+  const showsBeastforms = features.some((f) => f.mechanics?.display === 'beastforms');
+  const forms = showsBeastforms ? catalog.beastforms.filter((b) => b.tier <= tier && !b.variant) : [];
+  expect('beastform count', d.beastforms?.length, forms.length);
+  forms.forEach((b, i) => {
+    const row = d.beastforms?.[i] ?? {};
+    const bonus = b.traitBonus?.trait === b.attack.trait ? b.traitBonus.value : 0;
+    expect(`${b.name} evasion`, row.evasion, evasion + b.evasionBonus);
+    expect(`${b.name} attack modifier`, row.attackModifier, traits[b.attack.trait] + bonus);
+    expect(`${b.name} damage`, row.damage, dmg(b.attack.damage.die, b.attack.damage.bonus, b.attack.damageType));
   });
 }

@@ -62,6 +62,23 @@ test('rejects bad Experiences, deferred features and unhonoured fixed selections
   await expectError((c) => { c.contentProfile = 'core+hope-fear'; }, /contentProfile/);
 });
 
+test('V1 rules: Mixed Ancestry, burden, granted cards, choices, companion and Beastforms', async () => {
+  await expectError((c) => { c.selections.secondAncestryId = c.selections.ancestryId; }, /two different ancestries/, { options: { mixedAncestry: true } });
+  await expectError((c) => { c.options.mixedAncestry = false; }, /Mixed Ancestry option/, { options: { mixedAncestry: true } });
+  await expectError((c) => { c.equipment = { primaryWeaponId: 'weapon.battleaxe', secondaryWeaponId: 'weapon.round-shield', armorId: c.equipment.armorId }; }, /two-handed/, { classId: 'class.guardian' });
+  await expectError((c) => { c.domainCards.pop(); }, /exactly 3 domain cards/, { subclassId: 'subclass.school-of-knowledge' });
+  await expectError((c) => { c.featureChoices['feature.elemental-origin.elementalist'] = { option: 'shadow' }; }, /Element must be one of/, { subclassId: 'subclass.elemental-origin' });
+  await expectError((c) => { c.featureChoices['feature.wizard.strange-patterns'] = { number: 13 }; }, /from 1 to 12/, { classId: 'class.wizard' });
+  await expectError((c) => { c.featureChoices['feature.orderborne.dedicated'].sayings.pop(); }, /exactly three/, { communityId: 'community.orderborne' });
+  await expectError((c) => { delete c.featureChoices['feature.beastbound.companion']; }, /Companion choices are missing/, { subclassId: 'subclass.beastbound' });
+  await expectError((c) => { c.derived.companion.evasion = 12; }, /companion evasion/, { subclassId: 'subclass.beastbound' });
+  await expectError((c) => { c.derived.beastforms[0].damage = '1d12'; }, /damage/, { classId: 'class.druid' });
+  await expectError((c) => { c.derived.beastforms.pop(); }, /beastform count/, { classId: 'class.druid' });
+  await expectError((c) => { c.derived.resources.find((r) => r.id === 'prayer-dice').value = '9d4'; }, /Prayer Dice/, { classId: 'class.seraph' });
+  await expectError((c) => { c.derived.extraAttacks = []; }, /extra attack count/, { ancestryId: 'ancestry.ribbet' });
+  await expectError((c) => { c.featureChoices['feature.wizard.strange-patterns'] = { number: 3 }; }, /needs no choice|does not have/, { classId: 'class.bard' });
+});
+
 test('never throws on garbage input', async () => {
   const catalog = await getCatalog();
   for (const junk of [{}, { selections: {} }, { selections: { classId: 42 } }]) {

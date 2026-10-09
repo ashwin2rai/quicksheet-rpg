@@ -20,7 +20,7 @@
       "category": "class",
       "text": "Once per session, describe how you rally the party and give yourself and each of your allies a Rally Die. At level 1, your Rally Die is a **d6**. A PC can spend their Rally Die to roll it, adding the result to their action roll, reaction roll, damage roll, or to clear a number of Stress equal to the result. At the end of each session, clear all unspent Rally Dice. At level 5, your Rally Die increases to a **d8**.",
       "mechanics": {
-        "kind": "resource",
+        "kind": "effects",
         "resource": {
           "id": "rally-die",
           "label": "Rally Die",
@@ -207,13 +207,237 @@
       }
     },
     {
+      "id": "feature.druid.beastform",
+      "name": "Beastform",
+      "ownerId": "class.druid",
+      "category": "class",
+      "text": "**Mark a Stress** to magically transform into a creature of your tier or lower from the Beastform list. You can drop out of this form at any time. While transformed, you can't use weapons or cast spells from domain cards, but you can still use other features or abilities you have access to. Spells you cast before you transform stay active and last for their normal duration, and you can talk and communicate as normal. Additionally, you gain the Beastform's features, add their Evasion bonus to your Evasion, and use the trait specified in their statistics for your attack. While you're in a Beastform, your armor becomes part of your body and you mark Armor Slots as usual; when you drop out of a Beastform, those marked Armor Slots remain marked. If you mark your last Hit Point, you automatically drop out of this form.",
+      "mechanics": {
+        "kind": "effects",
+        "display": "beastforms"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 30"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.druid.wildtouch",
+      "name": "Wildtouch",
+      "ownerId": "class.druid",
+      "category": "class",
+      "text": "You can perform harmless, subtle effects that involve nature—such as causing a flower to rapidly grow, summoning a slight gust of wind, or starting a campfire—at will.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 30"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.druid.evolution",
+      "name": "Evolution",
+      "ownerId": "class.druid",
+      "category": "hope",
+      "text": "**Spend 3 Hope** to transform into a ***Beastform*** without marking a Stress. When you do, choose one trait to raise by +1 until you drop out of that Beastform.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 30"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.warden-of-the-elements.elemental-incarnation",
+      "name": "Elemental Incarnation",
+      "ownerId": "subclass.warden-of-the-elements",
+      "category": "subclass-foundation",
+      "text": "**Mark a Stress** to *Channel* one of the following elements until you take Severe damage or until your next rest:\n\n- ***Fire:*** When an adversary within Melee range deals damage to you, they take **1d10** magic damage.\n- ***Earth:*** Gain a bonus to your damage thresholds equal to your Proficiency.\n- ***Water:*** When you deal damage to an adversary within Melee range, all other adversaries within Very Close range must mark a Stress.\n- ***Air:*** You can hover, gaining advantage on Agility Rolls.",
+      "mechanics": {
+        "kind": "reference",
+        "note": "Channeled element is chosen when the feature is used; Earth's threshold bonus applies only while channeling."
+      },
+      "card": "DH Core 007/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 30"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.warden-of-the-elements.elemental-aura",
+      "name": "Elemental Aura",
+      "ownerId": "subclass.warden-of-the-elements",
+      "category": "subclass-specialization",
+      "text": "Once per rest while *Channeling*, you can assume an aura matching your element. The aura affects targets within Close range until your *Channeling* ends.\n\n- ***Fire:*** When an adversary marks 1 or more Hit Points, they must also mark a Stress.\n- ***Earth:*** Your allies gain a +1 bonus to Strength.\n- ***Water:*** When an adversary deals damage to you, you can **mark a Stress** to move them anywhere within Very Close range of where they are.\n- ***Air:*** When you or an ally takes damage from an attack beyond Melee range, reduce the damage by **1d8**.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 008/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 30"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.warden-of-the-elements.elemental-dominion",
+      "name": "Elemental Dominion",
+      "ownerId": "subclass.warden-of-the-elements",
+      "category": "subclass-mastery",
+      "text": "You further embody your element. While *Channeling*, you gain the following benefit:\n\n- ***Fire:*** You gain a +1 bonus to your Proficiency for attacks and spells that deal damage.\n- ***Earth:*** When you would mark Hit Points, roll a **d6** per Hit Point marked. For each result of 6, reduce the number of Hit Points you mark by 1.\n- ***Water:*** When an attack against you succeeds, you can **mark a Stress** to make the attacker temporarily *Vulnerable*.\n- ***Air:*** You gain a +1 bonus to your Evasion and can fly.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 009/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 30"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.warden-of-renewal.clarity-of-nature",
+      "name": "Clarity of Nature",
+      "ownerId": "subclass.warden-of-renewal",
+      "category": "subclass-foundation",
+      "text": "Once per long rest, you can create a space of natural serenity within Close range. When you spend a few minutes resting within the space, clear Stress equal to your Instinct, distributed as you choose between you and your allies.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 010/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 31"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.warden-of-renewal.regeneration",
+      "name": "Regeneration",
+      "ownerId": "subclass.warden-of-renewal",
+      "category": "subclass-foundation",
+      "text": "Touch a creature and **spend 3 Hope**. That creature clears **1d4** Hit Points.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 010/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 31"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.warden-of-renewal.regenerative-reach",
+      "name": "Regenerative Reach",
+      "ownerId": "subclass.warden-of-renewal",
+      "category": "subclass-specialization",
+      "text": "You can target creatures within Very Close range with your \"Regeneration\" feature.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 011/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 31"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.warden-of-renewal.wardens-protection",
+      "name": "Warden's Protection",
+      "ownerId": "subclass.warden-of-renewal",
+      "category": "subclass-specialization",
+      "text": "Once per long rest, **spend 2 Hope** to clear 2 Hit Points on **1d4** allies within Close range.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 011/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 31"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.warden-of-renewal.defender",
+      "name": "Defender",
+      "ownerId": "subclass.warden-of-renewal",
+      "category": "subclass-mastery",
+      "text": "Your animal transformation embodies a healing guardian spirit. When you're in Beastform and an ally within Close range marks 2 or more Hit Points, you can **mark a Stress** to reduce the number of Hit Points they mark by 1.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 012/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 31"
+        ],
+        "errata": false
+      }
+    },
+    {
       "id": "feature.guardian.unstoppable",
       "name": "Unstoppable",
       "ownerId": "class.guardian",
       "category": "class",
       "text": "Once per long rest, you can become *Unstoppable*. You gain an Unstoppable Die. At level 1, your Unstoppable Die is a **d4**. Place it on your character sheet in the space provided, starting with the 1 value facing up. After you make a damage roll that deals 1 or more Hit Points to a target, increase the Unstoppable Die value by one. When the die's value would exceed its maximum value or when the scene ends, remove the die and drop out of *Unstoppable*. At level 5, your Unstoppable Die increases to a **d6**.\n\nWhile *Unstoppable*, you gain the following benefits:\n\n- You reduce the severity of physical damage by one threshold (Severe to Major, Major to Minor, Minor to None).\n- You add the current value of the Unstoppable Die to your damage roll.\n- You can't be *Restrained* or *Vulnerable*.",
       "mechanics": {
-        "kind": "resource",
+        "kind": "effects",
         "resource": {
           "id": "unstoppable-die",
           "label": "Unstoppable Die",
@@ -265,7 +489,7 @@
       "category": "subclass-foundation",
       "text": "Gain a permanent +1 bonus to your damage thresholds.",
       "mechanics": {
-        "kind": "modifiers",
+        "kind": "effects",
         "modifiers": [
           {
             "target": "thresholds",
@@ -393,7 +617,7 @@
       "category": "subclass-foundation",
       "text": "Gain an additional Stress slot.",
       "mechanics": {
-        "kind": "modifiers",
+        "kind": "effects",
         "modifiers": [
           {
             "target": "stressSlots",
@@ -473,13 +697,1438 @@
       }
     },
     {
+      "id": "feature.ranger.rangers-focus",
+      "name": "Ranger's Focus",
+      "ownerId": "class.ranger",
+      "category": "class",
+      "text": "**Spend a Hope** and make an attack against a target. On a success, deal your attack's normal damage and temporarily make the attack's target your *Focus*. Until this feature ends or you make a different creature your *Focus*, you gain the following benefits against your *Focus*:\n\n- You know precisely what direction they are in.\n- When you deal damage to them, they must mark a Stress.\n- When you fail an attack against them, you can end your \"Ranger's Focus\" feature to reroll your Duality Dice.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 38"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.ranger.hold-them-off",
+      "name": "Hold Them Off",
+      "ownerId": "class.ranger",
+      "category": "hope",
+      "text": "**Spend 3 Hope** when you succeed on an attack with a weapon to use that same roll against two additional adversaries within range of the attack.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 38"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.beastbound.companion",
+      "name": "Companion",
+      "ownerId": "subclass.beastbound",
+      "category": "subclass-foundation",
+      "text": "You have an animal companion of your choice (at the GM's discretion). They stay by your side unless you tell them otherwise.\n\nTake the Ranger Companion sheet. When you level up your character, choose a level-up option for your companion from this sheet as well.",
+      "mechanics": {
+        "kind": "effects",
+        "resolver": "beastboundCompanion",
+        "companion": {
+          "evasion": 10,
+          "stressSlots": 3,
+          "attackRange": "Melee",
+          "damageDie": 6,
+          "experienceCount": 2,
+          "experienceModifier": 2,
+          "source": "Evasion 10, Melee d6 attack, physical-or-magic choice and two +2 Experiences (with the example list): SRD 2.0 'Ranger Companion' section. Starting Stress slots (3): the official Ranger Companion character sheet as transcribed by Old Gus; not stated in the SRD 2.0 text (RD-029).",
+          "exampleExperiences": [
+            "Bold Distraction",
+            "Expert Climber",
+            "Fetch",
+            "Friendly",
+            "Guardian of the Forest",
+            "Horrifying",
+            "Intimidating",
+            "Loyal Until the End",
+            "Navigation",
+            "Nimble",
+            "Nobody Left Behind",
+            "On High Alert",
+            "Protective",
+            "Royal Companion",
+            "Scout",
+            "Service Animal",
+            "Trusted Mount",
+            "Vigilant",
+            "We Always Find Them",
+            "You Can't Hit What You Can't Find"
+          ]
+        }
+      },
+      "card": "DH Core 019/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 38"
+        ],
+        "errata": false,
+        "textOverride": "official-srd-2.0"
+      }
+    },
+    {
+      "id": "feature.beastbound.expert-training",
+      "name": "Expert Training",
+      "ownerId": "subclass.beastbound",
+      "category": "subclass-specialization",
+      "text": "Choose an additional level-up option for your companion.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 020/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 38"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.beastbound.advanced-training",
+      "name": "Advanced Training",
+      "ownerId": "subclass.beastbound",
+      "category": "subclass-mastery",
+      "text": "Choose two additional level-up options for your companion.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 021/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 38"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.beastbound.loyal-friend",
+      "name": "Loyal Friend",
+      "ownerId": "subclass.beastbound",
+      "category": "subclass-mastery",
+      "text": "Once per long rest, when the damage from an attack would mark your companion's last Stress or your last Hit Point and you're within Close range of each other, you or your companion can rush to the other's side and take that damage instead.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 021/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 38"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.wayfinder.ruthless-predator",
+      "name": "Ruthless Predator",
+      "ownerId": "subclass.wayfinder",
+      "category": "subclass-foundation",
+      "text": "When you make a damage roll, you can **mark a Stress** to gain a +1 bonus to your Proficiency. Additionally, when you deal Severe damage to an adversary, they must mark a Stress.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 022/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 39"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.wayfinder.path-forward",
+      "name": "Path Forward",
+      "ownerId": "subclass.wayfinder",
+      "category": "subclass-foundation",
+      "text": "When you're traveling to a place you've previously visited or you carry an object that has been at the location before, you can identify the shortest, most direct path to your destination.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 022/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 39"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.wayfinder.elusive-predator",
+      "name": "Elusive Predator",
+      "ownerId": "subclass.wayfinder",
+      "category": "subclass-specialization",
+      "text": "When your *Focus* makes an attack against you, you gain a +2 bonus to your Evasion against the attack.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 023/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 39"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.wayfinder.apex-predator",
+      "name": "Apex Predator",
+      "ownerId": "subclass.wayfinder",
+      "category": "subclass-mastery",
+      "text": "Before you make an attack roll against your *Focus*, you can **spend a Hope**. On a successful attack, you remove a Fear from the GM's Fear pool.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 024/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 39"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.rogue.cloaked",
+      "name": "Cloaked",
+      "ownerId": "class.rogue",
+      "category": "class",
+      "text": "Any time you would be *Hidden*, you are instead *Cloaked*. In addition to the benefits of the *Hidden* condition, while *Cloaked* you remain unseen if you are stationary when an adversary moves to where they would normally see you. After you make an attack or end a move within line of sight of an adversary, you are no longer *Cloaked*.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 42"
+        ],
+        "errata": true,
+        "textOverride": "official-srd-2.0"
+      }
+    },
+    {
+      "id": "feature.rogue.sneak-attack",
+      "name": "Sneak Attack",
+      "ownerId": "class.rogue",
+      "category": "class",
+      "text": "When you succeed on an attack while *Cloaked* or while an ally is within Melee range of your target, add a number of **d6s** equal to your tier to your damage roll.",
+      "mechanics": {
+        "kind": "effects",
+        "resource": {
+          "id": "sneak-attack",
+          "label": "Sneak Attack damage",
+          "count": "tier",
+          "die": "d6",
+          "prefix": "+"
+        }
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 42"
+        ],
+        "errata": true
+      }
+    },
+    {
+      "id": "feature.rogue.rogues-dodge",
+      "name": "Rogue's Dodge",
+      "ownerId": "class.rogue",
+      "category": "hope",
+      "text": "**Spend 3 Hope** to gain a +2 bonus to your Evasion until the next time an attack succeeds against you. Otherwise, this bonus lasts until your next rest.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 42"
+        ],
+        "errata": true
+      }
+    },
+    {
+      "id": "feature.nightwalker.shadow-stepper",
+      "name": "Shadow Stepper",
+      "ownerId": "subclass.nightwalker",
+      "category": "subclass-foundation",
+      "text": "You can move from shadow to shadow. When you move into an area of darkness or a shadow cast by another creature or object, you can **mark a Stress** to disappear from where you are and reappear inside another shadow within Far range. When you reappear, you are *Cloaked*.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 025/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 42"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.nightwalker.dark-cloud",
+      "name": "Dark Cloud",
+      "ownerId": "subclass.nightwalker",
+      "category": "subclass-specialization",
+      "text": "Make a **Spellcast Roll (15)**. On a success, create a temporary dark cloud that covers any area within Close range. Anyone in this cloud can't see outside of it, and anyone outside of it can't see in. You're considered *Cloaked* from any adversary for whom the cloud blocks line of sight.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 026/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 42"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.nightwalker.adrenaline",
+      "name": "Adrenaline",
+      "ownerId": "subclass.nightwalker",
+      "category": "subclass-specialization",
+      "text": "While you're Vulnerable, add your level to your damage rolls.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 026/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 42"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.nightwalker.fleeting-shadow",
+      "name": "Fleeting Shadow",
+      "ownerId": "subclass.nightwalker",
+      "category": "subclass-mastery",
+      "text": "Gain a permanent +1 bonus to your Evasion. You can use your \"Shadow Stepper\" feature to move within Very Far range.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 027/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 42"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.nightwalker.vanishing-act",
+      "name": "Vanishing Act",
+      "ownerId": "subclass.nightwalker",
+      "category": "subclass-mastery",
+      "text": "**Mark a Stress** to become *Cloaked* at any time. When *Cloaked* from this feature, you automatically clear the *Restrained* condition if you have it. You remain *Cloaked* in this way until you roll with Fear or until your next rest.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 027/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 42"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.syndicate.well-connected",
+      "name": "Well-Connected",
+      "ownerId": "subclass.syndicate",
+      "category": "subclass-foundation",
+      "text": "When you arrive in a prominent town or environment, you know somebody who calls this place home. Give them a name, note how you think they could be useful, and choose one fact from the following list:\n\n- They owe me a favor, but they'll be hard to find.\n- They're going to ask for something in exchange.\n- They're always in a great deal of trouble.\n- We used to be together. It's a long story.\n- We didn't part on great terms.",
+      "mechanics": {
+        "kind": "reference",
+        "note": "Contacts are created when arriving somewhere, not at character creation."
+      },
+      "card": "DH Core 028/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 43"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.syndicate.contacts-everywhere",
+      "name": "Contacts Everywhere",
+      "ownerId": "subclass.syndicate",
+      "category": "subclass-specialization",
+      "text": "Once per session, you can briefly call on a shady contact. Choose one of the following benefits and describe what brought them here to help you in this moment:\n\n- They provide 1 handful of gold, a unique tool, or a mundane object that the situation requires.\n- On your next action roll, their help provides a +3 bonus to the result of your Hope or Fear Die.\n- The next time you deal damage, they snipe from the shadows, adding **2d8** to your damage roll.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 029/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 43"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.syndicate.reliable-backup",
+      "name": "Reliable Backup",
+      "ownerId": "subclass.syndicate",
+      "category": "subclass-mastery",
+      "text": "You can use your \"Contacts Everywhere\" feature three times per session. The following options are added to the list of benefits you can choose from when you use that feature:\n\n- When you mark 1 or more Hit Points, they can rush out to shield you, reducing the Hit Points marked by 1.\n- When you make a Presence Roll in conversation, they back you up. You can roll a **d20** as your Hope Die.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 030/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 43"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.seraph.prayer-dice",
+      "name": "Prayer Dice",
+      "ownerId": "class.seraph",
+      "category": "class",
+      "text": "At the beginning of each session, roll a number of **d4s** equal to your subclass's Spellcast trait and place them on your character sheet in the space provided. These are your Prayer Dice. You can spend any number of Prayer Dice to aid yourself or an ally within Far range. You can use a spent die's value to reduce incoming damage, add to a roll's result after the roll is made, or gain Hope equal to the result. At the end of each session, clear all unspent Prayer Dice.",
+      "mechanics": {
+        "kind": "effects",
+        "resource": {
+          "id": "prayer-dice",
+          "label": "Prayer Dice per session",
+          "count": "trait:spellcast",
+          "die": "d4"
+        }
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 44"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.seraph.life-support",
+      "name": "Life Support",
+      "ownerId": "class.seraph",
+      "category": "hope",
+      "text": "**Spend 3 Hope** to clear a Hit Point on an ally within Close range.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 44"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.divine-wielder.spirit-weapon",
+      "name": "Spirit Weapon",
+      "ownerId": "subclass.divine-wielder",
+      "category": "subclass-foundation",
+      "text": "When you have an equipped weapon with a range of Melee or Very Close, it can fly from your hand to attack an adversary within Close range and then return to you. You can **mark a Stress** to target an additional adversary within range with the same attack roll.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 031/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 44"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.divine-wielder.sparing-touch",
+      "name": "Sparing Touch",
+      "ownerId": "subclass.divine-wielder",
+      "category": "subclass-foundation",
+      "text": "Once per long rest, touch a creature and clear 2 Hit Points or 2 Stress from them.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 031/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 44"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.divine-wielder.devout",
+      "name": "Devout",
+      "ownerId": "subclass.divine-wielder",
+      "category": "subclass-specialization",
+      "text": "When you roll your Prayer Dice, you can roll an additional die and discard the lowest result. Additionally, you can use your \"Sparing Touch\" feature twice instead of once per long rest.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 032/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 44"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.divine-wielder.sacred-resonance",
+      "name": "Sacred Resonance",
+      "ownerId": "subclass.divine-wielder",
+      "category": "subclass-mastery",
+      "text": "When you roll damage for your \"Spirit Weapon\" feature, if any of the die results match, double the value of each matching die. For example, if you roll two 5s, they count as two 10s.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 033/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 44"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.winged-sentinel.wings-of-light",
+      "name": "Wings of Light",
+      "ownerId": "subclass.winged-sentinel",
+      "category": "subclass-foundation",
+      "text": "You can fly. While flying, you can do the following:\n\n- **Mark a Stress** to pick up and carry another willing creature approximately your size or smaller.\n- **Spend a Hope** to deal an extra **1d8** damage on a successful attack.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 034/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 45"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.winged-sentinel.ethereal-visage",
+      "name": "Ethereal Visage",
+      "ownerId": "subclass.winged-sentinel",
+      "category": "subclass-specialization",
+      "text": "Your supernatural visage strikes awe and fear. While flying, you have advantage on Presence Rolls. When you succeed with Hope on a Presence Roll, you can remove a Fear from the GM's Fear pool instead of gaining Hope.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 035/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 45"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.winged-sentinel.ascendant",
+      "name": "Ascendant",
+      "ownerId": "subclass.winged-sentinel",
+      "category": "subclass-mastery",
+      "text": "Gain a permanent +4 bonus to your Severe damage threshold.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 036/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 45"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.winged-sentinel.power-of-the-gods",
+      "name": "Power of the Gods",
+      "ownerId": "subclass.winged-sentinel",
+      "category": "subclass-mastery",
+      "text": "While flying, you deal an extra **1d12** damage instead of 1d8 from your \"Wings of Light\" feature.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 036/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 45"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.sorcerer.arcane-sense",
+      "name": "Arcane Sense",
+      "ownerId": "class.sorcerer",
+      "category": "class",
+      "text": "You can sense the presence of magical people and objects within Close range.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 46"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.sorcerer.minor-illusion",
+      "name": "Minor Illusion",
+      "ownerId": "class.sorcerer",
+      "category": "class",
+      "text": "Make a **Spellcast Roll (10)**. On a success, you create a minor visual illusion no larger than yourself within Close range. This illusion is convincing to anyone at Close range or farther.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 46"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.sorcerer.channel-raw-power",
+      "name": "Channel Raw Power",
+      "ownerId": "class.sorcerer",
+      "category": "class",
+      "text": "Once per long rest, you can place a domain card from your loadout into your vault and choose to either:\n\n- Gain Hope equal to the level of the card.\n- Enhance a spell that deals damage, gaining a bonus to your damage roll equal to twice the level of the card.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 46"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.sorcerer.volatile-magic",
+      "name": "Volatile Magic",
+      "ownerId": "class.sorcerer",
+      "category": "hope",
+      "text": "**Spend 3 Hope** to reroll any number of your damage dice on an attack that deals magic damage.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 46"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.elemental-origin.elementalist",
+      "name": "Elementalist",
+      "ownerId": "subclass.elemental-origin",
+      "category": "subclass-foundation",
+      "text": "Choose one of the following elements at character creation: air, earth, fire, lightning, water. You can shape this element into harmless effects.\n\nAdditionally, **spend a Hope** and describe how your control over this element helps an action roll you're about to make, then either gain a +2 bonus to the roll or a +3 bonus to the roll's damage.",
+      "mechanics": {
+        "kind": "effects",
+        "resolver": "chooseOption",
+        "choice": {
+          "label": "Element",
+          "options": [
+            "air",
+            "earth",
+            "fire",
+            "lightning",
+            "water"
+          ]
+        }
+      },
+      "card": "DH Core 037/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 46"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.elemental-origin.natural-evasion",
+      "name": "Natural Evasion",
+      "ownerId": "subclass.elemental-origin",
+      "category": "subclass-specialization",
+      "text": "You can call forth your element to protect you from harm. When an attack roll against you succeeds, you can **mark a Stress** and describe how you use your element to defend you. When you do, roll a **d6** and add its result to your Evasion against the attack.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 038/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 46"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.elemental-origin.transcendence",
+      "name": "Transcendence",
+      "ownerId": "subclass.elemental-origin",
+      "category": "subclass-mastery",
+      "text": "Once per long rest, you can transform into a physical manifestation of your element. When you do, describe your transformation and choose two of the following benefits to gain until your next rest:\n\n- +4 bonus to your Severe threshold\n- +1 bonus to a character trait of your choice\n- +1 bonus to your Proficiency\n- +2 bonus to your Evasion",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 039/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 46"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.primal-origin.manipulate-magic",
+      "name": "Manipulate Magic",
+      "ownerId": "subclass.primal-origin",
+      "category": "subclass-foundation",
+      "text": "Your primal origin allows you to modify the essence of magic itself. After you cast a spell or make an attack using a weapon that deals magic damage, you can **mark a Stress** to do one of the following:\n\n- Extend the spell or attack's reach by one range\n- Gain a +2 bonus to the action roll's result\n- Double a damage die of your choice\n- Hit an additional target within range",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 040/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 47"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.primal-origin.enchanted-aid",
+      "name": "Enchanted Aid",
+      "ownerId": "subclass.primal-origin",
+      "category": "subclass-specialization",
+      "text": "You can enhance the magic of others with your essence. When you Help an Ally with a Spellcast Roll, you can roll a **d8** as your advantage die. Once per long rest, after an ally has made a Spellcast Roll with your help, you can swap the results of their Duality Dice.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 041/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 47"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.primal-origin.arcane-charge",
+      "name": "Arcane Charge",
+      "ownerId": "subclass.primal-origin",
+      "category": "subclass-mastery",
+      "text": "You can gather magical energy to enhance your capabilities. When you take magic damage, you become *Charged*. Alternatively, you can **spend 2 Hope** to become *Charged*. When you successfully make an attack that deals magic damage while *Charged*, you can clear your Charge to either gain a +10 bonus to the damage roll or gain a +3 bonus to the Difficulty of a reaction roll the spell causes the target to make. You stop being *Charged* at your next long rest.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 042/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 47"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.warrior.attack-of-opportunity",
+      "name": "Attack of Opportunity",
+      "ownerId": "class.warrior",
+      "category": "class",
+      "text": "If an adversary within Melee range attempts to leave that range, make a reaction roll using a trait of your choice against their Difficulty. Choose one effect on a success, or two if you critically succeed:\n\n- They can't move from where they are.\n- You deal damage to them equal to your primary weapon's damage.\n- You move with them.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 48"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.warrior.combat-training",
+      "name": "Combat Training",
+      "ownerId": "class.warrior",
+      "category": "class",
+      "text": "You ignore burden when equipping weapons. When you deal physical damage, you gain a bonus to your damage roll equal to your level.",
+      "mechanics": {
+        "kind": "effects",
+        "flags": [
+          "ignore-burden"
+        ],
+        "modifiers": [
+          {
+            "target": "physicalDamage",
+            "value": "level"
+          }
+        ]
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 48"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.warrior.no-mercy",
+      "name": "No Mercy",
+      "ownerId": "class.warrior",
+      "category": "hope",
+      "text": "**Spend 3 Hope** to gain a +1 bonus to your attack rolls until your next rest.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 48"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.call-of-the-brave.courage",
+      "name": "Courage",
+      "ownerId": "subclass.call-of-the-brave",
+      "category": "subclass-foundation",
+      "text": "When you fail a roll with Fear, you gain a Hope.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 043/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 48"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.call-of-the-brave.battle-ritual",
+      "name": "Battle Ritual",
+      "ownerId": "subclass.call-of-the-brave",
+      "category": "subclass-foundation",
+      "text": "Once per long rest, before you attempt something incredibly dangerous or face off against a foe who clearly outmatches you, describe what ritual you perform or preparations you make. When you do, clear 2 Stress and gain 2 Hope.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 043/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 48"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.call-of-the-brave.rise-to-the-challenge",
+      "name": "Rise to the Challenge",
+      "ownerId": "subclass.call-of-the-brave",
+      "category": "subclass-specialization",
+      "text": "You are vigilant in the face of mounting danger. While you have 2 or fewer Hit Points unmarked, you can roll a **d20** as your Hope Die.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 044/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 48"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.call-of-the-brave.camaraderie",
+      "name": "Camaraderie",
+      "ownerId": "subclass.call-of-the-brave",
+      "category": "subclass-mastery",
+      "text": "Your unwavering bravery is a rallying point for your allies. You can initiate a Tag Team Roll one additional time per session. Additionally, when an ally initiates a Tag Team Roll with you, they only need to spend 2 Hope to do so.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 045/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 48"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.call-of-the-slayer.slayer",
+      "name": "Slayer",
+      "ownerId": "subclass.call-of-the-slayer",
+      "category": "subclass-foundation",
+      "text": "You gain a pool of dice called Slayer Dice. On a roll with Hope, you can place a **d6** on this card instead of gaining a Hope, adding the die to the pool. You can store a number of Slayer Dice equal to your Proficiency. When you make an attack roll or damage roll, you can spend any number of these Slayer Dice, rolling them and adding their result to the roll. At the end of each session, clear any unspent Slayer Dice on this card and gain a Hope per die cleared.",
+      "mechanics": {
+        "kind": "effects",
+        "resource": {
+          "id": "slayer-dice",
+          "label": "Slayer Dice (maximum stored)",
+          "count": "proficiency",
+          "die": "d6"
+        }
+      },
+      "card": "DH Core 046/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 49"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.call-of-the-slayer.weapon-specialist",
+      "name": "Weapon Specialist",
+      "ownerId": "subclass.call-of-the-slayer",
+      "category": "subclass-specialization",
+      "text": "You can wield multiple weapons with dangerous ease. When you succeed on an attack, you can **spend a Hope** to add one of the damage dice from your secondary weapon to the damage roll. Additionally, once per long rest when you roll your Slayer Dice, reroll any 1s.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 047/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 49"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.call-of-the-slayer.martial-preparation",
+      "name": "Martial Preparation",
+      "ownerId": "subclass.call-of-the-slayer",
+      "category": "subclass-mastery",
+      "text": "You're an inspirational warrior to all who travel with you. Your party gains access to the Martial Preparation downtime move. To use this move during a rest, describe how you instruct and train with your party. You and each ally who chooses this downtime move gain a **d6** Slayer Die. A PC with a Slayer Die can spend it to roll the die and add the result to an attack or damage roll of their choice.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 048/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 49"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.wizard.prestidigitation",
+      "name": "Prestidigitation",
+      "ownerId": "class.wizard",
+      "category": "class",
+      "text": "You can perform harmless, subtle magical effects at will. For example, you can change an object's color, create a smell, light a candle, cause a tiny object to float, illuminate a room, or repair a small object.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.wizard.strange-patterns",
+      "name": "Strange Patterns",
+      "ownerId": "class.wizard",
+      "category": "class",
+      "text": "Choose a number between 1 and 12. When you roll that number on a Duality Die, gain a Hope or clear a Stress.\n\nYou can change this number when you take a long rest.",
+      "mechanics": {
+        "kind": "effects",
+        "resolver": "chooseNumber",
+        "choice": {
+          "label": "Chosen number",
+          "min": 1,
+          "max": 12,
+          "note": "Can be changed on a long rest."
+        }
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.wizard.not-this-time",
+      "name": "Not This Time",
+      "ownerId": "class.wizard",
+      "category": "hope",
+      "text": "**Spend 3 Hope** to force an adversary within Far range to reroll an attack or damage roll.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.school-of-knowledge.prepared",
+      "name": "Prepared",
+      "ownerId": "subclass.school-of-knowledge",
+      "category": "subclass-foundation",
+      "text": "Take an additional domain card of your level or lower from a domain you have access to.",
+      "mechanics": {
+        "kind": "effects",
+        "grants": {
+          "domainCards": 1
+        }
+      },
+      "card": "DH Core 049/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.school-of-knowledge.adept",
+      "name": "Adept",
+      "ownerId": "subclass.school-of-knowledge",
+      "category": "subclass-foundation",
+      "text": "When you Utilize an Experience, you can **mark a Stress** instead of spending a Hope. If you do, double your Experience modifier for that roll.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 049/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.school-of-knowledge.accomplished",
+      "name": "Accomplished",
+      "ownerId": "subclass.school-of-knowledge",
+      "category": "subclass-specialization",
+      "text": "Take an additional domain card of your level or lower from a domain you have access to.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 050/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.school-of-knowledge.perfect-recall",
+      "name": "Perfect Recall",
+      "ownerId": "subclass.school-of-knowledge",
+      "category": "subclass-specialization",
+      "text": "Once per rest, when you recall a domain card in your vault, you can reduce its Recall Cost by 1.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 050/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.school-of-knowledge.brilliant",
+      "name": "Brilliant",
+      "ownerId": "subclass.school-of-knowledge",
+      "category": "subclass-mastery",
+      "text": "Take an additional domain card of your level or lower from a domain you have access to.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 051/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.school-of-knowledge.honed-expertise",
+      "name": "Honed Expertise",
+      "ownerId": "subclass.school-of-knowledge",
+      "category": "subclass-mastery",
+      "text": "When you use an Experience, roll a **d6**. On a result of 5 or higher, you can use it without spending Hope.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 051/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.school-of-war.battlemage",
+      "name": "Battlemage",
+      "ownerId": "subclass.school-of-war",
+      "category": "subclass-foundation",
+      "text": "You've focused your studies on becoming an unconquerable force on the battlefield. Gain an additional Hit Point slot.",
+      "mechanics": {
+        "kind": "effects",
+        "modifiers": [
+          {
+            "target": "hpSlots",
+            "value": 1
+          }
+        ]
+      },
+      "card": "DH Core 052/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.school-of-war.face-your-fear",
+      "name": "Face Your Fear",
+      "ownerId": "subclass.school-of-war",
+      "category": "subclass-foundation",
+      "text": "When you succeed with Fear on an attack roll, you deal an extra **1d10** magic damage.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH Core 052/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.school-of-war.conjure-shield",
+      "name": "Conjure Shield",
+      "ownerId": "subclass.school-of-war",
+      "category": "subclass-specialization",
+      "text": "You can maintain a protective barrier of magic. While you have at least 2 Hope, you add your Proficiency to your Evasion.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 053/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.school-of-war.fueled-by-fear",
+      "name": "Fueled by Fear",
+      "ownerId": "subclass.school-of-war",
+      "category": "subclass-specialization",
+      "text": "The extra magic damage from your \"Face Your Fear\" feature increases to **2d10**.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 053/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.school-of-war.thrive-in-chaos",
+      "name": "Thrive in Chaos",
+      "ownerId": "subclass.school-of-war",
+      "category": "subclass-mastery",
+      "text": "When you succeed on an attack, you can **mark a Stress** after rolling damage to force the target to mark an additional Hit Point.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 054/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.school-of-war.have-no-fear",
+      "name": "Have No Fear",
+      "ownerId": "subclass.school-of-war",
+      "category": "subclass-mastery",
+      "text": "The extra magic damage from your \"Face Your Fear\" feature increases to **3d10**.",
+      "mechanics": {
+        "kind": "deferred",
+        "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
+      },
+      "card": "DH Core 054/270",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 51"
+        ],
+        "errata": false
+      }
+    },
+    {
       "id": "feature.clank.purposeful-design",
       "name": "Purposeful Design",
       "ownerId": "ancestry.clank",
       "category": "ancestry",
       "text": "Decide who made you and for what purpose. At character creation, choose one of your Experiences that best aligns with this purpose and gain a permanent +1 bonus to it.",
       "mechanics": {
-        "kind": "resolver",
+        "kind": "effects",
         "resolver": "clankPurposefulDesign"
       },
       "position": "top",
@@ -514,13 +2163,314 @@
       }
     },
     {
+      "id": "feature.drakona.scales",
+      "name": "Scales",
+      "ownerId": "ancestry.drakona",
+      "category": "ancestry",
+      "text": "Your scales act as natural protection. When you would take Severe damage, you can **mark a Stress** to mark 1 fewer Hit Points.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 54"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.drakona.elemental-breath",
+      "name": "Elemental Breath",
+      "ownerId": "ancestry.drakona",
+      "category": "ancestry",
+      "text": "Choose an element for your breath (such as electricity, fire, or ice). You can use this breath against a target or group of targets within Very Close range, treating it as an Instinct weapon that deals **d8** magic damage using your Proficiency.",
+      "mechanics": {
+        "kind": "effects",
+        "resolver": "chooseOption",
+        "attack": {
+          "name": "Elemental Breath",
+          "trait": "instinct",
+          "range": "Very Close",
+          "damage": {
+            "die": 8,
+            "bonus": 0
+          },
+          "damageType": "mag",
+          "cost": null
+        },
+        "choice": {
+          "label": "Breath element",
+          "options": [
+            "electricity",
+            "fire",
+            "ice"
+          ],
+          "note": "Options limited to the SRD's examples."
+        }
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 54"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.dwarf.thick-skin",
+      "name": "Thick Skin",
+      "ownerId": "ancestry.dwarf",
+      "category": "ancestry",
+      "text": "When you take Minor damage, you can **mark 2 Stress** instead of marking a Hit Point.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 55"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.dwarf.increased-fortitude",
+      "name": "Increased Fortitude",
+      "ownerId": "ancestry.dwarf",
+      "category": "ancestry",
+      "text": "**Spend 3 Hope** to halve incoming physical damage.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 55"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.elf.quick-reactions",
+      "name": "Quick Reactions",
+      "ownerId": "ancestry.elf",
+      "category": "ancestry",
+      "text": "**Mark a Stress** to gain advantage on a reaction roll.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 56"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.elf.celestial-trance",
+      "name": "Celestial Trance",
+      "ownerId": "ancestry.elf",
+      "category": "ancestry",
+      "text": "During a rest, you can drop into a trance to choose an additional downtime move.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 56"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.faerie.luckbender",
+      "name": "Luckbender",
+      "ownerId": "ancestry.faerie",
+      "category": "ancestry",
+      "text": "Once per session, after you or a willing ally within Close range makes an action roll, you can spend 3 Hope to reroll the Duality Dice.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 57"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.faerie.wings",
+      "name": "Wings",
+      "ownerId": "ancestry.faerie",
+      "category": "ancestry",
+      "text": "You can fly. While flying, you can **mark a Stress** after an adversary makes an attack against you to gain a +2 bonus to your Evasion against that attack.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 57"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.faun.caprine-leap",
+      "name": "Caprine Leap",
+      "ownerId": "ancestry.faun",
+      "category": "ancestry",
+      "text": "You can leap anywhere within Close range as though you were using normal movement, allowing you to vault obstacles, jump across gaps, or scale barriers with ease.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 58"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.faun.kick",
+      "name": "Kick",
+      "ownerId": "ancestry.faun",
+      "category": "ancestry",
+      "text": "When you succeed on an attack against a target within Melee range, you can **mark a Stress** to kick yourself off them, dealing an extra **2d6** damage and knocking back either yourself or the target to Very Close range.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 58"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.firbolg.charge",
+      "name": "Charge",
+      "ownerId": "ancestry.firbolg",
+      "category": "ancestry",
+      "text": "When you succeed on an Agility Roll to move from Far or Very Far range into Melee range with one or more targets, you can **mark a Stress** to deal **1d12** physical damage to all targets within Melee range.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 59"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.firbolg.unshakable",
+      "name": "Unshakable",
+      "ownerId": "ancestry.firbolg",
+      "category": "ancestry",
+      "text": "When you would mark a Stress, roll a **d6**. On a result of 6, don't mark it.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 59"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.fungril.fungril-network",
+      "name": "Fungril Network",
+      "ownerId": "ancestry.fungril",
+      "category": "ancestry",
+      "text": "Make an **Instinct Roll (12)** to use your mycelial array to speak with others of your ancestry. On a success, you can communicate across any distance.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 60"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.fungril.death-connection",
+      "name": "Death Connection",
+      "ownerId": "ancestry.fungril",
+      "category": "ancestry",
+      "text": "While touching a corpse that died recently, you can **mark a Stress** to extract one memory from the corpse related to a specific emotion or sensation of your choice.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 60"
+        ],
+        "errata": false
+      }
+    },
+    {
       "id": "feature.galapa.shell",
       "name": "Shell",
       "ownerId": "ancestry.galapa",
       "category": "ancestry",
       "text": "Gain a bonus to your damage thresholds equal to your Proficiency.",
       "mechanics": {
-        "kind": "modifiers",
+        "kind": "effects",
         "modifiers": [
           {
             "target": "thresholds",
@@ -566,7 +2516,7 @@
       "category": "ancestry",
       "text": "Gain an additional Hit Point slot at character creation.",
       "mechanics": {
-        "kind": "modifiers",
+        "kind": "effects",
         "modifiers": [
           {
             "target": "hpSlots",
@@ -606,13 +2556,93 @@
       }
     },
     {
+      "id": "feature.goblin.surefooted",
+      "name": "Surefooted",
+      "ownerId": "ancestry.goblin",
+      "category": "ancestry",
+      "text": "You ignore disadvantage on Agility Rolls.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 63"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.goblin.danger-sense",
+      "name": "Danger Sense",
+      "ownerId": "ancestry.goblin",
+      "category": "ancestry",
+      "text": "Once per rest, mark a Stress to force an adversary to reroll an attack against you or an ally within Very Close range.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 63"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.halfling.luckbringer",
+      "name": "Luckbringer",
+      "ownerId": "ancestry.halfling",
+      "category": "ancestry",
+      "text": "At the start of each session, everyone in your party gains a Hope.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 64"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.halfling.internal-compass",
+      "name": "Internal Compass",
+      "ownerId": "ancestry.halfling",
+      "category": "ancestry",
+      "text": "When you roll a 1 on your Hope Die, you can reroll it.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 64"
+        ],
+        "errata": false
+      }
+    },
+    {
       "id": "feature.human.high-stamina",
       "name": "High Stamina",
       "ownerId": "ancestry.human",
       "category": "ancestry",
       "text": "Gain an additional Stress slot at character creation.",
       "mechanics": {
-        "kind": "modifiers",
+        "kind": "effects",
         "modifiers": [
           {
             "target": "stressSlots",
@@ -652,6 +2682,177 @@
       }
     },
     {
+      "id": "feature.infernis.fearless",
+      "name": "Fearless",
+      "ownerId": "ancestry.infernis",
+      "category": "ancestry",
+      "text": "When you roll with Fear, you can **mark 2 Stress** to change it into a roll with Hope instead.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 66"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.infernis.dread-visage",
+      "name": "Dread Visage",
+      "ownerId": "ancestry.infernis",
+      "category": "ancestry",
+      "text": "You have advantage on rolls to intimidate hostile creatures.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 66"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.katari.feline-instincts",
+      "name": "Feline Instincts",
+      "ownerId": "ancestry.katari",
+      "category": "ancestry",
+      "text": "When you make an Agility Roll, you can **spend 2 Hope** to reroll your Hope Die.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 67"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.katari.retracting-claws",
+      "name": "Retracting Claws",
+      "ownerId": "ancestry.katari",
+      "category": "ancestry",
+      "text": "Make an **Agility Roll** to scratch a target within Melee range. On a success, they become temporarily *Vulnerable*.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 67"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.orc.sturdy",
+      "name": "Sturdy",
+      "ownerId": "ancestry.orc",
+      "category": "ancestry",
+      "text": "When you have 1 Hit Point remaining, attacks against you have disadvantage.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 68"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.orc.tusks",
+      "name": "Tusks",
+      "ownerId": "ancestry.orc",
+      "category": "ancestry",
+      "text": "When you succeed on an attack against a target within Melee range, you can **spend a Hope** to gore the target with your tusks, dealing an extra **1d6** damage.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 68"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.ribbet.amphibious",
+      "name": "Amphibious",
+      "ownerId": "ancestry.ribbet",
+      "category": "ancestry",
+      "text": "You can breathe and move naturally underwater.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 69"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.ribbet.long-tongue",
+      "name": "Long Tongue",
+      "ownerId": "ancestry.ribbet",
+      "category": "ancestry",
+      "text": "You can use your long tongue to grab onto things within Close range. **Mark a Stress** to use your tongue as a Finesse Close weapon that deals **d12** physical damage using your Proficiency.",
+      "mechanics": {
+        "kind": "effects",
+        "attack": {
+          "name": "Long Tongue",
+          "trait": "finesse",
+          "range": "Close",
+          "damage": {
+            "die": 12,
+            "bonus": 0
+          },
+          "damageType": "phy",
+          "cost": "Mark a Stress"
+        }
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 69"
+        ],
+        "errata": false
+      }
+    },
+    {
       "id": "feature.simiah.natural-climber",
       "name": "Natural Climber",
       "ownerId": "ancestry.simiah",
@@ -678,7 +2879,7 @@
       "category": "ancestry",
       "text": "Gain a permanent +1 bonus to your Evasion at character creation.",
       "mechanics": {
-        "kind": "modifiers",
+        "kind": "effects",
         "modifiers": [
           {
             "target": "evasion",
@@ -736,13 +2937,114 @@
       }
     },
     {
+      "id": "feature.orderborne.dedicated",
+      "name": "Dedicated",
+      "ownerId": "community.orderborne",
+      "category": "community",
+      "text": "Record three sayings or values your upbringing instilled in you. Once per rest, when you describe how you're embodying one of these principles through your current action, you can roll a **d20** as your Hope Die.",
+      "mechanics": {
+        "kind": "effects",
+        "resolver": "orderborneDedicated"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 75"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.ridgeborne.steady",
+      "name": "Steady",
+      "ownerId": "community.ridgeborne",
+      "category": "community",
+      "text": "You have advantage on rolls to traverse dangerous cliffs and ledges, navigate harsh environments, and use your survival knowledge.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 76"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.seaborne.know-the-tide",
+      "name": "Know the Tide",
+      "ownerId": "community.seaborne",
+      "category": "community",
+      "text": "You can sense the ebb and flow of life. When you roll with Fear, place a token on your community card. You can hold a number of tokens equal to your level. Before you make an action roll, you can spend any number of these tokens to gain a +1 bonus to the roll for each token spent. At the end of each session, clear all unspent tokens.",
+      "mechanics": {
+        "kind": "effects",
+        "resource": {
+          "id": "know-the-tide",
+          "label": "Know the Tide tokens (maximum held)",
+          "count": "level"
+        }
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 77"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.slyborne.scoundrel",
+      "name": "Scoundrel",
+      "ownerId": "community.slyborne",
+      "category": "community",
+      "text": "You have advantage on rolls to negotiate with criminals, detect lies, or find a safe place to hide.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 78"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.underborne.low-light-living",
+      "name": "Low-Light Living",
+      "ownerId": "community.underborne",
+      "category": "community",
+      "text": "When you're in an area with low light or heavy shadow, you have advantage on rolls to hide, investigate, or perceive details within that area.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 79"
+        ],
+        "errata": false
+      }
+    },
+    {
       "id": "feature.wanderborne.nomadic-pack",
       "name": "Nomadic Pack",
       "ownerId": "community.wanderborne",
       "category": "community",
       "text": "Add a ***Nomadic Pack*** to your inventory. Once per session, you can **spend a Hope** to reach into this pack and pull out a mundane item that's useful to your situation. Work with the GM to figure out what item you take out.",
       "mechanics": {
-        "kind": "grant",
+        "kind": "effects",
         "grants": {
           "items": [
             "item.nomadic-pack"

@@ -76,6 +76,36 @@
       "who is searching for something lost",
       "who left home with more questions than answers",
       "who has a debt to repay and a long road ahead"
+    ],
+    "nature": [
+      "who listens when the forest speaks",
+      "who feels more at home among beasts than people",
+      "who carries a seed from a forest that no longer exists"
+    ],
+    "wilderness": [
+      "who knows the wild roads better than any map",
+      "who tracks what others cannot see",
+      "who left the city behind for open sky"
+    ],
+    "stealth": [
+      "who is rarely seen and never caught",
+      "who trusts locks less than people",
+      "who keeps a secret for every friend"
+    ],
+    "faith": [
+      "who carries a quiet, unshakable conviction",
+      "who answers a calling few can hear",
+      "who brings hope where it has run thin"
+    ],
+    "arcane": [
+      "who chases the edges of what magic can do",
+      "who studies power to keep it from the wrong hands",
+      "whose magic arrived sooner than wanted"
+    ],
+    "martial": [
+      "who has spent a lifetime learning to fight",
+      "who settles arguments with a raised blade",
+      "who fights so others will not have to"
     ]
   },
   "origins": [

@@ -30,12 +30,44 @@ function featureBlock(name, text, suffix = '') {
   return [lead, ...rest].join('\n\n');
 }
 
+function renderBeastforms(push, d, catalog) {
+  push(`### Beastform Options (Tier ${d.tier} and below)`, '');
+  push('Numbers below already include the form\'s bonuses and your current traits, Evasion and Proficiency.', '');
+  push('| Form | Evasion | Attack | Range | Damage | Advantage on |', '| --- | :---: | --- | --- | --- | --- |');
+  for (const row of d.beastforms) {
+    const form = catalog.get(row.beastformId);
+    push(`| ${cell(form.name)} (${cell(form.examples)}) | ${row.evasion} | ${TRAIT_LABELS[row.attackTrait]} ${signed(row.attackModifier)} | ${row.range} | ${row.damage} ${damageTypeLabel(row.damageType)} | ${cell(form.advantages.join(', '))} |`);
+  }
+  push('');
+  for (const row of d.beastforms) {
+    const form = catalog.get(row.beastformId);
+    const bonus = form.traitBonus ? `${TRAIT_LABELS[form.traitBonus.trait]} ${signed(form.traitBonus.value)}; ` : '';
+    push(`- **${form.name}:** ${bonus}${form.features.map((f) => `*${f.name}:* ${f.text}`).join(' ')}`);
+  }
+  push('');
+}
+
+function renderCompanion(push, comp) {
+  push(`### Companion: ${comp.name}`, '');
+  push(`*${capitalize(comp.animal)} - animal type and name are suggestions; settle them with your GM.*`, '');
+  push(
+    `**Evasion** ${comp.evasion} | **Stress** ${comp.stressSlots} slots (0 marked; companions mark Stress instead of taking damage)  `,
+    `**Attack** ${comp.attackRange}, ${comp.damage} ${damageTypeLabel(comp.damageType)} (uses your Proficiency)  `,
+    `**Command** Spellcast Roll (${TRAIT_LABELS[comp.commandTrait]} ${signed(comp.commandModifier)}); spend a Hope to add a companion Experience  `,
+    `**Experiences** ${comp.experiences.map((e) => `${e.name} ${signed(e.modifier)}`).join(', ')}`,
+    '',
+  );
+}
+
 export function renderCharacterMarkdown(character, catalog) {
   const c = character;
   const d = c.derived;
   const cls = catalog.get(c.selections.classId);
   const subclass = catalog.get(c.selections.subclassId);
   const ancestry = catalog.get(c.selections.ancestryId);
+  const secondAncestry = c.selections.secondAncestryId ? catalog.get(c.selections.secondAncestryId) : null;
+  const heritageName = secondAncestry ? `Mixed Ancestry (${ancestry.name} and ${secondAncestry.name})` : ancestry.name;
+  const cardIds = new Set(c.domainCards.map((x) => x.cardId));
   const community = catalog.get(c.selections.communityId);
   const armor = catalog.get(c.equipment.armorId);
   const features = acquiredFeatures(c, catalog);
@@ -46,7 +78,7 @@ export function renderCharacterMarkdown(character, catalog) {
   push(`# ${c.flavor.name}`, '', `*${c.flavor.concept}*`, '');
   push(
     `**Level:** ${c.level} (Tier ${d.tier}) | **Class:** ${cls.name} - ${subclass.name}  `,
-    `**Heritage:** ${ancestry.name} / ${community.name} | **Pronouns:** ${c.flavor.pronouns}`,
+    `**Heritage:** ${heritageName} / ${community.name} | **Pronouns:** ${c.flavor.pronouns}`,
     '',
   );
 
@@ -65,9 +97,9 @@ export function renderCharacterMarkdown(character, catalog) {
     `**Hope** ${d.hope.starting} (max ${d.hope.max}) | **Armor Score** ${d.armorScore} (${d.armorScore} Armor Slots, 0 marked)  `,
     `**Damage Thresholds** Major ${d.thresholds.major} / Severe ${d.thresholds.severe}`,
   );
-  if (d.resources.length) {
-    push('', d.resources.map((r) => `**${r.label}** ${r.die}`).join(' | '));
-  }
+  const resourceText = (r) => `**${r.label}** ${r.value}${r.basis ? ` (${r.basis})` : ''}`;
+  const featureResources = d.resources.filter((r) => !cardIds.has(r.sourceId));
+  if (featureResources.length) push('', featureResources.map(resourceText).join('  \n'));
   push('');
 
   // 3. Combat & gear
@@ -86,7 +118,19 @@ export function renderCharacterMarkdown(character, catalog) {
       weaponNotes.push(`- **${w.name}** deals **${cond.damage}** ${damageTypeLabel(w.damageType)} against ${cond.condition} while paired with your secondary weapon.`);
     }
   }
+  if (d.physicalDamageBonus) {
+    weaponNotes.push(`- Physical damage above includes +${d.physicalDamageBonus.value} from ${d.physicalDamageBonus.sources.join(', ')}.`);
+  }
   if (weaponNotes.length) push(...weaponNotes, '');
+
+  if (d.extraAttacks.length) {
+    push('### Other Attacks', '');
+    push('| Attack | Roll | Range | Damage | Cost |', '| --- | --- | --- | --- | --- |');
+    for (const a of d.extraAttacks) {
+      push(`| ${cell(a.name)} | ${TRAIT_LABELS[a.attackTrait]} ${signed(a.attackModifier)} | ${a.range} | ${a.damage} ${damageTypeLabel(a.damageType)} | ${a.cost ?? '-'} |`);
+    }
+    push('', '*From ancestry features; see Features for full rules.*', '');
+  }
 
   push('### Armor', '');
   push(`**${armor.name}** - base thresholds ${armor.baseThresholds.major} / ${armor.baseThresholds.severe}, base score ${armor.baseScore}`);
@@ -115,22 +159,31 @@ export function renderCharacterMarkdown(character, catalog) {
     push(`### ${heading}`, '');
     for (const f of list) push(featureBlock(f.name, f.text, suffixFor(f)), '');
   };
-  const choiceSuffix = (f) => {
+  const choiceSuffix = (f, extra = []) => {
+    const notes = [...extra];
     const choice = c.featureChoices[f.id];
-    if (!choice || f.mechanics.kind !== 'resolver') return '';
-    return ` *(${RESOLVERS[f.mechanics.resolver].describe(choice, c)})*`;
-  };
-  section(`Ancestry: ${ancestry.name}`, features.filter((f) => f.category === 'ancestry'), choiceSuffix);
-  section(`Community: ${community.name}`, features.filter((f) => f.category === 'community'), choiceSuffix);
-  section(`Class: ${cls.name}`, features.filter((f) => f.category === 'class' || f.category === 'hope'), (f) => {
-    if (f.category === 'hope') return ' *(Hope feature)*';
+    if (choice && f.mechanics.resolver) notes.push(RESOLVERS[f.mechanics.resolver].describe(choice, c, f.mechanics));
     const res = d.resources.find((r) => r.sourceId === f.id);
-    return res ? ` *(your ${res.label}: ${res.die})*` : '';
-  });
-  section(`Subclass: ${subclass.name} (Foundation)`, features.filter((f) => f.category === 'subclass-foundation'), choiceSuffix);
+    if (res) notes.push(`${res.label}: ${res.value}${res.basis ? `, ${res.basis}` : ''}`);
+    if (f.category === 'hope') notes.unshift('Hope feature');
+    return notes.length ? ` *(${notes.join('; ')})*` : '';
+  };
+  if (secondAncestry) {
+    section(`Ancestry: Mixed (${ancestry.name} and ${secondAncestry.name})`, features.filter((f) => f.category === 'ancestry'), (f) => {
+      const from = f.ownerId === ancestry.id ? ancestry.name : secondAncestry.name;
+      return choiceSuffix(f, [`${from} ${f.position} feature`]);
+    });
+  } else {
+    section(`Ancestry: ${ancestry.name}`, features.filter((f) => f.category === 'ancestry'), (f) => choiceSuffix(f));
+  }
+  section(`Community: ${community.name}`, features.filter((f) => f.category === 'community'), (f) => choiceSuffix(f));
+  section(`Class: ${cls.name}`, features.filter((f) => f.category === 'class' || f.category === 'hope'), (f) => choiceSuffix(f));
+  if (d.beastforms.length) renderBeastforms(push, d, catalog);
+  section(`Subclass: ${subclass.name} (Foundation)`, features.filter((f) => f.category === 'subclass-foundation'), (f) => choiceSuffix(f));
+  if (d.companion) renderCompanion(push, d.companion);
   for (const [category, label] of [['subclass-specialization', 'Specialization'], ['subclass-mastery', 'Mastery']]) {
     const list = features.filter((f) => f.category === category);
-    if (list.length) section(`Subclass: ${subclass.name} (${label})`, list, choiceSuffix);
+    if (list.length) section(`Subclass: ${subclass.name} (${label})`, list, (f) => choiceSuffix(f));
   }
 
   // 6. Domain cards
@@ -143,7 +196,9 @@ export function renderCharacterMarkdown(character, catalog) {
     }
     push('');
     for (const { card } of list) {
-      push(`### ${card.name}`, '', `*${catalog.get(card.domainId).name} ${card.level} - ${card.type} - Recall ${card.recallCost}*`, '', card.text, '');
+      const res = d.resources.find((r) => r.sourceId === card.id);
+      const resLine = res ? `  \n*${res.label}: ${res.value} (${res.basis}).*` : '';
+      push(`### ${card.name}`, '', `*${catalog.get(card.domainId).name} ${card.level} - ${card.type} - Recall ${card.recallCost}*${resLine}`, '', card.text, '');
     }
   };
   cardSection('Domain Cards - Active Loadout', cards.filter((x) => x.entry.location === 'loadout'));

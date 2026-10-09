@@ -61,6 +61,7 @@ const og = loadUpstreamData(featuresSrc);
 const errors = [];
 const usedFeatureMechanics = new Set();
 const usedGearMechanics = new Set();
+const usedOverrides = new Set();
 
 function source(pages, extra = {}) {
   const list = (pages ?? []).filter(Boolean);
@@ -83,14 +84,35 @@ const pick = (list, names, what) =>
 const plain = (html) => htmlToMarkdown(html).replace(/\*+/g, '');
 
 const features = [];
+const UPPER_TIERS = new Set(['subclass-specialization', 'subclass-mastery']);
+// Upstream sometimes merges two features into one string ("...</p></li><li><p>...") or
+// leaves stray list tags around a feature. Split and clean before parsing.
+function splitFeatureHtml(list) {
+  return list.flatMap((html) => String(html).split(/<\/p>\s*<\/li>\s*<li>\s*<p>/).map((part, i, parts) => {
+    let h = part.replace(/^\s*<li>\s*/, '').replace(/<\/li>\s*$/, '');
+    if (parts.length > 1 && i < parts.length - 1) h += '</p>';
+    if (parts.length > 1 && i > 0) h = `<p>${h}`;
+    return h;
+  }));
+}
+const correctName = (name) => curation.nameCorrections?.[name] ?? name;
 function addFeature(ownerSlug, ownerId, category, html, pages, extra = {}) {
-  const { name, text } = splitNamedFeature(html);
+  // Some upstream strings end with a stray closing </li>.
+  const parsed = splitNamedFeature(html);
+  const name = correctName(parsed.name);
+  const { text } = parsed;
   const id = `feature.${ownerSlug}.${slugify(name)}`;
-  const mechanics = curation.featureMechanics[id];
+  let mechanics = curation.featureMechanics[id];
+  if (!mechanics && UPPER_TIERS.has(category)) mechanics = curation.defaults.subclassUpperTierMechanics;
   if (!mechanics) errors.push(`No curated mechanics entry for ${id}`);
   usedFeatureMechanics.add(id);
   if (features.some((f) => f.id === id)) errors.push(`Duplicate feature id ${id}`);
-  features.push({ id, name, ownerId, category, text, mechanics: mechanics ?? null, ...extra, source: source(pages) });
+  const override = curation.officialOverrides?.features?.[id];
+  usedOverrides.add(id);
+  features.push({
+    id, name, ownerId, category, text: override ? override.text : text, mechanics: mechanics ?? null, ...extra,
+    source: source(pages, override ? { textOverride: 'official-srd-2.0' } : {}),
+  });
   return id;
 }
 
@@ -114,6 +136,11 @@ const weaponId = (label) => `weapon.${slugify(label)}`;
 const armorId = (label) => `armor.${slugify(label)}`;
 
 // ---------------------------------------------------------------- domains & cards
+function cardMechanics(id) {
+  const mechanics = curation.cardMechanics[id];
+  if (!mechanics) errors.push(`No curated mechanics entry for ${id}`);
+  return mechanics ?? null;
+}
 const domains = pick(og.domainList, curation.select.domains, 'domain').map((d) => ({
   id: domainId(d.label),
   name: d.label,
@@ -133,8 +160,12 @@ const domainCards = og.domaincardList
     type: c.type,
     recallCost: c.recall,
     text: htmlToMarkdown(c.effects),
+    mechanics: cardMechanics(`card.${c.name}`),
     source: source(c.pages),
   }));
+for (const id of Object.keys(curation.cardMechanics)) {
+  if (!domainCards.some((c) => c.id === id)) errors.push(`Curated card mechanics entry ${id} matches no imported card`);
+}
 
 // ---------------------------------------------------------------- gear
 function importWeapons(list, slot) {
@@ -196,7 +227,7 @@ const classes = [];
 const subclasses = [];
 for (const c of pick(og.classesList, curation.select.classes, 'class')) {
   const classId = `class.${c.name}`;
-  const featureIds = c.features.map((html) => addFeature(c.name, classId, 'class', html, c.pages));
+  const featureIds = splitFeatureHtml(c.features).map((html) => addFeature(c.name, classId, 'class', html, c.pages));
   const hopeFeatureId = addFeature(c.name, classId, 'hope', c.hopefeature, c.pages);
   const subclassIds = [];
   for (const label of c.subclasses) {
@@ -206,7 +237,7 @@ for (const c of pick(og.classesList, curation.select.classes, 'class')) {
     const subclassId = `subclass.${s.name}`;
     subclassIds.push(subclassId);
     const tierFeatures = (key, category, cards) =>
-      s[key].map((html) => addFeature(s.name, subclassId, category, html, s.pages, { card: cards?.[0] ?? null }));
+      splitFeatureHtml(s[key]).map((html) => addFeature(s.name, subclassId, category, html, s.pages, { card: cards?.[0] ?? null }));
     subclasses.push({
       id: subclassId,
       name: s.label,
@@ -230,7 +261,7 @@ for (const c of pick(og.classesList, curation.select.classes, 'class')) {
     featureIds,
     hopeFeatureId,
     subclassIds,
-    classItems: c.items.map(decodeEntities),
+    classItems: curation.officialOverrides?.classItems?.[classId]?.items ?? c.items.map(decodeEntities),
     suggested: {
       traits: suggestedTraits,
       primaryWeaponId: c.weaponprimary ? weaponId(c.weaponprimary) : null,
@@ -258,9 +289,32 @@ const communities = pick(og.communityList, curation.select.communities, 'communi
   return { id, name: c.label, summary: plain(c.summarybrief), featureId, source: source(c.pages, { card: c.featurecard?.[0] ?? null }) };
 });
 
+// ---------------------------------------------------------------- beastforms
+const beastforms = curation.select.beastforms
+  ? og.beastformList.filter((b) => isCorePages(b.pages)).map((b) => ({
+    id: `beastform.${b.name}`,
+    name: b.label,
+    tier: b.tier,
+    examples: decodeEntities(b.examples).replace(/^\(|\)$/g, ''),
+    traitBonus: b.stat ? { trait: b.stat.toLowerCase(), value: Number(b.statbonus) } : null,
+    evasionBonus: Number(b.evasionbonus),
+    attack: b.attacktrait
+      ? { trait: b.attacktrait.toLowerCase(), range: b.attackrange, damage: parseDamage(String(b.attackdamage).trim()), damageType: b.attackdamagetype }
+      : null,
+    advantages: b.advantage ? b.advantage.split(',').map((x) => x.trim()).filter(Boolean) : [],
+    features: b.features.map((html) => splitNamedFeature(html)),
+    // Evolved/Hybrid forms build on other forms (V2 handles them; RD-024).
+    variant: b.features.some((html) => /Evolved:|Hybrid Features:/.test(html)) ? 'composite' : null,
+    source: source(b.pages),
+  }))
+  : [];
+
 // ---------------------------------------------------------------- checks & output
 for (const id of Object.keys(curation.featureMechanics)) {
   if (!usedFeatureMechanics.has(id)) errors.push(`Curated mechanics entry ${id} matches no imported feature`);
+}
+for (const id of Object.keys(curation.officialOverrides?.features ?? {})) {
+  if (id !== '$comment' && !usedOverrides.has(id)) errors.push(`Official text override ${id} matches no imported feature`);
 }
 for (const name of Object.keys(curation.gearFeatureMechanics)) {
   if (!usedGearMechanics.has(name)) errors.push(`Curated gear feature "${name}" matches no imported gear`);
@@ -289,6 +343,7 @@ const outputs = {
   'weapons.json': weapons,
   'armor.json': armor,
   'items.json': items,
+  'beastforms.json': beastforms,
 };
 let differences = 0;
 for (const [file, records] of Object.entries(outputs)) {
