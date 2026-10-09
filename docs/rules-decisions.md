@@ -80,10 +80,10 @@ Subclass Specialization and Mastery features default to `deferred` until V2 clas
 
 ## V1 additions
 
-**RD-023: Mixed Ancestry** is opt-in through `options.mixedAncestry` (the "Mixed Ancestry" checkbox).
-- The chosen ancestry, or a random one, provides its top (first-listed) feature. A different random ancestry provides its bottom feature, as SRD step 2 describes.
-- The two ancestries are always different.
-- The sheet labels each feature with the ancestry it came from.
+**RD-023: Mixed Ancestry** is opt-in through `options.mixedAncestry` (the "Mixed Ancestry" checkbox), or implied by choosing a `secondAncestryId` ("Second Ancestry" selector).
+- The first ancestry (chosen or random) provides its top (first-listed) feature. The second ancestry (chosen or random) provides its bottom feature, as SRD step 2 describes.
+- The two ancestries must differ; choosing the same one is rejected with an error.
+- Both choices stay fixed across rerolls, and the sheet labels each feature with the ancestry it came from.
 
 **RD-024: Beastforms.** Druid sheets list the Beastform options of the character's tier or lower, with numbers already derived:
 - Evasion is the current Evasion plus the form's bonus.

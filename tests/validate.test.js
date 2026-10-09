@@ -65,6 +65,7 @@ test('rejects bad Experiences, deferred features and unhonoured fixed selections
 test('V1 rules: Mixed Ancestry, burden, granted cards, choices, companion and Beastforms', async () => {
   await expectError((c) => { c.selections.secondAncestryId = c.selections.ancestryId; }, /two different ancestries/, { options: { mixedAncestry: true } });
   await expectError((c) => { c.options.mixedAncestry = false; }, /Mixed Ancestry option/, { options: { mixedAncestry: true } });
+  await expectError((c) => { c.selections.secondAncestryId = 'ancestry.human'; }, /not honoured/, { secondAncestryId: 'ancestry.dwarf', ancestryId: 'ancestry.elf' });
   await expectError((c) => { c.equipment = { primaryWeaponId: 'weapon.battleaxe', secondaryWeaponId: 'weapon.round-shield', armorId: c.equipment.armorId }; }, /two-handed/, { classId: 'class.guardian' });
   await expectError((c) => { c.domainCards.pop(); }, /exactly 3 domain cards/, { subclassId: 'subclass.school-of-knowledge' });
   await expectError((c) => { c.featureChoices['feature.elemental-origin.elementalist'] = { option: 'shadow' }; }, /Element must be one of/, { subclassId: 'subclass.elemental-origin' });

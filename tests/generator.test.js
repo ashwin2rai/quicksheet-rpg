@@ -58,7 +58,7 @@ test('fixed selections survive rerolls while everything else varies', async () =
   for (let i = 0; i < 50; i++) {
     const c = generateCharacter({ ...fixed, seed: `reroll-${i}` }, catalog);
     assert.deepEqual(c.selections, { ...fixed, secondAncestryId: null });
-    assert.deepEqual(c.requested, fixed);
+    assert.deepEqual(c.requested, { ...fixed, secondAncestryId: null });
     names.add(c.flavor.name);
   }
   assert.ok(names.size > 40, 'unfixed details should be regenerated');
@@ -148,6 +148,20 @@ test('Mixed Ancestry takes the top feature of one ancestry and the bottom of ano
     assert.doesNotMatch(md, /\*\*Retract\.\*\*/);
   }
   assert.ok(seen.size > 10);
+  for (let i = 0; i < 30; i++) {
+    const both = generateCharacter({ seed: `mixed-fixed-${i}`, ancestryId: 'ancestry.elf', secondAncestryId: 'ancestry.orc', options: { mixedAncestry: true } }, catalog);
+    assert.equal(both.selections.ancestryId, 'ancestry.elf');
+    assert.equal(both.selections.secondAncestryId, 'ancestry.orc');
+    const secondOnly = generateCharacter({ seed: `mixed-second-${i}`, secondAncestryId: 'ancestry.orc' }, catalog);
+    assert.ok(validateCharacter(secondOnly, catalog).valid);
+    assert.equal(secondOnly.selections.secondAncestryId, 'ancestry.orc');
+    assert.notEqual(secondOnly.selections.ancestryId, 'ancestry.orc');
+    assert.equal(secondOnly.options.mixedAncestry, true, 'choosing a second ancestry implies Mixed Ancestry');
+  }
+  assert.throws(
+    () => generateCharacter({ ancestryId: 'ancestry.elf', secondAncestryId: 'ancestry.elf' }, catalog),
+    (e) => e instanceof GenerationError && e.code === 'mixed-ancestry-duplicate',
+  );
   const plain = generateCharacter({ seed: 'not-mixed' }, catalog);
   assert.equal(plain.selections.secondAncestryId, null);
 });

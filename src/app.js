@@ -16,6 +16,8 @@ const els = {
   cls: $('class'),
   subclass: $('subclass'),
   mixed: $('mixed'),
+  secondAncestry: $('second-ancestry'),
+  secondAncestryLabel: $('second-ancestry-label'),
   generate: $('generate'),
   status: $('status'),
   error: $('error'),
@@ -47,6 +49,12 @@ function syncSubclassOptions() {
   }
 }
 
+function syncSecondAncestry() {
+  // Offer every ancestry except the one chosen above; resets a now-conflicting choice to Random.
+  fillSelect(els.secondAncestry, state.catalog.ancestries.filter((a) => a.id !== els.ancestry.value));
+  els.secondAncestryLabel.hidden = !els.mixed.checked;
+}
+
 function showError(message) {
   els.error.textContent = message;
   els.error.hidden = !message;
@@ -66,6 +74,7 @@ function generate() {
       classId: els.cls.value || null,
       subclassId: els.subclass.value || null,
       contentProfile: 'core',
+      secondAncestryId: (els.mixed.checked && els.secondAncestry.value) || null,
       options: { mixedAncestry: els.mixed.checked },
     }, state.catalog);
     state.character = character;
@@ -135,6 +144,9 @@ async function init() {
   fillSelect(els.cls, state.catalog.classes);
   syncSubclassOptions();
   els.cls.addEventListener('change', syncSubclassOptions);
+  syncSecondAncestry();
+  els.ancestry.addEventListener('change', syncSecondAncestry);
+  els.mixed.addEventListener('change', syncSecondAncestry);
   els.form.addEventListener('submit', (event) => {
     event.preventDefault();
     generate();

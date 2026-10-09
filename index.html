@@ -38,7 +38,12 @@
             <select id="subclass" name="subclass" disabled><option value="">Random</option></select>
           </label>
         </div>
-        <label class="checkbox" for="mixed"><input type="checkbox" id="mixed" name="mixed"> Mixed Ancestry <span class="hint">(top feature from one ancestry, bottom feature from another)</span></label>
+        <div class="mixed-row">
+          <label class="checkbox" for="mixed"><input type="checkbox" id="mixed" name="mixed"> Mixed Ancestry <span class="hint">(top feature from Ancestry, bottom feature from Second Ancestry)</span></label>
+          <label for="second-ancestry" id="second-ancestry-label" hidden>Second Ancestry
+            <select id="second-ancestry" name="second-ancestry"><option value="">Random</option></select>
+          </label>
+        </div>
         <button id="generate" type="submit" class="primary" disabled>Generate Character</button>
       </form>
       <p id="error" class="error" role="alert" hidden></p>

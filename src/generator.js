@@ -39,6 +39,7 @@ export function generateCharacter(input, catalog) {
   const {
     level = 1,
     ancestryId = null,
+    secondAncestryId = null,
     communityId = null,
     classId = null,
     subclassId = null,
@@ -48,12 +49,12 @@ export function generateCharacter(input, catalog) {
   } = input ?? {};
 
   if (!SUPPORTED_LEVELS.includes(level)) {
-    throw new GenerationError(`Level ${level} is not supported yet. This proof of concept generates Level 1 characters only.`, { code: 'unsupported-level' });
+    throw new GenerationError(`Level ${level} is not supported yet. QuickSheet currently generates Level 1 characters only.`, { code: 'unsupported-level' });
   }
   if (contentProfile !== catalog.contentProfile) {
     throw new GenerationError(`Content profile "${contentProfile}" is not available. Supported: "${catalog.contentProfile}".`, { code: 'unsupported-profile' });
   }
-  const fixed = resolveFixedSelections({ ancestryId, communityId, classId, subclassId }, catalog);
+  const fixed = resolveFixedSelections({ ancestryId, secondAncestryId, communityId, classId, subclassId }, catalog);
 
   const rng = createRng(seed);
   const failures = [];
@@ -68,7 +69,7 @@ export function generateCharacter(input, catalog) {
 }
 
 /** Checks fixed IDs exist, have the right type, and are mutually compatible. */
-export function resolveFixedSelections({ ancestryId, communityId, classId, subclassId }, catalog) {
+export function resolveFixedSelections({ ancestryId, secondAncestryId = null, communityId, classId, subclassId }, catalog) {
   const check = (id, list, label) => {
     if (id === null || id === undefined || id === '') return null;
     if (!list.some((r) => r.id === id)) {
@@ -78,10 +79,14 @@ export function resolveFixedSelections({ ancestryId, communityId, classId, subcl
   };
   const fixed = {
     ancestryId: check(ancestryId, catalog.ancestries, 'ancestry'),
+    secondAncestryId: check(secondAncestryId, catalog.ancestries, 'second ancestry'),
     communityId: check(communityId, catalog.communities, 'community'),
     classId: check(classId, catalog.classes, 'class'),
     subclassId: check(subclassId, catalog.subclasses, 'subclass'),
   };
+  if (fixed.secondAncestryId && fixed.secondAncestryId === fixed.ancestryId) {
+    throw new GenerationError('A Mixed Ancestry needs two different ancestries.', { code: 'mixed-ancestry-duplicate' });
+  }
   if (fixed.subclassId) {
     const parent = catalog.get(fixed.subclassId).classId;
     if (fixed.classId && fixed.classId !== parent) {
@@ -112,9 +117,17 @@ export function qualityIssues(character, catalog) {
 function buildCandidate({ fixed, level, seed, contentProfile, options, rng, catalog }) {
   const cls = fixed.classId ? catalog.get(fixed.classId) : rng.pick(catalog.classes);
   const subclass = fixed.subclassId ? catalog.get(fixed.subclassId) : rng.pick(catalog.subclassesOf(cls.id));
-  const ancestry = fixed.ancestryId ? catalog.get(fixed.ancestryId) : rng.pick(catalog.ancestries);
   // Mixed Ancestry: top feature from `ancestry`, bottom feature from a different ancestry.
-  const secondAncestry = options.mixedAncestry ? rng.pick(catalog.ancestries.filter((a) => a.id !== ancestry.id)) : null;
+  // Choosing a second ancestry implies Mixed Ancestry.
+  const mixed = Boolean(options.mixedAncestry || fixed.secondAncestryId);
+  const ancestry = fixed.ancestryId
+    ? catalog.get(fixed.ancestryId)
+    : rng.pick(catalog.ancestries.filter((a) => a.id !== fixed.secondAncestryId));
+  const secondAncestry = !mixed
+    ? null
+    : fixed.secondAncestryId
+      ? catalog.get(fixed.secondAncestryId)
+      : rng.pick(catalog.ancestries.filter((a) => a.id !== ancestry.id));
   const community = fixed.communityId ? catalog.get(fixed.communityId) : rng.pick(catalog.communities);
   const tier = tierForLevel(level);
 
@@ -126,7 +139,7 @@ function buildCandidate({ fixed, level, seed, contentProfile, options, rng, cata
     contentProfile,
     seed,
     requested: { ...fixed },
-    options: { mixedAncestry: Boolean(options.mixedAncestry) },
+    options: { mixedAncestry: mixed },
     level,
     selections: { ancestryId: ancestry.id, secondAncestryId: secondAncestry ? secondAncestry.id : null, communityId: community.id, classId: cls.id, subclassId: subclass.id },
     subclassTiers: ['foundation'],
