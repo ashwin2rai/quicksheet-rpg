@@ -21,7 +21,7 @@ const els = {
   empty: $('empty-state'), output: $('output'), preview: $('preview'),
   sourceView: $('source-preview'), source: $('markdown-source'),
   sheetTab: $('view-sheet'), sourceTab: $('view-source'),
-  copy: $('copy'), download: $('download'), downloadHtml: $('download-html'), theme: $('theme-toggle'),
+  download: $('download'), downloadHtml: $('download-html'), theme: $('theme-toggle'),
   openFile: $('open-file'), fileInput: $('file-input'),
 };
 
@@ -200,16 +200,6 @@ async function openMarkdownFile(file) {
   }
 }
 
-async function copyMarkdown() {
-  if (!state.markdown) return;
-  const copied = await navigator.clipboard?.writeText(state.markdown).then(() => true, () => false);
-  if (copied) {
-    els.copy.textContent = 'Copied ✓';
-    window.setTimeout(() => { els.copy.textContent = 'Copy Markdown'; }, 1800);
-  }
-  announce(copied ? 'Markdown copied to clipboard.' : 'Copy failed. Use Download .md instead.');
-}
-
 function downloadBlob(file) {
   folioRuntime.download(file.content, file.filename, file.mimeType);
   announce(`Downloaded ${file.filename}.`);
@@ -264,7 +254,6 @@ async function init() {
       switchView(next === els.sheetTab ? 'sheet' : 'source');
     });
   }
-  els.copy.addEventListener('click', copyMarkdown);
   els.download.addEventListener('click', downloadMarkdown);
   els.downloadHtml.addEventListener('click', downloadHtml);
 

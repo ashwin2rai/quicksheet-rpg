@@ -14,7 +14,7 @@ This interface refresh sits on top of the uploaded M3 / V3 repository. Existing 
 
 - `src/sheet-view.js`: pure Markdown -> HTML folio rendering; resource buttons, special dice/pools, individual Feature/Heritage cards, Notes textarea.
 - `src/folio-runtime.js`: small standalone classic script usable both on GitHub Pages and inside exported `file://` sheets. Theme and download helpers; mounts the resource/notes interactions, reads and writes visual-only session snapshots, and handles Markdown annotation round trips.
-- `src/app.js`: wires theme switch, resources/notes changes, the updated Markdown source preview/copy/download, HTML export, and Markdown imports. Game generation is unchanged.
+- `src/app.js`: wires theme switch, resources/notes changes, the updated Markdown source preview/download, HTML export, and Markdown imports. Game generation is unchanged.
 - `src/sheet-file.js`: file names, the exact `.md` download, and one self-contained HTML file by embedding the folio markup, stylesheet, runtime, bootstrap script, and safely encoded state. All data stays on-device.
 - `src/standalone-init.js`: initializes a downloaded HTML file, handles its theme toggle, Save .md, and Save updated HTML actions. Saving updated HTML embeds the current snapshot in the new file; it does not overwrite the original.
 - `styles.css`: both color themes, accessibility-focused spacing, readable typography, domain and feature-card treatments, responsive breakpoints and printable folio.
@@ -37,4 +37,4 @@ npm run smoke
 npm run serve
 ```
 
-For the browser, generate a character (including a Hope & Fear character), click several non-adjacent HP slots, change Hope/Armor, edit notes, copy/download `.md`, then open it to confirm restored marks. Save HTML, open it without an internet connection, edit notes and resources, then use **Save updated HTML** and verify those changes reopen correctly. Test desktop and narrow mobile widths. No Git commands are required; the user handles commits/deployment.
+For the browser, generate a character (including a Hope & Fear character), click several non-adjacent HP slots, change Hope/Armor, edit notes, download `.md`, then open it to confirm restored marks. Save HTML, open it without an internet connection, edit notes and resources, then use **Save updated HTML** and verify those changes reopen correctly. Test desktop and narrow mobile widths. No Git commands are required; the user handles commits/deployment.
