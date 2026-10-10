@@ -9,28 +9,33 @@ import { deriveStats } from '../src/derive.js';
 import { validateCharacter } from '../src/validate.js';
 import { createRng } from '../src/rng.js';
 import { tierForLevel } from '../src/catalog.js';
-import { getCatalog, clone } from './helpers.js';
+import { getCatalog, clone, HOPE_FEAR } from './helpers.js';
 
 const SEEDS_PER_CELL = 12;
 
-test(`level x subclass matrix: ${SEEDS_PER_CELL} seeds for every level 1-10 and every subclass`, async () => {
-  const catalog = await getCatalog();
-  let count = 0;
-  for (const subclass of catalog.subclasses) {
-    for (let level = 1; level <= 10; level++) {
-      for (let i = 0; i < SEEDS_PER_CELL; i++) {
-        const c = generateCharacter({ seed: `matrix-${subclass.id}-${level}-${i}`, level, subclassId: subclass.id, options: { mixedAncestry: i % 5 === 0 } }, catalog);
-        const result = validateCharacter(c, catalog);
-        assert.ok(result.valid, `${subclass.id} L${level} #${i}: ${result.errors.join('; ')}`);
-        assert.equal(c.level, level);
-        assert.equal(c.derived.tier, tierForLevel(level));
-        assert.equal(c.advancementHistory.length, level - 1);
-        count++;
+// V3 re-runs the matrix for both content profiles (Core + Hope & Fear also mixes in
+// expansion heritage and opt-in transformations for core subclasses).
+for (const [profile, subclassCount] of [['core', 18], [HOPE_FEAR, 26]]) {
+  test(`level x subclass matrix (${profile}): ${SEEDS_PER_CELL} seeds for every level 1-10 and every subclass`, async () => {
+    const catalog = await getCatalog(profile);
+    let count = 0;
+    for (const subclass of catalog.subclasses) {
+      for (let level = 1; level <= 10; level++) {
+        for (let i = 0; i < SEEDS_PER_CELL; i++) {
+          const options = { mixedAncestry: i % 5 === 0, transformation: profile === HOPE_FEAR && i % 4 === 1 };
+          const c = generateCharacter({ seed: `matrix-${subclass.id}-${level}-${i}`, level, subclassId: subclass.id, contentProfile: profile, options }, catalog);
+          const result = validateCharacter(c, catalog);
+          assert.ok(result.valid, `${subclass.id} L${level} #${i}: ${result.errors.join('; ')}`);
+          assert.equal(c.level, level);
+          assert.equal(c.derived.tier, tierForLevel(level));
+          assert.equal(c.advancementHistory.length, level - 1);
+          count++;
+        }
       }
     }
-  }
-  assert.equal(count, 18 * 10 * SEEDS_PER_CELL);
-});
+    assert.equal(count, subclassCount * 10 * SEEDS_PER_CELL);
+  });
+}
 
 test('tier achievements: Experiences and Proficiency at levels 2, 5 and 8', async () => {
   const catalog = await getCatalog();

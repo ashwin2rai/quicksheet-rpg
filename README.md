@@ -22,6 +22,14 @@ The new visual folio is a **read-only presentation of the generated Markdown**, 
 
 See [UI_DESIGN_NOTES.md](UI_DESIGN_NOTES.md) for the design rationale and implementation.
 
+## Content
+
+- **Core Only** (default): the 9 core classes, 18 subclasses, 18 ancestries and 9 communities.
+- **Core + Hope & Fear**: also the expansion material included in SRD 2.0. That adds the Assassin, Brawler, Warlock and Witch with their subclasses, the Dread domain, six ancestries (Aetheris, Earthkin, Emberkin, Gnome, Skykin, Tidekin), six communities (Duneborne, Freeborne, Frostborne, Hearthborne, Reborne, Warborne) and the expansion weapons and armor.
+- **Transformations** (Demigod, Ghost, Reanimated, Shapeshifter, Vampire, Werewolf) need Core + Hope & Fear and are opt-in. The default is None; you can choose one or Random. A character has at most one.
+
+Core Only output is exactly what it was before Hope & Fear support was added. See [rules decisions](docs/rules-decisions.md) RD-042 to RD-053 for how expansion rules are interpreted.
+
 ## Development
 
 Requires Node.js 20+. No dependencies.
@@ -31,7 +39,7 @@ npm run serve                 # http://localhost:8000 (no-cache dev server)
 npm test                      # tests and snapshots (UPDATE_SNAPSHOTS=1 to accept changes)
 npm run validate:data         # data checks
 npm run smoke                 # static deployment checks
-npm run sample -- <seed>      # print a generated sheet
+npm run sample -- <seed>      # print a generated sheet (--level=N, --hope-fear, --transformation[=id])
 npm run import:og -- <og-dhsrd-checkout> [--check]   # re-import SRD data
 npm run drift                 # compare upstream sources with pinned hashes
 ```

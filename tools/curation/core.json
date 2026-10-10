@@ -3,6 +3,7 @@
   "milestone": "M2",
   "sourceSet": "core",
   "sourceVersion": "2.0",
+  "pagePrefix": "DH Core",
   "select": {
     "classes": [
       "bard",
@@ -1668,7 +1669,7 @@
           "value": "$1"
         }
       ],
-      "match": "^\\+(\\d+) to Armor Score$"
+      "match": "^\\+(\\d+) to (?:your )?Armor Score$"
     },
     "Paired": {
       "kind": "effects",

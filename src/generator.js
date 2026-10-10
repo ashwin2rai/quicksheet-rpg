@@ -32,8 +32,13 @@ const PRONOUN_FORMS = {
   'they/them': { they: 'they', them: 'them', their: 'their' },
 };
 
+// Brawler "I Am the Weapon": how often the generator equips Brawler's Strike instead of
+// rolling ordinary weapons (RD-044).
+export const GRANTED_WEAPON_CHANCE = 0.75;
+
 /**
- * @param {object} input { level, ancestryId, communityId, classId, subclassId, contentProfile, seed, options }
+ * @param {object} input { level, ancestryId, secondAncestryId, communityId, classId, subclassId,
+ *   transformationId, contentProfile, seed, options: { mixedAncestry, transformation } }
  * @param {object} catalog from loadCatalog/createCatalog
  * @param {{ onAttempt?: Function }} [hooks] optional diagnostics callback, called after each attempt
  */
@@ -45,6 +50,7 @@ export function generateCharacter(input, catalog, { onAttempt } = {}) {
     communityId = null,
     classId = null,
     subclassId = null,
+    transformationId = null,
     contentProfile = 'core',
     seed = randomSeed(),
     options = {},
@@ -56,7 +62,13 @@ export function generateCharacter(input, catalog, { onAttempt } = {}) {
   if (contentProfile !== catalog.contentProfile) {
     throw new GenerationError(`Content profile "${contentProfile}" is not available. Supported: "${catalog.contentProfile}".`, { code: 'unsupported-profile' });
   }
-  const fixed = resolveFixedSelections({ ancestryId, secondAncestryId, communityId, classId, subclassId }, catalog);
+  const fixed = resolveFixedSelections({ ancestryId, secondAncestryId, communityId, classId, subclassId, transformationId }, catalog);
+  if (options.transformation && !catalog.transformations.length) {
+    throw new GenerationError(`Transformations are Hope & Fear content and are not available in ${catalog.contentLabel}.`, { code: 'transformation-unavailable' });
+  }
+  if (fixed.transformationId && isSingleFeatureTransformation(catalog.get(fixed.transformationId), catalog) && (options.mixedAncestry || fixed.secondAncestryId)) {
+    throw new GenerationError(`${catalog.get(fixed.transformationId).name} keeps only one feature of a single ancestry, so it cannot be combined with Mixed Ancestry.`, { code: 'transformation-mixed-ancestry' });
+  }
 
   const rng = createRng(seed);
   const failures = [];
@@ -71,8 +83,12 @@ export function generateCharacter(input, catalog, { onAttempt } = {}) {
   throw new GenerationError(`Could not generate a valid character after ${MAX_ATTEMPTS} attempts.`, { code: 'generation-failed', details: failures });
 }
 
+/** Shapeshifter "Only Skin Deep" keeps one feature of one ancestry (RD-046). */
+const isSingleFeatureTransformation = (transformation, catalog) =>
+  transformation.featureIds.some((id) => catalog.get(id).mechanics.flags?.includes('single-ancestry-feature'));
+
 /** Checks fixed IDs exist, have the right type, and are mutually compatible. */
-export function resolveFixedSelections({ ancestryId, secondAncestryId = null, communityId, classId, subclassId }, catalog) {
+export function resolveFixedSelections({ ancestryId, secondAncestryId = null, communityId, classId, subclassId, transformationId = null }, catalog) {
   const check = (id, list, label) => {
     if (id === null || id === undefined || id === '') return null;
     if (!list.some((r) => r.id === id)) {
@@ -86,6 +102,7 @@ export function resolveFixedSelections({ ancestryId, secondAncestryId = null, co
     communityId: check(communityId, catalog.communities, 'community'),
     classId: check(classId, catalog.classes, 'class'),
     subclassId: check(subclassId, catalog.subclasses, 'subclass'),
+    transformationId: check(transformationId, catalog.transformations, 'transformation'),
   };
   if (fixed.secondAncestryId && fixed.secondAncestryId === fixed.ancestryId) {
     throw new GenerationError('A Mixed Ancestry needs two different ancestries.', { code: 'mixed-ancestry-duplicate' });
@@ -132,6 +149,12 @@ function buildCandidate({ fixed, level, seed, contentProfile, options, rng, cata
       ? catalog.get(fixed.secondAncestryId)
       : rng.pick(catalog.ancestries.filter((a) => a.id !== ancestry.id));
   const community = fixed.communityId ? catalog.get(fixed.communityId) : rng.pick(catalog.communities);
+  // Transformations are opt-in (RD-045): only with options.transformation or a fixed choice.
+  const transformation = fixed.transformationId
+    ? catalog.get(fixed.transformationId)
+    : options.transformation
+      ? rng.pick(catalog.transformations.filter((t) => !mixed || !isSingleFeatureTransformation(t, catalog)))
+      : null;
   const targetLevel = level;
 
   const character = {
@@ -142,9 +165,12 @@ function buildCandidate({ fixed, level, seed, contentProfile, options, rng, cata
     contentProfile,
     seed,
     requested: { ...fixed },
-    options: { mixedAncestry: mixed },
+    options: { mixedAncestry: mixed, transformation: Boolean(transformation) },
     level: 1,
-    selections: { ancestryId: ancestry.id, secondAncestryId: secondAncestry ? secondAncestry.id : null, communityId: community.id, classId: cls.id, subclassId: subclass.id },
+    selections: {
+      ancestryId: ancestry.id, secondAncestryId: secondAncestry ? secondAncestry.id : null, communityId: community.id,
+      classId: cls.id, subclassId: subclass.id, transformationId: transformation ? transformation.id : null,
+    },
     subclassTiers: ['foundation'],
     traits: allocateTraits(rng, cls, subclass),
     equipment: null,
@@ -159,8 +185,17 @@ function buildCandidate({ fixed, level, seed, contentProfile, options, rng, cata
     derived: null,
   };
 
+  // Choices that decide which features apply (Shapeshifter "Only Skin Deep") come first.
+  for (const id of transformation?.featureIds ?? []) {
+    const m = catalog.get(id).mechanics;
+    if (m.flags?.includes('single-ancestry-feature')) character.featureChoices[id] = RESOLVERS[m.resolver].resolve({ character, rng, catalog, mechanics: m });
+  }
   const flags = featureFlags(character, catalog);
-  character.equipment = chooseLoadout(rng, catalog, { cls, subclass, traits: character.traits, tier: 1, ignoreBurden: flags.has('ignore-burden') });
+  // A feature-granted weapon (Brawler's Strike) is the primary while no other weapon is active.
+  const grantedWeaponId = acquiredFeatures(character, catalog).flatMap((f) => f.mechanics.grants?.weapons ?? [])[0] ?? null;
+  const useGrantedWeapon = Boolean(grantedWeaponId) && rng.next() < GRANTED_WEAPON_CHANCE;
+  const loadoutOptions = { cls, subclass, ignoreBurden: flags.has('ignore-burden'), grantedWeaponId: useGrantedWeapon ? grantedWeaponId : null };
+  character.equipment = chooseLoadout(rng, catalog, { ...loadoutOptions, traits: character.traits, tier: 1 });
 
   character.inventory = [
     ...RULES.STARTING_KIT.map((itemId) => ({ itemId, quantity: 1, source: 'starting-kit' })),
@@ -181,10 +216,10 @@ function buildCandidate({ fixed, level, seed, contentProfile, options, rng, cata
   for (const feature of acquiredFeatures(character, catalog)) {
     const m = feature.mechanics;
     for (const itemId of m.grants?.items ?? []) character.inventory.push({ itemId, quantity: 1, source: feature.id });
-    if (m.resolver) character.featureChoices[feature.id] = RESOLVERS[m.resolver].resolve({ character, rng, catalog, mechanics: m });
+    if (m.resolver && !character.featureChoices[feature.id]) character.featureChoices[feature.id] = RESOLVERS[m.resolver].resolve({ character, rng, catalog, mechanics: m });
   }
 
-  character.flavor = generateFlavor(rng, catalog, { cls, ancestry, secondAncestry, community });
+  character.flavor = generateFlavor(rng, catalog, { cls, ancestry, secondAncestry, community, transformation });
 
   // Higher levels: apply legal level-ups one at a time from the Level 1 character.
   let current = character;
@@ -192,9 +227,9 @@ function buildCandidate({ fixed, level, seed, contentProfile, options, rng, cata
   if (targetLevel > 1) {
     // Instant-character gear assumption (docs/rules-decisions.md): equipment is chosen from
     // the final tier's tables like at creation; no loot, gold or magic items are invented.
-    current.equipment = chooseLoadout(rng, catalog, {
-      cls, subclass, traits: trainedTraits(current), tier: tierForLevel(targetLevel), ignoreBurden: flags.has('ignore-burden'),
-    });
+    current.equipment = chooseLoadout(rng, catalog, { ...loadoutOptions, traits: trainedTraits(current), tier: tierForLevel(targetLevel) });
+    // Gear can change the loadout size (Attuned armor), so place cards again for the final gear.
+    arrangeLoadout(current, catalog);
   }
   current.derived = deriveStats(current, catalog);
   return current;
@@ -209,7 +244,7 @@ function allocateTraits(rng, cls, subclass) {
   return Object.fromEntries(TRAITS.map((trait) => [trait, values[order.indexOf(trait)]]));
 }
 
-function chooseLoadout(rng, catalog, { cls, subclass, traits, tier, ignoreBurden }) {
+function chooseLoadout(rng, catalog, { cls, subclass, traits, tier, ignoreBurden, grantedWeaponId = null }) {
   const meetsRestriction = (item) => {
     const r = item.feature?.mechanics?.restriction;
     return !r || traits[r.trait] <= r.max;
@@ -217,7 +252,7 @@ function chooseLoadout(rng, catalog, { cls, subclass, traits, tier, ignoreBurden
   const usable = (w) =>
     w.tier <= tier &&
     (!w.magic || Boolean(subclass.spellcastTrait)) &&
-    !w.tags.some((t) => RANDOM_GEAR_EXCLUDED_TAGS.includes(t)) &&
+    !w.tags.some((t) => RANDOM_GEAR_EXCLUDED_TAGS.includes(t) || t === 'feature-granted') &&
     meetsRestriction(w);
   // Gear of the character's own tier, occasionally one tier below (RD-034).
   const tierWeight = (item) => (item.tier === tier ? 8 : item.tier === tier - 1 ? 1 : 0);
@@ -225,11 +260,14 @@ function chooseLoadout(rng, catalog, { cls, subclass, traits, tier, ignoreBurden
   const traitWeight = (value) => GEAR_TRAIT_WEIGHT[Math.max(-1, Math.min(2, value))] * (value > 2 ? 1.5 : 1);
   const weightOf = (suggestedId) => (w) => traitWeight(traits[traitOf(w)]) * tierWeight(w) * (w.id === suggestedId ? 2 : 1);
 
-  const primary = rng.weighted(catalog.weapons.filter((w) => w.slot === 'primary' && usable(w)), weightOf(cls.suggested.primaryWeaponId));
+  const primary = grantedWeaponId
+    ? catalog.get(grantedWeaponId)
+    : rng.weighted(catalog.weapons.filter((w) => w.slot === 'primary' && usable(w)), weightOf(cls.suggested.primaryWeaponId));
   let secondary = null;
   // Two-handed primary alone, or one-handed primary + one-handed secondary. Features that
   // ignore burden (Warrior "Combat Training") may also add a secondary to a two-handed primary.
-  const wantsSecondary = primary.burden === 'one-handed' || (ignoreBurden && rng.next() < 0.4);
+  // A feature-granted unarmed weapon is used with no other weapons.
+  const wantsSecondary = !grantedWeaponId && (primary.burden === 'one-handed' || (ignoreBurden && rng.next() < 0.4));
   if (wantsSecondary) {
     const options = catalog.weapons.filter((w) => w.slot === 'secondary' && w.burden === 'one-handed' && usable(w));
     secondary = rng.weighted(options, weightOf(cls.suggested.secondaryWeaponId));
@@ -247,7 +285,7 @@ function chooseLoadout(rng, catalog, { cls, subclass, traits, tier, ignoreBurden
 const article = (word) => (/^[aeiou]/i.test(word) ? 'an' : 'a');
 const capitalize = (text) => text.charAt(0).toUpperCase() + text.slice(1);
 
-function generateFlavor(rng, catalog, { cls, ancestry, secondAncestry, community }) {
+function generateFlavor(rng, catalog, { cls, ancestry, secondAncestry, community, transformation }) {
   const f = catalog.flavor;
   const pronouns = rng.pick(f.pronouns);
   const forms = PRONOUN_FORMS[pronouns];
@@ -285,8 +323,9 @@ function generateFlavor(rng, catalog, { cls, ancestry, secondAncestry, community
     hook,
     backgroundQuestion: rng.pick(cls.backgroundQuestions),
     connectionPrompts: rng.weightedSample(cls.connectionQuestions, connectionCount),
+    ...(transformation ? { transformationQuestion: rng.pick(transformation.questions) } : {}),
     provenance: {
-      srdClassGuide: ['appearance.clothes', 'appearance.attitude', 'backgroundQuestion', 'connectionPrompts'],
+      srdClassGuide: ['appearance.clothes', 'appearance.attitude', 'backgroundQuestion', 'connectionPrompts', ...(transformation ? ['transformationQuestion'] : [])],
       quicksheetOriginal: ['name', 'pronouns', 'concept', 'appearance.detail', 'personality', 'motivation', 'hook'],
     },
   };

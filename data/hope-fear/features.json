@@ -1,0 +1,1869 @@
+{
+  "meta": {
+    "generatedBy": "tools/import-og-dhsrd.mjs",
+    "note": "Generated file. Edit tools/curation/hope-fear.json and re-run the importer instead of editing by hand.",
+    "contentProfile": "hope-fear",
+    "sourceVersion": "2.0",
+    "upstream": {
+      "repository": "https://github.com/callmepartario/og-dhsrd",
+      "commit": "07cac58944b5cf8a2890efa6d263d4fe0f869032",
+      "file": "scripts/og-dhsrd-features.js",
+      "sha256": "d309a09e60887a23d2b4b26beadbcc8c9aee6c46de50dd07246f584d759b2b36"
+    },
+    "copyright": "Includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Used under the Darrington Press Community Gaming License; see NOTICE.md."
+  },
+  "records": [
+    {
+      "id": "feature.assassin.marked-for-death",
+      "name": "Marked for Death",
+      "ownerId": "class.assassin",
+      "category": "class",
+      "text": "On a successful weapon attack, you can **mark a Stress** to make the target *Marked for Death*. When you deal damage to a target you've *Marked for Death*, add a number of **d4s** equal to your tier to the damage roll.\n\nYou can have only one adversary *Marked for Death* at a time. This condition lasts until you take a rest, the current adversary *Marked for Death* is defeated, or the GM spends a number of Fear equal to your tier to clear it.",
+      "mechanics": {
+        "kind": "effects",
+        "resource": {
+          "id": "marked-for-death",
+          "label": "Marked for Death damage",
+          "count": "tier",
+          "die": "d4",
+          "prefix": "+"
+        }
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 8"
+        ],
+        "errata": false,
+        "textOverride": "official-srd-2.0"
+      }
+    },
+    {
+      "id": "feature.assassin.get-in-get-out",
+      "name": "Get In & Get Out",
+      "ownerId": "class.assassin",
+      "category": "class",
+      "text": "**Spend a Hope** to ask the GM for a quick or inconspicuous way into or out of a place you can see. The next roll you make that acts on this information has advantage.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 8"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.assassin.deadly-determination",
+      "name": "Deadly Determination",
+      "ownerId": "class.assassin",
+      "category": "hope",
+      "text": "**Spend 3 Hope** to clear 2 Stress.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 8"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.executioners-guild.first-strike",
+      "name": "First Strike",
+      "ownerId": "subclass.executioners-guild",
+      "category": "subclass-foundation",
+      "text": "The first time in a scene you succeed on an attack, you deal double damage.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 001/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 8"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.executioners-guild.ambush",
+      "name": "Ambush",
+      "ownerId": "subclass.executioners-guild",
+      "category": "subclass-foundation",
+      "text": "Your \"Marked for Death\" feature uses **d6s** instead of **d4s**.",
+      "mechanics": {
+        "kind": "effects",
+        "resourceUpgrade": {
+          "id": "marked-for-death",
+          "die": "d6"
+        }
+      },
+      "card": "DH HF 001/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 8"
+        ],
+        "errata": false,
+        "textOverride": "official-srd-2.0"
+      }
+    },
+    {
+      "id": "feature.executioners-guild.death-strike",
+      "name": "Death Strike",
+      "ownerId": "subclass.executioners-guild",
+      "category": "subclass-specialization",
+      "text": "When you deal Severe damage to a creature, you can **Mark a Stress** to force them to mark an additional Hit Point.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 002/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 8"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.executioners-guild.scorpions-poise",
+      "name": "Scorpion's Poise",
+      "ownerId": "subclass.executioners-guild",
+      "category": "subclass-specialization",
+      "text": "You gain a +2 bonus to your Evasion against attacks made by a creature you've *Marked for Death*.",
+      "mechanics": {
+        "kind": "reference",
+        "note": "+2 Evasion only against attacks by the creature you have Marked for Death."
+      },
+      "card": "DH HF 002/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 8"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.executioners-guild.true-strike",
+      "name": "True Strike",
+      "ownerId": "subclass.executioners-guild",
+      "category": "subclass-mastery",
+      "text": "Once per long rest when you fail an attack, you can **spend a Hope** to make it a success instead.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 003/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 8"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.executioners-guild.backstab",
+      "name": "Backstab",
+      "ownerId": "subclass.executioners-guild",
+      "category": "subclass-mastery",
+      "text": "Your \"Marked for Death\" feature uses **d8s** instead of **d6s**.",
+      "mechanics": {
+        "kind": "effects",
+        "resourceUpgrade": {
+          "id": "marked-for-death",
+          "die": "d8"
+        }
+      },
+      "card": "DH HF 003/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 8"
+        ],
+        "errata": false,
+        "textOverride": "official-srd-2.0"
+      }
+    },
+    {
+      "id": "feature.poisoners-guild.toxic-concoctions",
+      "name": "Toxic Concoctions",
+      "ownerId": "subclass.poisoners-guild",
+      "category": "subclass-foundation",
+      "text": "**Mark a Stress** to place **1d4+1** tokens on this card. When you make a successful weapon attack, you can spend a token to afflict the target with a poison. You know these poisons:\n\n- ***Ghost Petal:*** The target becomes temporarily *Vulnerable*.\n- ***Grave Spore:*** The target must also mark a Stress.\n- ***Leech Weed:*** You deal an extra **1d6** damage on this attack.\n\nWhen you take a long rest, clear all unspent tokens.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 004/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 9"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.poisoners-guild.poison-compendium",
+      "name": "Poison Compendium",
+      "ownerId": "subclass.poisoners-guild",
+      "category": "subclass-specialization",
+      "text": "You also know these poisons:\n\n- ***Midnight Vine:*** The target has disadvantage on attack rolls until it **marks a Stress** to clear this condition.\n- ***Gorgon Root:*** The target becomes temporarily *Restrained*.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 005/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 9"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.poisoners-guild.twin-fang",
+      "name": "Twin Fang",
+      "ownerId": "subclass.poisoners-guild",
+      "category": "subclass-specialization",
+      "text": "When you afflict a target *Marked for Death* with a poison you know, you can spend an additional token to also inflict the effect of a second poison you know.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 005/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 9"
+        ],
+        "errata": false,
+        "textOverride": "official-srd-2.0"
+      }
+    },
+    {
+      "id": "feature.poisoners-guild.venomancer",
+      "name": "Venomancer",
+      "ownerId": "subclass.poisoners-guild",
+      "category": "subclass-mastery",
+      "text": "You also know these poisons:\n\n- ***Blight Seed:*** The target gains a -3 penalty to their damage thresholds until the end of the scene. This effect can't stack.\n- ***Fear Leaf:*** You deal extra damage equal to the result of your Fear Die on this attack.\n- ***Corpse Thorn:*** The target gains disadvantage on reaction rolls until the end of the scene.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 006/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 9"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.poisoners-guild.adders-blessing",
+      "name": "Adder's Blessing",
+      "ownerId": "subclass.poisoners-guild",
+      "category": "subclass-mastery",
+      "text": "You are immune to poisons and other toxins.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 006/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 9"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.brawler.i-am-the-weapon",
+      "name": "I Am the Weapon",
+      "ownerId": "class.brawler",
+      "category": "class",
+      "text": "Your barehanded attacks are as strong as any blade. You have a primary weapon called Brawler's Strike equipped while you have no other Active Weapons. It uses a trait of your choice, has Melee range, and deals **d8+d6** physical damage using your Proficiency (both the d8 and d6 scale off your Proficiency). While this weapon is active, you gain a +1 bonus to your Evasion.",
+      "mechanics": {
+        "kind": "effects",
+        "grants": {
+          "weapons": [
+            "weapon.brawlers-strike"
+          ]
+        },
+        "note": "Brawler's Strike is the primary weapon while no other weapons are active; QuickSheet usually equips it (RD-044)."
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 10"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.brawler.combo-strike",
+      "name": "Combo Strike",
+      "ownerId": "class.brawler",
+      "category": "class",
+      "text": "After rolling damage on a successful attack with a Melee weapon, you can **mark a Stress** to start a combo strike. When you do, roll your Combo Die and note the result, then continue rolling your Combo Die until the result of your latest roll is lower than the roll that preceded it. You deal extra damage equal to the total of all rolled Combo Die results on this attack. The results can't be modified by any means.\n\nYour Combo Die starts as a **d4**. Once per tier, you can increase your Combo Die by one step as a level advancement option.",
+      "mechanics": {
+        "kind": "effects",
+        "resource": {
+          "id": "combo-die",
+          "label": "Combo Die",
+          "dieSteps": [
+            "d4",
+            "d6",
+            "d8",
+            "d10"
+          ],
+          "advancedBy": "comboDie"
+        },
+        "advancement": {
+          "id": "comboDie",
+          "label": "Combo Die increased by one step",
+          "cost": 1,
+          "slots": {
+            "2": 1,
+            "3": 1,
+            "4": 1
+          },
+          "sameTierOnly": true
+        }
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 10"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.brawler.square-up",
+      "name": "Square Up",
+      "ownerId": "class.brawler",
+      "category": "hope",
+      "text": "**Spend 3 Hope** to intimidate a target within Close range, making them temporarily *Vulnerable*.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 10"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.juggernaut.rugged",
+      "name": "Rugged",
+      "ownerId": "subclass.juggernaut",
+      "category": "subclass-foundation",
+      "text": "Gain a permanent +3 bonus to your Severe damage threshold.",
+      "mechanics": {
+        "kind": "effects",
+        "modifiers": [
+          {
+            "target": "severeThreshold",
+            "value": 3
+          }
+        ]
+      },
+      "card": "DH HF 007/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 10"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.juggernaut.overwhelm",
+      "name": "Overwhelm",
+      "ownerId": "subclass.juggernaut",
+      "category": "subclass-foundation",
+      "text": "When you succeed on an attack against a target, you can **spend a Hope** to throw the target within Close range or to force them to mark a Stress.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 007/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 10"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.juggernaut.surrounded",
+      "name": "Surrounded",
+      "ownerId": "subclass.juggernaut",
+      "category": "subclass-specialization",
+      "text": "When you make an attack with a Melee weapon, you can **spend any number of Hope** to target an equal number of additional creatures within Melee range.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 008/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 10"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.juggernaut.eye-for-an-eye",
+      "name": "Eye for an Eye",
+      "ownerId": "subclass.juggernaut",
+      "category": "subclass-specialization",
+      "text": "Once per rest when an adversary within Melee range forces you to mark any number of Hit Points, you can **mark a Stress** to force them to mark the same number of Hit Points.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 008/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 10"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.juggernaut.pummeljoy",
+      "name": "Pummeljoy",
+      "ownerId": "subclass.juggernaut",
+      "category": "subclass-mastery",
+      "text": "When you critically succeed on a Melee weapon attack, you gain an additional Hope, clear an additional Stress, and gain a +1 bonus to your Proficiency for that attack.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 009/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 10"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.juggernaut.not-done-yet",
+      "name": "Not Done Yet",
+      "ownerId": "subclass.juggernaut",
+      "category": "subclass-mastery",
+      "text": "When you take Severe damage, you can gain a Hope or clear a Stress.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 009/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 10"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.martial-artist.stance-fighter",
+      "name": "Stance Fighter",
+      "ownerId": "subclass.martial-artist",
+      "category": "subclass-foundation",
+      "text": "You can channel your inner resolve to shift into martial stances that grant you special benefits in combat. Take the Martial Stances sheet and choose two martial stances from Tier 1. Each time you level up your character, choose an additional stance from your tier or lower.",
+      "mechanics": {
+        "kind": "effects",
+        "resolver": "martialStances",
+        "resource": {
+          "id": "focus",
+          "label": "Focus",
+          "count": 6,
+          "note": "the most you can hold"
+        },
+        "stances": {
+          "initial": 2,
+          "initialTier": 1,
+          "perLevel": 1,
+          "rules": "Focus: once per rest during a moment of calm, you can clear your Focus track, then roll a number of d6s equal to your Instinct and gain Focus equal to the highest result rolled. You can hold a maximum of 6 Focus. You can spend a Focus to shift into a martial stance you know; you can't have more than one active stance at a time. You drop out of your active stance when you shift into a different stance, take Severe damage or mark your last Hit Point; otherwise, at the end of the scene."
+        }
+      },
+      "card": "DH HF 010/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 11"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.martial-artist.keen-defenses",
+      "name": "Keen Defenses",
+      "ownerId": "subclass.martial-artist",
+      "category": "subclass-specialization",
+      "text": "When you're targeted by an attack, you can **spend a Focus** to gain a bonus to your Evasion equal to your tier against the attack.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 011/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 11"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.martial-artist.focus-cannon",
+      "name": "Focus Cannon",
+      "ownerId": "subclass.martial-artist",
+      "category": "subclass-specialization",
+      "text": "**Spend a Focus** to make an Instinct Roll against an adversary within Far range. On a success, deal **d20+3** magic damage using your Proficiency.",
+      "mechanics": {
+        "kind": "effects",
+        "attack": {
+          "name": "Focus Cannon",
+          "trait": "instinct",
+          "range": "Far",
+          "damage": {
+            "die": 20,
+            "bonus": 3
+          },
+          "damageType": "mag",
+          "cost": "Spend a Focus"
+        }
+      },
+      "card": "DH HF 011/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 11"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.martial-artist.limit-breaker",
+      "name": "Limit Breaker",
+      "ownerId": "subclass.martial-artist",
+      "category": "subclass-mastery",
+      "text": "Once per rest, you can perform an unbelievable feat of athletic prowess, such as running across water, leaping between distant rooftops, or scaling a building without needing to roll. When you do, gain a Hope and clear a Stress.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 012/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 11"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.martial-artist.flow-state",
+      "name": "Flow State",
+      "ownerId": "subclass.martial-artist",
+      "category": "subclass-mastery",
+      "text": "You can **mark a Stress** instead of spending a Focus to shift into a different stance. Additionally, you can **spend a Focus** instead of marking a Stress to start a combo strike.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 012/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 11"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.warlock.patrons-pact",
+      "name": "Patron's Pact",
+      "ownerId": "class.warlock",
+      "category": "class",
+      "text": "You have committed yourself to a supernatural entity—such as a god, fae, or demon—in exchange for power. Write their name on your character sheet, then work with your GM to determine their sphere of influence (such as Nature, Chaos, Wisdom, Mischief, Love, War, Justice, or Death). Before making an action roll that relates to your patron's sphere of influence, you can **spend a Favor** to call upon their aid, rolling your Patron Die and adding its result to the total. Your Patron Die starts at a **d6** and increases to a **d8** at level 5.",
+      "mechanics": {
+        "kind": "effects",
+        "resolver": "warlockPatron",
+        "resource": {
+          "id": "patron-die",
+          "label": "Patron Die",
+          "dieByLevel": [
+            [
+              1,
+              "d6"
+            ],
+            [
+              5,
+              "d8"
+            ]
+          ]
+        },
+        "choice": {
+          "label": "Patron's sphere of influence",
+          "options": [
+            "Ambition",
+            "Artists",
+            "Chaos",
+            "Darkness",
+            "Death",
+            "Gamblers",
+            "Honor",
+            "Justice",
+            "Leaders",
+            "Love",
+            "Mercy",
+            "Mischief",
+            "Nature",
+            "Protectors",
+            "Revenge",
+            "Scholars",
+            "Secrets",
+            "Soldiers",
+            "Strength",
+            "Travelers",
+            "Tricksters",
+            "Truth",
+            "War",
+            "Wisdom"
+          ],
+          "note": "Spheres are the SRD's examples; the patron name is an original QuickSheet suggestion. Settle both with your GM."
+        }
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 14"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.warlock.favor",
+      "name": "Favor",
+      "ownerId": "class.warlock",
+      "category": "class",
+      "text": "You start with 3 Favor. You can use a downtime move to show tribute to your patron. Describe how and gain Favor equal to your Spellcast trait. Additionally, when you succeed on an action roll with Hope, you can choose to gain a Favor instead of a Hope.\n\n*Note:* The maximum Favor you can hold at one time is 6.",
+      "mechanics": {
+        "kind": "effects",
+        "resource": {
+          "id": "favor",
+          "label": "Favor",
+          "count": 3,
+          "note": "starting Favor; you can hold at most 6"
+        }
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 14"
+        ],
+        "errata": false,
+        "textOverride": "official-srd-2.0"
+      }
+    },
+    {
+      "id": "feature.warlock.patrons-boon",
+      "name": "Patron's Boon",
+      "ownerId": "class.warlock",
+      "category": "hope",
+      "text": "When you fail a roll, you can **Spend 3 Hope** to reroll with advantage.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 14"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.pact-of-the-endless.patrons-mantle",
+      "name": "Patron's Mantle",
+      "ownerId": "subclass.pact-of-the-endless",
+      "category": "subclass-foundation",
+      "text": "**Spend a Favor** to cloak yourself in a terrifying aspect of your Patron that lasts until you take Severe damage or the scene ends. While this effect is active, you gain a bonus to your damage thresholds equal to your tier and have advantage on action rolls to intimidate a target.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 013/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 14"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.pact-of-the-endless.deathless-embrace",
+      "name": "Deathless Embrace",
+      "ownerId": "subclass.pact-of-the-endless",
+      "category": "subclass-foundation",
+      "text": "Once per rest, **spend any number of Favor** to roll an equal number of Patron Dice. For each result of 4 or higher, clear a Hit Point.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 013/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 14"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.pact-of-the-endless.harrowing-invocation",
+      "name": "Harrowing Invocation",
+      "ownerId": "subclass.pact-of-the-endless",
+      "category": "subclass-specialization",
+      "text": "When an adversary targets you or an ally within Very Close range with an attack, you can **spend a Favor** to give them disadvantage on the roll. If the adversary fails the roll, they must also mark a Stress.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 014/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 14"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.pact-of-the-endless.damage-sink",
+      "name": "Damage Sink",
+      "ownerId": "subclass.pact-of-the-endless",
+      "category": "subclass-specialization",
+      "text": "Once per rest, you can **spend a Favor** to halve incoming damage.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 014/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 14"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.pact-of-the-endless.dark-aegis",
+      "name": "Dark Aegis",
+      "ownerId": "subclass.pact-of-the-endless",
+      "category": "subclass-mastery",
+      "text": "Once per long rest when you would take damage, you can **spend a Favor** instead of marking Hit Points.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 015/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 14"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.pact-of-the-endless.draining-bane",
+      "name": "Draining Bane",
+      "ownerId": "subclass.pact-of-the-endless",
+      "category": "subclass-mastery",
+      "text": "When an adversary targets you or an ally within Very Close range with an attack, you can **spend a Favor** to *Drain* them. When you do, they must mark a Stress, and you can clear a Stress. While *Drained*, the target uses a **d12** instead of a d20 for attack rolls (including for advantage or disadvantage) until they fail a roll.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 015/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 14"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.pact-of-the-wrathful.patrons-fury",
+      "name": "Patron's Fury",
+      "ownerId": "subclass.pact-of-the-wrathful",
+      "category": "subclass-foundation",
+      "text": "**Spend a Favor** to imbue your attacks with your Patron's power until you deal Severe damage or the scene ends. When you roll damage while this effect is active, you also roll a number of Patron Dice equal to your tier and add their total to the damage dealt.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 016/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 15"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.pact-of-the-wrathful.deadly-vengeance",
+      "name": "Deadly Vengeance",
+      "ownerId": "subclass.pact-of-the-wrathful",
+      "category": "subclass-foundation",
+      "text": "When you mark any number of Hit Points from an attack, you can **spend a Favor** to roll an equal number of Patron Dice. For each result of 4 or higher, the attacker marks a Hit Point.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 016/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 15"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.pact-of-the-wrathful.menacing-reach",
+      "name": "Menacing Reach",
+      "ownerId": "subclass.pact-of-the-wrathful",
+      "category": "subclass-specialization",
+      "text": "**Spend a Favor** to increase the range of your primary weapon by one step (such as Melee to Very Close or Very Close to Close) to a maximum of Very Far range. This effect ends when you make a successful attack with that weapon.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 017/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 15"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.pact-of-the-wrathful.diminish-my-foes",
+      "name": "Diminish My Foes",
+      "ownerId": "subclass.pact-of-the-wrathful",
+      "category": "subclass-specialization",
+      "text": "When you succeed with Hope on an action roll against a target, you can **spend any number of Favor** to force the target to mark an equal number of Stress.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 017/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 15"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.pact-of-the-wrathful.fearsome-attack",
+      "name": "Fearsome Attack",
+      "ownerId": "subclass.pact-of-the-wrathful",
+      "category": "subclass-mastery",
+      "text": "**Spend a Favor** to reroll any number of your damage dice. You can continue spending Favor to use this feature on the same damage roll.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 018/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 15"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.pact-of-the-wrathful.otherworldly-ire",
+      "name": "Otherworldly Ire",
+      "ownerId": "subclass.pact-of-the-wrathful",
+      "category": "subclass-mastery",
+      "text": "Once per rest when you take damage, you can **spend any number of Favor** to roll that many Patron Dice and target a number of creatures within Close range equal to the highest result. Each target must mark a Hit Point.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 018/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 15"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.witch.hex",
+      "name": "Hex",
+      "ownerId": "class.witch",
+      "category": "class",
+      "text": "**Mark a Stress** to temporarily *Hex* a target within Far range. While *Hexed*, the target gains a penalty to their damage rolls and Difficulty equal to your tier. The maximum number of creatures you can Hex at one time is equal to your Spellcast trait.",
+      "mechanics": {
+        "kind": "effects",
+        "resource": {
+          "id": "hex-targets",
+          "label": "Hex targets at once",
+          "count": "trait:spellcast"
+        }
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 16"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.witch.commune",
+      "name": "Commune",
+      "ownerId": "class.witch",
+      "category": "class",
+      "text": "Once per long rest during a moment of calm, you can commune with an ancestor, a deity, a spirit, or an otherworldly being. Ask them a question, then roll a number of **d6s** equal to your Spellcast trait. Choose one of the results and reference the chart below for the effect.\n\n- 1–3: You taste a flavor, smell a scent, or feel a sensation relevant to the answer.\n- 4–5: You hear sounds or see a vision relevant to the answer.\n- 6: You psychically experience a scene relevant to the answer as if you were there.",
+      "mechanics": {
+        "kind": "effects",
+        "resource": {
+          "id": "commune-dice",
+          "label": "Commune dice",
+          "count": "trait:spellcast",
+          "die": "d6"
+        }
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 16"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.witch.witchs-charm",
+      "name": "Witch's Charm",
+      "ownerId": "class.witch",
+      "category": "hope",
+      "text": "When you or an ally within Far range fails an action roll, you can **spend 3 Hope** to change it into a success with Fear instead.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 16"
+        ],
+        "errata": false,
+        "textOverride": "official-srd-2.0"
+      }
+    },
+    {
+      "id": "feature.hedge.herbal-remedies",
+      "name": "Herbal Remedies",
+      "ownerId": "subclass.hedge",
+      "category": "subclass-foundation",
+      "text": "When you or an ally in the scene clears 1 or more Hit Points or Stress as the result of using a consumable, increase the number cleared by 1.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 019/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 16"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.hedge.enchanted-talisman",
+      "name": "Enchanted Talisman",
+      "ownerId": "subclass.hedge",
+      "category": "subclass-foundation",
+      "text": "Once per rest, you can imbue a small item with your protective essence. **Spend any number of Hope** to place an equal number of tokens on this card. When the person holding the talisman takes damage, spend a token to reduce the number of Hit Points they mark by one. Clear all tokens from this card when you take a rest.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 019/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 16"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.hedge.walk-between-worlds",
+      "name": "Walk Between Worlds",
+      "ownerId": "subclass.hedge",
+      "category": "subclass-specialization",
+      "text": "During a moment of calm, make a **Spellcast Roll (13)**. Once per rest on a success, you can **mark a Stress** to step beyond the veil of death and converse with any nearby spirits. Place a number of tokens equal to your Spellcast trait on this card and remove one each time a spirit answers a question. When the last token is removed or at the end of the scene, you return to the Mortal Realm in the same spot you left it.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 020/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 16"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.hedge.vexing-malison",
+      "name": "Vexing Malison",
+      "ownerId": "subclass.hedge",
+      "category": "subclass-specialization",
+      "text": "You have advantage on attacks against *Hexed* creatures.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 020/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 16"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.hedge.circle-of-power",
+      "name": "Circle of Power",
+      "ownerId": "subclass.hedge",
+      "category": "subclass-mastery",
+      "text": "Once per rest, mark a circle on the ground outlining a Very Close area around you, and place a number of tokens equal to your Spellcast trait on this card. While within this circle, you and your allies gain a +2 bonus to damage thresholds, attack rolls, and Evasion. Remove a token each time you or an ally within the circle makes an action roll or evades an attack. This spell lasts until the last token is removed or you exit the circle.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 021/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 16"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.moon.nights-glamour",
+      "name": "Night's Glamour",
+      "ownerId": "subclass.moon",
+      "category": "subclass-foundation",
+      "text": "Make a **Spellcast Roll (13)** to *Glamour* yourself in a bewitching facade. While *Glamoured*, you have advantage on rolls that leverage your illusory appearance. Additionally, adversaries within Close range must mark a Stress to attack you.\n\nUnless you **mark a Stress** to maintain your *Glamour*, it drops when you mark a Hit Point or deal damage.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 022/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 17"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.moon.moonbeam",
+      "name": "Moonbeam",
+      "ownerId": "subclass.moon",
+      "category": "subclass-specialization",
+      "text": "Once per session, you can conjure a column of moonlight that illuminates the area within Close range until the end of the scene. While bathed in this moonlight, you and your allies gain a +1 bonus to Spellcast Rolls and can see through illusions.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 023/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 17"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.moon.ire-of-pale-light",
+      "name": "Ire of Pale Light",
+      "ownerId": "subclass.moon",
+      "category": "subclass-specialization",
+      "text": "When a *Hexed* creature within Very Far range fails an attack, they must mark a Stress.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "card": "DH HF 023/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 17"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.moon.lunar-phases",
+      "name": "Lunar Phases",
+      "ownerId": "subclass.moon",
+      "category": "subclass-mastery",
+      "text": "At the beginning of each session, roll a **d6** and place it on this card. You gain the matching effect until the end of session.\n\n- 1: ***New.*** **Spend a Hope** to negate Minor damage.\n- 2–3: ***Waxing.*** +2 to damage rolls\n- 4: ***Full.*** +3 to damage thresholds\n- 5–6: ***Waning.*** +1 to Evasion\n\nOnce per rest, you can **spend a Hope** to increase the value of this die by one. If you increase the value of a 6, it becomes a 1.",
+      "mechanics": {
+        "kind": "reference",
+        "note": "The phase is rolled at the start of each session."
+      },
+      "card": "DH HF 024/063",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 17"
+        ],
+        "errata": false,
+        "textOverride": "official-srd-2.0"
+      }
+    },
+    {
+      "id": "feature.aetheris.hallowed-aura",
+      "name": "Hallowed Aura",
+      "ownerId": "ancestry.aetheris",
+      "category": "ancestry",
+      "text": "Once per long rest when an ally within Close range rolls with Fear, you can change it into a roll with Hope instead.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 19"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.aetheris.celestial-wings",
+      "name": "Celestial Wings",
+      "ownerId": "ancestry.aetheris",
+      "category": "ancestry",
+      "text": "You have wings that allow you to fly. Once per scene while flying, you can **spend a Hope** instead of marking an Armor Slot.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 19"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.earthkin.stoneskin",
+      "name": "Stoneskin",
+      "ownerId": "ancestry.earthkin",
+      "category": "ancestry",
+      "text": "Gain a permanent +1 bonus to your Armor Score and damage thresholds at character creation.",
+      "mechanics": {
+        "kind": "effects",
+        "modifiers": [
+          {
+            "target": "armorScore",
+            "value": 1
+          },
+          {
+            "target": "thresholds",
+            "value": 1
+          }
+        ]
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 21"
+        ],
+        "errata": false,
+        "textOverride": "official-srd-2.0"
+      }
+    },
+    {
+      "id": "feature.earthkin.immovable",
+      "name": "Immovable",
+      "ownerId": "ancestry.earthkin",
+      "category": "ancestry",
+      "text": "While you're touching the ground, you can't be lifted or moved against your will.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 21"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.emberkin.fireproof",
+      "name": "Fireproof",
+      "ownerId": "ancestry.emberkin",
+      "category": "ancestry",
+      "text": "You are immune to damage from magical or mundane flame.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 22"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.emberkin.ignition",
+      "name": "Ignition",
+      "ownerId": "ancestry.emberkin",
+      "category": "ancestry",
+      "text": "**Mark a Stress** to wreathe your primary weapon in flame until the end of the scene. While the weapon is ablaze, it gives off a bright light, and you gain a **1d6** bonus to damage rolls with that weapon.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 22"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.gnome.nimble-fingers",
+      "name": "Nimble Fingers",
+      "ownerId": "ancestry.gnome",
+      "category": "ancestry",
+      "text": "When you make a Finesse Roll, you can **spend 2 Hope** to reroll your Hope Die.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 25"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.gnome.flicker-step",
+      "name": "Flicker Step",
+      "ownerId": "ancestry.gnome",
+      "category": "ancestry",
+      "text": "Once per scene, you can teleport to another point you can see within Far range.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 25"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.skykin.gale-force",
+      "name": "Gale Force",
+      "ownerId": "ancestry.skykin",
+      "category": "ancestry",
+      "text": "**Mark a Stress** to conjure a gust of wind that carries you or a Very Close ally up to Very Far range. Additionally, you can always control the speed at which you fall.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 23"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.skykin.eye-of-the-storm",
+      "name": "Eye of the Storm",
+      "ownerId": "ancestry.skykin",
+      "category": "ancestry",
+      "text": "**Spend 2 Hope** to grant you or an ally within Melee range a +1 bonus to Evasion until you take Severe damage or you use this feature again.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 23"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.tidekin.amphibious",
+      "name": "Amphibious",
+      "ownerId": "ancestry.tidekin",
+      "category": "ancestry",
+      "text": "You can breathe and move naturally underwater.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "top",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 24"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.tidekin.lifespring",
+      "name": "Lifespring",
+      "ownerId": "ancestry.tidekin",
+      "category": "ancestry",
+      "text": "Once per rest when you have access to a small amount of water, you can **mark a Stress** to clear a Hit Point on yourself or an ally within Very Close range.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "position": "bottom",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 24"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.duneborne.oasis",
+      "name": "Oasis",
+      "ownerId": "community.duneborne",
+      "category": "community",
+      "text": "During a short rest, you or an ally can reroll a die used for a downtime move and take the higher result.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 27"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.freeborne.unbound",
+      "name": "Unbound",
+      "ownerId": "community.freeborne",
+      "category": "community",
+      "text": "Once per session when you roll with Fear, you can change it into a roll with Hope instead.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 28"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.frostborne.hardy",
+      "name": "Hardy",
+      "ownerId": "community.frostborne",
+      "category": "community",
+      "text": "When you take a rest, you clear a Hit Point.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 29"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.hearthborne.close-knit",
+      "name": "Close-Knit",
+      "ownerId": "community.hearthborne",
+      "category": "community",
+      "text": "Once per long rest, you can **spend any number of Hope** to grant an ally within Far range an equal number of Hope.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 30"
+        ],
+        "errata": false,
+        "textOverride": "official-srd-2.0"
+      }
+    },
+    {
+      "id": "feature.reborne.found-family",
+      "name": "Found Family",
+      "ownerId": "community.reborne",
+      "category": "community",
+      "text": "Once per rest, you can **spend a Hope** to use an ally's Experience as if it were your own. When you do so, describe how your time with that ally prepared you for this moment.\n\nWhen you join a new community or rediscover your old one, you can permanently trade this card for that one instead.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 31"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.warborne.brave-face",
+      "name": "Brave Face",
+      "ownerId": "community.warborne",
+      "category": "community",
+      "text": "Once per session when you would be forced to mark a Stress, you can **spend a Hope** instead.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 32"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.demigod.gifted",
+      "name": "Gifted",
+      "ownerId": "transformation.demigod",
+      "category": "transformation",
+      "text": "You gain a +1 bonus to action, reaction, and damage rolls.",
+      "mechanics": {
+        "kind": "effects",
+        "modifiers": [
+          {
+            "target": "actionRolls",
+            "value": 1
+          },
+          {
+            "target": "damageRolls",
+            "value": 1
+          }
+        ],
+        "note": "The +1 also applies to reaction rolls."
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 35"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.demigod.weight-of-divinity",
+      "name": "Weight of Divinity",
+      "ownerId": "transformation.demigod",
+      "category": "transformation",
+      "text": "When you fail a roll, you must mark a Stress or the GM gains a Fear.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 35"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.ghost.unfinished-business",
+      "name": "Unfinished Business",
+      "ownerId": "transformation.ghost",
+      "category": "transformation",
+      "text": "Work with your GM to decide what purpose or desire keeps you bound to the Mortal Realm. When you fulfill it, you cross through the veil of death.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 36"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.ghost.ephemeral",
+      "name": "Ephemeral",
+      "ownerId": "transformation.ghost",
+      "category": "transformation",
+      "text": "Your body wavers in and out of being corporeal. You are resistant to physical damage, take double magic damage, and can **mark 2 Stress** to momentarily pass through a solid object.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 36"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.reanimated.corpse",
+      "name": "Corpse",
+      "ownerId": "transformation.reanimated",
+      "category": "transformation",
+      "text": "During a rest, you can clear Hit Points only if you have access to remains from a recently deceased creature. Describe how you use these materials to maintain your corpse.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 37"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.reanimated.wont-stay-dead",
+      "name": "Won't Stay Dead",
+      "ownerId": "transformation.reanimated",
+      "category": "transformation",
+      "text": "When you choose the Risk It All death move and fail, you can permanently mark a Hit Point to succeed instead. When you do, you still use the Hope Die's value to clear Hit Points and Stress. When you permanently mark your last Hit Point, you pass through the veil of death.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 37"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.shapeshifter.change-shape",
+      "name": "Change Shape",
+      "ownerId": "transformation.shapeshifter",
+      "category": "transformation",
+      "text": "During a rest, you can use a downtime move to swap your current ancestry with another. When you do, describe how your appearance changes.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 38"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.shapeshifter.only-skin-deep",
+      "name": "Only Skin Deep",
+      "ownerId": "transformation.shapeshifter",
+      "category": "transformation",
+      "text": "You gain the benefit of only one of your chosen ancestry's features, which you select when you choose the ancestry. You can use a downtime move to choose a different feature from that ancestry.",
+      "mechanics": {
+        "kind": "effects",
+        "resolver": "onlySkinDeep",
+        "flags": [
+          "single-ancestry-feature"
+        ]
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 38"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.vampire.fangs",
+      "name": "Fangs",
+      "ownerId": "transformation.vampire",
+      "category": "transformation",
+      "text": "Make an attack using a trait of your choice to bite a target within Melee range. On a success, deal **d6** physical damage using your Proficiency.",
+      "mechanics": {
+        "kind": "effects",
+        "attack": {
+          "name": "Fangs",
+          "trait": "choice",
+          "range": "Melee",
+          "damage": {
+            "die": 6,
+            "bonus": 0
+          },
+          "damageType": "phy",
+          "cost": null
+        }
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 39"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.vampire.feed",
+      "name": "Feed",
+      "ownerId": "transformation.vampire",
+      "category": "transformation",
+      "text": "On a successful \"Fangs\" attack against a creature that can bleed, you can **mark a Stress** to feed. Place a number of tokens on this card equal to the number of Hit Points the target marks. You can hold up to 6 tokens at a time. Before you make an action roll, you can spend a token to make your Fear Die a **d20**. When you take a long rest, remove a token. While there are no tokens on this card, you make action and reaction rolls with disadvantage.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 39"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.werewolf.wolf-form",
+      "name": "Wolf Form",
+      "ownerId": "transformation.werewolf",
+      "category": "transformation",
+      "text": "When you mark 1 or more Hit Points, you can **mark a Stress** to enter your Wolf Form. While in this form, you gain a **1d10** bonus to attack and damage rolls. When you roll with Hope while in Wolf Form, you must mark a Stress. Your Wolf Form lasts until you go into your \"Howling Rampage\" or take a rest.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 40"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "feature.werewolf.howling-rampage",
+      "name": "Howling Rampage",
+      "ownerId": "transformation.werewolf",
+      "category": "transformation",
+      "text": "When you mark your last Stress while in Wolf Form, you go into a rampage. Roll a number of **d20s** equal to your tier and deal that much physical damage to all creatures within Very Close range, then drop out of Wolf Form.",
+      "mechanics": {
+        "kind": "reference"
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 40"
+        ],
+        "errata": false
+      }
+    }
+  ]
+}

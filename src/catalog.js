@@ -10,8 +10,21 @@ export const TRAIT_LABELS = Object.freeze({
 });
 
 const COLLECTIONS = ['classes', 'subclasses', 'features', 'ancestries', 'communities', 'domains', 'domainCards', 'weapons', 'armor', 'items', 'beastforms'];
+// Collections only some source sets provide (Hope & Fear); absent means empty.
+const OPTIONAL_COLLECTIONS = ['transformations', 'martialStances'];
 
 export class CatalogError extends Error {}
+
+/**
+ * Reads the files of a manifest map. A collection may list several files (one per
+ * source set); their records are concatenated into one bundle.
+ */
+export async function readBundles(readJson, files) {
+  return Object.fromEntries(await Promise.all(Object.entries(files).map(async ([key, paths]) => {
+    const bundles = await Promise.all([paths].flat().map((path) => readJson(path)));
+    return [key, bundles.length === 1 ? bundles[0] : { meta: bundles[0].meta, records: bundles.flatMap((b) => b.records) }];
+  })));
+}
 
 /**
  * Loads every data file listed in data/manifest.json for a content profile.
@@ -21,9 +34,7 @@ export async function loadCatalog(readJson, { contentProfile = 'core' } = {}) {
   const manifest = await readJson('manifest.json');
   const profile = manifest.profiles[contentProfile];
   if (!profile) throw new CatalogError(`Unknown or unsupported content profile "${contentProfile}"`);
-  const entries = async (files) =>
-    Object.fromEntries(await Promise.all(Object.entries(files).map(async ([key, path]) => [key, await readJson(path)])));
-  const [gameData, flavor] = await Promise.all([entries(profile.files), entries(manifest.flavor)]);
+  const [gameData, flavor] = await Promise.all([readBundles(readJson, profile.files), readBundles(readJson, manifest.flavor)]);
   return createCatalog({ manifest, contentProfile, gameData, flavor });
 }
 
@@ -33,8 +44,8 @@ export function createCatalog({ manifest, contentProfile, gameData, flavor }) {
   const allowedSets = new Set(profile.sourceSets);
   const byId = new Map();
   const lists = {};
-  for (const name of COLLECTIONS) {
-    const bundle = gameData[name];
+  for (const name of [...COLLECTIONS, ...OPTIONAL_COLLECTIONS]) {
+    const bundle = gameData[name] ?? (OPTIONAL_COLLECTIONS.includes(name) ? { records: [] } : null);
     if (!bundle) throw new CatalogError(`Missing data collection "${name}"`);
     lists[name] = Object.freeze(bundle.records.filter((r) => allowedSets.has(r.source?.sourceSet)));
     for (const record of lists[name]) {
@@ -48,6 +59,7 @@ export function createCatalog({ manifest, contentProfile, gameData, flavor }) {
 
   const catalog = {
     contentProfile,
+    contentLabel: profile.label,
     sourceSets: Object.freeze([...allowedSets]),
     dataVersion: manifest.dataVersion,
     srdVersion: manifest.srdVersion,
@@ -57,6 +69,7 @@ export function createCatalog({ manifest, contentProfile, gameData, flavor }) {
       ...withoutMeta(flavor.details),
       ...withoutMeta(flavor.companions),
       ...withoutMeta(flavor.sayings),
+      ...withoutMeta(flavor.patrons ?? {}),
       experiences,
       classStyles,
     }),

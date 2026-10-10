@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFile, writeFile } from 'node:fs/promises';
 import { generateCharacter } from '../src/generator.js';
 import { renderCharacterMarkdown } from '../src/markdown.js';
-import { getCatalog } from './helpers.js';
+import { getCatalog, HOPE_FEAR } from './helpers.js';
 
 // Seeded, SRD-backed regression fixtures: one per subclass plus awkward-choice cases.
 const FIXTURES = [
@@ -38,13 +38,23 @@ const FIXTURES = [
   { name: 'level-10-druid', input: { seed: 'fixture-l10-druid', level: 10, subclassId: 'subclass.warden-of-the-elements' } },
   { name: 'level-10-stalwart', input: { seed: 'fixture-l10-stalwart', level: 10, subclassId: 'subclass.stalwart', ancestryId: 'ancestry.galapa' } },
   { name: 'level-10-nightwalker', input: { seed: 'fixture-l10-nightwalker', level: 10, subclassId: 'subclass.nightwalker' } },
+  // V3: Core + Hope & Fear (one per expansion subclass, plus transformations and higher levels)
+  ...['executioners-guild', 'poisoners-guild', 'juggernaut', 'martial-artist', 'pact-of-the-endless', 'pact-of-the-wrathful', 'hedge', 'moon']
+    .map((id) => ({ name: `hf-${id}`, profile: HOPE_FEAR, input: { seed: `fixture-hf-${id}`, subclassId: `subclass.${id}`, contentProfile: HOPE_FEAR } })),
+  { name: 'hf-brawlers-strike', profile: HOPE_FEAR, input: { seed: 'fixture-hf-strike-1', classId: 'class.brawler', contentProfile: HOPE_FEAR } },
+  { name: 'hf-level-6-martial-artist', profile: HOPE_FEAR, input: { seed: 'fixture-hf-l6-martial', level: 6, subclassId: 'subclass.martial-artist', contentProfile: HOPE_FEAR } },
+  { name: 'hf-level-8-executioner', profile: HOPE_FEAR, input: { seed: 'fixture-hf-l8-exec', level: 8, subclassId: 'subclass.executioners-guild', contentProfile: HOPE_FEAR } },
+  { name: 'hf-level-10-witch', profile: HOPE_FEAR, input: { seed: 'fixture-hf-l10-witch', level: 10, subclassId: 'subclass.moon', contentProfile: HOPE_FEAR } },
+  { name: 'hf-level-5-warlock-demigod', profile: HOPE_FEAR, input: { seed: 'fixture-hf-demigod', level: 5, classId: 'class.warlock', transformationId: 'transformation.demigod', contentProfile: HOPE_FEAR } },
+  { name: 'hf-shapeshifter', profile: HOPE_FEAR, input: { seed: 'fixture-hf-shapeshifter', ancestryId: 'ancestry.earthkin', transformationId: 'transformation.shapeshifter', contentProfile: HOPE_FEAR } },
+  { name: 'hf-vampire-core-class', profile: HOPE_FEAR, input: { seed: 'fixture-hf-vampire', level: 3, classId: 'class.rogue', ancestryId: 'ancestry.tidekin', transformationId: 'transformation.vampire', contentProfile: HOPE_FEAR } },
 ];
 
 const SECTION_ORDER = ['# ', '## At a Glance', '## Combat & Gear', '## Experiences', '## Features', '## Domain Cards - Active Loadout', '## Character Hook', '---'];
 
 for (const fixture of FIXTURES) {
   test(`snapshot: ${fixture.name}`, async () => {
-    const catalog = await getCatalog();
+    const catalog = await getCatalog(fixture.profile);
     const md = renderCharacterMarkdown(generateCharacter(fixture.input, catalog), catalog);
     const path = new URL(`./snapshots/${fixture.name}.md`, import.meta.url);
     if (process.env.UPDATE_SNAPSHOTS) await writeFile(path, md);
@@ -53,11 +63,12 @@ for (const fixture of FIXTURES) {
   });
 }
 
-test('every sheet has the required sections in order and no placeholder text', async () => {
-  const catalog = await getCatalog();
+for (const profile of ['core', HOPE_FEAR]) test(`every sheet has the required sections in order and no placeholder text (${profile})`, async () => {
+  const catalog = await getCatalog(profile);
   for (let i = 0; i < 300; i++) {
     const level = 1 + (i % 10);
-    const c = generateCharacter({ seed: `md-${i}`, level, options: { mixedAncestry: i % 5 === 0 } }, catalog);
+    const options = { mixedAncestry: i % 5 === 0, transformation: profile === HOPE_FEAR && i % 3 === 0 };
+    const c = generateCharacter({ seed: `md-${i}`, level, contentProfile: profile, options }, catalog);
     const md = renderCharacterMarkdown(c, catalog);
     const lines = md.split('\n');
     const positions = SECTION_ORDER.map((marker) => lines.findIndex((line) => (marker === '# ' ? line.startsWith('# ') : line === marker)));

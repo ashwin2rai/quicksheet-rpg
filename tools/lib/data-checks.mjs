@@ -1,20 +1,22 @@
 // Data integrity checks shared by `npm run validate:data` and the test suite.
 
 import { RESOLVERS } from '../../src/resolvers.js';
-import { TRAITS } from '../../src/catalog.js';
-import { RULES } from '../../src/rules.js';
+import { TRAITS, readBundles } from '../../src/catalog.js';
+import { RULES, PROGRESSION } from '../../src/rules.js';
 
 const SOURCE_SETS = ['core', 'hope-fear'];
 const MECHANIC_KINDS = ['effects', 'reference', 'deferred'];
-const EFFECT_KEYS = ['modifiers', 'resource', 'attack', 'flags', 'grants', 'resolver', 'companion', 'display', 'resourceUpgrade', 'restriction'];
-const KNOWN_FLAGS = ['ignore-burden'];
+const EFFECT_KEYS = ['modifiers', 'resource', 'attack', 'flags', 'grants', 'resolver', 'companion', 'display', 'resourceUpgrade', 'restriction', 'advancement', 'stances', 'loadoutSlots'];
+const KNOWN_FLAGS = ['ignore-burden', 'single-ancestry-feature'];
 const RESOURCE_COUNTS = /^(tier|level|proficiency|trait:(spellcast|agility|strength|finesse|instinct|presence|knowledge))$/;
 const MODIFIER_TARGETS = new Set([
   'evasion', 'hpSlots', 'stressSlots', 'armorScore', 'thresholds', 'severeThreshold', 'attackRoll', 'weaponAttackRoll',
-  'primaryWeaponDamage', 'physicalDamage', 'damageRolls', 'meleeWeaponDamage',
+  'primaryWeaponAttackRoll', 'actionRolls', 'primaryWeaponDamage', 'physicalDamage', 'damageRolls', 'meleeWeaponDamage',
   ...TRAITS.map((t) => `trait.${t}`),
 ]);
 const RANGES = ['Melee', 'Very Close', 'Close', 'Far', 'Very Far'];
+const DAMAGE_TYPES = ['phy', 'mag', 'phy/mag'];
+const DIE = /^d(4|6|8|10|12|20)$/;
 
 /** @returns {string[]} errors */
 export function checkData({ manifest, gameDataByProfile, flavor }) {
@@ -51,6 +53,13 @@ export function checkData({ manifest, gameDataByProfile, flavor }) {
       return r;
     };
     const records = (collection) => gameData[collection]?.records ?? [];
+
+    // Hope & Fear records may build on core records (e.g. Warlock's Grace domain); never the reverse.
+    for (const [id, r] of all) {
+      if (r.source?.sourceSet !== 'core') continue;
+      const refs = JSON.stringify(r).match(/"(?:class|subclass|feature|ancestry|community|domain|card|weapon|armor|item|transformation|stance)\.[a-z0-9.-]+"/g) ?? [];
+      for (const ref of refs) if (all.get(ref.slice(1, -1))?.source?.sourceSet === 'hope-fear') p(`${id}: core record refers to Hope & Fear record ${ref}`);
+    }
 
     for (const c of records('classes')) {
       if (c.domainIds.length !== 2 || new Set(c.domainIds).size !== 2) p(`${c.id}: must have two distinct domains`);
@@ -89,10 +98,31 @@ export function checkData({ manifest, gameDataByProfile, flavor }) {
       if (bottom && bottom.position !== 'bottom') p(`${a.id}: bottom feature not marked bottom`);
     }
     for (const c of records('communities')) get(c.featureId, 'features', c.id);
+    for (const t of records('transformations')) {
+      if (t.featureIds.length !== 2) p(`${t.id}: a transformation card has two features`);
+      t.featureIds.forEach((id) => {
+        const f = get(id, 'features', t.id);
+        if (f && (f.ownerId !== t.id || f.category !== 'transformation')) p(`${id}: must be a transformation feature owned by ${t.id}`);
+      });
+      if (!t.questions?.length) p(`${t.id}: needs transformation questions`);
+    }
+    for (const st of records('martialStances')) {
+      if (!(st.tier >= 1 && st.tier <= 4)) p(`${st.id}: bad tier`);
+      if (!st.text?.trim()) p(`${st.id}: empty text`);
+    }
     for (const f of records('features')) {
       get(f.ownerId, null, f.id);
       if (!f.text?.trim()) p(`${f.id}: empty rules text`);
       checkMechanics(f.mechanics, f.id, p, get);
+      const st = f.mechanics?.stances;
+      if (st) {
+        const pool = records('martialStances');
+        if (pool.filter((x) => x.tier <= st.initialTier).length < st.initial) p(`${f.id}: not enough Tier ${st.initialTier} martial stances`);
+        if (pool.length < st.initial + 9 * st.perLevel) p(`${f.id}: not enough martial stances for ten levels`);
+        if (f.mechanics.resolver !== 'martialStances' || !st.rules?.trim()) p(`${f.id}: stances need the martialStances resolver and rules text`);
+      }
+      if (f.mechanics?.advancement && f.category !== 'class') p(`${f.id}: only class features may add advancement options`);
+      if (f.mechanics?.flags?.includes('single-ancestry-feature') && (f.category !== 'transformation' || f.mechanics.resolver !== 'onlySkinDeep')) p(`${f.id}: single-ancestry-feature needs a transformation feature with the onlySkinDeep resolver`);
     }
     for (const card of records('domainCards')) {
       get(card.domainId, 'domains', card.id);
@@ -101,14 +131,18 @@ export function checkData({ manifest, gameDataByProfile, flavor }) {
       if (!card.text?.trim()) p(`${card.id}: empty text`);
       checkMechanics(card.mechanics, card.id, p, get);
     }
+    const grantedWeaponIds = new Set(records('features').flatMap((f) => f.mechanics?.grants?.weapons ?? []));
     for (const w of records('weapons')) {
+      const granted = w.tags?.includes('feature-granted');
       if (!['primary', 'secondary'].includes(w.slot)) p(`${w.id}: bad slot`);
       if (!(w.tier >= 1 && w.tier <= 4)) p(`${w.id}: bad tier`);
-      if (![...TRAITS, 'spellcast'].includes(w.trait)) p(`${w.id}: bad trait ${w.trait}`);
+      if (![...TRAITS, 'spellcast', ...(granted ? ['choice'] : [])].includes(w.trait)) p(`${w.id}: bad trait ${w.trait}`);
       if (!RANGES.includes(w.range)) p(`${w.id}: bad range ${w.range}`);
-      if (!['one-handed', 'two-handed'].includes(w.burden)) p(`${w.id}: bad burden ${w.burden}`);
-      if (!['phy', 'mag'].includes(w.damageType)) p(`${w.id}: bad damage type`);
+      if (!['one-handed', 'two-handed', ...(granted ? ['unarmed'] : [])].includes(w.burden)) p(`${w.id}: bad burden ${w.burden}`);
+      if (!DAMAGE_TYPES.includes(w.damageType)) p(`${w.id}: bad damage type`);
       if (!Number.isInteger(w.damage?.die) || !Number.isInteger(w.damage?.bonus)) p(`${w.id}: bad damage`);
+      if (w.damage?.extraDie !== undefined && !(granted && Number.isInteger(w.damage.extraDie))) p(`${w.id}: bad extra damage die`);
+      if (granted && !grantedWeaponIds.has(w.id)) p(`${w.id}: feature-granted weapon that no feature grants`);
       if (w.slot === 'secondary' && w.burden !== 'one-handed') p(`${w.id}: secondary weapons must be one-handed`);
       if (w.feature) checkMechanics(w.feature.mechanics, `${w.id} feature`, p, get);
     }
@@ -154,7 +188,8 @@ export function checkData({ manifest, gameDataByProfile, flavor }) {
   for (const key of ['distinguishingDetails', 'personalities', 'motivations', 'origins', 'turningPoints', 'hookTemplates']) {
     if (!flavor.details[key]?.length) err(`flavor details.${key} is empty`);
   }
-  const ADV = ['traits', 'hp', 'stress', 'experiences', 'domainCard', 'evasion', 'subclass', 'proficiency'];
+  const featureAdvancements = Object.values(gameDataByProfile).flatMap((g) => g.features?.records ?? []).map((f) => f.mechanics?.advancement?.id).filter(Boolean);
+  const ADV = [...PROGRESSION.OPTIONS.map((o) => o.id), ...featureAdvancements];
   for (const s of flavor.classStyles.records) {
     for (const [k, v] of Object.entries(s.advancementWeights ?? {})) if (!ADV.includes(k) || !(v > 0)) err(`flavor: bad advancement weight ${k} for ${s.classId}`);
     for (const tag of s.conceptTags) if (!flavor.details.conceptTails[tag]?.length) err(`flavor: concept tag ${tag} for ${s.classId} has no tails`);
@@ -163,6 +198,8 @@ export function checkData({ manifest, gameDataByProfile, flavor }) {
   if ((flavor.companions?.companionAnimals?.length ?? 0) < 5 || (flavor.companions?.companionNames?.length ?? 0) < 5) err('flavor companions: need animals and names');
   const sayings = flavor.sayings?.orderborneSayings ?? [];
   if (sayings.length < 6 || new Set(sayings).size !== sayings.length) err('flavor sayings: need at least 6 distinct Orderborne sayings');
+  const patrons = flavor.patrons?.patronNames ?? [];
+  if (patrons.length < 10 || new Set(patrons).size !== patrons.length) err('flavor patrons: need at least 10 distinct patron names');
   return errors;
 }
 
@@ -174,7 +211,7 @@ function checkMechanics(m, where, p, get) {
   if (m.kind !== 'effects' && effects.length) p(`${where}: '${m.kind}' kind must not declare effects (${effects.join(', ')})`);
   for (const mod of m.modifiers ?? []) {
     if (!MODIFIER_TARGETS.has(mod.target)) p(`${where}: unknown modifier target ${mod.target}`);
-    const okValue = typeof mod.value === 'number' || ['proficiency', 'level'].includes(mod.value) || /^(halfUp|trait):(agility|strength|finesse|instinct|presence|knowledge)$/.test(mod.value);
+    const okValue = typeof mod.value === 'number' || ['proficiency', 'level', 'tier', 'trait:spellcast'].includes(mod.value) || /^(halfUp|trait):(agility|strength|finesse|instinct|presence|knowledge)$/.test(mod.value);
     if (mod.requires && !(typeof mod.requires.loadoutDomain === 'string' && Number.isInteger(mod.requires.min))) p(`${where}: bad modifier requirement`);
     if (mod.requires) get(mod.requires.loadoutDomain, 'domains', where);
     if (!okValue) p(`${where}: bad modifier value ${mod.value}`);
@@ -195,17 +232,35 @@ function checkMechanics(m, where, p, get) {
     if (!r.id || !r.label) p(`${where}: resource needs id and label`);
     if (r.dieByLevel) {
       if (!r.dieByLevel.length || r.dieByLevel[0][0] !== 1) p(`${where}: resource must define a die from level 1`);
-    } else if (!RESOURCE_COUNTS.test(r.count ?? '')) p(`${where}: resource needs dieByLevel or a valid count`);
+    } else if (r.dieSteps) {
+      if (!r.dieSteps.length || !r.dieSteps.every((d) => DIE.test(d)) || m.advancement?.id !== r.advancedBy) p(`${where}: dieSteps need valid dice and the advancement that raises them`);
+      else if (Object.values(m.advancement.slots).reduce((a, b) => a + b, 0) >= r.dieSteps.length) p(`${where}: more advancement slots than die steps`);
+    } else if (typeof r.count === 'number') {
+      if (!Number.isInteger(r.count) || r.count < 0) p(`${where}: a fixed resource count must be a non-negative integer`);
+    } else if (!RESOURCE_COUNTS.test(r.count ?? '')) p(`${where}: resource needs dieByLevel, dieSteps or a valid count`);
+    if (r.die !== undefined && !DIE.test(r.die)) p(`${where}: bad resource die ${r.die}`);
   }
   if (m.attack) {
     const a = m.attack;
-    if (!TRAITS.includes(a.trait) || !RANGES.includes(a.range) || !Number.isInteger(a.damage?.die) || !['phy', 'mag'].includes(a.damageType)) p(`${where}: bad attack definition`);
+    if (![...TRAITS, 'choice'].includes(a.trait) || !RANGES.includes(a.range) || !Number.isInteger(a.damage?.die) || !['phy', 'mag'].includes(a.damageType)) p(`${where}: bad attack definition`);
   }
+  if (m.advancement) {
+    const a = m.advancement;
+    const slotTiers = Object.keys(a.slots ?? {});
+    if (!a.id || !a.label || !Number.isInteger(a.cost) || a.cost < 1 || !slotTiers.length || slotTiers.some((t) => !['2', '3', '4'].includes(t) || !Number.isInteger(a.slots[t]))) p(`${where}: bad advancement option`);
+    if (PROGRESSION.OPTIONS.some((o) => o.id === a.id)) p(`${where}: advancement id ${a.id} clashes with an SRD option`);
+  }
+  if (m.stances && !(Number.isInteger(m.stances.initial) && Number.isInteger(m.stances.initialTier) && Number.isInteger(m.stances.perLevel))) p(`${where}: bad stances definition`);
+  if (m.loadoutSlots !== undefined && !(Number.isInteger(m.loadoutSlots) && m.loadoutSlots < 0)) p(`${where}: loadoutSlots must be a negative integer`);
+  (m.grants?.weapons ?? []).forEach((id) => {
+    const w = get(id, 'weapons', where);
+    if (w && !w.tags?.includes('feature-granted')) p(`${where}: granted weapon ${id} must be tagged feature-granted`);
+  });
   for (const flag of m.flags ?? []) if (!KNOWN_FLAGS.includes(flag)) p(`${where}: unknown flag ${flag}`);
   (m.grants?.items ?? []).forEach((id) => get(id, 'items', where));
   if (m.grants?.domainCards !== undefined && !(Number.isInteger(m.grants.domainCards) && m.grants.domainCards > 0)) p(`${where}: bad domainCards grant`);
   if (m.grants?.companionAdvancements !== undefined && !(Number.isInteger(m.grants.companionAdvancements) && m.grants.companionAdvancements > 0)) p(`${where}: bad companionAdvancements grant`);
-  if (m.resourceUpgrade && !(m.resourceUpgrade.id && /^d\d+$/.test(m.resourceUpgrade.value))) p(`${where}: bad resourceUpgrade`);
+  if (m.resourceUpgrade && !(m.resourceUpgrade.id && (DIE.test(m.resourceUpgrade.value ?? '') !== DIE.test(m.resourceUpgrade.die ?? '')))) p(`${where}: bad resourceUpgrade (needs a die as value or die)`);
   if (m.restriction && !(TRAITS.includes(m.restriction.trait) && Number.isInteger(m.restriction.max))) p(`${where}: bad restriction`);
   if ((m.persistent || m.vaultOnAcquire) && !m.resolver && !m.modifiers) p(`${where}: persistent/vault-on-acquire cards need an effect`);
   if (m.resource?.min !== undefined && !Number.isInteger(m.resource.min)) p(`${where}: resource min must be an integer`);
@@ -224,11 +279,7 @@ function checkMechanics(m, where, p, get) {
 export async function loadAllData(readJson) {
   const manifest = await readJson('manifest.json');
   const gameDataByProfile = {};
-  for (const [name, profile] of Object.entries(manifest.profiles)) {
-    gameDataByProfile[name] = {};
-    for (const [key, path] of Object.entries(profile.files)) gameDataByProfile[name][key] = await readJson(path);
-  }
-  const flavor = {};
-  for (const [key, path] of Object.entries(manifest.flavor)) flavor[key] = await readJson(path);
+  for (const [name, profile] of Object.entries(manifest.profiles)) gameDataByProfile[name] = await readBundles(readJson, profile.files);
+  const flavor = await readBundles(readJson, manifest.flavor);
   return { manifest, gameDataByProfile, flavor };
 }

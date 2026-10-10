@@ -30,7 +30,7 @@ for (const file of readdirSync(srcDir).filter((f) => f.endsWith('.js'))) {
 }
 
 const manifest = JSON.parse(readFileSync(join(ROOT, 'data/manifest.json'), 'utf8'));
-const paths = [...Object.values(manifest.profiles).flatMap((p) => Object.values(p.files)), ...Object.values(manifest.flavor)];
+const paths = [...Object.values(manifest.profiles).flatMap((p) => Object.values(p.files).flat()), ...Object.values(manifest.flavor)];
 for (const p of paths) if (!existsSync(join(ROOT, 'data', p))) errors.push(`manifest lists missing data file data/${p}`);
 
 if (errors.length) {

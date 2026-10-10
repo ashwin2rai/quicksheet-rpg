@@ -140,6 +140,68 @@
         "domainCard": 3.5,
         "hp": 1.5
       }
+    },
+    {
+      "classId": "class.assassin",
+      "experienceTags": [
+        "stealth",
+        "urban",
+        "martial"
+      ],
+      "conceptTags": [
+        "stealth",
+        "martial"
+      ],
+      "advancementWeights": {
+        "evasion": 2,
+        "traits": 3.5
+      }
+    },
+    {
+      "classId": "class.brawler",
+      "experienceTags": [
+        "martial",
+        "travel",
+        "social"
+      ],
+      "conceptTags": [
+        "martial"
+      ],
+      "advancementWeights": {
+        "comboDie": 6,
+        "hp": 2.5
+      }
+    },
+    {
+      "classId": "class.warlock",
+      "experienceTags": [
+        "arcane",
+        "lore",
+        "social"
+      ],
+      "conceptTags": [
+        "arcane"
+      ],
+      "advancementWeights": {
+        "domainCard": 2.5,
+        "stress": 2.5
+      }
+    },
+    {
+      "classId": "class.witch",
+      "experienceTags": [
+        "nature",
+        "arcane",
+        "lore"
+      ],
+      "conceptTags": [
+        "arcane",
+        "nature"
+      ],
+      "advancementWeights": {
+        "domainCard": 2.5,
+        "experiences": 1.5
+      }
     }
   ]
 }

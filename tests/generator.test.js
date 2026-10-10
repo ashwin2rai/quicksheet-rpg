@@ -57,8 +57,8 @@ test('fixed selections survive rerolls while everything else varies', async () =
   const names = new Set();
   for (let i = 0; i < 50; i++) {
     const c = generateCharacter({ ...fixed, seed: `reroll-${i}` }, catalog);
-    assert.deepEqual(c.selections, { ...fixed, secondAncestryId: null });
-    assert.deepEqual(c.requested, { ...fixed, secondAncestryId: null });
+    assert.deepEqual(c.selections, { ...fixed, secondAncestryId: null, transformationId: null });
+    assert.deepEqual(c.requested, { ...fixed, secondAncestryId: null, transformationId: null });
     names.add(c.flavor.name);
   }
   assert.ok(names.size > 40, 'unfixed details should be regenerated');

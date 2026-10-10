@@ -1,0 +1,3943 @@
+{
+  "meta": {
+    "generatedBy": "tools/import-og-dhsrd.mjs",
+    "note": "Generated file. Edit tools/curation/hope-fear.json and re-run the importer instead of editing by hand.",
+    "contentProfile": "hope-fear",
+    "sourceVersion": "2.0",
+    "upstream": {
+      "repository": "https://github.com/callmepartario/og-dhsrd",
+      "commit": "07cac58944b5cf8a2890efa6d263d4fe0f869032",
+      "file": "scripts/og-dhsrd-features.js",
+      "sha256": "d309a09e60887a23d2b4b26beadbcc8c9aee6c46de50dd07246f584d759b2b36"
+    },
+    "copyright": "Includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Used under the Darrington Press Community Gaming License; see NOTICE.md."
+  },
+  "records": [
+    {
+      "id": "weapon.brass-knuckles",
+      "name": "Brass Knuckles",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 1
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 43"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.katana",
+      "name": "Katana",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "agility",
+      "range": "Melee",
+      "damage": {
+        "die": 10,
+        "bonus": 3
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Quick",
+        "text": "When you make an attack, you can **mark a Stress** to target another creature within range.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 43"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.rope-dart",
+      "name": "Rope Dart",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "instinct",
+      "range": "Close",
+      "damage": {
+        "die": 6,
+        "bonus": 1
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 43"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.scimitar",
+      "name": "Scimitar",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "presence",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 1
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 43"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.twisted-dagger",
+      "name": "Twisted Dagger",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "knowledge",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 0
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Piercing",
+        "text": "Damage dealt with this weapon treats the target's Major threshold as having a -2 penalty.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 43"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.whipsword",
+      "name": "Whipsword",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "finesse",
+      "range": "Very Close",
+      "damage": {
+        "die": 8,
+        "bonus": 0
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Versatile",
+        "text": "This weapon can also be used with these statistics—Finesse, Melee, d10.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 43"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.arcane-rifle",
+      "name": "Arcane Rifle",
+      "slot": "primary",
+      "tier": 1,
+      "magic": true,
+      "trait": "agility",
+      "range": "Very Far",
+      "damage": {
+        "die": 10,
+        "bonus": 3
+      },
+      "damageType": "mag",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Aimed",
+        "text": "Your attack has disadvantage if the target is within Very Close range of you or within Melee range of one of your allies. You can **mark a Stress** to ignore this penalty.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 43"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.brightsword",
+      "name": "Brightsword",
+      "slot": "primary",
+      "tier": 1,
+      "magic": true,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 10,
+        "bonus": 3
+      },
+      "damageType": "mag",
+      "burden": "two-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 43"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.casting-dagger",
+      "name": "Casting Dagger",
+      "slot": "primary",
+      "tier": 1,
+      "magic": true,
+      "trait": "instinct",
+      "range": "Close",
+      "damage": {
+        "die": 6,
+        "bonus": 0
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Versatile",
+        "text": "This weapon can also be used with these statistics—Instinct, Melee, d8.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 43"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.enchanted-chakram",
+      "name": "Enchanted Chakram",
+      "slot": "primary",
+      "tier": 1,
+      "magic": true,
+      "trait": "finesse",
+      "range": "Close",
+      "damage": {
+        "die": 6,
+        "bonus": 1
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Ricochet",
+        "text": "When you throw this weapon, it returns to your hand. When you make an attack, you can **mark a Stress** to target another creature within Very Close range of the first target with that attack.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 43"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.runelock-pistol",
+      "name": "Runelock Pistol",
+      "slot": "primary",
+      "tier": 1,
+      "magic": true,
+      "trait": "knowledge",
+      "range": "Far",
+      "damage": {
+        "die": 6,
+        "bonus": 3
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Reloading",
+        "text": "After you make an attack, roll a **d6**. On a result of 1, you must mark a Stress to reload this weapon before you can fire it again.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 43"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.shadowblade",
+      "name": "Shadowblade",
+      "slot": "primary",
+      "tier": 1,
+      "magic": true,
+      "trait": "presence",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 0
+      },
+      "damageType": "phy/mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Otherworldly",
+        "text": "On a successful attack, you can deal physical or magic damage.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 43"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.improved-brass-knuckles",
+      "name": "Improved Brass Knuckles",
+      "slot": "primary",
+      "tier": 2,
+      "magic": false,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 4
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 44"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.improved-katana",
+      "name": "Improved Katana",
+      "slot": "primary",
+      "tier": 2,
+      "magic": false,
+      "trait": "agility",
+      "range": "Melee",
+      "damage": {
+        "die": 10,
+        "bonus": 6
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Quick",
+        "text": "When you make an attack, you can **mark a Stress** to target another creature within range.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 44"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.improved-rope-dart",
+      "name": "Improved Rope Dart",
+      "slot": "primary",
+      "tier": 2,
+      "magic": false,
+      "trait": "instinct",
+      "range": "Close",
+      "damage": {
+        "die": 6,
+        "bonus": 4
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 44"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.improved-scimitar",
+      "name": "Improved Scimitar",
+      "slot": "primary",
+      "tier": 2,
+      "magic": false,
+      "trait": "presence",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 4
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 44"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.improved-twisted-dagger",
+      "name": "Improved Twisted Dagger",
+      "slot": "primary",
+      "tier": 2,
+      "magic": false,
+      "trait": "knowledge",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 3
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Piercing",
+        "text": "Damage dealt with this weapon treats the target's Major threshold as having a -2 penalty.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 44"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.improved-whipsword",
+      "name": "Improved Whipsword",
+      "slot": "primary",
+      "tier": 2,
+      "magic": false,
+      "trait": "finesse",
+      "range": "Very Close",
+      "damage": {
+        "die": 8,
+        "bonus": 3
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Versatile",
+        "text": "This weapon can also be used with these statistics—Finesse, Melee, d10+3.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 44"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.bladed-fan",
+      "name": "Bladed Fan",
+      "slot": "primary",
+      "tier": 2,
+      "magic": false,
+      "trait": "presence",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 3
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Parry",
+        "text": "When you are attacked, roll this weapon's damage dice. If any of the attacker's damage dice rolled the same value as your dice, the matching results are discarded from the attacker's damage dice before the damage you take is totaled.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 44"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.cane-sword",
+      "name": "Cane Sword",
+      "slot": "primary",
+      "tier": 2,
+      "magic": false,
+      "trait": "finesse",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 4
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Retractable",
+        "text": "The blade can be hidden in the cane to avoid detection.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 44"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.cyrurgiens-scalpel",
+      "name": "Cyrurgien's Scalpel",
+      "slot": "primary",
+      "tier": 2,
+      "magic": false,
+      "trait": "knowledge",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 3
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Scary",
+        "text": "On a successful attack, the target must mark a Stress.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 44"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.javelins",
+      "name": "Javelins",
+      "slot": "primary",
+      "tier": 2,
+      "magic": false,
+      "trait": "agility",
+      "range": "Very Close",
+      "damage": {
+        "die": 6,
+        "bonus": 6
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Stockpiled",
+        "text": "You can throw this weapon at a target within Far range by making an attack roll using Agility without having to retrieve it, as you always have another one on hand.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 44"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.lance",
+      "name": "Lance",
+      "slot": "primary",
+      "tier": 2,
+      "magic": false,
+      "trait": "instinct",
+      "range": "Very Close",
+      "damage": {
+        "die": 10,
+        "bonus": 5
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Cumbersome",
+        "text": "-1 to Finesse",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "trait.finesse",
+              "value": -1
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 44"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.war-pick",
+      "name": "War Pick",
+      "slot": "primary",
+      "tier": 2,
+      "magic": false,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 3
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Deadly",
+        "text": "When you deal Severe damage, the target must mark an additional HP.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 44"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.improved-arcane-rifle",
+      "name": "Improved Arcane Rifle",
+      "slot": "primary",
+      "tier": 2,
+      "magic": true,
+      "trait": "agility",
+      "range": "Very Far",
+      "damage": {
+        "die": 10,
+        "bonus": 6
+      },
+      "damageType": "mag",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Aimed",
+        "text": "Your attack has disadvantage if the target is within Very Close range of you or within Melee range of one of your allies. You can **mark a Stress** to ignore this penalty.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 45"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.improved-brightsword",
+      "name": "Improved Brightsword",
+      "slot": "primary",
+      "tier": 2,
+      "magic": true,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 10,
+        "bonus": 6
+      },
+      "damageType": "mag",
+      "burden": "two-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 45"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.improved-casting-dagger",
+      "name": "Improved Casting Dagger",
+      "slot": "primary",
+      "tier": 2,
+      "magic": true,
+      "trait": "instinct",
+      "range": "Close",
+      "damage": {
+        "die": 6,
+        "bonus": 3
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Versatile",
+        "text": "This weapon can also be used with these statistics—Instinct, Melee, d8+3.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 45"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.improved-enchanted-chakram",
+      "name": "Improved Enchanted Chakram",
+      "slot": "primary",
+      "tier": 2,
+      "magic": true,
+      "trait": "finesse",
+      "range": "Close",
+      "damage": {
+        "die": 6,
+        "bonus": 4
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Ricochet",
+        "text": "When you throw this weapon, it returns to your hand. When you make an attack, you can **mark a Stress** to target another creature within Very Close range of the first target with that attack.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 45"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.improved-runelock-pistol",
+      "name": "Improved Runelock Pistol",
+      "slot": "primary",
+      "tier": 2,
+      "magic": true,
+      "trait": "knowledge",
+      "range": "Far",
+      "damage": {
+        "die": 6,
+        "bonus": 6
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Reloading",
+        "text": "After you make an attack, roll a **d6**. On a result of 1, you must mark a Stress to reload this weapon before you can fire it again.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 45"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.improved-shadowblade",
+      "name": "Improved Shadowblade",
+      "slot": "primary",
+      "tier": 2,
+      "magic": true,
+      "trait": "presence",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 3
+      },
+      "damageType": "phy/mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Otherworldly",
+        "text": "On a successful attack, you can deal physical or magic damage.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 45"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.displacement-razor",
+      "name": "Displacement Razor",
+      "slot": "primary",
+      "tier": 2,
+      "magic": true,
+      "trait": "finesse",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 3
+      },
+      "damageType": "mag",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Omnipresent",
+        "text": "You can make attacks against targets within Very Far range, but must do so with disadvantage.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 45"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.enchanted-lute",
+      "name": "Enchanted Lute",
+      "slot": "primary",
+      "tier": 2,
+      "magic": true,
+      "trait": "presence",
+      "range": "Close",
+      "damage": {
+        "die": 8,
+        "bonus": 3
+      },
+      "damageType": "mag",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Invigorating",
+        "text": "On a successful attack, roll a **d4**. On a result of 4, clear a Stress.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 45"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.enchanted-shillelagh",
+      "name": "Enchanted Shillelagh",
+      "slot": "primary",
+      "tier": 2,
+      "magic": true,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 3
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Protective",
+        "text": "+1 to your Armor Score",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "armorScore",
+              "value": 1
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 45"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.fury-gem",
+      "name": "Fury Gem",
+      "slot": "primary",
+      "tier": 2,
+      "magic": true,
+      "trait": "instinct",
+      "range": "Close",
+      "damage": {
+        "die": 8,
+        "bonus": 3
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Burning",
+        "text": "When you roll the maximum result on a damage die, the target must mark a Stress.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 45"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.spellbound-bangles",
+      "name": "Spellbound Bangles",
+      "slot": "primary",
+      "tier": 2,
+      "magic": true,
+      "trait": "knowledge",
+      "range": "Melee",
+      "damage": {
+        "die": 10,
+        "bonus": 6
+      },
+      "damageType": "mag",
+      "burden": "two-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 45"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.splintershaft-bow",
+      "name": "Splintershaft Bow",
+      "slot": "primary",
+      "tier": 2,
+      "magic": true,
+      "trait": "agility",
+      "range": "Far",
+      "damage": {
+        "die": 6,
+        "bonus": 6
+      },
+      "damageType": "mag",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Volleyed",
+        "text": "**Spend a Hope** to target a group of creatures within range. Targets you succeed against take half damage.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 45"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.advanced-brass-knuckles",
+      "name": "Advanced Brass Knuckles",
+      "slot": "primary",
+      "tier": 3,
+      "magic": false,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 7
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 46"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.advanced-katana",
+      "name": "Advanced Katana",
+      "slot": "primary",
+      "tier": 3,
+      "magic": false,
+      "trait": "agility",
+      "range": "Melee",
+      "damage": {
+        "die": 10,
+        "bonus": 9
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Quick",
+        "text": "When you make an attack, you can **mark a Stress** to target another creature within range.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 46"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.advanced-rope-dart",
+      "name": "Advanced Rope Dart",
+      "slot": "primary",
+      "tier": 3,
+      "magic": false,
+      "trait": "instinct",
+      "range": "Close",
+      "damage": {
+        "die": 6,
+        "bonus": 7
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 46"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.advanced-scimitar",
+      "name": "Advanced Scimitar",
+      "slot": "primary",
+      "tier": 3,
+      "magic": false,
+      "trait": "presence",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 7
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 46"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.advanced-twisted-dagger",
+      "name": "Advanced Twisted Dagger",
+      "slot": "primary",
+      "tier": 3,
+      "magic": false,
+      "trait": "knowledge",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 6
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Piercing",
+        "text": "Damage dealt with this weapon treats the target's Major threshold as having a -2 penalty.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 46"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.advanced-whipsword",
+      "name": "Advanced Whipsword",
+      "slot": "primary",
+      "tier": 3,
+      "magic": false,
+      "trait": "finesse",
+      "range": "Very Close",
+      "damage": {
+        "die": 8,
+        "bonus": 6
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Versatile",
+        "text": "This weapon can also be used with these statistics—Finesse, Melee, d10+6.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 46"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.bladed-star",
+      "name": "Bladed Star",
+      "slot": "primary",
+      "tier": 3,
+      "magic": false,
+      "trait": "knowledge",
+      "range": "Close",
+      "damage": {
+        "die": 8,
+        "bonus": 7
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Rebounding",
+        "text": "When you throw this weapon, it returns to your hand. On a failed attack, you can reroll your attack with disadvantage.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 46"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.blitz-hammer",
+      "name": "Blitz Hammer",
+      "slot": "primary",
+      "tier": 3,
+      "magic": false,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 10,
+        "bonus": 7
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Accelerator",
+        "text": "Once per scene, **mark a Stress** to move to Far range then make an attack. Gain a +1 bonus to your Proficiency on this attack.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 46"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.chained-scythe",
+      "name": "Chained Scythe",
+      "slot": "primary",
+      "tier": 3,
+      "magic": false,
+      "trait": "instinct",
+      "range": "Very Close",
+      "damage": {
+        "die": 10,
+        "bonus": 5
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Quick",
+        "text": "When you make an attack, you can **mark a Stress** to target another creature within range.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 46"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.platinum-estoc",
+      "name": "Platinum Estoc",
+      "slot": "primary",
+      "tier": 3,
+      "magic": false,
+      "trait": "finesse",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 7
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Piercing",
+        "text": "Damage dealt with this weapon treats the target's Major threshold as having a -2 penalty.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 46"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.singing-sword",
+      "name": "Singing Sword",
+      "slot": "primary",
+      "tier": 3,
+      "magic": false,
+      "trait": "presence",
+      "range": "Very Close",
+      "damage": {
+        "die": 8,
+        "bonus": 5
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Bolstering",
+        "text": "When you critically succeed on an attack, all PCs within Close range gain a Hope.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 46"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.soldiers-pike",
+      "name": "Soldier's Pike",
+      "slot": "primary",
+      "tier": 3,
+      "magic": false,
+      "trait": "agility",
+      "range": "Very Close",
+      "damage": {
+        "die": 10,
+        "bonus": 5
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Braced",
+        "text": "When an adversary within this weapon's range deals damage to you, you can **mark 2 Stress** to force them to mark a Hit Point.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 46"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.advanced-arcane-rifle",
+      "name": "Advanced Arcane Rifle",
+      "slot": "primary",
+      "tier": 3,
+      "magic": true,
+      "trait": "agility",
+      "range": "Very Far",
+      "damage": {
+        "die": 10,
+        "bonus": 9
+      },
+      "damageType": "mag",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Aimed",
+        "text": "Your attack has disadvantage if the target is within Very Close range of you or within Melee range of one of your allies. You can **mark a Stress** to ignore this penalty.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 47"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.advanced-brightsword",
+      "name": "Advanced Brightsword",
+      "slot": "primary",
+      "tier": 3,
+      "magic": true,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 10,
+        "bonus": 9
+      },
+      "damageType": "mag",
+      "burden": "two-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 47"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.advanced-casting-dagger",
+      "name": "Advanced Casting Dagger",
+      "slot": "primary",
+      "tier": 3,
+      "magic": true,
+      "trait": "instinct",
+      "range": "Close",
+      "damage": {
+        "die": 6,
+        "bonus": 6
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Versatile",
+        "text": "This weapon can also be used with these statistics—Instinct, Melee, d8+6.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 47"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.advanced-enchanted-chakram",
+      "name": "Advanced Enchanted Chakram",
+      "slot": "primary",
+      "tier": 3,
+      "magic": true,
+      "trait": "finesse",
+      "range": "Close",
+      "damage": {
+        "die": 6,
+        "bonus": 7
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Ricochet",
+        "text": "When you throw this weapon, it returns to your hand. When you make an attack, you can **mark a Stress** to target another creature within Very Close range of the first target with that attack.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 47"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.advanced-runelock-pistol",
+      "name": "Advanced Runelock Pistol",
+      "slot": "primary",
+      "tier": 3,
+      "magic": true,
+      "trait": "knowledge",
+      "range": "Far",
+      "damage": {
+        "die": 6,
+        "bonus": 9
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Reloading",
+        "text": "After you make an attack, roll a **d6**. On a result of 1, you must mark a Stress to reload this weapon before you can fire it again.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 47"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.advanced-shadowblade",
+      "name": "Advanced Shadowblade",
+      "slot": "primary",
+      "tier": 3,
+      "magic": true,
+      "trait": "presence",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 6
+      },
+      "damageType": "phy/mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Otherworldly",
+        "text": "On a successful attack, you can deal physical or magic damage.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 47"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.arc-wand",
+      "name": "Arc Wand",
+      "slot": "primary",
+      "tier": 3,
+      "magic": true,
+      "trait": "presence",
+      "range": "Close",
+      "damage": {
+        "die": 8,
+        "bonus": 6
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Bouncing",
+        "text": "Mark 1 or more Stress to hit that many targets in range of the attack.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 47"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.crystal-spear",
+      "name": "Crystal Spear",
+      "slot": "primary",
+      "tier": 3,
+      "magic": true,
+      "trait": "finesse",
+      "range": "Very Close",
+      "damage": {
+        "die": 10,
+        "bonus": 6
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Piercing",
+        "text": "Damage dealt with this weapon treats the target's Major threshold as having a -2 penalty.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 47"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.gunblade",
+      "name": "Gunblade",
+      "slot": "primary",
+      "tier": 3,
+      "magic": true,
+      "trait": "agility",
+      "range": "Far",
+      "damage": {
+        "die": 6,
+        "bonus": 6
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Versatile",
+        "text": "This weapon can also be used with these statistics—Agility, Melee, d8+6 phy.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 47"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.rime-scepter",
+      "name": "Rime Scepter",
+      "slot": "primary",
+      "tier": 3,
+      "magic": true,
+      "trait": "knowledge",
+      "range": "Close",
+      "damage": {
+        "die": 8,
+        "bonus": 6
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Freezing",
+        "text": "When an attack from this weapon causes a target to mark 2 or more HP, they become temporarily *Restrained*.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 47"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.rocket-maul",
+      "name": "Rocket Maul",
+      "slot": "primary",
+      "tier": 3,
+      "magic": true,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 10,
+        "bonus": 7
+      },
+      "damageType": "mag",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Concussive",
+        "text": "On a successful attack, you can **spend a Hope** to knock the target back to Far range.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 47"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.staff-of-augma",
+      "name": "Staff of Augma",
+      "slot": "primary",
+      "tier": 3,
+      "magic": true,
+      "trait": "instinct",
+      "range": "Far",
+      "damage": {
+        "die": 6,
+        "bonus": 7
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Catalytic",
+        "text": "On a successful attack, you can mark a Stress to give an ally within Close range a +3 bonus to their next attack roll.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 47"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.legendary-brass-knuckles",
+      "name": "Legendary Brass Knuckles",
+      "slot": "primary",
+      "tier": 4,
+      "magic": false,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 10
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 48"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.legendary-katana",
+      "name": "Legendary Katana",
+      "slot": "primary",
+      "tier": 4,
+      "magic": false,
+      "trait": "agility",
+      "range": "Melee",
+      "damage": {
+        "die": 10,
+        "bonus": 12
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Quick",
+        "text": "When you make an attack, you can **mark a Stress** to target another creature within range.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 48"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.legendary-rope-dart",
+      "name": "Legendary Rope Dart",
+      "slot": "primary",
+      "tier": 4,
+      "magic": false,
+      "trait": "instinct",
+      "range": "Close",
+      "damage": {
+        "die": 6,
+        "bonus": 10
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 48"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.legendary-scimitar",
+      "name": "Legendary Scimitar",
+      "slot": "primary",
+      "tier": 4,
+      "magic": false,
+      "trait": "presence",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 10
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 48"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.legendary-twisted-dagger",
+      "name": "Legendary Twisted Dagger",
+      "slot": "primary",
+      "tier": 4,
+      "magic": false,
+      "trait": "knowledge",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 9
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Piercing",
+        "text": "Damage dealt with this weapon treats the target's Major threshold as having a -2 penalty.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 48"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.legendary-whipsword",
+      "name": "Legendary Whipsword",
+      "slot": "primary",
+      "tier": 4,
+      "magic": false,
+      "trait": "finesse",
+      "range": "Very Close",
+      "damage": {
+        "die": 8,
+        "bonus": 9
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Versatile",
+        "text": "This weapon can also be used with these statistics—Finesse, Melee, d10+9.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 48"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.arquebus",
+      "name": "Arquebus",
+      "slot": "primary",
+      "tier": 4,
+      "magic": false,
+      "trait": "knowledge",
+      "range": "Far",
+      "damage": {
+        "die": 8,
+        "bonus": 10
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Reloading",
+        "text": "After you make an attack, roll a **d6**. On a result of 1, you must mark a Stress to reload this weapon before you can fire it again.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 48"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.bec-de-corbin",
+      "name": "Bec de Corbin",
+      "slot": "primary",
+      "tier": 4,
+      "magic": false,
+      "trait": "agility",
+      "range": "Very Close",
+      "damage": {
+        "die": 10,
+        "bonus": 9
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Devastating",
+        "text": "Before you make an attack roll, you can **mark a Stress** to use a **d20** as your damage die.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 48"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.black-powder-serpentine",
+      "name": "Black Powder Serpentine",
+      "slot": "primary",
+      "tier": 4,
+      "magic": false,
+      "trait": "strength",
+      "range": "Far",
+      "damage": {
+        "die": 8,
+        "bonus": 12
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Incendiary",
+        "text": "-1 to Agility; on a successful attack, all creatures within Very Close range of the target must mark a Hit Point.",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "trait.agility",
+              "value": -1
+            }
+          ],
+          "alsoAtTable": true
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 48"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.clockwork-crossbow",
+      "name": "Clockwork Crossbow",
+      "slot": "primary",
+      "tier": 4,
+      "magic": false,
+      "trait": "finesse",
+      "range": "Far",
+      "damage": {
+        "die": 6,
+        "bonus": 11
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Quick",
+        "text": "When you make an attack, you can **mark a Stress** to target another creature within range.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 48"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.infinite-staff",
+      "name": "Infinite Staff",
+      "slot": "primary",
+      "tier": 4,
+      "magic": false,
+      "trait": "presence",
+      "range": "Melee",
+      "damage": {
+        "die": 10,
+        "bonus": 9
+      },
+      "damageType": "phy",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Extending",
+        "text": "You can increase the range of this weapon up to Very Far. You gain a -1 penalty to attack rolls for each step you increase the range by (such as Melee to Very Close, Very Close to Close, or Close to Far).",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 48"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.severed-dragon-claw",
+      "name": "Severed Dragon Claw",
+      "slot": "primary",
+      "tier": 4,
+      "magic": false,
+      "trait": "instinct",
+      "range": "Melee",
+      "damage": {
+        "die": 10,
+        "bonus": 11
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Destructive",
+        "text": "-1 to Agility; on a successful attack, all adversaries within Very Close range must mark a Stress.",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "trait.agility",
+              "value": -1
+            }
+          ],
+          "alsoAtTable": true
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 48"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.legendary-arcane-rifle",
+      "name": "Legendary Arcane Rifle",
+      "slot": "primary",
+      "tier": 4,
+      "magic": true,
+      "trait": "agility",
+      "range": "Very Far",
+      "damage": {
+        "die": 10,
+        "bonus": 12
+      },
+      "damageType": "mag",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Aimed",
+        "text": "Your attack has disadvantage if the target is within Very Close range of you or within Melee range of one of your allies. You can **mark a Stress** to ignore this penalty.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 49"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.legendary-brightsword",
+      "name": "Legendary Brightsword",
+      "slot": "primary",
+      "tier": 4,
+      "magic": true,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 10,
+        "bonus": 12
+      },
+      "damageType": "mag",
+      "burden": "two-handed",
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 49"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.legendary-casting-dagger",
+      "name": "Legendary Casting Dagger",
+      "slot": "primary",
+      "tier": 4,
+      "magic": true,
+      "trait": "instinct",
+      "range": "Close",
+      "damage": {
+        "die": 6,
+        "bonus": 9
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Versatile",
+        "text": "This weapon can also be used with these statistics—Instinct, Melee, d8+9.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 49"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.legendary-enchanted-chakram",
+      "name": "Legendary Enchanted Chakram",
+      "slot": "primary",
+      "tier": 4,
+      "magic": true,
+      "trait": "finesse",
+      "range": "Close",
+      "damage": {
+        "die": 6,
+        "bonus": 10
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Ricochet",
+        "text": "When you throw this weapon, it returns to your hand. When you make an attack, you can **mark a Stress** to target another creature within Very Close range of the first target with that attack.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 49"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.legendary-runelock-pistol",
+      "name": "Legendary Runelock Pistol",
+      "slot": "primary",
+      "tier": 4,
+      "magic": true,
+      "trait": "knowledge",
+      "range": "Far",
+      "damage": {
+        "die": 6,
+        "bonus": 12
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Reloading",
+        "text": "After you make an attack, roll a **d6**. On a result of 1, you must mark a Stress to reload this weapon before you can fire it again.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 49"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.legendary-shadowblade",
+      "name": "Legendary Shadowblade",
+      "slot": "primary",
+      "tier": 4,
+      "magic": true,
+      "trait": "presence",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 9
+      },
+      "damageType": "phy/mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Otherworldly",
+        "text": "On a successful attack, you can deal physical or magic damage.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 49"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.adders-fang",
+      "name": "Adder's Fang",
+      "slot": "primary",
+      "tier": 4,
+      "magic": true,
+      "trait": "finesse",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 9
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Venomous",
+        "text": "When you deal Major or greater damage with this weapon, the target becomes temporarily *Vulnerable*.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 49"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.demons-edge",
+      "name": "Demon's Edge",
+      "slot": "primary",
+      "tier": 4,
+      "magic": true,
+      "trait": "presence",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 10
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Disturbing",
+        "text": "When you defeat a creature with this weapon, all adversaries within Close range must mark a Stress.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 49"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.ethereal-zweihander",
+      "name": "Ethereal Zweihänder",
+      "slot": "primary",
+      "tier": 4,
+      "magic": true,
+      "trait": "instinct",
+      "range": "Very Close",
+      "damage": {
+        "die": 10,
+        "bonus": 9
+      },
+      "damageType": "mag",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Ethereal",
+        "text": "You must **mark a Stress** to conjure this weapon. It lasts until the end of the scene.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 49"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.gravity-arbalest",
+      "name": "Gravity Arbalest",
+      "slot": "primary",
+      "tier": 4,
+      "magic": true,
+      "trait": "knowledge",
+      "range": "Far",
+      "damage": {
+        "die": 8,
+        "bonus": 6
+      },
+      "damageType": "mag",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Magnetic",
+        "text": "When you make an attack with this weapon, you can **spend a Hope** to force all adversaries within Very Close range of the target to make a Reaction Roll **(16)**. Creatures who fail must mark a Stress and are pulled into Melee range of the target.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 49"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.starmetal-blade",
+      "name": "Starmetal Blade",
+      "slot": "primary",
+      "tier": 4,
+      "magic": true,
+      "trait": "agility",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 10
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Serrated",
+        "text": "When you roll a 1 on a damage die, it deals 8 damage instead.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 49"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.storm-gods-greataxe",
+      "name": "Storm God's Greataxe",
+      "slot": "primary",
+      "tier": 4,
+      "magic": true,
+      "trait": "strength",
+      "range": "Very Close",
+      "damage": {
+        "die": 10,
+        "bonus": 9
+      },
+      "damageType": "mag",
+      "burden": "two-handed",
+      "feature": {
+        "name": "Bouncing",
+        "text": "Mark 1 or more Stress to hit that many targets in range of the attack.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 49"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.fighting-cloak",
+      "name": "Fighting Cloak",
+      "slot": "secondary",
+      "tier": 1,
+      "magic": false,
+      "trait": "presence",
+      "range": "Melee",
+      "damage": {
+        "die": 4,
+        "bonus": 0
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Padded",
+        "text": "+2 to damage thresholds",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "thresholds",
+              "value": 2
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.focus-runes",
+      "name": "Focus Runes",
+      "slot": "secondary",
+      "tier": 1,
+      "magic": true,
+      "trait": "instinct",
+      "range": "Very Close",
+      "damage": {
+        "die": 6,
+        "bonus": 0
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Focused",
+        "text": "+1 to primary weapon damage to targets within Very Close range",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "primaryWeaponDamage",
+              "value": 1,
+              "condition": "targets within Very Close range"
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.hatchet",
+      "name": "Hatchet",
+      "slot": "secondary",
+      "tier": 1,
+      "magic": false,
+      "trait": "agility",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 0
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Follow-Up",
+        "text": "On a successful attack with your primary weapon within Melee range, you can **mark a Stress** to gain a +1 bonus to your Proficiency for this attack.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.offhand-brass-knuckles",
+      "name": "Offhand Brass Knuckles",
+      "slot": "secondary",
+      "tier": 1,
+      "magic": false,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 0
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Paired",
+        "text": "+2 to primary weapon damage to targets within Melee range",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "primaryWeaponDamage",
+              "value": 2,
+              "condition": "targets within Melee range"
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.rune-shield",
+      "name": "Rune Shield",
+      "slot": "secondary",
+      "tier": 1,
+      "magic": true,
+      "trait": "knowledge",
+      "range": "Melee",
+      "damage": {
+        "die": 4,
+        "bonus": 0
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Protective",
+        "text": "+1 to Armor Score",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "armorScore",
+              "value": 1
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.throwing-knives",
+      "name": "Throwing Knives",
+      "slot": "secondary",
+      "tier": 1,
+      "magic": false,
+      "trait": "finesse",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 0
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Stockpiled",
+        "text": "You can throw this weapon within Close range by making an attack roll using Finesse. You don't have to retrieve it, as you always have another on hand.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.improved-focus-runes",
+      "name": "Improved Focus Runes",
+      "slot": "secondary",
+      "tier": 2,
+      "magic": true,
+      "trait": "instinct",
+      "range": "Very Close",
+      "damage": {
+        "die": 6,
+        "bonus": 2
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Focused",
+        "text": "+1 to primary weapon damage to targets within Very Close range.",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "primaryWeaponDamage",
+              "value": 1,
+              "condition": "targets within Very Close range"
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.improved-fighting-cloak",
+      "name": "Improved Fighting Cloak",
+      "slot": "secondary",
+      "tier": 2,
+      "magic": false,
+      "trait": "presence",
+      "range": "Melee",
+      "damage": {
+        "die": 4,
+        "bonus": 2
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Padded",
+        "text": "+3 to damage thresholds",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "thresholds",
+              "value": 3
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.improved-hatchet",
+      "name": "Improved Hatchet",
+      "slot": "secondary",
+      "tier": 2,
+      "magic": false,
+      "trait": "agility",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 2
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Follow-Up",
+        "text": "On a successful attack with your primary weapon within Melee range, you can mark a Stress to gain a +1 bonus to your Proficiency for this attack.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.improved-offhand-brass-knuckles",
+      "name": "Improved Offhand Brass Knuckles",
+      "slot": "secondary",
+      "tier": 2,
+      "magic": false,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 2
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Paired",
+        "text": "+3 to primary weapon damage to targets within Melee range",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "primaryWeaponDamage",
+              "value": 3,
+              "condition": "targets within Melee range"
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.improved-rune-shield",
+      "name": "Improved Rune Shield",
+      "slot": "secondary",
+      "tier": 2,
+      "magic": true,
+      "trait": "knowledge",
+      "range": "Melee",
+      "damage": {
+        "die": 4,
+        "bonus": 2
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Protective",
+        "text": "+2 to Armor Score",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "armorScore",
+              "value": 2
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.improved-throwing-knives",
+      "name": "Improved Throwing Knives",
+      "slot": "secondary",
+      "tier": 2,
+      "magic": false,
+      "trait": "finesse",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 2
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Stockpiled",
+        "text": "You can throw this weapon within Close range by making an attack roll using Finesse. You don't have to retrieve it, as you always have another on hand.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.collapsible-baton",
+      "name": "Collapsible Baton",
+      "slot": "secondary",
+      "tier": 2,
+      "magic": false,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 0
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Nonlethal",
+        "text": "When a target would mark any number of Hit Points from an attack with this weapon, they mark an equal number of Stress instead.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.eldritch-vambrace",
+      "name": "Eldritch Vambrace",
+      "slot": "secondary",
+      "tier": 2,
+      "magic": true,
+      "trait": "instinct",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 0
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Deflecting",
+        "text": "When you are attacked, you can **mark an Armor Slot** to gain a bonus to your Evasion equal to your Armor Score against the attack.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.razor-wire",
+      "name": "Razor Wire",
+      "slot": "secondary",
+      "tier": 2,
+      "magic": false,
+      "trait": "finesse",
+      "range": "Very Close",
+      "damage": {
+        "die": 6,
+        "bonus": 3
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Entangling",
+        "text": "On a successful attack with your primary weapon against a target within Very Close range, you can **spend a Hope** to make the target temporarily *Vulnerable*.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.segmented-staff",
+      "name": "Segmented Staff",
+      "slot": "secondary",
+      "tier": 2,
+      "magic": false,
+      "trait": "agility",
+      "range": "Very Close",
+      "damage": {
+        "die": 6,
+        "bonus": 4
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Double Duty",
+        "text": "+1 to Armor Score; +1 to primary weapon damage within Melee range",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "armorScore",
+              "value": 1
+            },
+            {
+              "target": "primaryWeaponDamage",
+              "value": 1,
+              "condition": "targets within Melee range"
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 50"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.advanced-fighting-cloak",
+      "name": "Advanced Fighting Cloak",
+      "slot": "secondary",
+      "tier": 3,
+      "magic": false,
+      "trait": "presence",
+      "range": "Melee",
+      "damage": {
+        "die": 4,
+        "bonus": 4
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Padded",
+        "text": "+4 to damage thresholds",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "thresholds",
+              "value": 4
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.advanced-focus-runes",
+      "name": "Advanced Focus Runes",
+      "slot": "secondary",
+      "tier": 3,
+      "magic": true,
+      "trait": "instinct",
+      "range": "Very Close",
+      "damage": {
+        "die": 6,
+        "bonus": 4
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Focused",
+        "text": "+1 to primary weapon damage to targets within Very Close range",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "primaryWeaponDamage",
+              "value": 1,
+              "condition": "targets within Very Close range"
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.advanced-hatchet",
+      "name": "Advanced Hatchet",
+      "slot": "secondary",
+      "tier": 3,
+      "magic": false,
+      "trait": "agility",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 4
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Follow-Up",
+        "text": "On a successful attack with your primary weapon within Melee range, you can **mark a Stress** to gain a +1 bonus to your Proficiency for this attack.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.advanced-offhand-brass-knuckles",
+      "name": "Advanced Offhand Brass Knuckles",
+      "slot": "secondary",
+      "tier": 3,
+      "magic": false,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 4
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Paired",
+        "text": "+4 to primary weapon damage to targets within Melee range",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "primaryWeaponDamage",
+              "value": 4,
+              "condition": "targets within Melee range"
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.advanced-rune-shield",
+      "name": "Advanced Rune Shield",
+      "slot": "secondary",
+      "tier": 3,
+      "magic": true,
+      "trait": "knowledge",
+      "range": "Melee",
+      "damage": {
+        "die": 4,
+        "bonus": 4
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Protective",
+        "text": "+3 to Armor Score",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "armorScore",
+              "value": 3
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.advanced-throwing-knives",
+      "name": "Advanced Throwing Knives",
+      "slot": "secondary",
+      "tier": 3,
+      "magic": false,
+      "trait": "finesse",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 4
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Stockpiled",
+        "text": "You can throw this weapon within Close range by making an attack roll using Finesse. You don't have to retrieve it, as you always have another on hand.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.soul-chain",
+      "name": "Soul Chain",
+      "slot": "secondary",
+      "tier": 3,
+      "magic": true,
+      "trait": "presence",
+      "range": "Very Close",
+      "damage": {
+        "die": 6,
+        "bonus": 5
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Draining",
+        "text": "On a successful attack, you can **spend a Hope** to force the target to mark a Stress. If they do, you clear a Stress.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.tinkers-hammer",
+      "name": "Tinker's Hammer",
+      "slot": "secondary",
+      "tier": 3,
+      "magic": false,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 4
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Trusty",
+        "text": "+1 to attack rolls made with your primary weapon",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "primaryWeaponAttackRoll",
+              "value": 1
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.vorpal-shard",
+      "name": "Vorpal Shard",
+      "slot": "secondary",
+      "tier": 3,
+      "magic": true,
+      "trait": "knowledge",
+      "range": "Melee",
+      "damage": {
+        "die": 4,
+        "bonus": 0
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Targeted",
+        "text": "When you fail a weapon attack, you can **spend a Hope** to succeed on your next weapon attack.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.war-dart",
+      "name": "War Dart",
+      "slot": "secondary",
+      "tier": 3,
+      "magic": false,
+      "trait": "agility",
+      "range": "Far",
+      "damage": {
+        "die": 6,
+        "bonus": 5
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Versatile",
+        "text": "This weapon can also be used with these statistics—Agility, Melee, d8+5.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.legendary-fighting-cloak",
+      "name": "Legendary Fighting Cloak",
+      "slot": "secondary",
+      "tier": 4,
+      "magic": false,
+      "trait": "presence",
+      "range": "Melee",
+      "damage": {
+        "die": 4,
+        "bonus": 6
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Padded",
+        "text": "+5 to damage thresholds",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "thresholds",
+              "value": 5
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.legendary-focus-runes",
+      "name": "Legendary Focus Runes",
+      "slot": "secondary",
+      "tier": 4,
+      "magic": true,
+      "trait": "instinct",
+      "range": "Very Close",
+      "damage": {
+        "die": 6,
+        "bonus": 6
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Focused",
+        "text": "+1 to primary weapon damage to targets within Very Close range",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "primaryWeaponDamage",
+              "value": 1,
+              "condition": "targets within Very Close range"
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.legendary-hatchet",
+      "name": "Legendary Hatchet",
+      "slot": "secondary",
+      "tier": 4,
+      "magic": false,
+      "trait": "agility",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 6
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Follow-Up",
+        "text": "On a successful attack with your primary weapon within Melee range, you can **mark a Stress** to gain a +1 bonus to your Proficiency for this attack.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.legendary-offhand-brass-knuckles",
+      "name": "Legendary Offhand Brass Knuckles",
+      "slot": "secondary",
+      "tier": 4,
+      "magic": false,
+      "trait": "strength",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 6
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Paired",
+        "text": "+5 to primary weapon damage to targets within Melee range",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "primaryWeaponDamage",
+              "value": 5,
+              "condition": "targets within Melee range"
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.legendary-rune-shield",
+      "name": "Legendary Rune Shield",
+      "slot": "secondary",
+      "tier": 4,
+      "magic": true,
+      "trait": "knowledge",
+      "range": "Melee",
+      "damage": {
+        "die": 4,
+        "bonus": 6
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Protective",
+        "text": "+4 to Armor Score",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "armorScore",
+              "value": 4
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.legendary-throwing-knives",
+      "name": "Legendary Throwing Knives",
+      "slot": "secondary",
+      "tier": 4,
+      "magic": false,
+      "trait": "finesse",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 6
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Stockpiled",
+        "text": "You can throw this weapon within Close range by making an attack roll using Finesse. You don't have to retrieve it, as you always have another on hand.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.blackblood-tendril",
+      "name": "Blackblood Tendril",
+      "slot": "secondary",
+      "tier": 4,
+      "magic": true,
+      "trait": "instinct",
+      "range": "Close",
+      "damage": {
+        "die": 6,
+        "bonus": 8
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Poisonous",
+        "text": "When a target marks any number of Hit Points from an attack you rolled with Fear, they mark an equal number of Stress.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.echo-blade",
+      "name": "Echo Blade",
+      "slot": "secondary",
+      "tier": 4,
+      "magic": true,
+      "trait": "presence",
+      "range": "Melee",
+      "damage": {
+        "die": 4,
+        "bonus": 6
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Doubled Up",
+        "text": "When you succeed on an attack with your primary weapon, you can deal damage to another target within Melee range.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.mobius-orb",
+      "name": "Möbius Orb",
+      "slot": "secondary",
+      "tier": 4,
+      "magic": true,
+      "trait": "knowledge",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 6
+      },
+      "damageType": "mag",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Recursive",
+        "text": "When you roll the maximum value on a damage die, roll an additional damage die and add the result to the total damage. This feature can trigger repeatedly.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.void-needle",
+      "name": "Void Needle",
+      "slot": "secondary",
+      "tier": 4,
+      "magic": false,
+      "trait": "finesse",
+      "range": "Melee",
+      "damage": {
+        "die": 4,
+        "bonus": 6
+      },
+      "damageType": "phy",
+      "burden": "one-handed",
+      "feature": {
+        "name": "Inverted",
+        "text": "When you roll a weapon attack with Fear, you gain a Hope.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 51"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "weapon.brawlers-strike",
+      "name": "Brawler's Strike",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "choice",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 0,
+        "extraDie": 6
+      },
+      "damageType": "phy",
+      "burden": "unarmed",
+      "feature": {
+        "name": "I Am the Weapon",
+        "text": "Equipped while you have no other Active Weapons. It uses a trait of your choice, and both the d8 and d6 scale off your Proficiency. While this weapon is active, you gain a +1 bonus to your Evasion.",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "evasion",
+              "value": 1
+            }
+          ]
+        }
+      },
+      "tags": [
+        "feature-granted"
+      ],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "srd-2.0-official",
+        "pages": [
+          "SRD 2.0 p.12 (Brawler: I Am the Weapon)"
+        ],
+        "errata": false
+      }
+    }
+  ]
+}

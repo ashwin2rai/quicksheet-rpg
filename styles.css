@@ -73,6 +73,7 @@ a { color: inherit; }
 .controls select:hover:not(:disabled) { border-color: #a2a38a; }
 .controls select option { color: #fff; background: #1b2823; }
 .mixed-row { display: grid; gap: 10px; }
+.field-hint { font-size: 10px; font-weight: 500; color: #97a49b; letter-spacing: 0; }
 label.checkbox { display: flex; flex-direction: row; align-items: center; gap: 11px; cursor: pointer; }
 .checkbox > input { flex-shrink: 0; width: 18px; height: 18px; accent-color: var(--gold); margin: 0; }
 .checkbox-copy { display: grid; line-height: 1.35; }

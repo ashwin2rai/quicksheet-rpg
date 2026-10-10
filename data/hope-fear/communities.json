@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "generatedBy": "tools/import-og-dhsrd.mjs",
+    "note": "Generated file. Edit tools/curation/hope-fear.json and re-run the importer instead of editing by hand.",
+    "contentProfile": "hope-fear",
+    "sourceVersion": "2.0",
+    "upstream": {
+      "repository": "https://github.com/callmepartario/og-dhsrd",
+      "commit": "07cac58944b5cf8a2890efa6d263d4fe0f869032",
+      "file": "scripts/og-dhsrd-features.js",
+      "sha256": "d309a09e60887a23d2b4b26beadbcc8c9aee6c46de50dd07246f584d759b2b36"
+    },
+    "copyright": "Includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Used under the Darrington Press Community Gaming License; see NOTICE.md."
+  },
+  "records": [
+    {
+      "id": "community.duneborne",
+      "name": "Duneborne",
+      "summary": "Being part of a Duneborne community means you've made a home among the shifting sands and arid climate of the desert.",
+      "featureId": "feature.duneborne.oasis",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 27"
+        ],
+        "errata": false,
+        "card": "DH HF 031/063"
+      }
+    },
+    {
+      "id": "community.freeborne",
+      "name": "Freeborne",
+      "summary": "Being part of a Freeborne community means you're from a collective that once lived under tyrannical rule but is now liberated.",
+      "featureId": "feature.freeborne.unbound",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 28"
+        ],
+        "errata": false,
+        "card": "DH HF 032/063"
+      }
+    },
+    {
+      "id": "community.frostborne",
+      "name": "Frostborne",
+      "summary": "Being part of a Frostborne community means you come from a place of snow and ice. Forged in bitter and unrelenting cold, frostborne communities are accustomed to surviving in the harshest conditions.",
+      "featureId": "feature.frostborne.hardy",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 29"
+        ],
+        "errata": false,
+        "card": "DH HF 033/063"
+      }
+    },
+    {
+      "id": "community.hearthborne",
+      "name": "Hearthborne",
+      "summary": "Coming from a Hearthborne community you come from humble origins, having lived in a modest village or quaint countryside.",
+      "featureId": "feature.hearthborne.close-knit",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 30"
+        ],
+        "errata": false,
+        "card": "DH HF 034/063"
+      }
+    },
+    {
+      "id": "community.reborne",
+      "name": "Reborne",
+      "summary": "Being Reborne means you were once a member of another community, but you can no longer remember it.",
+      "featureId": "feature.reborne.found-family",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 31"
+        ],
+        "errata": false,
+        "card": "DH HF 035/063"
+      }
+    },
+    {
+      "id": "community.warborne",
+      "name": "Warborne",
+      "summary": "Being part of a Warborne community means you come from a place that is, or was, ravaged by war. These groups might be composed of civilians who live in an active warzone, soldiers who served together in the armed forces, or citizens of nations that have been in conflict for decades.",
+      "featureId": "feature.warborne.brave-face",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 32"
+        ],
+        "errata": false,
+        "card": "DH HF 036/063"
+      }
+    }
+  ]
+}

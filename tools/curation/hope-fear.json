@@ -1,0 +1,1052 @@
+{
+  "$comment": "QuickSheet curation for the Hope & Fear source set (SRD 2.0 records Old Gus tags 'DH HF'). Same schema as tools/curation/core.json. Imported records are tagged sourceSet 'hope-fear' and are only visible in the 'core+hope-fear' content profile. Martial stances and Brawler's Strike are not in Old Gus's data and are curated from the official SRD 2.0 text. Schema additions in V3: modifier targets 'actionRolls' and 'primaryWeaponAttackRoll'; modifier values 'tier' and 'trait:spellcast' (0 without a Spellcast trait); attack/weapon trait 'choice' (shown with the highest trait); resource forms {count: <number>, note} and {dieSteps, advancedBy}; resourceUpgrade {id, die} for die-count resources; 'advancement' (a class-feature level-up option: id, label, cost, slots per tier, sameTierOnly); 'stances' (Martial Artist: initial, initialTier, perLevel, rules); grants.weapons (feature-granted weapons); flag 'single-ancestry-feature' (Shapeshifter); gear 'loadoutSlots' (Attuned); officialOverrides.replaceFeatures, .subclasses, .treatAsCampaign and card 'type' overrides.",
+  "milestone": "M3",
+  "sourceSet": "hope-fear",
+  "sourceVersion": "2.0",
+  "pagePrefix": "DH HF",
+  "select": {
+    "classes": [
+      "assassin",
+      "brawler",
+      "warlock",
+      "witch"
+    ],
+    "subclasses": [
+      "executioners-guild",
+      "poisoners-guild",
+      "juggernaut",
+      "martial-artist",
+      "pact-of-the-endless",
+      "pact-of-the-wrathful",
+      "hedge",
+      "moon"
+    ],
+    "ancestries": [
+      "aetheris",
+      "earthkin",
+      "emberkin",
+      "gnome",
+      "skykin",
+      "tidekin"
+    ],
+    "communities": [
+      "duneborne",
+      "freeborne",
+      "frostborne",
+      "hearthborne",
+      "reborne",
+      "warborne"
+    ],
+    "domains": [
+      "dread"
+    ],
+    "transformations": [
+      "demigod",
+      "ghost",
+      "reanimated",
+      "shapeshifter",
+      "vampire",
+      "werewolf"
+    ],
+    "domainCardMaxLevel": 10,
+    "weaponTierMax": 4,
+    "armorTierMax": 4,
+    "beastforms": false,
+    "consumables": []
+  },
+  "nameCorrections": {
+    "$comment": "Upstream typos in feature names.",
+    "Amphibiou": "Amphibious"
+  },
+  "officialOverrides": {
+    "$comment": "Where Old Gus differs from the official SRD 2.0 PDF (DH_SRD_2_2026_08_25.pdf), the official wording wins. Found by cross-checking every imported Hope & Fear text and gear row; see docs/rules-decisions.md RD-042.",
+    "replaceFeatures": {
+      "poisoners-guild:specialization:1": {
+        "name": "Twin Fang",
+        "text": "When you afflict a target *Marked for Death* with a poison you know, you can spend an additional token to also inflict the effect of a second poison you know.",
+        "reason": "Old Gus repeats Adder's Blessing (a Mastery feature) here instead of Twin Fang."
+      }
+    },
+    "subclasses": {
+      "subclass.moon": {
+        "spellcastTrait": "instinct",
+        "reason": "Old Gus misspells the Spellcast trait as 'Insinct'."
+      }
+    },
+    "features": {
+      "feature.assassin.marked-for-death": {
+        "text": "On a successful weapon attack, you can **mark a Stress** to make the target *Marked for Death*. When you deal damage to a target you've *Marked for Death*, add a number of **d4s** equal to your tier to the damage roll.\n\nYou can have only one adversary *Marked for Death* at a time. This condition lasts until you take a rest, the current adversary *Marked for Death* is defeated, or the GM spends a number of Fear equal to your tier to clear it.",
+        "reason": "Old Gus reads 'You can only have one'."
+      },
+      "feature.executioners-guild.ambush": {
+        "text": "Your \"Marked for Death\" feature uses **d6s** instead of **d4s**.",
+        "reason": "Old Gus typo 'instad'."
+      },
+      "feature.executioners-guild.backstab": {
+        "text": "Your \"Marked for Death\" feature uses **d8s** instead of **d6s**.",
+        "reason": "Official text quotes the feature name."
+      },
+      "feature.warlock.favor": {
+        "text": "You start with 3 Favor. You can use a downtime move to show tribute to your patron. Describe how and gain Favor equal to your Spellcast trait. Additionally, when you succeed on an action roll with Hope, you can choose to gain a Favor instead of a Hope.\n\n*Note:* The maximum Favor you can hold at one time is 6.",
+        "reason": "Old Gus omits the official note on maximum Favor."
+      },
+      "feature.witch.witchs-charm": {
+        "text": "When you or an ally within Far range fails an action roll, you can **spend 3 Hope** to change it into a success with Fear instead.",
+        "reason": "Old Gus reads 'rolls a failure on an action roll'."
+      },
+      "feature.moon.lunar-phases": {
+        "text": "At the beginning of each session, roll a **d6** and place it on this card. You gain the matching effect until the end of session.\n\n- 1: ***New.*** **Spend a Hope** to negate Minor damage.\n- 2–3: ***Waxing.*** +2 to damage rolls\n- 4: ***Full.*** +3 to damage thresholds\n- 5–6: ***Waning.*** +1 to Evasion\n\nOnce per rest, you can **spend a Hope** to increase the value of this die by one. If you increase the value of a 6, it becomes a 1.",
+        "reason": "Old Gus gives Full as 4-5 and Waning as 6; the official table is Full 4, Waning 5-6."
+      },
+      "feature.hearthborne.close-knit": {
+        "text": "Once per long rest, you can **spend any number of Hope** to grant an ally within Far range an equal number of Hope.",
+        "reason": "Old Gus reads 'give an ally'."
+      },
+      "feature.earthkin.stoneskin": {
+        "text": "Gain a permanent +1 bonus to your Armor Score and damage thresholds at character creation.",
+        "reason": "Old Gus omits 'permanent'."
+      }
+    },
+    "treatAsCampaign": {
+      "$comment": "The official SRD prints the Leather Longcoat only in a campaign frame's gear table; Old Gus lists it without its campaign flag.",
+      "ids": [
+        "armor.leather-longcoat",
+        "armor.improved-leather-longcoat",
+        "armor.advanced-leather-longcoat",
+        "armor.legendary-leather-longcoat"
+      ]
+    },
+    "cards": {
+      "card.blighting-strike": {
+        "text": "Make a **Spellcast Roll** against a target within Far range. On a success:\n\n- On a roll with Hope, deal **d6+1** magic damage using your Proficiency. On a roll with Fear, deal **d10+1** magic damage using your Proficiency.\n- The target's next successful attack deals half damage.\n\nOn a failure, you must spend a Hope or mark a Stress.",
+        "reason": "Old Gus reads 'deal target takes'."
+      },
+      "card.jump-scare": {
+        "text": "When you deal magic damage to a target, you can **mark a Stress** to teleport into Melee range with them. When you do, they are *Vulnerable* until they mark 1 or more Hit Points.",
+        "reason": "Old Gus reads 'they become Vulnerable'."
+      },
+      "card.avatar-of-terror": {
+        "text": "**Mark a Stress** to transform into a creature fueled by fear. While in this form, you gain a **1d6** bonus to your damage rolls for each Fear in the GM's pool. Additionally, you gain a Hope when the GM spends a Fear to spotlight an adversary within Very Close range.\n\nBefore you make an action roll, you must **spend a Hope**. If you can't, you revert to your normal form.",
+        "reason": "Old Gus typo 'creture'."
+      },
+      "card.summon-horror": {
+        "text": "Once per scene, **mark a Stress** to summon an otherworldly creature that deals **d8+1** magic damage using your Spellcast trait to a target within Far range. If the target marks any Hit Points from this attack, they must succeed on a **Reaction Roll (12)** to steel themselves against the horror or mark an equal number of Stress.\n\nAfter making the attack, the creature dissipates.",
+        "reason": "Old Gus splits the first sentence across two paragraphs."
+      },
+      "card.dread-touched": {
+        "type": "Ability",
+        "reason": "Old Gus lists the card as a Spell; the official card is a Dread Ability."
+      }
+    }
+  },
+  "featureMechanics": {
+    "feature.assassin.marked-for-death": {
+      "kind": "effects",
+      "resource": {
+        "id": "marked-for-death",
+        "label": "Marked for Death damage",
+        "count": "tier",
+        "die": "d4",
+        "prefix": "+"
+      }
+    },
+    "feature.assassin.get-in-get-out": {
+      "kind": "reference"
+    },
+    "feature.assassin.deadly-determination": {
+      "kind": "reference"
+    },
+    "feature.brawler.i-am-the-weapon": {
+      "kind": "effects",
+      "grants": {
+        "weapons": [
+          "weapon.brawlers-strike"
+        ]
+      },
+      "note": "Brawler's Strike is the primary weapon while no other weapons are active; QuickSheet usually equips it (RD-044)."
+    },
+    "feature.brawler.combo-strike": {
+      "kind": "effects",
+      "resource": {
+        "id": "combo-die",
+        "label": "Combo Die",
+        "dieSteps": [
+          "d4",
+          "d6",
+          "d8",
+          "d10"
+        ],
+        "advancedBy": "comboDie"
+      },
+      "advancement": {
+        "id": "comboDie",
+        "label": "Combo Die increased by one step",
+        "cost": 1,
+        "slots": {
+          "2": 1,
+          "3": 1,
+          "4": 1
+        },
+        "sameTierOnly": true
+      }
+    },
+    "feature.brawler.square-up": {
+      "kind": "reference"
+    },
+    "feature.warlock.patrons-pact": {
+      "kind": "effects",
+      "resolver": "warlockPatron",
+      "resource": {
+        "id": "patron-die",
+        "label": "Patron Die",
+        "dieByLevel": [
+          [
+            1,
+            "d6"
+          ],
+          [
+            5,
+            "d8"
+          ]
+        ]
+      },
+      "choice": {
+        "label": "Patron's sphere of influence",
+        "options": [
+          "Ambition",
+          "Artists",
+          "Chaos",
+          "Darkness",
+          "Death",
+          "Gamblers",
+          "Honor",
+          "Justice",
+          "Leaders",
+          "Love",
+          "Mercy",
+          "Mischief",
+          "Nature",
+          "Protectors",
+          "Revenge",
+          "Scholars",
+          "Secrets",
+          "Soldiers",
+          "Strength",
+          "Travelers",
+          "Tricksters",
+          "Truth",
+          "War",
+          "Wisdom"
+        ],
+        "note": "Spheres are the SRD's examples; the patron name is an original QuickSheet suggestion. Settle both with your GM."
+      }
+    },
+    "feature.warlock.favor": {
+      "kind": "effects",
+      "resource": {
+        "id": "favor",
+        "label": "Favor",
+        "count": 3,
+        "note": "starting Favor; you can hold at most 6"
+      }
+    },
+    "feature.warlock.patrons-boon": {
+      "kind": "reference"
+    },
+    "feature.witch.hex": {
+      "kind": "effects",
+      "resource": {
+        "id": "hex-targets",
+        "label": "Hex targets at once",
+        "count": "trait:spellcast"
+      }
+    },
+    "feature.witch.commune": {
+      "kind": "effects",
+      "resource": {
+        "id": "commune-dice",
+        "label": "Commune dice",
+        "count": "trait:spellcast",
+        "die": "d6"
+      }
+    },
+    "feature.witch.witchs-charm": {
+      "kind": "reference"
+    },
+    "feature.executioners-guild.first-strike": {
+      "kind": "reference"
+    },
+    "feature.executioners-guild.ambush": {
+      "kind": "effects",
+      "resourceUpgrade": {
+        "id": "marked-for-death",
+        "die": "d6"
+      }
+    },
+    "feature.executioners-guild.death-strike": {
+      "kind": "reference"
+    },
+    "feature.executioners-guild.scorpions-poise": {
+      "kind": "reference",
+      "note": "+2 Evasion only against attacks by the creature you have Marked for Death."
+    },
+    "feature.executioners-guild.true-strike": {
+      "kind": "reference"
+    },
+    "feature.executioners-guild.backstab": {
+      "kind": "effects",
+      "resourceUpgrade": {
+        "id": "marked-for-death",
+        "die": "d8"
+      }
+    },
+    "feature.poisoners-guild.toxic-concoctions": {
+      "kind": "reference"
+    },
+    "feature.poisoners-guild.poison-compendium": {
+      "kind": "reference"
+    },
+    "feature.poisoners-guild.twin-fang": {
+      "kind": "reference"
+    },
+    "feature.poisoners-guild.venomancer": {
+      "kind": "reference"
+    },
+    "feature.poisoners-guild.adders-blessing": {
+      "kind": "reference"
+    },
+    "feature.juggernaut.rugged": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "severeThreshold",
+          "value": 3
+        }
+      ]
+    },
+    "feature.juggernaut.overwhelm": {
+      "kind": "reference"
+    },
+    "feature.juggernaut.surrounded": {
+      "kind": "reference"
+    },
+    "feature.juggernaut.eye-for-an-eye": {
+      "kind": "reference"
+    },
+    "feature.juggernaut.pummeljoy": {
+      "kind": "reference"
+    },
+    "feature.juggernaut.not-done-yet": {
+      "kind": "reference"
+    },
+    "feature.martial-artist.stance-fighter": {
+      "kind": "effects",
+      "resolver": "martialStances",
+      "resource": {
+        "id": "focus",
+        "label": "Focus",
+        "count": 6,
+        "note": "the most you can hold"
+      },
+      "stances": {
+        "initial": 2,
+        "initialTier": 1,
+        "perLevel": 1,
+        "rules": "Focus: once per rest during a moment of calm, you can clear your Focus track, then roll a number of d6s equal to your Instinct and gain Focus equal to the highest result rolled. You can hold a maximum of 6 Focus. You can spend a Focus to shift into a martial stance you know; you can't have more than one active stance at a time. You drop out of your active stance when you shift into a different stance, take Severe damage or mark your last Hit Point; otherwise, at the end of the scene."
+      }
+    },
+    "feature.martial-artist.keen-defenses": {
+      "kind": "reference"
+    },
+    "feature.martial-artist.focus-cannon": {
+      "kind": "effects",
+      "attack": {
+        "name": "Focus Cannon",
+        "trait": "instinct",
+        "range": "Far",
+        "damage": {
+          "die": 20,
+          "bonus": 3
+        },
+        "damageType": "mag",
+        "cost": "Spend a Focus"
+      }
+    },
+    "feature.martial-artist.limit-breaker": {
+      "kind": "reference"
+    },
+    "feature.martial-artist.flow-state": {
+      "kind": "reference"
+    },
+    "feature.pact-of-the-endless.patrons-mantle": {
+      "kind": "reference"
+    },
+    "feature.pact-of-the-endless.deathless-embrace": {
+      "kind": "reference"
+    },
+    "feature.pact-of-the-endless.harrowing-invocation": {
+      "kind": "reference"
+    },
+    "feature.pact-of-the-endless.damage-sink": {
+      "kind": "reference"
+    },
+    "feature.pact-of-the-endless.dark-aegis": {
+      "kind": "reference"
+    },
+    "feature.pact-of-the-endless.draining-bane": {
+      "kind": "reference"
+    },
+    "feature.pact-of-the-wrathful.patrons-fury": {
+      "kind": "reference"
+    },
+    "feature.pact-of-the-wrathful.deadly-vengeance": {
+      "kind": "reference"
+    },
+    "feature.pact-of-the-wrathful.menacing-reach": {
+      "kind": "reference"
+    },
+    "feature.pact-of-the-wrathful.diminish-my-foes": {
+      "kind": "reference"
+    },
+    "feature.pact-of-the-wrathful.fearsome-attack": {
+      "kind": "reference"
+    },
+    "feature.pact-of-the-wrathful.otherworldly-ire": {
+      "kind": "reference"
+    },
+    "feature.hedge.herbal-remedies": {
+      "kind": "reference"
+    },
+    "feature.hedge.enchanted-talisman": {
+      "kind": "reference"
+    },
+    "feature.hedge.walk-between-worlds": {
+      "kind": "reference"
+    },
+    "feature.hedge.vexing-malison": {
+      "kind": "reference"
+    },
+    "feature.hedge.circle-of-power": {
+      "kind": "reference"
+    },
+    "feature.moon.nights-glamour": {
+      "kind": "reference"
+    },
+    "feature.moon.moonbeam": {
+      "kind": "reference"
+    },
+    "feature.moon.ire-of-pale-light": {
+      "kind": "reference"
+    },
+    "feature.moon.lunar-phases": {
+      "kind": "reference",
+      "note": "The phase is rolled at the start of each session."
+    },
+    "feature.aetheris.hallowed-aura": {
+      "kind": "reference"
+    },
+    "feature.aetheris.celestial-wings": {
+      "kind": "reference"
+    },
+    "feature.earthkin.stoneskin": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "armorScore",
+          "value": 1
+        },
+        {
+          "target": "thresholds",
+          "value": 1
+        }
+      ]
+    },
+    "feature.earthkin.immovable": {
+      "kind": "reference"
+    },
+    "feature.emberkin.fireproof": {
+      "kind": "reference"
+    },
+    "feature.emberkin.ignition": {
+      "kind": "reference"
+    },
+    "feature.gnome.nimble-fingers": {
+      "kind": "reference"
+    },
+    "feature.gnome.flicker-step": {
+      "kind": "reference"
+    },
+    "feature.skykin.gale-force": {
+      "kind": "reference"
+    },
+    "feature.skykin.eye-of-the-storm": {
+      "kind": "reference"
+    },
+    "feature.tidekin.amphibious": {
+      "kind": "reference"
+    },
+    "feature.tidekin.lifespring": {
+      "kind": "reference"
+    },
+    "feature.duneborne.oasis": {
+      "kind": "reference"
+    },
+    "feature.freeborne.unbound": {
+      "kind": "reference"
+    },
+    "feature.frostborne.hardy": {
+      "kind": "reference"
+    },
+    "feature.hearthborne.close-knit": {
+      "kind": "reference"
+    },
+    "feature.reborne.found-family": {
+      "kind": "reference"
+    },
+    "feature.warborne.brave-face": {
+      "kind": "reference"
+    },
+    "feature.demigod.gifted": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "actionRolls",
+          "value": 1
+        },
+        {
+          "target": "damageRolls",
+          "value": 1
+        }
+      ],
+      "note": "The +1 also applies to reaction rolls."
+    },
+    "feature.demigod.weight-of-divinity": {
+      "kind": "reference"
+    },
+    "feature.ghost.unfinished-business": {
+      "kind": "reference"
+    },
+    "feature.ghost.ephemeral": {
+      "kind": "reference"
+    },
+    "feature.reanimated.corpse": {
+      "kind": "reference"
+    },
+    "feature.reanimated.wont-stay-dead": {
+      "kind": "reference"
+    },
+    "feature.shapeshifter.change-shape": {
+      "kind": "reference"
+    },
+    "feature.shapeshifter.only-skin-deep": {
+      "kind": "effects",
+      "resolver": "onlySkinDeep",
+      "flags": [
+        "single-ancestry-feature"
+      ]
+    },
+    "feature.vampire.fangs": {
+      "kind": "effects",
+      "attack": {
+        "name": "Fangs",
+        "trait": "choice",
+        "range": "Melee",
+        "damage": {
+          "die": 6,
+          "bonus": 0
+        },
+        "damageType": "phy",
+        "cost": null
+      }
+    },
+    "feature.vampire.feed": {
+      "kind": "reference"
+    },
+    "feature.werewolf.wolf-form": {
+      "kind": "reference"
+    },
+    "feature.werewolf.howling-rampage": {
+      "kind": "reference"
+    }
+  },
+  "cardMechanics": {
+    "card.blighting-strike": {
+      "kind": "reference"
+    },
+    "card.umbral-veil": {
+      "kind": "reference"
+    },
+    "card.voice-of-dread": {
+      "kind": "reference"
+    },
+    "card.hideous-retribution": {
+      "kind": "reference"
+    },
+    "card.siphon-essence": {
+      "kind": "reference"
+    },
+    "card.shared-trauma": {
+      "kind": "reference"
+    },
+    "card.terrify": {
+      "kind": "reference"
+    },
+    "card.chains-of-affliction": {
+      "kind": "reference"
+    },
+    "card.summon-horror": {
+      "kind": "reference"
+    },
+    "card.dire-strike": {
+      "kind": "reference"
+    },
+    "card.spectral-mist": {
+      "kind": "reference"
+    },
+    "card.darkfire": {
+      "kind": "reference"
+    },
+    "card.jump-scare": {
+      "kind": "reference"
+    },
+    "card.dread-touched": {
+      "kind": "reference",
+      "note": "Both benefits are situational at the table."
+    },
+    "card.wall-of-hunger": {
+      "kind": "reference"
+    },
+    "card.dark-army": {
+      "kind": "reference"
+    },
+    "card.eldritch-flesh": {
+      "kind": "reference",
+      "note": "The threshold bonus depends on how much Stress is marked during play."
+    },
+    "card.damnation": {
+      "kind": "reference"
+    },
+    "card.savor-the-anguish": {
+      "kind": "reference"
+    },
+    "card.avatar-of-terror": {
+      "kind": "reference"
+    },
+    "card.invoke-torment": {
+      "kind": "reference"
+    }
+  },
+  "gearFeatureMechanics": {
+    "Piercing": {
+      "kind": "reference"
+    },
+    "Aimed": {
+      "kind": "reference"
+    },
+    "Ricochet": {
+      "kind": "reference"
+    },
+    "Otherworldly": {
+      "kind": "reference"
+    },
+    "Stockpiled": {
+      "kind": "reference"
+    },
+    "Omnipresent": {
+      "kind": "reference"
+    },
+    "Volleyed": {
+      "kind": "reference"
+    },
+    "Rebounding": {
+      "kind": "reference"
+    },
+    "Accelerator": {
+      "kind": "reference"
+    },
+    "Bolstering": {
+      "kind": "reference"
+    },
+    "Braced": {
+      "kind": "reference"
+    },
+    "Freezing": {
+      "kind": "reference"
+    },
+    "Catalytic": {
+      "kind": "reference"
+    },
+    "Extending": {
+      "kind": "reference"
+    },
+    "Venomous": {
+      "kind": "reference"
+    },
+    "Disturbing": {
+      "kind": "reference"
+    },
+    "Ethereal": {
+      "kind": "reference"
+    },
+    "Magnetic": {
+      "kind": "reference"
+    },
+    "Follow-Up": {
+      "kind": "reference"
+    },
+    "Nonlethal": {
+      "kind": "reference"
+    },
+    "Entangling": {
+      "kind": "reference"
+    },
+    "Draining": {
+      "kind": "reference"
+    },
+    "Targeted": {
+      "kind": "reference"
+    },
+    "Poisonous": {
+      "kind": "reference"
+    },
+    "Recursive": {
+      "kind": "reference"
+    },
+    "Inverted": {
+      "kind": "reference"
+    },
+    "Lined": {
+      "kind": "reference"
+    },
+    "Mnemonic": {
+      "kind": "reference"
+    },
+    "Resplendent": {
+      "kind": "reference"
+    },
+    "Gliding": {
+      "kind": "reference"
+    },
+    "Absorbing": {
+      "kind": "reference"
+    },
+    "Self-Healing": {
+      "kind": "reference"
+    },
+    "Quick-Striding": {
+      "kind": "reference"
+    },
+    "Stellar": {
+      "kind": "reference"
+    },
+    "Bloodthirsty": {
+      "kind": "reference"
+    },
+    "Fortune-Favored": {
+      "kind": "reference"
+    },
+    "Aquatic": {
+      "kind": "reference"
+    },
+    "Ghostwalker": {
+      "kind": "reference"
+    },
+    "Accursed": {
+      "kind": "reference"
+    },
+    "Divine": {
+      "kind": "reference"
+    },
+    "Blessed": {
+      "kind": "reference"
+    },
+    "Vitreous": {
+      "kind": "reference"
+    },
+    "Padded": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "thresholds",
+          "value": "$1"
+        }
+      ],
+      "match": "^\\+(\\d+) to damage thresholds$"
+    },
+    "Focused": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "primaryWeaponDamage",
+          "value": 1,
+          "condition": "targets within Very Close range"
+        }
+      ],
+      "match": "^\\+1 to primary weapon damage to targets within Very Close range\\.?$"
+    },
+    "Trusty": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "primaryWeaponAttackRoll",
+          "value": 1
+        }
+      ],
+      "match": "^\\+1 to attack rolls made with your primary weapon$"
+    },
+    "Incendiary": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "trait.agility",
+          "value": -1
+        }
+      ],
+      "match": "^-1 to Agility; on a successful attack",
+      "alsoAtTable": true
+    },
+    "Bulky": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "evasion",
+          "value": -1
+        }
+      ],
+      "match": "^-1 to Evasion; when you take Severe damage",
+      "alsoAtTable": true
+    },
+    "Enchanted": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "thresholds",
+          "value": "trait:spellcast"
+        }
+      ],
+      "match": "^Gain a bonus to your damage thresholds equal to your Spellcast trait\\.$"
+    },
+    "Magnificent": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "armorScore",
+          "value": "trait:presence"
+        }
+      ],
+      "match": "^Gain a bonus to your Armor Score equal to your Presence\\.$"
+    },
+    "Wall-Crawling": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "evasion",
+          "value": 1
+        }
+      ],
+      "match": "^\\+1 Evasion; you can walk on walls",
+      "alsoAtTable": true
+    },
+    "Vigilant": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "evasion",
+          "value": 2
+        }
+      ],
+      "match": "^\\+2 to Evasion$"
+    },
+    "Attuned": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "thresholds",
+          "value": "tier"
+        }
+      ],
+      "loadoutSlots": -1,
+      "match": "^The maximum number of domain cards in your loadout is reduced by one, but you gain a bonus to your damage thresholds equal to your tier\\.$"
+    }
+  },
+  "grantedWeapons": [
+    {
+      "id": "weapon.brawlers-strike",
+      "name": "Brawler's Strike",
+      "slot": "primary",
+      "tier": 1,
+      "magic": false,
+      "trait": "choice",
+      "range": "Melee",
+      "damage": {
+        "die": 8,
+        "bonus": 0,
+        "extraDie": 6
+      },
+      "damageType": "phy",
+      "burden": "unarmed",
+      "feature": {
+        "name": "I Am the Weapon",
+        "text": "Equipped while you have no other Active Weapons. It uses a trait of your choice, and both the d8 and d6 scale off your Proficiency. While this weapon is active, you gain a +1 bonus to your Evasion.",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "evasion",
+              "value": 1
+            }
+          ]
+        }
+      },
+      "pages": [
+        "SRD 2.0 p.12 (Brawler: I Am the Weapon)"
+      ]
+    }
+  ],
+  "martialStances": [
+    {
+      "id": "stance.favored",
+      "name": "Favored",
+      "tier": 1,
+      "text": "Gain a bonus to damage rolls equal to a trait of your choice.",
+      "pages": [
+        "SRD 2.0 p.13 (Martial Stances)"
+      ]
+    },
+    {
+      "id": "stance.invigorating",
+      "name": "Invigorating",
+      "tier": 1,
+      "text": "On a successful attack, roll a d4. On a result of 4, gain a Focus.",
+      "pages": [
+        "SRD 2.0 p.13 (Martial Stances)"
+      ]
+    },
+    {
+      "id": "stance.quick",
+      "name": "Quick",
+      "tier": 1,
+      "text": "When you make an attack, you can spend a Focus or mark a Stress to target another creature within range with that attack.",
+      "pages": [
+        "SRD 2.0 p.13 (Martial Stances)"
+      ]
+    },
+    {
+      "id": "stance.reliable",
+      "name": "Reliable",
+      "tier": 1,
+      "text": "Gain a +1 bonus to your attack rolls.",
+      "pages": [
+        "SRD 2.0 p.13 (Martial Stances)"
+      ]
+    },
+    {
+      "id": "stance.aggressive",
+      "name": "Aggressive",
+      "tier": 2,
+      "text": "Gain a −1 penalty to your Evasion. On a successful attack, roll an additional damage die and discard the lowest result.",
+      "pages": [
+        "SRD 2.0 p.13 (Martial Stances)"
+      ]
+    },
+    {
+      "id": "stance.anchored",
+      "name": "Anchored",
+      "tier": 2,
+      "text": "Gain a +2 bonus to your damage thresholds. While in this stance, you can't be moved against your will.",
+      "pages": [
+        "SRD 2.0 p.13 (Martial Stances)"
+      ]
+    },
+    {
+      "id": "stance.defensive",
+      "name": "Defensive",
+      "tier": 2,
+      "text": "Attack rolls targeting you from within Melee range have disadvantage unless the attacker marks a Stress to negate the disadvantage.",
+      "pages": [
+        "SRD 2.0 p.13 (Martial Stances)"
+      ]
+    },
+    {
+      "id": "stance.otherworldly",
+      "name": "Otherworldly",
+      "tier": 2,
+      "text": "On a successful attack, you can deal physical or magic damage.",
+      "pages": [
+        "SRD 2.0 p.13 (Martial Stances)"
+      ]
+    },
+    {
+      "id": "stance.grappling",
+      "name": "Grappling",
+      "tier": 3,
+      "text": "On a successful attack within Melee range, you can spend a Focus or mark a Stress to temporarily *Restrain* the target or throw the target up to Close range.",
+      "pages": [
+        "SRD 2.0 p.13 (Martial Stances)"
+      ]
+    },
+    {
+      "id": "stance.scary",
+      "name": "Scary",
+      "tier": 3,
+      "text": "On a successful attack, the target must mark a Stress.",
+      "pages": [
+        "SRD 2.0 p.13 (Martial Stances)"
+      ]
+    },
+    {
+      "id": "stance.stable",
+      "name": "Stable",
+      "tier": 3,
+      "text": "You can spend a Focus instead of an Armor Slot to reduce damage.",
+      "pages": [
+        "SRD 2.0 p.13 (Martial Stances)"
+      ]
+    },
+    {
+      "id": "stance.vigilant",
+      "name": "Vigilant",
+      "tier": 3,
+      "text": "When you are targeted by an attack, you can mark a Stress to gain a d6 bonus to your Evasion against the attack.",
+      "pages": [
+        "SRD 2.0 p.13 (Martial Stances)"
+      ]
+    },
+    {
+      "id": "stance.crushing",
+      "name": "Crushing",
+      "tier": 4,
+      "text": "When you deal Severe damage, you can spend a Hope to force the target to mark an additional Hit Point.",
+      "pages": [
+        "SRD 2.0 p.13 (Martial Stances)"
+      ]
+    },
+    {
+      "id": "stance.exacting",
+      "name": "Exacting",
+      "tier": 4,
+      "text": "When you roll a 1 on a damage die, you can treat it as the highest value on the die instead.",
+      "pages": [
+        "SRD 2.0 p.13 (Martial Stances)"
+      ]
+    },
+    {
+      "id": "stance.honed",
+      "name": "Honed",
+      "tier": 4,
+      "text": "Spend a Focus before you make an attack roll to gain a +1 bonus to your Proficiency for that attack.",
+      "pages": [
+        "SRD 2.0 p.13 (Martial Stances)"
+      ]
+    },
+    {
+      "id": "stance.isolating",
+      "name": "Isolating",
+      "tier": 4,
+      "text": "Gain advantage on attack rolls when there are no other creatures within Very Close range of you or your target.",
+      "pages": [
+        "SRD 2.0 p.13 (Martial Stances)"
+      ]
+    }
+  ]
+}

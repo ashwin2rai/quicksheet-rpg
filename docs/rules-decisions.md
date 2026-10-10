@@ -188,3 +188,63 @@ The sheet states this assumption.
 - Situational bonuses stay at-the-table rules and are not added to the sheet's numbers. Examples: Shadowhunter in darkness, Conjure Shield with 2+ Hope, and Transcendence while transformed.
 
 **RD-041: Gear restrictions.** *Pompous* weapons ("You must have a Presence of 0 or lower") are only chosen when the character's Presence allows it. The validator checks the final Presence after all modifiers.
+
+## V3 (M3): Core + Hope & Fear
+
+**RD-042: The Hope & Fear source set.** SRD 2.0 includes the Hope & Fear expansion. Old Gus tags those records `DH HF`.
+- They are imported from `tools/curation/hope-fear.json` into `data/hope-fear/`, tagged `sourceSet: 'hope-fear'`, and loaded only by the `core+hope-fear` content profile. Core Only stays the default.
+- Imported: 4 classes, 8 subclasses, the Dread domain and its 21 cards, 6 ancestries, 6 communities, 6 transformations, 121 weapons (including Brawler's Strike) and 35 armor rows. GM content (adversaries, environments, campaign frames, loot) is out of scope.
+- Every imported text, gear row and card header was cross-checked against the official SRD 2.0 PDF. Where Old Gus differs, the official wording wins (`officialOverrides`):
+  - Poisoners Guild: Old Gus repeats *Adder's Blessing* as a Specialization feature; the official feature is *Twin Fang*.
+  - Moon: the *Lunar Phases* table is Full 4 and Waning 5–6 (Old Gus has 4–5 and 6), and the Spellcast trait is Instinct (Old Gus misspells it).
+  - *Dread-Touched* is an Ability, not a Spell.
+  - Wording and typos: Marked for Death, Ambush, Backstab, Favor (adds the official note that you can hold at most 6 Favor), Witch's Charm, Close-Knit, Stoneskin ("permanent"), Blighting Strike, Jump Scare, Summon Horror, Avatar of Terror, and *Amphibious*.
+  - Leather Longcoat appears in the official SRD only in a campaign frame's gear table, so it is not imported, like other setting-specific gear (RD-005).
+
+**RD-043: Core Only is unchanged.** With the Core Only profile the generator consumes randomness exactly as before. Every pre-V3 snapshot is byte-identical except the version line, and a test checks that no Core Only character ever refers to a Hope & Fear record. Hope & Fear records may build on core records (the Warlock's Grace domain); the data checks reject the reverse.
+
+**RD-044: Brawler's Strike.**
+- "I Am the Weapon" gives a primary weapon used while no other weapon is active. The generator equips it 75% of the time (`GRANTED_WEAPON_CHANCE`) and otherwise rolls ordinary weapons as for any class.
+- Its "trait of your choice" is shown with the character's highest effective trait (first in SRD order on a tie). Both dice scale with Proficiency (for example `2d8+2d6`), and its +1 Evasion applies only while it is equipped.
+- It is the same weapon at every tier, as written. No secondary weapon may be paired with it.
+
+**RD-045: Transformations are explicit opt-in.** The SRD makes transformations GM-granted options, which may be offered at character creation.
+- QuickSheet adds one only when asked: a fixed choice or "Random". A character has at most one, it does not use a loadout slot, and it is listed with the heritage features. The sheet adds one of its transformation questions.
+- Demigod *Gifted*: the +1 is added to every attack roll on the sheet (weapons, other attacks, Beastforms, companion command) and to damage rolls. Its reaction-roll bonus stays in the rules text.
+- Vampire *Fangs* uses the highest trait, as in RD-044.
+- Ghost, Reanimated, Werewolf and Vampire *Feed* are at-the-table rules.
+
+**RD-046: Shapeshifter.** *Only Skin Deep* keeps one of the ancestry's two features, chosen at random at creation; the other gives no benefit and is not listed. The feature speaks of a single chosen ancestry, so Shapeshifter is not combined with Mixed Ancestry: a fixed combination is an error, and a random transformation for a Mixed Ancestry character never picks Shapeshifter. *Change Shape* happens during play.
+
+**RD-047: Combo Die advancement.** "Once per tier, you can increase your Combo Die by one step as a level advancement option" is modeled as a Brawler-only advancement:
+- It costs one advancement, with one slot in each of Tiers 2–4.
+- It can only use the current tier's slot.
+- The die goes d4 → d6 → d8 → d10.
+
+Class features may declare such options (`mechanics.advancement`). The validator replays them like the SRD options.
+
+**RD-048: Martial stances.**
+- Old Gus does not include the Martial Stances sheet, so the 16 stances are curated from the official SRD text.
+- A Martial Artist starts with two Tier 1 stances and learns one more stance of their tier or lower at every level-up, recorded in the advancement history.
+- The sheet lists the known stances, the Focus rules and Focus (maximum 6). Stance bonuses apply only while the stance is active, so they are not added to the sheet's numbers.
+
+**RD-049: Warlock patron.**
+- The patron's name is an original QuickSheet suggestion. The sphere of influence is drawn from the SRD's 24 examples; settle both with the GM.
+- Favor shows the starting 3 (maximum 6). The Patron Die is d6, rising to d8 at level 5.
+
+**RD-050: Class die upgrades.** Assassin *Marked for Death* adds a number of dice equal to your tier: d4s, d6s with *Ambush*, d8s with *Backstab*. The latest acquired upgrade replaces the earlier one.
+
+**RD-051: Spellcast-based counts.** Witch *Hex* targets and *Commune* dice equal the Spellcast trait. As with Prayer Dice, a candidate for whom either would be zero is rerolled (a quality check, not a rule change).
+
+**RD-052: Expansion gear effects.**
+- Applied to the sheet's numbers:
+  - *Attuned* armor: one fewer loadout slot and +tier to thresholds; the sheet states the smaller loadout.
+  - *Enchanted*: +Spellcast trait to thresholds, 0 without a Spellcast trait.
+  - *Magnificent*: +Presence to Armor Score, never below 0.
+  - *Trusty*: +1 to primary weapon attacks.
+  - *Padded*, *Bulky*, *Vigilant*, *Wall-Crawling* and *Incendiary*.
+  - *Focused* as a conditional primary-weapon bonus, like *Paired*.
+- *Shadowblade* lists "phy/mag" damage as printed; physical-only damage bonuses are not added to it.
+- Everything situational stays at the table.
+
+**RD-053: Situational expansion features** are rules text, not sheet numbers: *Patron's Mantle*, *Circle of Power*, *Lunar Phases*, *Scorpion's Poise*, *Eldritch Flesh* and *Dread-Touched*.

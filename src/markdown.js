@@ -5,6 +5,7 @@
 import { TRAITS, TRAIT_LABELS } from './catalog.js';
 import { acquiredFeatures } from './derive.js';
 import { RESOLVERS } from './resolvers.js';
+import { RULES } from './rules.js';
 
 export const ATTRIBUTION_LINES = Object.freeze([
   'This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. ' +
@@ -20,8 +21,8 @@ export const ATTRIBUTION_LINES = Object.freeze([
 const signed = (n) => (n >= 0 ? `+${n}` : `${n}`);
 const cell = (text) => String(text).replace(/\|/g, '\\|');
 const capitalize = (text) => text.charAt(0).toUpperCase() + text.slice(1);
-const burdenLabel = (b) => (b === 'two-handed' ? 'Two-Handed' : 'One-Handed');
-const damageTypeLabel = (t) => (t === 'mag' ? 'mag' : 'phy');
+const burdenLabel = (b) => ({ 'two-handed': 'Two-Handed', 'one-handed': 'One-Handed', unarmed: 'Unarmed' })[b];
+const damageTypeLabel = (t) => ({ mag: 'mag', phy: 'phy', 'phy/mag': 'phy/mag' })[t];
 
 /** Renders a feature as a bold name followed by its rules text. */
 function featureBlock(name, text, suffix = '') {
@@ -65,6 +66,15 @@ const OPTION_TEXT = {
   proficiency: '+1 Proficiency (both advancements)',
 };
 
+function renderMartialStances(push, d, stanceFeature) {
+  push('### Martial Stances', '');
+  push(stanceFeature.mechanics.stances.rules, '');
+  for (const st of d.martialStances) {
+    push(`- **${st.name}** (Tier ${st.tier}${st.acquiredAtLevel > 1 ? `; learned at level ${st.acquiredAtLevel}` : ''}): ${st.text}`);
+  }
+  push('');
+}
+
 function describeHistoryEntry(h, c, catalog) {
   const expName = (id) => c.experiences.find((e) => e.id === id)?.name ?? id;
   const cardName = (id) => {
@@ -81,11 +91,14 @@ function describeHistoryEntry(h, c, catalog) {
     if (a.option === 'experiences') return `+1 to ${a.experienceIds.map(expName).join(' and ')}`;
     if (a.option === 'domainCard') return `extra domain card ${cardName(a.cardId)}`;
     if (a.option === 'subclass') return `${SUBCLASS_TIER_LABEL[a.subclassTier]} subclass features`;
-    return OPTION_TEXT[a.option];
+    // Class-feature advancement options (Brawler "Combo Strike").
+    const featureOption = catalog.get(c.selections.classId).featureIds.map((id) => catalog.get(id).mechanics.advancement).find((o) => o?.id === a.option);
+    return OPTION_TEXT[a.option] ?? featureOption.label;
   });
   parts.push(`Advancements: ${advs.join('; ')}.`);
   if (h.grantedCardIds.length) parts.push(`Granted card${h.grantedCardIds.length > 1 ? 's' : ''}: ${h.grantedCardIds.map(cardName).join(', ')}.`);
   if (h.domainCardId) parts.push(`Domain card: ${cardName(h.domainCardId)}.`);
+  if (h.stanceId) parts.push(`Martial stance: *${catalog.get(h.stanceId).name}* (Tier ${catalog.get(h.stanceId).tier}).`);
   if (h.companion.length) {
     parts.push(`Companion: ${h.companion.map((p) => {
       const label = { 'light-in-the-dark': 'Light in the Dark', 'creature-comfort': 'Creature Comfort' }[p.option] ?? capitalize(p.option);
@@ -124,6 +137,7 @@ export function renderCharacterMarkdown(character, catalog) {
   const heritageName = secondAncestry ? `Mixed Ancestry (${ancestry.name} and ${secondAncestry.name})` : ancestry.name;
   const cardIds = new Set(c.domainCards.map((x) => x.cardId));
   const community = catalog.get(c.selections.communityId);
+  const transformation = c.selections.transformationId ? catalog.get(c.selections.transformationId) : null;
   const armor = catalog.get(c.equipment.armorId);
   const features = acquiredFeatures(c, catalog);
   const out = [];
@@ -133,7 +147,7 @@ export function renderCharacterMarkdown(character, catalog) {
   push(`# ${c.flavor.name}`, '', `*${c.flavor.concept}*`, '');
   push(
     `**Level:** ${c.level} (Tier ${d.tier}) | **Class:** ${cls.name} - ${subclass.name}  `,
-    `**Heritage:** ${heritageName} / ${community.name} | **Pronouns:** ${c.flavor.pronouns}`,
+    `**Heritage:** ${heritageName} / ${community.name}${transformation ? ` | **Transformation:** ${transformation.name}` : ''} | **Pronouns:** ${c.flavor.pronouns}`,
     '',
   );
 
@@ -152,6 +166,8 @@ export function renderCharacterMarkdown(character, catalog) {
     `**Hope** ${d.hope.starting} (max ${d.hope.max}) | **Armor Score** ${d.armorScore} (${d.armorScore} Armor Slots, 0 marked)  `,
     `**Damage Thresholds** Major ${d.thresholds.major} / Severe ${d.thresholds.severe}`,
   );
+  for (const b of d.actionRollBonus) push('', `*${signed(b.value)} to action rolls from ${b.sourceName}; the attack rolls below include it.*`);
+  if (d.loadoutLimit !== RULES.MAX_LOADOUT) push('', `*Your active loadout holds ${d.loadoutLimit} domain cards (equipment).*`);
   const resourceText = (r) => `**${r.label}** ${r.value}${r.basis ? ` (${r.basis})` : ''}`;
   const featureResources = d.resources.filter((r) => !cardIds.has(r.sourceId));
   if (featureResources.length) push('', featureResources.map(resourceText).join('  \n'));
@@ -172,6 +188,7 @@ export function renderCharacterMarkdown(character, catalog) {
   for (const w of d.weapons) {
     const record = catalog.get(w.weaponId);
     if (record.magic) weaponNotes.push(`- **${record.name}** is a magic weapon (requires a Spellcast trait).`);
+    if (w.traitChoice) weaponNotes.push(`- **${record.name}** uses a trait of your choice; shown with your highest trait (${TRAIT_LABELS[w.attackTrait]}).`);
     if (record.feature) weaponNotes.push(`- **${record.name} - ${record.feature.name}:** ${record.feature.text}`);
     for (const cond of w.conditional) {
       weaponNotes.push(`- **${w.name}** deals **${cond.damage}** ${damageTypeLabel(w.damageType)} against ${cond.condition} while paired with your secondary weapon.`);
@@ -192,7 +209,9 @@ export function renderCharacterMarkdown(character, catalog) {
     for (const a of d.extraAttacks) {
       push(`| ${cell(a.name)} | ${TRAIT_LABELS[a.attackTrait]} ${signed(a.attackModifier)} | ${a.range} | ${a.damage} ${damageTypeLabel(a.damageType)} | ${a.cost ?? '-'} |`);
     }
-    push('', '*From ancestry features; see Features for full rules.*', '');
+    const fromAncestry = d.extraAttacks.every((a) => catalog.get(a.sourceId).category === 'ancestry');
+    const choiceNotes = d.extraAttacks.filter((a) => a.traitChoice).map((a) => ` ${a.name} uses a trait of your choice; shown with your highest trait.`).join('');
+    push('', `*From ${fromAncestry ? 'ancestry features' : 'features'}; see Features for full rules.${choiceNotes}*`, '');
   }
 
   push('### Armor', '');
@@ -244,6 +263,7 @@ export function renderCharacterMarkdown(character, catalog) {
     section(`Ancestry: ${ancestry.name}`, features.filter((f) => f.category === 'ancestry'), (f) => choiceSuffix(f));
   }
   section(`Community: ${community.name}`, features.filter((f) => f.category === 'community'), (f) => choiceSuffix(f));
+  if (transformation) section(`Transformation: ${transformation.name}`, features.filter((f) => f.category === 'transformation'), (f) => choiceSuffix(f));
   section(`Class: ${cls.name}`, features.filter((f) => f.category === 'class' || f.category === 'hope'), (f) => choiceSuffix(f));
   if (d.beastforms.length) {
     renderBeastforms(push, d, catalog);
@@ -251,6 +271,8 @@ export function renderCharacterMarkdown(character, catalog) {
   }
   section(`Subclass: ${subclass.name} (Foundation)`, features.filter((f) => f.category === 'subclass-foundation'), (f) => choiceSuffix(f));
   if (d.companion) renderCompanion(push, d.companion);
+  const stanceFeature = features.find((x) => x.mechanics.stances);
+  if (stanceFeature) renderMartialStances(push, d, stanceFeature);
   for (const [category, label] of [['subclass-specialization', 'Specialization'], ['subclass-mastery', 'Mastery']]) {
     const list = features.filter((f) => f.category === category);
     if (list.length) section(`Subclass: ${subclass.name} (${label})`, list, (f) => choiceSuffix(f));
@@ -292,6 +314,7 @@ export function renderCharacterMarkdown(character, catalog) {
     '',
     `**Background question:** ${f.backgroundQuestion}`,
     '',
+    ...(f.transformationQuestion ? [`**Transformation question:** ${f.transformationQuestion}`, ''] : []),
     '**Connection prompts** (ask another player):',
     '',
     ...f.connectionPrompts.map((q) => `- ${q}`),
@@ -307,7 +330,7 @@ export function renderCharacterMarkdown(character, catalog) {
 
   // 9. Attribution footer
   push('---', '');
-  push(`*Generated by QuickSheet ${c.generatorVersion} - seed \`${c.seed}\` - data ${c.dataVersion} - SRD ${c.srdVersion} - ${catalog.contentProfile === 'core' ? 'Core content' : c.contentProfile}.*`, '');
+  push(`*Generated by QuickSheet ${c.generatorVersion} - seed \`${c.seed}\` - data ${c.dataVersion} - SRD ${c.srdVersion} - ${catalog.contentProfile === 'core' ? 'Core content' : `${catalog.contentLabel} content`}.*`, '');
   for (const line of ATTRIBUTION_LINES) push(line, '');
 
   return `${out.join('\n').replace(/\n{3,}/g, '\n\n').trimEnd()}\n`;

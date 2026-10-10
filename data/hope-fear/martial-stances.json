@@ -1,0 +1,257 @@
+{
+  "meta": {
+    "generatedBy": "tools/import-og-dhsrd.mjs",
+    "note": "Generated file. Edit tools/curation/hope-fear.json and re-run the importer instead of editing by hand.",
+    "contentProfile": "hope-fear",
+    "sourceVersion": "2.0",
+    "upstream": {
+      "repository": "https://github.com/callmepartario/og-dhsrd",
+      "commit": "07cac58944b5cf8a2890efa6d263d4fe0f869032",
+      "file": "scripts/og-dhsrd-features.js",
+      "sha256": "d309a09e60887a23d2b4b26beadbcc8c9aee6c46de50dd07246f584d759b2b36"
+    },
+    "copyright": "Includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Used under the Darrington Press Community Gaming License; see NOTICE.md."
+  },
+  "records": [
+    {
+      "id": "stance.favored",
+      "name": "Favored",
+      "tier": 1,
+      "text": "Gain a bonus to damage rolls equal to a trait of your choice.",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "srd-2.0-official",
+        "pages": [
+          "SRD 2.0 p.13 (Martial Stances)"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "stance.invigorating",
+      "name": "Invigorating",
+      "tier": 1,
+      "text": "On a successful attack, roll a d4. On a result of 4, gain a Focus.",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "srd-2.0-official",
+        "pages": [
+          "SRD 2.0 p.13 (Martial Stances)"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "stance.quick",
+      "name": "Quick",
+      "tier": 1,
+      "text": "When you make an attack, you can spend a Focus or mark a Stress to target another creature within range with that attack.",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "srd-2.0-official",
+        "pages": [
+          "SRD 2.0 p.13 (Martial Stances)"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "stance.reliable",
+      "name": "Reliable",
+      "tier": 1,
+      "text": "Gain a +1 bonus to your attack rolls.",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "srd-2.0-official",
+        "pages": [
+          "SRD 2.0 p.13 (Martial Stances)"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "stance.aggressive",
+      "name": "Aggressive",
+      "tier": 2,
+      "text": "Gain a −1 penalty to your Evasion. On a successful attack, roll an additional damage die and discard the lowest result.",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "srd-2.0-official",
+        "pages": [
+          "SRD 2.0 p.13 (Martial Stances)"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "stance.anchored",
+      "name": "Anchored",
+      "tier": 2,
+      "text": "Gain a +2 bonus to your damage thresholds. While in this stance, you can't be moved against your will.",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "srd-2.0-official",
+        "pages": [
+          "SRD 2.0 p.13 (Martial Stances)"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "stance.defensive",
+      "name": "Defensive",
+      "tier": 2,
+      "text": "Attack rolls targeting you from within Melee range have disadvantage unless the attacker marks a Stress to negate the disadvantage.",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "srd-2.0-official",
+        "pages": [
+          "SRD 2.0 p.13 (Martial Stances)"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "stance.otherworldly",
+      "name": "Otherworldly",
+      "tier": 2,
+      "text": "On a successful attack, you can deal physical or magic damage.",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "srd-2.0-official",
+        "pages": [
+          "SRD 2.0 p.13 (Martial Stances)"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "stance.grappling",
+      "name": "Grappling",
+      "tier": 3,
+      "text": "On a successful attack within Melee range, you can spend a Focus or mark a Stress to temporarily *Restrain* the target or throw the target up to Close range.",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "srd-2.0-official",
+        "pages": [
+          "SRD 2.0 p.13 (Martial Stances)"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "stance.scary",
+      "name": "Scary",
+      "tier": 3,
+      "text": "On a successful attack, the target must mark a Stress.",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "srd-2.0-official",
+        "pages": [
+          "SRD 2.0 p.13 (Martial Stances)"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "stance.stable",
+      "name": "Stable",
+      "tier": 3,
+      "text": "You can spend a Focus instead of an Armor Slot to reduce damage.",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "srd-2.0-official",
+        "pages": [
+          "SRD 2.0 p.13 (Martial Stances)"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "stance.vigilant",
+      "name": "Vigilant",
+      "tier": 3,
+      "text": "When you are targeted by an attack, you can mark a Stress to gain a d6 bonus to your Evasion against the attack.",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "srd-2.0-official",
+        "pages": [
+          "SRD 2.0 p.13 (Martial Stances)"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "stance.crushing",
+      "name": "Crushing",
+      "tier": 4,
+      "text": "When you deal Severe damage, you can spend a Hope to force the target to mark an additional Hit Point.",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "srd-2.0-official",
+        "pages": [
+          "SRD 2.0 p.13 (Martial Stances)"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "stance.exacting",
+      "name": "Exacting",
+      "tier": 4,
+      "text": "When you roll a 1 on a damage die, you can treat it as the highest value on the die instead.",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "srd-2.0-official",
+        "pages": [
+          "SRD 2.0 p.13 (Martial Stances)"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "stance.honed",
+      "name": "Honed",
+      "tier": 4,
+      "text": "Spend a Focus before you make an attack roll to gain a +1 bonus to your Proficiency for that attack.",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "srd-2.0-official",
+        "pages": [
+          "SRD 2.0 p.13 (Martial Stances)"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "stance.isolating",
+      "name": "Isolating",
+      "tier": 4,
+      "text": "Gain advantage on attack rolls when there are no other creatures within Very Close range of you or your target.",
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "srd-2.0-official",
+        "pages": [
+          "SRD 2.0 p.13 (Martial Stances)"
+        ],
+        "errata": false
+      }
+    }
+  ]
+}

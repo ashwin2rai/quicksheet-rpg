@@ -18,6 +18,17 @@ test('integrity checks catch broken references and missing source tags', async (
   assert.match(errors, /domain\.nope/);
   assert.match(errors, /missing source tag/);
   assert.match(errors, /resolver missingResolver is not implemented/);
+
+  // Hope & Fear may build on core, never the reverse; expansion records stay out of Core Only.
+  const leak = clone(data);
+  const hfData = leak.gameDataByProfile['core+hope-fear'];
+  hfData.classes.records.find((c) => c.id === 'class.bard').domainIds = ['domain.codex', 'domain.dread'];
+  leak.gameDataByProfile.core.classes.records.push(clone(hfData.classes.records.find((c) => c.id === 'class.witch')));
+  hfData.features.records.find((f) => f.id === 'feature.brawler.combo-strike').mechanics.advancement.id = 'traits';
+  const leakErrors = checkData(leak).join('\n');
+  assert.match(leakErrors, /class\.bard: core record refers to Hope & Fear record "domain\.dread"/);
+  assert.match(leakErrors, /\[core\] class\.witch: sourceSet hope-fear is not allowed in profile core/);
+  assert.match(leakErrors, /clashes with an SRD option/);
 });
 
 test('core scope is complete (V1 Level 1 content plus V2 progression content)', async () => {

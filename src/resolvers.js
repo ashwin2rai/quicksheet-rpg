@@ -148,4 +148,58 @@ export const RESOLVERS = Object.freeze({
     modifiers: none,
     describe: (choice) => `Companion: ${choice.name}, ${choice.animal}`,
   }),
+
+  // Warlock, Patron's Pact: "Write their name on your character sheet, then work with your GM
+  // to determine their sphere of influence." The name is an original QuickSheet suggestion;
+  // the sphere comes from the SRD's examples in mechanics.choice.options.
+  warlockPatron: Object.freeze({
+    resolve({ rng, catalog, mechanics }) {
+      return { name: rng.pick(catalog.flavor.patronNames), sphere: rng.pick(mechanics.choice.options) };
+    },
+    validate(choice, _character, mechanics) {
+      const errors = [];
+      if (typeof choice?.name !== 'string' || !choice.name.trim()) errors.push('the patron needs a name');
+      if (!mechanics.choice.options.includes(choice?.sphere)) errors.push(`${mechanics.choice.label} must be one of ${mechanics.choice.options.join(', ')}`);
+      return errors;
+    },
+    modifiers: none,
+    describe: (choice) => `Patron: ${choice.name}, sphere of influence ${choice.sphere}`,
+  }),
+
+  // Martial Artist, Stance Fighter: "choose two martial stances from Tier 1". Stances gained
+  // at later levels are recorded in the advancement history, not here.
+  martialStances: Object.freeze({
+    resolve({ rng, catalog, mechanics }) {
+      const s = mechanics.stances;
+      const options = catalog.martialStances.filter((x) => x.tier <= s.initialTier);
+      return { stanceIds: rng.weightedSample(options, s.initial).map((x) => x.id) };
+    },
+    validate(choice, _character, mechanics, catalog) {
+      const s = mechanics.stances;
+      const ids = choice?.stanceIds ?? [];
+      if (ids.length !== s.initial || new Set(ids).size !== ids.length) return [`Stance Fighter needs ${s.initial} different starting stances`];
+      const errors = [];
+      for (const id of ids) {
+        const stance = catalog.martialStances.find((x) => x.id === id);
+        if (!stance) errors.push(`unknown martial stance ${id}`);
+        else if (stance.tier > s.initialTier) errors.push(`${stance.name} is a Tier ${stance.tier} stance; starting stances come from Tier ${s.initialTier}`);
+      }
+      return errors;
+    },
+    modifiers: none,
+    describe: () => 'Known stances are listed under Martial Stances',
+  }),
+
+  // Shapeshifter, Only Skin Deep: "You gain the benefit of only one of your chosen ancestry's
+  // features, which you select when you choose the ancestry."
+  onlySkinDeep: Object.freeze({
+    resolve({ rng }) {
+      return { keep: rng.pick(['top', 'bottom']) };
+    },
+    validate(choice) {
+      return ['top', 'bottom'].includes(choice?.keep) ? [] : ['Only Skin Deep must keep the top or the bottom ancestry feature'];
+    },
+    modifiers: none,
+    describe: (choice) => `Benefits only from the ancestry's ${choice.keep === 'top' ? 'first' : 'second'} feature, listed above`,
+  }),
 });

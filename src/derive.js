@@ -4,7 +4,7 @@
 import { TRAITS, tierForLevel } from './catalog.js';
 import { RULES } from './rules.js';
 import { RESOLVERS } from './resolvers.js';
-import { advancementTotals, companionProgress, proficiencyFromHistory } from './progression.js';
+import { advancementCount, advancementTotals, companionProgress, knownStances, loadoutLimit, proficiencyFromHistory } from './progression.js';
 
 const SUBCLASS_TIERS = [
   ['foundation', 'foundationFeatureIds'],
@@ -12,19 +12,30 @@ const SUBCLASS_TIERS = [
   ['mastery', 'masteryFeatureIds'],
 ];
 
-/** Every feature the character currently has, in sheet order. */
+/** Every feature the character currently has, in sheet order. Transformation features come last. */
 export function acquiredFeatures(character, catalog) {
-  const { ancestryId, secondAncestryId, communityId, classId, subclassId } = character.selections;
+  const { ancestryId, secondAncestryId, communityId, classId, subclassId, transformationId } = character.selections;
   const ancestry = catalog.get(ancestryId);
   const bottomSource = secondAncestryId ? catalog.get(secondAncestryId) : ancestry;
   const cls = catalog.get(classId);
   const subclass = catalog.get(subclassId);
-  const ids = [ancestry.topFeatureId, bottomSource.bottomFeatureId, catalog.get(communityId).featureId, ...cls.featureIds, cls.hopeFeatureId];
+  const transformation = transformationId ? catalog.get(transformationId).featureIds.map((id) => catalog.get(id)) : [];
+  // Shapeshifter "Only Skin Deep": only the chosen one of the two ancestry features applies.
+  const skinDeep = transformation.find((f) => f.mechanics.flags?.includes('single-ancestry-feature'));
+  const keep = skinDeep ? character.featureChoices[skinDeep.id]?.keep : null;
+  const heritage = [
+    ...(keep === 'bottom' ? [] : [ancestry.topFeatureId]),
+    ...(keep === 'top' ? [] : [bottomSource.bottomFeatureId]),
+  ];
+  const ids = [...heritage, catalog.get(communityId).featureId, ...cls.featureIds, cls.hopeFeatureId];
   for (const [tier, key] of SUBCLASS_TIERS) {
     if (character.subclassTiers.includes(tier)) ids.push(...subclass[key]);
   }
-  return ids.map((id) => catalog.get(id));
+  return [...ids.map((id) => catalog.get(id)), ...transformation];
 }
+
+/** The highest effective trait (first in SRD order on a tie), for "a trait of your choice". */
+export const bestTrait = (traits) => TRAITS.reduce((best, t) => (traits[t] > traits[best] ? t : best), TRAITS[0]);
 
 /** Domain cards in the active loadout (only these apply their effects). */
 export const activeCards = (character, catalog) =>
@@ -83,7 +94,9 @@ export function collectModifiers(character, catalog) {
 }
 
 const sum = (mods) => mods.reduce((total, m) => total + m.value, 0);
-const formatDamage = (proficiency, die, bonus) => `${proficiency}d${die}${bonus ? `+${bonus}` : ''}`;
+// extraDie: a second die that also scales with Proficiency (Brawler's Strike "d8+d6").
+const formatDamage = (proficiency, die, bonus, extraDie = null) =>
+  `${proficiency}d${die}${extraDie ? `+${proficiency}d${extraDie}` : ''}${bonus ? `+${bonus}` : ''}`;
 const COUNT_BASIS = { tier: 'your tier', level: 'your level', proficiency: 'your Proficiency' };
 
 export function deriveStats(character, catalog) {
@@ -109,6 +122,8 @@ export function deriveStats(character, catalog) {
     if (typeof value === 'number') return value;
     if (value === 'proficiency') return proficiency;
     if (value === 'level') return level;
+    if (value === 'tier') return tier;
+    if (value === 'trait:spellcast') return spellcastTrait ? Math.max(0, traits[spellcastTrait]) : 0;
     const half = /^halfUp:(\w+)$/.exec(value);
     if (half) return Math.max(0, Math.ceil(traits[half[1]] / 2));
     const trait = /^trait:(\w+)$/.exec(value);
@@ -143,25 +158,28 @@ export function deriveStats(character, catalog) {
   const damageBonusFor = (damageType) => sum(allDamageBonus) + (damageType === 'phy' ? physicalDamageBonus : 0);
   const meleeWeaponBonus = sum(forTarget('meleeWeaponDamage'));
   const weaponAttackBonus = sum(forTarget('weaponAttackRoll'));
-  const traitOf = (t) => (t === 'spellcast' ? spellcastTrait : t);
+  const actionRollBonus = sum(forTarget('actionRolls'));
+  const traitOf = (t) => (t === 'spellcast' ? spellcastTrait : t === 'choice' ? bestTrait(traits) : t);
 
   const paired = forTarget('primaryWeaponDamage');
   const weapons = [gear.primary, gear.secondary].filter(Boolean).map((w) => {
     const attackTrait = traitOf(w.trait);
     const attackBonus = mods.filter((m) => m.target === 'attackRoll' && m.sourceId === w.id);
+    const primaryBonus = w.slot === 'primary' ? sum(forTarget('primaryWeaponAttackRoll')) : 0;
     const bonus = w.damage.bonus + damageBonusFor(w.damageType) + (w.range === 'Melee' ? meleeWeaponBonus : 0);
     return {
       weaponId: w.id,
       slot: w.slot,
       name: w.name,
       attackTrait,
-      attackModifier: traits[attackTrait] + sum(attackBonus) + weaponAttackBonus,
+      traitChoice: w.trait === 'choice',
+      attackModifier: traits[attackTrait] + sum(attackBonus) + weaponAttackBonus + primaryBonus + actionRollBonus,
       range: w.range,
-      damage: formatDamage(proficiency, w.damage.die, bonus),
+      damage: formatDamage(proficiency, w.damage.die, bonus, w.damage.extraDie),
       damageType: w.damageType,
       burden: w.burden,
       conditional: w.slot === 'primary'
-        ? paired.map((m) => ({ value: m.value, condition: m.condition, sourceName: m.sourceName, damage: formatDamage(proficiency, w.damage.die, bonus + m.value) }))
+        ? paired.map((m) => ({ value: m.value, condition: m.condition, sourceName: m.sourceName, damage: formatDamage(proficiency, w.damage.die, bonus + m.value, w.damage.extraDie) }))
         : [],
     };
   });
@@ -171,11 +189,13 @@ export function deriveStats(character, catalog) {
     const a = f.mechanics.attack;
     const choice = character.featureChoices[f.id];
     const detail = choice && RESOLVERS[f.mechanics.resolver]?.detail?.(choice);
+    const attackTrait = traitOf(a.trait);
     return {
       sourceId: f.id,
       name: detail ? `${a.name} (${detail})` : a.name,
-      attackTrait: a.trait,
-      attackModifier: traits[a.trait],
+      attackTrait,
+      traitChoice: a.trait === 'choice',
+      attackModifier: traits[attackTrait] + actionRollBonus,
       range: a.range,
       damage: formatDamage(proficiency, a.damage.die, a.damage.bonus + damageBonusFor(a.damageType)),
       damageType: a.damageType,
@@ -199,8 +219,19 @@ export function deriveStats(character, catalog) {
       const value = upgrade ? upgrade.mechanics.resourceUpgrade.value : r.dieByLevel.filter(([from]) => from <= level).at(-1)[1];
       return { id: r.id, label: r.label, value, basis: upgrade ? `from ${upgrade.name}` : null, sourceId: s.id };
     }
+    if (r.dieSteps) {
+      const steps = advancementCount(character.advancementHistory, r.advancedBy);
+      const value = r.dieSteps[Math.min(steps, r.dieSteps.length - 1)];
+      return { id: r.id, label: r.label, value, basis: steps ? `raised ${steps} step${steps > 1 ? 's' : ''} by level advancements` : null, sourceId: s.id };
+    }
+    if (typeof r.count === 'number') {
+      return { id: r.id, label: r.label, value: String(r.count), count: r.count, basis: r.note ?? null, sourceId: s.id };
+    }
     let count;
     let basis;
+    // A die-count resource whose die a feature upgrades (Assassin "Marked for Death": Ambush, Backstab).
+    const dieUpgrade = upgrades[r.id]?.mechanics.resourceUpgrade.die ? upgrades[r.id] : null;
+    const die = dieUpgrade ? dieUpgrade.mechanics.resourceUpgrade.die : r.die;
     if (r.count.startsWith('trait:')) {
       const trait = traitOf(r.count.slice(6));
       count = Math.max(r.min ?? 0, traits[trait]);
@@ -209,7 +240,8 @@ export function deriveStats(character, catalog) {
       count = { tier, level, proficiency }[r.count];
       basis = `equal to ${COUNT_BASIS[r.count]}`;
     }
-    const value = r.die ? (count > 0 ? `${r.prefix ?? ''}${count}${r.die}` : 'none') : String(count);
+    if (dieUpgrade) basis += `; ${die}s from ${dieUpgrade.name}`;
+    const value = die ? (count > 0 ? `${r.prefix ?? ''}${count}${die}` : 'none') : String(count);
     return { id: r.id, label: r.label, value, count, basis, sourceId: s.id };
   });
 
@@ -231,7 +263,7 @@ export function deriveStats(character, catalog) {
       experiences: [...(choice.experiences ?? []), ...progress.experiences].map((name) => ({ name, modifier: c.experienceModifier + (progress.intelligent[name] ?? 0) })),
       upgrades: traitsTaken,
       commandTrait: spellcastTrait,
-      commandModifier: spellcastTrait ? traits[spellcastTrait] : null,
+      commandModifier: spellcastTrait ? traits[spellcastTrait] + actionRollBonus : null,
     };
   }
 
@@ -247,12 +279,17 @@ export function deriveStats(character, catalog) {
         evasion: evasion + b.evasionBonus,
         traitBonus: b.traitBonus,
         attackTrait: b.attack.trait,
-        attackModifier: traits[b.attack.trait] + traitBonus,
+        attackModifier: traits[b.attack.trait] + traitBonus + actionRollBonus,
         range: b.attack.range,
         damage: formatDamage(proficiency, b.attack.damage.die, b.attack.damage.bonus + damageBonusFor(b.attack.damageType)),
         damageType: b.attack.damageType,
       };
     })
+    : [];
+
+  const stanceFeature = features.find((f) => f.mechanics.stances);
+  const martialStances = stanceFeature
+    ? knownStances(character, stanceFeature.id).map(({ stanceId, level: at }) => ({ ...catalog.get(stanceId), acquiredAtLevel: at }))
     : [];
 
   return {
@@ -274,7 +311,11 @@ export function deriveStats(character, catalog) {
     },
     physicalDamageBonus: physicalBonus.length ? { value: physicalDamageBonus, sources: physicalBonus.map((m) => m.sourceName) } : null,
     damageBonuses: [...allDamageBonus, ...forTarget('meleeWeaponDamage').map((m) => ({ ...m, condition: 'Melee weapons' }))].map((m) => ({ value: m.value, sourceName: m.sourceName, condition: m.condition ?? null })),
-    weaponAttackBonus: forTarget('weaponAttackRoll').map((m) => ({ value: m.value, sourceName: m.sourceName })),
+    weaponAttackBonus: [...forTarget('weaponAttackRoll'), ...forTarget('primaryWeaponAttackRoll').map((m) => ({ ...m, sourceName: `${m.sourceName}, primary weapon only` }))]
+      .map((m) => ({ value: m.value, sourceName: m.sourceName })),
+    actionRollBonus: forTarget('actionRolls').map((m) => ({ value: m.value, sourceName: m.sourceName })),
+    loadoutLimit: loadoutLimit(character, catalog),
+    martialStances,
     weapons,
     extraAttacks,
     experiences,

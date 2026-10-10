@@ -8,12 +8,15 @@ import { buildDownload } from './sheet-file.js';
 import { GENERATOR_VERSION } from './version.js';
 
 const RANDOM = '';
+const NO_TRANSFORMATION = '';
+const RANDOM_TRANSFORMATION = 'random';
 const $ = (id) => document.getElementById(id);
 const els = {
-  form: $('generator-form'), level: $('level'), ancestry: $('ancestry'),
+  form: $('generator-form'), content: $('content'), level: $('level'), ancestry: $('ancestry'),
   community: $('community'), cls: $('class'), subclass: $('subclass'),
   mixed: $('mixed'), secondAncestry: $('second-ancestry'),
   secondAncestryLabel: $('second-ancestry-label'), generate: $('generate'),
+  transformation: $('transformation'), transformationLabel: $('transformation-label'),
   generateLabel: $('generate-label'), status: $('status'), error: $('error'),
   empty: $('empty-state'), output: $('output'), preview: $('preview'),
   sourceView: $('source-preview'), source: $('markdown-source'),
@@ -21,7 +24,8 @@ const els = {
   copy: $('copy'), download: $('download'), openFile: $('open-file'), fileInput: $('file-input'),
 };
 
-const state = { catalog: null, markdown: '', character: null, selectedView: 'sheet' };
+// One catalog per content profile, loaded on first use.
+const state = { catalog: null, catalogs: {}, markdown: '', character: null, selectedView: 'sheet' };
 
 function fillSelect(select, records, { keep = true } = {}) {
   const previous = select.value;
@@ -47,6 +51,44 @@ function syncSecondAncestry() {
   // A fixed second ancestry may not equal the first one.
   fillSelect(els.secondAncestry, state.catalog.ancestries.filter((a) => a.id !== els.ancestry.value));
   els.secondAncestryLabel.hidden = !els.mixed.checked;
+}
+
+function syncTransformations() {
+  // Transformations exist only in the Hope & Fear profile and are explicit opt-in (default None).
+  const list = state.catalog.transformations;
+  const previous = els.transformation.value;
+  els.transformation.replaceChildren(new Option('None', NO_TRANSFORMATION), new Option('Random', RANDOM_TRANSFORMATION));
+  for (const t of [...list].sort((a, b) => a.name.localeCompare(b.name))) els.transformation.add(new Option(t.name, t.id));
+  els.transformation.value = [RANDOM_TRANSFORMATION, ...list.map((t) => t.id)].includes(previous) ? previous : NO_TRANSFORMATION;
+  els.transformationLabel.hidden = list.length === 0;
+}
+
+/** Fills every selector from the current catalog, keeping choices that are still available. */
+function applyCatalog() {
+  const { catalog } = state;
+  fillSelect(els.ancestry, catalog.ancestries);
+  fillSelect(els.community, catalog.communities);
+  fillSelect(els.cls, catalog.classes);
+  syncSubclassOptions();
+  syncSecondAncestry();
+  syncTransformations();
+}
+
+async function selectContent(readJson) {
+  const profile = els.content.value;
+  els.generate.disabled = true;
+  try {
+    state.catalogs[profile] ??= await loadCatalog(readJson, { contentProfile: profile });
+    state.catalog = state.catalogs[profile];
+    applyCatalog();
+    showError('');
+    announce(`${state.catalog.contentLabel} content selected.`);
+  } catch (error) {
+    showError(`Could not load ${profile} game data: ${error.message}`);
+    els.content.value = state.catalog?.contentProfile ?? 'core';
+  } finally {
+    els.generate.disabled = !state.catalog;
+  }
 }
 
 function showError(message) {
@@ -95,9 +137,10 @@ function generate() {
       communityId: els.community.value || null,
       classId: els.cls.value || null,
       subclassId: els.subclass.value || null,
-      contentProfile: 'core',
+      contentProfile: state.catalog.contentProfile,
       secondAncestryId: (els.mixed.checked && els.secondAncestry.value) || null,
-      options: { mixedAncestry: els.mixed.checked },
+      transformationId: [NO_TRANSFORMATION, RANDOM_TRANSFORMATION].includes(els.transformation.value) ? null : els.transformation.value,
+      options: { mixedAncestry: els.mixed.checked, transformation: els.transformation.value === RANDOM_TRANSFORMATION },
     }, state.catalog);
     const markdown = renderCharacterMarkdown(character, state.catalog);
     showSheet(markdown, character, `Generated ${character.flavor.name}.`);
@@ -184,23 +227,22 @@ async function init() {
   els.copy.addEventListener('click', copyMarkdown);
   els.download.addEventListener('click', downloadMarkdown);
 
+  const readJson = async (path) => {
+    const response = await fetch(new URL(`../data/${path}`, import.meta.url));
+    if (!response.ok) throw new Error(`Could not load ${path} (HTTP ${response.status})`);
+    return response.json();
+  };
   try {
-    const readJson = async (path) => {
-      const response = await fetch(new URL(`../data/${path}`, import.meta.url));
-      if (!response.ok) throw new Error(`Could not load ${path} (HTTP ${response.status})`);
-      return response.json();
-    };
+    els.content.value = 'core';
     state.catalog = await loadCatalog(readJson, { contentProfile: 'core' });
+    state.catalogs.core = state.catalog;
   } catch (error) {
     showError(`Could not load game data: ${error.message}. Serve the folder over HTTP (see README). Existing .md files can still be opened.`);
     return;
   }
-  fillSelect(els.ancestry, state.catalog.ancestries);
-  fillSelect(els.community, state.catalog.communities);
-  fillSelect(els.cls, state.catalog.classes);
-  syncSubclassOptions();
+  applyCatalog();
+  els.content.addEventListener('change', () => selectContent(readJson));
   els.cls.addEventListener('change', syncSubclassOptions);
-  syncSecondAncestry();
   els.ancestry.addEventListener('change', syncSecondAncestry);
   els.mixed.addEventListener('change', syncSecondAncestry);
   els.form.addEventListener('submit', (event) => { event.preventDefault(); generate(); });

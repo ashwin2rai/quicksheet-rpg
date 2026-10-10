@@ -69,16 +69,18 @@ function parseIdentity(intro) {
   const cls = intro.match(/\*\*Class:\*\*\s*([^\n|]+)/)?.[1].trim() ?? '';
   const heritage = intro.match(/\*\*Heritage:\*\*\s*([^\n|]+)/)?.[1].trim() ?? '';
   const pronouns = intro.match(/\*\*Pronouns:\*\*\s*([^\n|]+)/)?.[1].trim() ?? '';
+  const transformation = intro.match(/\*\*Transformation:\*\*\s*([^\n|]+)/)?.[1].trim() ?? '';
   const [characterClass, ...subclassParts] = cls.split(/\s+-\s+/);
   const [ancestry, ...communityParts] = heritage.split(/\s*\/\s*/);
   return { name, concept, level: level?.[1] ?? '', tier: level?.[2] ?? '',
-    characterClass, subclass: subclassParts.join(' - '), ancestry, community: communityParts.join(' / '), pronouns };
+    characterClass, subclass: subclassParts.join(' - '), ancestry, community: communityParts.join(' / '), transformation, pronouns };
 }
 
 function identityMarkup(identity) {
   const bits = [
     ['Class & path', [identity.characterClass, identity.subclass].filter(Boolean).join(' · ')],
     ['Heritage', [identity.ancestry, identity.community].filter(Boolean).join(' / ')],
+    ['Transformation', identity.transformation],
     ['Pronouns', identity.pronouns],
   ].filter(([, val]) => val);
   return `<header class="folio-identity">

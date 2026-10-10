@@ -1,0 +1,179 @@
+{
+  "meta": {
+    "generatedBy": "tools/import-og-dhsrd.mjs",
+    "note": "Generated file. Edit tools/curation/hope-fear.json and re-run the importer instead of editing by hand.",
+    "contentProfile": "hope-fear",
+    "sourceVersion": "2.0",
+    "upstream": {
+      "repository": "https://github.com/callmepartario/og-dhsrd",
+      "commit": "07cac58944b5cf8a2890efa6d263d4fe0f869032",
+      "file": "scripts/og-dhsrd-features.js",
+      "sha256": "d309a09e60887a23d2b4b26beadbcc8c9aee6c46de50dd07246f584d759b2b36"
+    },
+    "copyright": "Includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Used under the Darrington Press Community Gaming License; see NOTICE.md."
+  },
+  "records": [
+    {
+      "id": "transformation.demigod",
+      "name": "Demigod",
+      "summary": "Demigods are mortal creatures whose veins flow with the blood of the gods.",
+      "featureIds": [
+        "feature.demigod.gifted",
+        "feature.demigod.weight-of-divinity"
+      ],
+      "questions": [
+        "Your divinity has affected an aspect of your appearance. In what way do you look different from others?",
+        "Who bestowed demigod status upon you, and what trial did you complete to earn this gift?",
+        "You were made fun of as a child for your divine parentage. Why?",
+        "Why was the knowledge that you are a demigod kept from you for many years? Who kept this secret?",
+        "You have an obligation you must fulfill due to the immortal blood that runs in your veins. What is this duty?",
+        "In what way did your divinity initially manifest? Why did it surprise you?"
+      ],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 35"
+        ],
+        "errata": false,
+        "card": "DH HF 037/063"
+      }
+    },
+    {
+      "id": "transformation.ghost",
+      "name": "Ghost",
+      "summary": "Ghosts are a spirit trapped between the moral realm and the veil of death.",
+      "featureIds": [
+        "feature.ghost.unfinished-business",
+        "feature.ghost.ephemeral"
+      ],
+      "questions": [
+        "How did you die, and what fear has your death instilled in you?",
+        "What brought you back from beyond the veil of death?",
+        "In life, you loved someone dearly. Why do you need to find them again?",
+        "What must you accomplish now that you've returned to the Mortal Realm? How will you meet your goal?",
+        "Who harmed you in your first life? How do you plan to deal with them now that you've returned?",
+        "You had to sacrifice something dear to you in order to come back to the Mortal Realm. What did you give up, and who did you give it to?"
+      ],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 36"
+        ],
+        "errata": false,
+        "card": "DH HF 038/063"
+      }
+    },
+    {
+      "id": "transformation.reanimated",
+      "name": "Reanimated",
+      "summary": "Reanimated are corpses who have been brought back to life.",
+      "featureIds": [
+        "feature.reanimated.corpse",
+        "feature.reanimated.wont-stay-dead"
+      ],
+      "questions": [
+        "How did you first die, and how has that death affected your view on life?",
+        "A fragment of memory from your first life haunts you. What is the memory, and why do you think it's important?",
+        "You had a dream for your life that you now believe you can never reach. What was your dream, and why do you think being reanimated makes it impossible to fulfill?",
+        "How were you brought back from the dead, and how did the process change your body?",
+        "Someone brought you back from death. Who were they, and how do you feel about this person and what they did to you?",
+        "In the brief time you passed through the veil of death, you saw something that changed you forever. What was it?"
+      ],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 37"
+        ],
+        "errata": false,
+        "card": "DH HF 039/063"
+      }
+    },
+    {
+      "id": "transformation.shapeshifter",
+      "name": "Shapeshifter",
+      "summary": "Shapeshifters are creature that can change physical form.",
+      "featureIds": [
+        "feature.shapeshifter.change-shape",
+        "feature.shapeshifter.only-skin-deep"
+      ],
+      "questions": [
+        "You believe you have a \"true form,\" but you haven't seen it. What do you think it is, and how do you know it's there?",
+        "What trick have you developed to identify other shapeshifters?",
+        "Someone you loved dearly abandoned you when they found out about your ability to change shape. Who was it, and what happened?",
+        "What is one form you've vowed to never take, and why?",
+        "Which ancestry do you live as more than others? Why do you spend so much time in this form?",
+        "Someone you know can instantly recognize you, no matter your form. How do they claim to identify you and what does their familiarity mean to you?"
+      ],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 38"
+        ],
+        "errata": false,
+        "card": "DH HF 040/063"
+      }
+    },
+    {
+      "id": "transformation.vampire",
+      "name": "Vampire",
+      "summary": "Vampires are undead creatures with sharp fangs who feed on the blood of the living.",
+      "featureIds": [
+        "feature.vampire.fangs",
+        "feature.vampire.feed"
+      ],
+      "questions": [
+        "Who did you have to leave behind when you became a vampire, and why was it so hard to let them go?",
+        "You once killed an innocent for their blood. What characteristic of theirs do you notice most in others?",
+        "What does your vampirisim make you particularly vulnerable to?",
+        "Who were you able to save using your vampiric power? What happened, and how do they feel about you now?",
+        "How does your hunger for blood change you?",
+        "The vampire who sired you still has a hold over you. What's their name, and what do they want you to do for them?"
+      ],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 39"
+        ],
+        "errata": false,
+        "card": "DH HF 041/063"
+      }
+    },
+    {
+      "id": "transformation.werewolf",
+      "name": "Werewolf",
+      "summary": "Werewolves are creatures who transform into large supernatural wolves.",
+      "featureIds": [
+        "feature.werewolf.wolf-form",
+        "feature.werewolf.howling-rampage"
+      ],
+      "questions": [
+        "Someone is hunting you. Who is it, and why do they want you dead?",
+        "What were you afraid of before you became a werewolf, and how has your new power changed that fear?",
+        "You hear your wolf form in your head as if it were another entity. What lie does it tell you about yourself, and why are you beginning to believe it?",
+        "What led you to kill someone you love during your rampage?",
+        "Who cursed you to become a werewolf?",
+        "You were once entreated to join a pack of other werewolves. How did you respond?"
+      ],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 40"
+        ],
+        "errata": false,
+        "card": "DH HF 042/063"
+      }
+    }
+  ]
+}

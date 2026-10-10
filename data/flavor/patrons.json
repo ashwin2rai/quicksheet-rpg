@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "source": "quicksheet-original",
+    "note": "Original QuickSheet patron names suggested for the Warlock's Patron's Pact. They are prompts only: the player and GM decide who the patron really is. No setting-specific or licensed names."
+  },
+  "patronNames": [
+    "the Ashen Choir",
+    "the Lantern-Eyed Stranger",
+    "the Widow of Seven Bells",
+    "Old Mother Bramble",
+    "the Drowned Saint",
+    "the Hollow King Beneath the Hill",
+    "the Moth Who Remembers",
+    "the Gilded Wolf",
+    "the Keeper of Unpaid Debts",
+    "Vessa of the Long Night",
+    "the Thousand-Voiced Tide",
+    "the Scarlet Archivist",
+    "the Chainless Sovereign",
+    "the One Who Waits at Crossroads",
+    "Saint Orrin of Broken Oaths",
+    "the Emberwild",
+    "the Pale Gardener",
+    "the Laughing Mask",
+    "the Antlered Matron",
+    "the Silent Cartographer"
+  ]
+}

@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "generatedBy": "tools/import-og-dhsrd.mjs",
+    "note": "Generated file. Edit tools/curation/hope-fear.json and re-run the importer instead of editing by hand.",
+    "contentProfile": "hope-fear",
+    "sourceVersion": "2.0",
+    "upstream": {
+      "repository": "https://github.com/callmepartario/og-dhsrd",
+      "commit": "07cac58944b5cf8a2890efa6d263d4fe0f869032",
+      "file": "scripts/og-dhsrd-features.js",
+      "sha256": "d309a09e60887a23d2b4b26beadbcc8c9aee6c46de50dd07246f584d759b2b36"
+    },
+    "copyright": "Includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Used under the Darrington Press Community Gaming License; see NOTICE.md."
+  },
+  "records": [
+    {
+      "id": "class.assassin",
+      "name": "Assassin",
+      "summary": "Assassins are masters at inflicting deadly injuries with precise strikes.",
+      "domainIds": [
+        "domain.blade",
+        "domain.midnight"
+      ],
+      "startingEvasion": 12,
+      "startingHp": 5,
+      "featureIds": [
+        "feature.assassin.marked-for-death",
+        "feature.assassin.get-in-get-out"
+      ],
+      "hopeFeatureId": "feature.assassin.deadly-determination",
+      "subclassIds": [
+        "subclass.executioners-guild",
+        "subclass.poisoners-guild"
+      ],
+      "classItems": [
+        "a list of names with several marked off",
+        "rusted blade inscribed with an insignia"
+      ],
+      "suggested": {
+        "traits": {
+          "agility": 2,
+          "strength": -1,
+          "finesse": 1,
+          "instinct": 0,
+          "presence": 0,
+          "knowledge": 1
+        },
+        "primaryWeaponId": "weapon.broadsword",
+        "secondaryWeaponId": "weapon.shortsword",
+        "armorId": "armor.leather-armor"
+      },
+      "backgroundQuestions": [
+        "You once killed someone you were close to. What happened, and how did it change you?",
+        "What organization trained you in the art of killing, and how did you become a member?",
+        "Throughout your career, one target has eluded you. Who are they, and how have they slipped through your fingers?"
+      ],
+      "connectionQuestions": [
+        "I've killed someone for you. Who were they?",
+        "How did you save me when I was on the brink of death? What have I promised you as repayment?",
+        "What secret about myself did I tell you, and how did it change your view of me?"
+      ],
+      "descriptionSuggestions": {
+        "clothes": [
+          "sinister",
+          "weathered",
+          "hooded",
+          "finely tailored",
+          "incognito",
+          "padded for silence"
+        ],
+        "attitudes": [
+          "a hidden razor",
+          "a judge",
+          "an owl",
+          "a butcher",
+          "a coiled viper",
+          "a merchant",
+          "a hunter"
+        ]
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 8"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "class.brawler",
+      "name": "Brawler",
+      "summary": "Brawlers are experts in unarmed combat, honing their bodies into lethal weapons.",
+      "domainIds": [
+        "domain.valor",
+        "domain.bone"
+      ],
+      "startingEvasion": 10,
+      "startingHp": 6,
+      "featureIds": [
+        "feature.brawler.i-am-the-weapon",
+        "feature.brawler.combo-strike"
+      ],
+      "hopeFeatureId": "feature.brawler.square-up",
+      "subclassIds": [
+        "subclass.juggernaut",
+        "subclass.martial-artist"
+      ],
+      "classItems": [
+        "hand wraps from a mentor",
+        "a book about your secret hobby"
+      ],
+      "suggested": {
+        "traits": {
+          "agility": 1,
+          "strength": 1,
+          "finesse": 0,
+          "instinct": 2,
+          "presence": 0,
+          "knowledge": -1
+        },
+        "primaryWeaponId": "weapon.quarterstaff",
+        "secondaryWeaponId": null,
+        "armorId": "armor.leather-armor"
+      },
+      "backgroundQuestions": [
+        "Where did you spend time during your formative years that taught you, directly or indirectly, how to fight in the style you use?",
+        "What organization has vowed to kill you on sight, and what did you do to invoke their ire?",
+        "Who did you recently lose a fight to that you're desperate for a rematch against?"
+      ],
+      "connectionQuestions": [
+        "What is one thing we're both afraid of?",
+        "What do I rely on you for during our travels? How do you feel about it?",
+        "I still haven't forgiven you for something you said to me. What was it, and why did you say it?"
+      ],
+      "descriptionSuggestions": {
+        "clothes": [
+          "practical",
+          "haphazard",
+          "pristine",
+          "standard-issue",
+          "bright",
+          "someone else's"
+        ],
+        "attitudes": [
+          "a loose cannon",
+          "a parent",
+          "a veteran",
+          "a flowing river",
+          "a golden retriever",
+          "a protector"
+        ]
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 10"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "class.warlock",
+      "name": "Warlock",
+      "summary": "Those who've traded their lives—or perhaps even their souls—to an otherworldly patron in exchange for incredible power are known as Warlocks.",
+      "domainIds": [
+        "domain.dread",
+        "domain.grace"
+      ],
+      "startingEvasion": 11,
+      "startingHp": 5,
+      "featureIds": [
+        "feature.warlock.patrons-pact",
+        "feature.warlock.favor"
+      ],
+      "hopeFeatureId": "feature.warlock.patrons-boon",
+      "subclassIds": [
+        "subclass.pact-of-the-endless",
+        "subclass.pact-of-the-wrathful"
+      ],
+      "classItems": [
+        "a carving that symbolizes your patron",
+        "a ring you can't remove"
+      ],
+      "suggested": {
+        "traits": {
+          "agility": 1,
+          "strength": -1,
+          "finesse": 0,
+          "instinct": 1,
+          "presence": 2,
+          "knowledge": 0
+        },
+        "primaryWeaponId": "weapon.broadsword",
+        "secondaryWeaponId": null,
+        "armorId": "armor.leather-armor"
+      },
+      "backgroundQuestions": [
+        "Who from your community shunned you after you made a pact with your patron?",
+        "What desperate situation led you to pledge your life to your patron?",
+        "Your patron has given you one task you must accomplish above all else. What is it, and why does it worry you?"
+      ],
+      "connectionQuestions": [
+        "Why do you think I confide in you about what my patron says and does?",
+        "Our relationship has changed since you saw me show tribute to my patron. What did you see, and how has it affected you?",
+        "I once did something very foolish, and you've never let me live it down. What was it?"
+      ],
+      "descriptionSuggestions": {
+        "clothes": [
+          "shadowy",
+          "billowing",
+          "smoking",
+          "lavish",
+          "sacred",
+          "mended",
+          "neat",
+          "luminous"
+        ],
+        "attitudes": [
+          "a coming storm",
+          "a devotee",
+          "a jester",
+          "a soothsayer",
+          "a monarch",
+          "a live wire",
+          "a hot mess"
+        ]
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 14"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "class.witch",
+      "name": "Witch",
+      "summary": "Witches are magical practitioners who commune with the forces of nature and entities from realms beyond.",
+      "domainIds": [
+        "domain.sage",
+        "domain.dread"
+      ],
+      "startingEvasion": 10,
+      "startingHp": 6,
+      "featureIds": [
+        "feature.witch.hex",
+        "feature.witch.commune"
+      ],
+      "hopeFeatureId": "feature.witch.witchs-charm",
+      "subclassIds": [
+        "subclass.hedge",
+        "subclass.moon"
+      ],
+      "classItems": [
+        "a small, harmless pet",
+        "a scrying stone"
+      ],
+      "suggested": {
+        "traits": {
+          "agility": 0,
+          "strength": -1,
+          "finesse": 0,
+          "instinct": 2,
+          "presence": 1,
+          "knowledge": 1
+        },
+        "primaryWeaponId": "weapon.dualstaff",
+        "secondaryWeaponId": null,
+        "armorId": "armor.gambeson-armor"
+      },
+      "backgroundQuestions": [
+        "Who from your community feared your magical craft? What rumor did they spread about you, and what truth did it contain?",
+        "You once used your power to help someone in a dire situation. Who were they, and why did they come to you?",
+        "Your magic once opened a door best left closed. Who or what was on the other side?"
+      ],
+      "connectionQuestions": [
+        "What unique ritual or practice have I taught you that we now perform together?",
+        "I once appeared to you in a dream and shared a vision of the future. What did I tell you?",
+        "What do you typically come to me for advice about?"
+      ],
+      "descriptionSuggestions": {
+        "clothes": [
+          "forboding",
+          "ragged",
+          "flowing",
+          "stately",
+          "diaphanous",
+          "uniquely patterned"
+        ],
+        "attitudes": [
+          "a spider",
+          "a sunny day",
+          "a doctor",
+          "a candle flame",
+          "an old tree",
+          "a cat",
+          "a oracle"
+        ]
+      },
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 16"
+        ],
+        "errata": false
+      }
+    }
+  ]
+}

@@ -9,7 +9,11 @@
 //   domainCardId,                       // step four
 //   grantedCardIds: [],                 // from features acquired this level (e.g. "Accomplished")
 //   companion: [{ option, detail?, experience? }],
+//   stanceId,                           // Martial Artist only: the stance learned this level
 // }
+//
+// Besides PROGRESSION.OPTIONS, a class feature can add its own advancement option
+// (Brawler "Combo Strike": increase the Combo Die once per tier).
 
 import { TRAITS, tierForLevel } from './catalog.js';
 import { RULES, PROGRESSION } from './rules.js';
@@ -58,6 +62,25 @@ export function markedTraits(history = []) {
   return marked;
 }
 
+/** How many times an advancement option was taken (e.g. Combo Die increases). */
+export function advancementCount(history = [], optionId) {
+  return allAdvancements(history).filter((a) => a.option === optionId).length;
+}
+
+/** Advancement options this character can take: the SRD list plus any from class features. */
+export function advancementOptions(character, catalog) {
+  const fromFeatures = catalog.get(character.selections.classId).featureIds
+    .map((id) => catalog.get(id).mechanics.advancement)
+    .filter(Boolean);
+  return [...PROGRESSION.OPTIONS, ...fromFeatures];
+}
+
+/** Martial stances known: the starting choice, then one per level-up, with the level learned. */
+export function knownStances(character, stanceFeatureId) {
+  const start = (character.featureChoices[stanceFeatureId]?.stanceIds ?? []).map((stanceId) => ({ stanceId, level: 1 }));
+  return [...start, ...character.advancementHistory.filter((h) => h.stanceId).map((h) => ({ stanceId: h.stanceId, level: h.level }))];
+}
+
 export function slotsUsed(history = []) {
   const used = {};
   for (const a of allAdvancements(history)) used[`${a.option}:${a.slotTier}`] = (used[`${a.option}:${a.slotTier}`] ?? 0) + 1;
@@ -101,15 +124,22 @@ export function acquireCard(character, card, level, source, { rng, catalog }) {
   }
 }
 
+/** Domain cards the active loadout can hold: five, adjusted by equipped gear (Attuned armor: one fewer). */
+export function loadoutLimit(character, catalog) {
+  const { primaryWeaponId, secondaryWeaponId, armorId } = character.equipment;
+  return [primaryWeaponId, secondaryWeaponId, armorId].filter(Boolean)
+    .reduce((n, id) => n + (catalog.get(id).feature?.mechanics?.loadoutSlots ?? 0), RULES.MAX_LOADOUT);
+}
+
 /**
  * Instant-character loadout: cards placed in the vault permanently stay there; of the
- * rest, the five highest-level cards (ties: most recently acquired) form the loadout.
+ * rest, the highest-level cards (ties: most recently acquired) fill the loadout.
  */
 export function arrangeLoadout(character, catalog) {
   const cards = character.domainCards.map((entry) => ({ entry, card: catalog.get(entry.cardId) }));
   const eligible = cards.filter(({ card }) => !card.mechanics.vaultOnAcquire);
   eligible.sort((a, b) => b.card.level - a.card.level || b.entry.acquiredAtLevel - a.entry.acquiredAtLevel || a.card.id.localeCompare(b.card.id));
-  const active = new Set(eligible.slice(0, RULES.MAX_LOADOUT).map(({ entry }) => entry.cardId));
+  const active = new Set(eligible.slice(0, loadoutLimit(character, catalog)).map(({ entry }) => entry.cardId));
   for (const { entry } of cards) entry.location = active.has(entry.cardId) ? 'loadout' : 'vault';
 }
 
@@ -144,6 +174,11 @@ function acquireFeatureGrants(character, features, level, entry, ctx) {
 function companionFeature(character, catalog) {
   const subclass = catalog.get(character.selections.subclassId);
   return subclass.foundationFeatureIds.map((id) => catalog.get(id)).find((f) => f.mechanics.companion) ?? null;
+}
+
+function stanceFeature(character, catalog) {
+  const subclass = catalog.get(character.selections.subclassId);
+  return subclass.foundationFeatureIds.map((id) => catalog.get(id)).find((f) => f.mechanics.stances) ?? null;
 }
 
 function pickCompanionAdvancement(character, catalog, rng, base, history) {
@@ -199,6 +234,7 @@ export function advanceOneLevel(character, catalog, rng) {
 
   // Step two: two advancements from this tier or below.
   const weights = { ...DEFAULT_ADVANCEMENT_WEIGHTS, ...(style.advancementWeights ?? {}) };
+  const options = advancementOptions(c, catalog);
   let picksLeft = PROGRESSION.ADVANCEMENTS_PER_LEVEL;
   let companionPicks = compBase ? 1 : 0;
   while (picksLeft > 0) {
@@ -208,11 +244,13 @@ export function advanceOneLevel(character, catalog, rng) {
     const unmarked = TRAITS.filter((t) => !marked.has(t));
     const nextSubclass = PROGRESSION.SUBCLASS_ORDER[c.subclassTiers.length];
     const candidates = [];
-    for (const opt of PROGRESSION.OPTIONS) {
+    for (const opt of options) {
       if (opt.cost > picksLeft) continue;
       if (opt.id === 'traits' && unmarked.length < 2) continue;
       if (opt.id === 'subclass' && !nextSubclass) continue;
-      const slotTier = [tier, tier - 1, tier - 2].find((t) => t >= 2 && (opt.slots[t] ?? 0) > (used[`${opt.id}:${t}`] ?? 0));
+      // "Once per tier" options (Combo Die) can only use the current tier's slot.
+      const tiers = opt.sameTierOnly ? [tier] : [tier, tier - 1, tier - 2];
+      const slotTier = tiers.find((t) => t >= 2 && (opt.slots[t] ?? 0) > (used[`${opt.id}:${t}`] ?? 0));
       if (!slotTier) continue;
       if (opt.id === 'domainCard' && !pickableCardExists(c, catalog, Math.min(level, PROGRESSION.TIER_MAX_LEVEL[slotTier]))) continue;
       candidates.push({ opt, slotTier });
@@ -255,6 +293,15 @@ export function advanceOneLevel(character, catalog, rng) {
   for (let i = 0; i < companionPicks; i++) {
     const pick = pickCompanionAdvancement(c, catalog, rng, compBase, [...priorHistory, entry]);
     if (pick) entry.companion.push(pick);
+  }
+
+  // Martial Artist "Stance Fighter": "Each time you level up your character, choose an
+  // additional stance from your tier or lower."
+  const stances = stanceFeature(c, catalog);
+  if (stances) {
+    const known = new Set(knownStances(c, stances.id).map((x) => x.stanceId));
+    const choices = catalog.martialStances.filter((x) => x.tier <= tier && !known.has(x.id));
+    if (choices.length) entry.stanceId = rng.weighted(choices, (x) => (x.tier === tier ? 2 : 1)).id;
   }
 
   c.level = level;

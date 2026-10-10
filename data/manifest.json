@@ -1,5 +1,5 @@
 {
-  "dataVersion": "0.3.0-m2",
+  "dataVersion": "0.4.0-m3",
   "srdVersion": "2.0",
   "profiles": {
     "core": {
@@ -20,6 +20,63 @@
         "items": "core/items.json",
         "beastforms": "core/beastforms.json"
       }
+    },
+    "core+hope-fear": {
+      "label": "Core + Hope & Fear",
+      "sourceSets": [
+        "core",
+        "hope-fear"
+      ],
+      "files": {
+        "classes": [
+          "core/classes.json",
+          "hope-fear/classes.json"
+        ],
+        "subclasses": [
+          "core/subclasses.json",
+          "hope-fear/subclasses.json"
+        ],
+        "features": [
+          "core/features.json",
+          "hope-fear/features.json"
+        ],
+        "ancestries": [
+          "core/ancestries.json",
+          "hope-fear/ancestries.json"
+        ],
+        "communities": [
+          "core/communities.json",
+          "hope-fear/communities.json"
+        ],
+        "domains": [
+          "core/domains.json",
+          "hope-fear/domains.json"
+        ],
+        "domainCards": [
+          "core/domain-cards.json",
+          "hope-fear/domain-cards.json"
+        ],
+        "weapons": [
+          "core/weapons.json",
+          "hope-fear/weapons.json"
+        ],
+        "armor": [
+          "core/armor.json",
+          "hope-fear/armor.json"
+        ],
+        "items": [
+          "core/items.json"
+        ],
+        "beastforms": [
+          "core/beastforms.json"
+        ],
+        "transformations": [
+          "hope-fear/transformations.json"
+        ],
+        "martialStances": [
+          "hope-fear/martial-stances.json"
+        ]
+      }
     }
   },
   "flavor": {
@@ -28,6 +85,7 @@
     "experiences": "flavor/experiences.json",
     "classStyles": "flavor/class-styles.json",
     "companions": "flavor/companions.json",
-    "sayings": "flavor/sayings.json"
+    "sayings": "flavor/sayings.json",
+    "patrons": "flavor/patrons.json"
   }
 }

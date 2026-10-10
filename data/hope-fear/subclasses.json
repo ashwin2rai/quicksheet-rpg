@@ -1,0 +1,237 @@
+{
+  "meta": {
+    "generatedBy": "tools/import-og-dhsrd.mjs",
+    "note": "Generated file. Edit tools/curation/hope-fear.json and re-run the importer instead of editing by hand.",
+    "contentProfile": "hope-fear",
+    "sourceVersion": "2.0",
+    "upstream": {
+      "repository": "https://github.com/callmepartario/og-dhsrd",
+      "commit": "07cac58944b5cf8a2890efa6d263d4fe0f869032",
+      "file": "scripts/og-dhsrd-features.js",
+      "sha256": "d309a09e60887a23d2b4b26beadbcc8c9aee6c46de50dd07246f584d759b2b36"
+    },
+    "copyright": "Includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Used under the Darrington Press Community Gaming License; see NOTICE.md."
+  },
+  "records": [
+    {
+      "id": "subclass.executioners-guild",
+      "name": "Executioners Guild",
+      "classId": "class.assassin",
+      "summary": "Play the Executioners Guild if you want to strike down your targets with lethal precision..",
+      "spellcastTrait": "agility",
+      "foundationFeatureIds": [
+        "feature.executioners-guild.first-strike",
+        "feature.executioners-guild.ambush"
+      ],
+      "specializationFeatureIds": [
+        "feature.executioners-guild.death-strike",
+        "feature.executioners-guild.scorpions-poise"
+      ],
+      "masteryFeatureIds": [
+        "feature.executioners-guild.true-strike",
+        "feature.executioners-guild.backstab"
+      ],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 8"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "subclass.poisoners-guild",
+      "name": "Poisoners Guild",
+      "classId": "class.assassin",
+      "summary": "Play the Poisoners Guild if you want to debilitate your targets with punishing afflictions.",
+      "spellcastTrait": "knowledge",
+      "foundationFeatureIds": [
+        "feature.poisoners-guild.toxic-concoctions"
+      ],
+      "specializationFeatureIds": [
+        "feature.poisoners-guild.poison-compendium",
+        "feature.poisoners-guild.twin-fang"
+      ],
+      "masteryFeatureIds": [
+        "feature.poisoners-guild.venomancer",
+        "feature.poisoners-guild.adders-blessing"
+      ],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 9"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "subclass.juggernaut",
+      "name": "Juggernaut",
+      "classId": "class.brawler",
+      "summary": "Play the Juggernaut if you want to pulverize your opponents with crushing blows.",
+      "spellcastTrait": null,
+      "foundationFeatureIds": [
+        "feature.juggernaut.rugged",
+        "feature.juggernaut.overwhelm"
+      ],
+      "specializationFeatureIds": [
+        "feature.juggernaut.surrounded",
+        "feature.juggernaut.eye-for-an-eye"
+      ],
+      "masteryFeatureIds": [
+        "feature.juggernaut.pummeljoy",
+        "feature.juggernaut.not-done-yet"
+      ],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 10"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "subclass.martial-artist",
+      "name": "Martial Artist",
+      "classId": "class.brawler",
+      "summary": "Play the Martial Artist if you want to use a variety of fighting styles to eliminate your foes.",
+      "spellcastTrait": null,
+      "foundationFeatureIds": [
+        "feature.martial-artist.stance-fighter"
+      ],
+      "specializationFeatureIds": [
+        "feature.martial-artist.keen-defenses",
+        "feature.martial-artist.focus-cannon"
+      ],
+      "masteryFeatureIds": [
+        "feature.martial-artist.limit-breaker",
+        "feature.martial-artist.flow-state"
+      ],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 11"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "subclass.pact-of-the-endless",
+      "name": "Pact of the Endless",
+      "classId": "class.warlock",
+      "summary": "Play the Pact of the Endless if you want to stand strong against enemies and avoid death.",
+      "spellcastTrait": "presence",
+      "foundationFeatureIds": [
+        "feature.pact-of-the-endless.patrons-mantle",
+        "feature.pact-of-the-endless.deathless-embrace"
+      ],
+      "specializationFeatureIds": [
+        "feature.pact-of-the-endless.harrowing-invocation",
+        "feature.pact-of-the-endless.damage-sink"
+      ],
+      "masteryFeatureIds": [
+        "feature.pact-of-the-endless.dark-aegis",
+        "feature.pact-of-the-endless.draining-bane"
+      ],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 14"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "subclass.pact-of-the-wrathful",
+      "name": "Pact of the Wrathful",
+      "classId": "class.warlock",
+      "summary": "Play the Pact of the Wrathful if you want to destroy those who act against you.",
+      "spellcastTrait": "presence",
+      "foundationFeatureIds": [
+        "feature.pact-of-the-wrathful.patrons-fury",
+        "feature.pact-of-the-wrathful.deadly-vengeance"
+      ],
+      "specializationFeatureIds": [
+        "feature.pact-of-the-wrathful.menacing-reach",
+        "feature.pact-of-the-wrathful.diminish-my-foes"
+      ],
+      "masteryFeatureIds": [
+        "feature.pact-of-the-wrathful.fearsome-attack",
+        "feature.pact-of-the-wrathful.otherworldly-ire"
+      ],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 15"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "subclass.hedge",
+      "name": "Hedge",
+      "classId": "class.witch",
+      "summary": "Play the Hedge if you want to use your craft to empower yourself and your party.",
+      "spellcastTrait": "knowledge",
+      "foundationFeatureIds": [
+        "feature.hedge.herbal-remedies",
+        "feature.hedge.enchanted-talisman"
+      ],
+      "specializationFeatureIds": [
+        "feature.hedge.walk-between-worlds",
+        "feature.hedge.vexing-malison"
+      ],
+      "masteryFeatureIds": [
+        "feature.hedge.circle-of-power"
+      ],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 16"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "subclass.moon",
+      "name": "Moon",
+      "classId": "class.witch",
+      "summary": "Play the Moon if you want to embody celestial power to amplify your magic.",
+      "spellcastTrait": "instinct",
+      "foundationFeatureIds": [
+        "feature.moon.nights-glamour"
+      ],
+      "specializationFeatureIds": [
+        "feature.moon.moonbeam",
+        "feature.moon.ire-of-pale-light"
+      ],
+      "masteryFeatureIds": [
+        "feature.moon.lunar-phases"
+      ],
+      "source": {
+        "sourceSet": "hope-fear",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH HF 17"
+        ],
+        "errata": false,
+        "dataOverride": "official-srd-2.0"
+      }
+    }
+  ]
+}

@@ -37,6 +37,17 @@ test('high-level sheets include domain vault, special features and advancement c
   assert.ok((html.match(/class="domain-card /g) ?? []).length >= 10);
 });
 
+test('Hope & Fear sheets show the transformation, Dread cards and martial stances', () => {
+  const demigod = renderCharacterSheet(snapshot('hf-level-5-warlock-demigod.md'));
+  assert.match(demigod, /<span>Transformation<\/span><strong>Demigod<\/strong>/);
+  assert.match(demigod, /class="domain-card domain--dread"/);
+  assert.match(demigod, /<span>Transformation<\/span><\/div><h4>Demigod<\/h4>/);
+  assert.match(demigod, /Gifted/);
+  const martial = renderCharacterSheet(snapshot('hf-level-6-martial-artist.md'));
+  assert.match(martial, /Martial Stances/);
+  assert.doesNotMatch(renderCharacterSheet(snapshot('nightwalker.md')), /<span>Transformation<\/span>/);
+});
+
 test('every V2 Markdown fixture is renderable with complete class and domain references', () => {
   const names = readdirSync(new URL('snapshots/', import.meta.url)).filter((name) => name.endsWith('.md'));
   for (const name of names) {

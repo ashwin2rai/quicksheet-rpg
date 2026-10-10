@@ -23,6 +23,11 @@ export function htmlToMarkdown(html) {
   let s = String(html).replace(/\r?\n/g, ' ');
   // Repair an upstream anchor that is missing its closing '>' (e.g. <a href='#x'text</a>).
   s = s.replace(/<a\b\s+href='[^']*'(?=[^>\s])/g, '<a>');
+  // Further upstream typos: a list tag missing its '>' (<ul class='x'<li>), a mangled closing
+  // anchor ("attack,/a>") and a stray "</p." at the end of a paragraph.
+  s = s.replace(/<(ul|ol)\b([^<>]*)(?=<)/g, '<$1$2>');
+  s = s.replace(/(\w),\/a>/g, '$1</a>');
+  s = s.replace(/<\/p\.\s*$/, '</p>');
   s = s.replace(/<a\b[^>]*>(.*?)<\/a>/g, '$1');
   // Ordered lists become "1. ..." items.
   s = s.replace(/<ol\b[^>]*>(.*?)<\/ol>/g, (_, inner) => {
@@ -34,7 +39,7 @@ export function htmlToMarkdown(html) {
   s = s.replace(/<em>\s*<strong>(.*?)<\/strong>\s*<\/em>/g, '***$1***');
   s = s.replace(/<strong>(.*?)<\/strong>/g, '**$1**');
   s = s.replace(/<em>(.*?)<\/em>/g, '*$1*');
-  s = s.replace(/<li>(.*?)<\/li>/g, (_, inner) => `\n- ${inner.replace(/<\/?p>/g, ' ')}\n`);
+  s = s.replace(/<li\b[^>]*>(.*?)<\/li>/g, (_, inner) => `\n- ${inner.replace(/<\/?p>/g, ' ')}\n`);
   s = s.replace(/<\/?ul\b[^>]*>/g, '\n');
   s = s.replace(/<\/?p\b[^>]*>/g, '\n');
   s = s.replace(/<br\s*\/?>/g, '\n');

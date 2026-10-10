@@ -36,6 +36,12 @@
           <form id="generator-form" novalidate>
             <div class="field-section-heading"><span>THE ESSENTIALS</span><span>01 / 02</span></div>
             <div class="fields">
+              <label for="content">Content
+                <select id="content" name="content">
+                  <option value="core" selected>Core Only</option>
+                  <option value="core+hope-fear">Core + Hope &amp; Fear</option>
+                </select>
+              </label>
               <label for="level">Level
                 <select id="level" name="level">
                   <option value="1" selected>Level 1</option><option value="2">Level 2</option><option value="3">Level 3</option><option value="4">Level 4</option><option value="5">Level 5</option>
@@ -60,6 +66,9 @@
               <label class="checkbox" for="mixed"><input type="checkbox" id="mixed" name="mixed"><span class="checkbox-copy"><strong>Mixed ancestry</strong><small>First ancestry top feature + second ancestry bottom feature</small></span></label>
               <label for="second-ancestry" id="second-ancestry-label" hidden>Second ancestry
                 <select id="second-ancestry" name="second-ancestry"><option value="">Random</option></select>
+              </label>
+              <label for="transformation" id="transformation-label" hidden>Transformation <small class="field-hint">Hope &amp; Fear, opt-in</small>
+                <select id="transformation" name="transformation"><option value="">None</option></select>
               </label>
             </div>
             <button id="generate" type="submit" class="primary-button" disabled><span class="primary-icon" aria-hidden="true">✦</span><span id="generate-label">Generate character</span><span class="primary-arrow" aria-hidden="true">↗</span></button>
