@@ -136,6 +136,900 @@
         ],
         "errata": false
       }
+    },
+    {
+      "id": "armor.improved-chainmail-armor",
+      "name": "Improved Chainmail Armor",
+      "tier": 2,
+      "baseThresholds": {
+        "major": 11,
+        "severe": 24
+      },
+      "baseScore": 5,
+      "feature": {
+        "name": "Heavy",
+        "text": "-1 to Evasion",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "evasion",
+              "value": -1
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 126"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.improved-full-plate-armor",
+      "name": "Improved Full Plate Armor",
+      "tier": 2,
+      "baseThresholds": {
+        "major": 13,
+        "severe": 28
+      },
+      "baseScore": 5,
+      "feature": {
+        "name": "Very Heavy",
+        "text": "-2 to Evasion; -1 to Agility",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "evasion",
+              "value": -2
+            },
+            {
+              "target": "trait.agility",
+              "value": -1
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 126"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.improved-gambeson-armor",
+      "name": "Improved Gambeson Armor",
+      "tier": 2,
+      "baseThresholds": {
+        "major": 7,
+        "severe": 16
+      },
+      "baseScore": 4,
+      "feature": {
+        "name": "Flexible",
+        "text": "+1 to Evasion",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "evasion",
+              "value": 1
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 126"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.improved-leather-armor",
+      "name": "Improved Leather Armor",
+      "tier": 2,
+      "baseThresholds": {
+        "major": 9,
+        "severe": 20
+      },
+      "baseScore": 4,
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 126"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.elundrian-chain-armor",
+      "name": "Elundrian Chain Armor",
+      "tier": 2,
+      "baseThresholds": {
+        "major": 9,
+        "severe": 21
+      },
+      "baseScore": 4,
+      "feature": {
+        "name": "Warded",
+        "text": "You reduce incoming magic damage by your Armor Score before applying it to your damage thresholds.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 126"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.harrowbone-armor",
+      "name": "Harrowbone Armor",
+      "tier": 2,
+      "baseThresholds": {
+        "major": 9,
+        "severe": 21
+      },
+      "baseScore": 4,
+      "feature": {
+        "name": "Resilient",
+        "text": "Before you mark your last Armor Slot, roll a **d6**. On a result of 6, reduce the severity by one threshold without marking an Armor Slot.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 126"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.irontree-breastplate-armor",
+      "name": "Irontree Breastplate Armor",
+      "tier": 2,
+      "baseThresholds": {
+        "major": 9,
+        "severe": 20
+      },
+      "baseScore": 4,
+      "feature": {
+        "name": "Reinforced",
+        "text": "When you mark your last Armor Slot, increase your damage thresholds by +2 until you clear at least 1 Armor Slot.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 126"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.rosewild-armor",
+      "name": "Rosewild Armor",
+      "tier": 2,
+      "baseThresholds": {
+        "major": 11,
+        "severe": 23
+      },
+      "baseScore": 5,
+      "feature": {
+        "name": "Hopeful",
+        "text": "When you would spend a Hope, you can **mark an Armor Slot** instead.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 126"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.runetan-floating-armor",
+      "name": "Runetan Floating Armor",
+      "tier": 2,
+      "baseThresholds": {
+        "major": 9,
+        "severe": 20
+      },
+      "baseScore": 4,
+      "feature": {
+        "name": "Shifting",
+        "text": "When you are targeted for an attack, you can **mark an Armor Slot** to give the attack roll against you disadvantage.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 126"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.tyris-soft-armor",
+      "name": "Tyris Soft Armor",
+      "tier": 2,
+      "baseThresholds": {
+        "major": 8,
+        "severe": 18
+      },
+      "baseScore": 5,
+      "feature": {
+        "name": "Quiet",
+        "text": "You gain a +2 bonus to rolls you make to move silently.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 126"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.advanced-chainmail-armor",
+      "name": "Advanced Chainmail Armor",
+      "tier": 3,
+      "baseThresholds": {
+        "major": 13,
+        "severe": 31
+      },
+      "baseScore": 6,
+      "feature": {
+        "name": "Heavy",
+        "text": "-1 to Evasion",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "evasion",
+              "value": -1
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 127"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.advanced-gambeson-armor",
+      "name": "Advanced Gambeson Armor",
+      "tier": 3,
+      "baseThresholds": {
+        "major": 9,
+        "severe": 23
+      },
+      "baseScore": 5,
+      "feature": {
+        "name": "Flexible",
+        "text": "+1 to Evasion",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "evasion",
+              "value": 1
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 127"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.advanced-leather-armor",
+      "name": "Advanced Leather Armor",
+      "tier": 3,
+      "baseThresholds": {
+        "major": 11,
+        "severe": 27
+      },
+      "baseScore": 5,
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 127"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.advanced-full-plate-armor",
+      "name": "Advanced Full Plate Armor",
+      "tier": 3,
+      "baseThresholds": {
+        "major": 15,
+        "severe": 35
+      },
+      "baseScore": 6,
+      "feature": {
+        "name": "Very Heavy",
+        "text": "-2 to Evasion; -1 to Agility",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "evasion",
+              "value": -2
+            },
+            {
+              "target": "trait.agility",
+              "value": -1
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 127"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.bellamoi-fine-armor",
+      "name": "Bellamoi Fine Armor",
+      "tier": 3,
+      "baseThresholds": {
+        "major": 11,
+        "severe": 27
+      },
+      "baseScore": 5,
+      "feature": {
+        "name": "Gilded",
+        "text": "+1 to Presence",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "trait.presence",
+              "value": 1
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 127"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.bladefare-armor",
+      "name": "Bladefare Armor",
+      "tier": 3,
+      "baseThresholds": {
+        "major": 16,
+        "severe": 39
+      },
+      "baseScore": 6,
+      "feature": {
+        "name": "Physical",
+        "text": "You can't mark an Armor Slot to reduce magic damage.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 127"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.dragonscale-armor",
+      "name": "Dragonscale Armor",
+      "tier": 3,
+      "baseThresholds": {
+        "major": 11,
+        "severe": 27
+      },
+      "baseScore": 5,
+      "feature": {
+        "name": "Impenetrable",
+        "text": "Once per short rest, when you would mark your last Hit Point, you can instead mark a Stress.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 127"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.monetts-cloak",
+      "name": "Monett's Cloak",
+      "tier": 3,
+      "baseThresholds": {
+        "major": 16,
+        "severe": 39
+      },
+      "baseScore": 6,
+      "feature": {
+        "name": "Magic",
+        "text": "You can't mark an Armor Slot to reduce physical damage.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 127"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.runes-of-fortification",
+      "name": "Runes of Fortification",
+      "tier": 3,
+      "baseThresholds": {
+        "major": 17,
+        "severe": 43
+      },
+      "baseScore": 6,
+      "feature": {
+        "name": "Painful",
+        "text": "Each time you mark an Armor Slot, you must mark a Stress.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 127"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.spiked-plate-armor",
+      "name": "Spiked Plate Armor",
+      "tier": 3,
+      "baseThresholds": {
+        "major": 10,
+        "severe": 25
+      },
+      "baseScore": 5,
+      "feature": {
+        "name": "Sharp",
+        "text": "On a successful attack against a target within Melee range, add a **d4** to the damage roll.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 127"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.legendary-chainmail-armor",
+      "name": "Legendary Chainmail Armor",
+      "tier": 4,
+      "baseThresholds": {
+        "major": 15,
+        "severe": 40
+      },
+      "baseScore": 7,
+      "feature": {
+        "name": "Heavy",
+        "text": "-1 to Evasion",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "evasion",
+              "value": -1
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 127"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.legendary-full-plate-armor",
+      "name": "Legendary Full Plate Armor",
+      "tier": 4,
+      "baseThresholds": {
+        "major": 17,
+        "severe": 44
+      },
+      "baseScore": 7,
+      "feature": {
+        "name": "Very Heavy",
+        "text": "-2 to Evasion; -1 to Agility",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "evasion",
+              "value": -2
+            },
+            {
+              "target": "trait.agility",
+              "value": -1
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 127"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.legendary-gambeson-armor",
+      "name": "Legendary Gambeson Armor",
+      "tier": 4,
+      "baseThresholds": {
+        "major": 11,
+        "severe": 32
+      },
+      "baseScore": 6,
+      "feature": {
+        "name": "Flexible",
+        "text": "+1 to Evasion",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "evasion",
+              "value": 1
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 127"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.legendary-leather-armor",
+      "name": "Legendary Leather Armor",
+      "tier": 4,
+      "baseThresholds": {
+        "major": 13,
+        "severe": 36
+      },
+      "baseScore": 6,
+      "feature": null,
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 127"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.dunamis-silkchain",
+      "name": "Dunamis Silkchain",
+      "tier": 4,
+      "baseThresholds": {
+        "major": 13,
+        "severe": 36
+      },
+      "baseScore": 7,
+      "feature": {
+        "name": "Timeslowing",
+        "text": "**Mark an Armor Slot** to roll a **d4** and add its result as a bonus to your Evasion against an incoming attack.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 127"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.channeling-armor",
+      "name": "Channeling Armor",
+      "tier": 4,
+      "baseThresholds": {
+        "major": 13,
+        "severe": 36
+      },
+      "baseScore": 5,
+      "feature": {
+        "name": "Channeling",
+        "text": "+1 to Spellcast Rolls",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 127"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.emberwoven-armor",
+      "name": "Emberwoven Armor",
+      "tier": 4,
+      "baseThresholds": {
+        "major": 13,
+        "severe": 36
+      },
+      "baseScore": 6,
+      "feature": {
+        "name": "Burning",
+        "text": "When an adversary attacks you within Melee range, they mark a Stress.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 127"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.full-fortified-armor",
+      "name": "Full Fortified Armor",
+      "tier": 4,
+      "baseThresholds": {
+        "major": 15,
+        "severe": 40
+      },
+      "baseScore": 4,
+      "feature": {
+        "name": "Fortified",
+        "text": "When you mark an Armor Slot, you reduce the severity of an attack by two thresholds instead of one.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 127"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.savior-chainmail",
+      "name": "Savior Chainmail",
+      "tier": 4,
+      "baseThresholds": {
+        "major": 18,
+        "severe": 48
+      },
+      "baseScore": 8,
+      "feature": {
+        "name": "Difficult",
+        "text": "-1 to all character traits and Evasion",
+        "mechanics": {
+          "kind": "effects",
+          "modifiers": [
+            {
+              "target": "trait.agility",
+              "value": -1
+            },
+            {
+              "target": "trait.strength",
+              "value": -1
+            },
+            {
+              "target": "trait.finesse",
+              "value": -1
+            },
+            {
+              "target": "trait.instinct",
+              "value": -1
+            },
+            {
+              "target": "trait.presence",
+              "value": -1
+            },
+            {
+              "target": "trait.knowledge",
+              "value": -1
+            },
+            {
+              "target": "evasion",
+              "value": -1
+            }
+          ]
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 127"
+        ],
+        "errata": false
+      }
+    },
+    {
+      "id": "armor.veritas-opal-armor",
+      "name": "Veritas Opal Armor",
+      "tier": 4,
+      "baseThresholds": {
+        "major": 13,
+        "severe": 36
+      },
+      "baseScore": 6,
+      "feature": {
+        "name": "Truthseeking",
+        "text": "This armor glows when another creature within Close range tells a lie.",
+        "mechanics": {
+          "kind": "reference"
+        }
+      },
+      "tags": [],
+      "source": {
+        "sourceSet": "core",
+        "sourceVersion": "2.0",
+        "reference": "og-dhsrd",
+        "pages": [
+          "DH Core 127"
+        ],
+        "errata": false
+      }
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "quicksheet-original",
-    "note": "QuickSheet's flavor weighting per class. Influences which original Experiences and concept lines are likely; never restricts rules-legal choices."
+    "note": "QuickSheet's flavor weighting per class. Influences which original Experiences and concept lines are likely; never restricts rules-legal choices. advancementWeights bias (never restrict) which legal level-up advancements a class tends to take; unlisted options use the defaults in src/progression.js."
   },
   "records": [
     {
@@ -13,7 +13,11 @@
       ],
       "conceptTags": [
         "performance"
-      ]
+      ],
+      "advancementWeights": {
+        "experiences": 2,
+        "domainCard": 2.5
+      }
     },
     {
       "classId": "class.druid",
@@ -24,7 +28,11 @@
       ],
       "conceptTags": [
         "nature"
-      ]
+      ],
+      "advancementWeights": {
+        "domainCard": 2.5,
+        "evasion": 2
+      }
     },
     {
       "classId": "class.guardian",
@@ -34,7 +42,12 @@
       ],
       "conceptTags": [
         "protection"
-      ]
+      ],
+      "advancementWeights": {
+        "hp": 3.5,
+        "stress": 2.5,
+        "evasion": 0.5
+      }
     },
     {
       "classId": "class.ranger",
@@ -45,7 +58,11 @@
       ],
       "conceptTags": [
         "wilderness"
-      ]
+      ],
+      "advancementWeights": {
+        "evasion": 2.5,
+        "traits": 3.5
+      }
     },
     {
       "classId": "class.rogue",
@@ -56,7 +73,12 @@
       ],
       "conceptTags": [
         "stealth"
-      ]
+      ],
+      "advancementWeights": {
+        "evasion": 3,
+        "traits": 3.5,
+        "hp": 1.5
+      }
     },
     {
       "classId": "class.seraph",
@@ -67,7 +89,11 @@
       ],
       "conceptTags": [
         "faith"
-      ]
+      ],
+      "advancementWeights": {
+        "hp": 3,
+        "stress": 2.5
+      }
     },
     {
       "classId": "class.sorcerer",
@@ -78,7 +104,11 @@
       ],
       "conceptTags": [
         "arcane"
-      ]
+      ],
+      "advancementWeights": {
+        "domainCard": 3,
+        "stress": 2.5
+      }
     },
     {
       "classId": "class.warrior",
@@ -89,7 +119,12 @@
       ],
       "conceptTags": [
         "martial"
-      ]
+      ],
+      "advancementWeights": {
+        "hp": 3,
+        "traits": 3.5,
+        "proficiency": 6
+      }
     },
     {
       "classId": "class.wizard",
@@ -100,7 +135,11 @@
       ],
       "conceptTags": [
         "arcane"
-      ]
+      ],
+      "advancementWeights": {
+        "domainCard": 3.5,
+        "hp": 1.5
+      }
     }
   ]
 }

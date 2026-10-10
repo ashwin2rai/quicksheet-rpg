@@ -30,6 +30,14 @@ const FIXTURES = [
   { name: 'ribbet-warrior', input: { seed: 'fixture-ribbet', ancestryId: 'ancestry.ribbet', classId: 'class.warrior' } },
   { name: 'galapa-wanderborne-stalwart', input: { seed: 'fixture-galapa', ancestryId: 'ancestry.galapa', communityId: 'community.wanderborne', subclassId: 'subclass.stalwart' } },
   { name: 'mixed-ancestry', input: { seed: 'fixture-mixed', options: { mixedAncestry: true } } },
+  // V2: higher levels (tier transitions, vault, companion and Beastform progression, persistent cards)
+  { name: 'level-5-troubadour', input: { seed: 'fixture-l5', level: 5, subclassId: 'subclass.troubadour' } },
+  { name: 'level-7-slayer', input: { seed: 'fixture-l7', level: 7, subclassId: 'subclass.call-of-the-slayer' } },
+  { name: 'level-8-school-of-knowledge', input: { seed: 'fixture-l8', level: 8, subclassId: 'subclass.school-of-knowledge' } },
+  { name: 'level-10-beastbound', input: { seed: 'fixture-l10-beastbound', level: 10, subclassId: 'subclass.beastbound' } },
+  { name: 'level-10-druid', input: { seed: 'fixture-l10-druid', level: 10, subclassId: 'subclass.warden-of-the-elements' } },
+  { name: 'level-10-stalwart', input: { seed: 'fixture-l10-stalwart', level: 10, subclassId: 'subclass.stalwart', ancestryId: 'ancestry.galapa' } },
+  { name: 'level-10-nightwalker', input: { seed: 'fixture-l10-nightwalker', level: 10, subclassId: 'subclass.nightwalker' } },
 ];
 
 const SECTION_ORDER = ['# ', '## At a Glance', '## Combat & Gear', '## Experiences', '## Features', '## Domain Cards - Active Loadout', '## Character Hook', '---'];
@@ -48,7 +56,8 @@ for (const fixture of FIXTURES) {
 test('every sheet has the required sections in order and no placeholder text', async () => {
   const catalog = await getCatalog();
   for (let i = 0; i < 300; i++) {
-    const c = generateCharacter({ seed: `md-${i}`, options: { mixedAncestry: i % 5 === 0 } }, catalog);
+    const level = 1 + (i % 10);
+    const c = generateCharacter({ seed: `md-${i}`, level, options: { mixedAncestry: i % 5 === 0 } }, catalog);
     const md = renderCharacterMarkdown(c, catalog);
     const lines = md.split('\n');
     const positions = SECTION_ORDER.map((marker) => lines.findIndex((line) => (marker === '# ' ? line.startsWith('# ') : line === marker)));
@@ -56,7 +65,14 @@ test('every sheet has the required sections in order and no placeholder text', a
     assert.deepEqual([...positions].sort((a, b) => a - b), positions, `seed ${i}: sections out of order`);
     assert.doesNotMatch(md, /undefined|null|NaN|\[object Object\]|\{[a-zA-Z]+\}/, `seed ${i}`);
     assert.doesNotMatch(md, /<[a-z][^>]*>/i, `seed ${i}: exported Markdown must not contain HTML`);
-    assert.doesNotMatch(md, /## Domain Cards - Vault|## Advancement History/, 'Level 1 sheets omit vault and history');
+    assert.equal(md.includes('\n## Advancement History\n'), level > 1, 'history appears exactly when level > 1');
+    assert.equal(md.includes('\n## Domain Cards - Vault\n'), c.domainCards.some((x) => x.location === 'vault'));
+    if (level === 1) assert.doesNotMatch(md, /Gear assumption/);
+    else {
+      assert.match(md, /Gear assumption/);
+      assert.equal((md.match(/^- \*\*Level \d+ \(Tier \d\):\*\*/gm) ?? []).length, level - 1);
+    }
+    assert.ok(md.includes(`**Level:** ${level} (Tier ${c.derived.tier})`));
     assert.ok(md.endsWith('\n') && !md.endsWith('\n\n'));
     // Rendered values match the validated model
     assert.ok(md.includes(`**Evasion** ${c.derived.evasion} `));

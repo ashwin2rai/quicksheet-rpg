@@ -82,9 +82,22 @@ const pick = (list, names, what) =>
     return found;
   }).filter(Boolean);
 const plain = (html) => htmlToMarkdown(html).replace(/\*+/g, '');
+// Old Gus adds metric conversions such as "50 feet (15 m)" that are not in the SRD.
+const stripMetric = (text) => text.replace(/ \(\d[\d.]* ?(?:m|km|cm|kg)\)/g, '');
+const overrides = curation.officialOverrides ?? {};
+function applyTextOverride(entry, text) {
+  if (!entry) return text;
+  if (entry.text) return entry.text;
+  let out = text;
+  for (const [from, to] of entry.replace ?? []) {
+    if (!out.includes(from)) errors.push(`Override text "${from}" not found`);
+    out = out.replace(from, to);
+  }
+  return out;
+}
+const usedRecordOverrides = new Set();
 
 const features = [];
-const UPPER_TIERS = new Set(['subclass-specialization', 'subclass-mastery']);
 // Upstream sometimes merges two features into one string ("...</p></li><li><p>...") or
 // leaves stray list tags around a feature. Split and clean before parsing.
 function splitFeatureHtml(list) {
@@ -102,31 +115,47 @@ function addFeature(ownerSlug, ownerId, category, html, pages, extra = {}) {
   const name = correctName(parsed.name);
   const { text } = parsed;
   const id = `feature.${ownerSlug}.${slugify(name)}`;
-  let mechanics = curation.featureMechanics[id];
-  if (!mechanics && UPPER_TIERS.has(category)) mechanics = curation.defaults.subclassUpperTierMechanics;
+  const mechanics = curation.featureMechanics[id];
   if (!mechanics) errors.push(`No curated mechanics entry for ${id}`);
   usedFeatureMechanics.add(id);
   if (features.some((f) => f.id === id)) errors.push(`Duplicate feature id ${id}`);
   const override = curation.officialOverrides?.features?.[id];
   usedOverrides.add(id);
   features.push({
-    id, name, ownerId, category, text: override ? override.text : text, mechanics: mechanics ?? null, ...extra,
+    id, name, ownerId, category, text: override ? override.text : stripMetric(text), mechanics: mechanics ?? null, ...extra,
     source: source(pages, override ? { textOverride: 'official-srd-2.0' } : {}),
   });
   return id;
 }
 
-function gearFeature(html) {
+// Gear feature values vary by item (e.g. Protective +1 to +4), so a curated entry
+// may carry a `match` pattern; its capture groups fill "$1"-style modifier values.
+function gearFeature(html, itemLabel) {
   if (!html) return null;
   const { name, text } = splitNamedFeature(html);
-  const mechanics = curation.gearFeatureMechanics[name];
-  if (!mechanics) errors.push(`No curated gear feature mechanics for "${name}"`);
+  const curated = curation.gearFeatureMechanics[name];
   usedGearMechanics.add(name);
-  return { name, text, mechanics: mechanics ?? null };
+  if (!curated) {
+    errors.push(`No curated gear feature mechanics for "${name}"`);
+    return { name, text, mechanics: null };
+  }
+  const { match, ...mechanics } = curated;
+  if (match) {
+    const plainText = text.replace(/\*+/g, '').trim();
+    const m = plainText.match(new RegExp(match));
+    if (!m) {
+      errors.push(`Gear feature "${name}" on ${itemLabel} does not match its curated pattern: "${plainText}"`);
+      return { name, text, mechanics: null };
+    }
+    const fill = (v) => (typeof v === 'string' && /^\$\d$/.test(v) ? Number(m[Number(v.slice(1))]) : v);
+    if (mechanics.modifiers) mechanics.modifiers = mechanics.modifiers.map((mod) => ({ ...mod, value: fill(mod.value) }));
+  }
+  return { name, text, mechanics };
 }
 
 function parseDamage(damage) {
-  const m = String(damage).match(/^d(\d+)(?:\+(\d+))?$/);
+  // Upstream occasionally appends notes (Ghostblade: "d10+7 phy or"); the Otherworldly feature covers those.
+  const m = String(damage).trim().match(/^d(\d+)(?:\+(\d+))?(?:\s+phy or)?$/);
   if (!m) throw new Error(`Unrecognised damage "${damage}"`);
   return { die: Number(m[1]), bonus: Number(m[2] ?? 0) };
 }
@@ -159,9 +188,9 @@ const domainCards = og.domaincardList
     level: c.level,
     type: c.type,
     recallCost: c.recall,
-    text: htmlToMarkdown(c.effects),
+    text: (usedRecordOverrides.add(`card.${c.name}`), applyTextOverride(overrides.cards?.[`card.${c.name}`], stripMetric(htmlToMarkdown(c.effects)))),
     mechanics: cardMechanics(`card.${c.name}`),
-    source: source(c.pages),
+    source: source(c.pages, overrides.cards?.[`card.${c.name}`] ? { textOverride: 'official-srd-2.0' } : {}),
   }));
 for (const id of Object.keys(curation.cardMechanics)) {
   if (!domainCards.some((c) => c.id === id)) errors.push(`Curated card mechanics entry ${id} matches no imported card`);
@@ -171,7 +200,10 @@ for (const id of Object.keys(curation.cardMechanics)) {
 function importWeapons(list, slot) {
   return list
     .filter((w) => w.tier <= curation.select.weaponTierMax && !w.campaign && isCorePages(w.pages))
+    .filter((w) => !(overrides.excludeNotInSrd?.ids ?? []).includes(weaponId(w.label)))
     .map((w) => {
+      const fix = overrides.weapons?.[weaponId(w.label)];
+      if (fix) usedRecordOverrides.add(weaponId(w.label));
       const tags = [];
       if (/wheelchair/i.test(w.label)) tags.push('combat-wheelchair');
       return {
@@ -181,13 +213,13 @@ function importWeapons(list, slot) {
         tier: w.tier,
         magic: Boolean(w.magic) || w.damagetype === 'mag',
         trait: parseTrait(w.trait),
-        range: w.range,
+        range: fix?.range ?? w.range,
         damage: parseDamage(w.damage),
         damageType: w.damagetype,
-        burden: w.burden.toLowerCase(),
-        feature: gearFeature(w.feature),
+        burden: fix?.burden ?? w.burden.toLowerCase(),
+        feature: gearFeature(w.feature, w.label),
         tags,
-        source: source(w.pages),
+        source: source(w.pages, fix ? { dataOverride: 'official-srd-2.0' } : {}),
       };
     });
 }
@@ -203,7 +235,7 @@ const armor = og.armorList
     tier: a.tier,
     baseThresholds: { major: a.thresholdmajor, severe: a.thresholdsevere },
     baseScore: a.score,
-    feature: gearFeature(a.feature),
+    feature: gearFeature(a.feature, a.label),
     tags: [],
     source: source(a.pages),
   }));
@@ -295,14 +327,19 @@ const beastforms = curation.select.beastforms
     id: `beastform.${b.name}`,
     name: b.label,
     tier: b.tier,
-    examples: decodeEntities(b.examples).replace(/^\(|\)$/g, ''),
+    examples: plain(b.examples).replace(/^\(|\)$/g, ''),
     traitBonus: b.stat ? { trait: b.stat.toLowerCase(), value: Number(b.statbonus) } : null,
     evasionBonus: Number(b.evasionbonus),
     attack: b.attacktrait
       ? { trait: b.attacktrait.toLowerCase(), range: b.attackrange, damage: parseDamage(String(b.attackdamage).trim()), damageType: b.attackdamagetype }
       : null,
     advantages: b.advantage ? b.advantage.split(',').map((x) => x.trim()).filter(Boolean) : [],
-    features: b.features.map((html) => splitNamedFeature(html)),
+    features: b.features.map((html) => {
+      const f = splitNamedFeature(html);
+      const key = `beastform.${b.name}/${f.name}`;
+      usedRecordOverrides.add(key);
+      return { name: f.name, text: applyTextOverride(overrides.beastformFeatures?.[key], stripMetric(f.text)) };
+    }),
     // Evolved/Hybrid forms build on other forms (V2 handles them; RD-024).
     variant: b.features.some((html) => /Evolved:|Hybrid Features:/.test(html)) ? 'composite' : null,
     source: source(b.pages),
@@ -316,6 +353,11 @@ for (const id of Object.keys(curation.featureMechanics)) {
 for (const id of Object.keys(curation.officialOverrides?.features ?? {})) {
   if (id !== '$comment' && !usedOverrides.has(id)) errors.push(`Official text override ${id} matches no imported feature`);
 }
+for (const group of ['cards', 'beastformFeatures', 'weapons']) {
+  for (const id of Object.keys(overrides[group] ?? {})) if (!usedRecordOverrides.has(id)) errors.push(`Official override ${group}.${id} matches nothing`);
+}
+const allWeaponIds = [...og.weaponprimaryList, ...og.weaponsecondaryList].map((w) => weaponId(w.label));
+for (const id of overrides.excludeNotInSrd?.ids ?? []) if (!allWeaponIds.includes(id)) errors.push(`Exclusion ${id} matches no upstream weapon`);
 for (const name of Object.keys(curation.gearFeatureMechanics)) {
   if (!usedGearMechanics.has(name)) errors.push(`Curated gear feature "${name}" matches no imported gear`);
 }

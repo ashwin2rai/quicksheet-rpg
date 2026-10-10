@@ -20,14 +20,16 @@ test('integrity checks catch broken references and missing source tags', async (
   assert.match(errors, /resolver missingResolver is not implemented/);
 });
 
-test('V1 core scope is complete', async () => {
+test('core scope is complete (V1 Level 1 content plus V2 progression content)', async () => {
   const catalog = await getCatalog();
   assert.equal(catalog.classes.length, 9);
   assert.equal(catalog.subclasses.length, 18);
   assert.equal(catalog.ancestries.length, 18);
   assert.equal(catalog.communities.length, 9);
   assert.equal(catalog.domains.length, 9);
-  assert.equal(catalog.domainCards.length, 27);
+  assert.equal(catalog.domainCards.filter((c) => c.level === 1).length, 27);
+  assert.equal(catalog.domainCards.length, 189); // 9 domains x 21 cards, levels 1-10
+  assert.deepEqual([1, 2, 3, 4].map((t) => catalog.armor.filter((a) => a.tier === t).length > 0), [true, true, true, true]);
   assert.ok(catalog.has('ancestry.simiah'), 'updated spelling Simiah');
   // Spec section 5: class domains
   const domains = {
@@ -39,9 +41,7 @@ test('V1 core scope is complete', async () => {
     assert.equal(catalog.domainCardsFor(`class.${cls}`, 1).length, 6, cls);
     assert.equal(catalog.subclassesOf(`class.${cls}`).length, 2, cls);
   }
-  for (const f of catalog.features.filter((x) => x.category === 'ancestry' || x.category === 'community' || x.category === 'class' || x.category === 'hope' || x.category === 'subclass-foundation')) {
-    assert.notEqual(f.mechanics.kind, 'deferred', `${f.id} is needed at Level 1 and must be classified`);
-  }
+  for (const f of catalog.features) assert.notEqual(f.mechanics.kind, 'deferred', `${f.id} must be classified now that all levels are supported`);
 });
 
 test('SRD facts spot-checked against the rulebook text', async () => {
@@ -70,6 +70,14 @@ test('SRD facts spot-checked against the rulebook text', async () => {
   assert.deepEqual(catalog.get('subclass.nightwalker').specializationFeatureIds, ['feature.nightwalker.dark-cloud', 'feature.nightwalker.adrenaline']);
   assert.ok(catalog.has('feature.nightwalker.fleeting-shadow'), 'upstream typo "Fleting" corrected');
   assert.equal(catalog.beastforms.filter((b) => b.tier === 1).length, 6);
+  // Official SRD 2.0 corrections and exclusions (RD-025, RD-035)
+  assert.equal(catalog.get('weapon.knuckle-blades').burden, 'two-handed');
+  assert.equal(catalog.get('weapon.hand-sling').range, 'Very Far');
+  for (const id of ['weapon.widogast-pendant', 'weapon.ilmaris-rifle', 'weapon.axe-of-fortunis', 'weapon.ghostblade']) assert.ok(!catalog.has(id), `${id} is not SRD content`);
+  assert.doesNotMatch(catalog.get('card.notorious').text, /loadout/);
+  assert.equal(catalog.get('card.notorious').mechanics.kind, 'reference');
+  assert.match(catalog.beastforms.find((b) => b.id === 'beastform.mythic-beast').features[0].text, /\+3 bonus to Evasion/);
+  assert.doesNotMatch(catalog.get('card.manifest-wall').text, /\(15 m\)/);
   const chainmail = catalog.get('armor.chainmail-armor');
   assert.deepEqual([chainmail.baseThresholds.major, chainmail.baseThresholds.severe, chainmail.baseScore], [7, 15, 4]);
   const longsword = catalog.get('weapon.longsword'); // errata-updated entry

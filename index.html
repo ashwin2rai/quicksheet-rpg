@@ -22,9 +22,15 @@
 
     <section class="controls" aria-labelledby="controls-heading">
       <h2 id="controls-heading" class="visually-hidden">Character options</h2>
-      <p class="scope">Generates complete <strong>Level 1</strong> characters from the core SRD: all 9 classes, 18 subclasses, 18 ancestries and 9 communities. Higher levels and the Hope &amp; Fear expansion arrive in later releases.</p>
+      <p class="scope">Generates complete characters at any level from 1 to 10 from the core SRD: all 9 classes, 18 subclasses, 18 ancestries and 9 communities. The Hope &amp; Fear expansion arrives in a later release.</p>
       <form id="generator-form" novalidate>
         <div class="fields">
+          <label for="level">Level
+            <select id="level" name="level">
+              <option value="1" selected>1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+              <option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>
+            </select>
+          </label>
           <label for="ancestry">Ancestry
             <select id="ancestry" name="ancestry"><option value="">Random</option></select>
           </label>
@@ -65,6 +71,7 @@
   <footer class="site-footer">
     <p>This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the <a href="https://darringtonpress.com/license/">Darrington Press Community Gaming License</a>. See the <a href="https://www.daggerheart.com/srd/">official SRD</a>.</p>
     <p>Game text was referenced from <a href="https://github.com/callmepartario/og-dhsrd">Old Gus' edited SRD</a> and further selected and reformatted by QuickSheet. Daggerheart was designed by Spenser Starke and Rowan Hall and published by Darrington Press. QuickSheet is not sponsored, affiliated, endorsed or approved by Darrington Press or Critical Role. <a href="https://www.daggerheart.com/">daggerheart.com</a></p>
+    <p id="version"></p>
   </footer>
 </body>
 </html>

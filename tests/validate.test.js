@@ -28,7 +28,7 @@ test('rejects a subclass from another class', () =>
 test('rejects duplicate and off-domain domain cards', async () => {
   await expectError((c) => { c.domainCards[1] = { ...c.domainCards[0] }; }, /distinct/);
   await expectError((c) => { c.domainCards[0].cardId = 'card.get-back-up'; }, /outside Bard's domains/, { classId: 'class.bard' });
-  await expectError((c) => { c.domainCards.pop(); }, /exactly 2 domain cards/);
+  await expectError((c) => { c.domainCards.pop(); }, /expected 2 domain cards from character creation/);
 });
 
 test('rejects illegal loadouts', async () => {
@@ -57,7 +57,7 @@ test('rejects missing mandatory choices and inventory', async () => {
 test('rejects bad Experiences, deferred features and unhonoured fixed selections', async () => {
   await expectError((c) => { c.experiences[1] = { ...c.experiences[0] }; }, /distinct/);
   await expectError((c) => { c.experiences[0].modifier = 3; }, /must start at \+2/);
-  await expectError((c) => { c.subclassTiers = ['foundation', 'specialization']; }, /Foundation subclass tier|progression support/, { subclassId: 'subclass.stalwart' });
+  await expectError((c) => { c.subclassTiers = ['foundation', 'specialization']; }, /do not match the advancement history/, { subclassId: 'subclass.stalwart' });
   await expectError((c) => { c.requested.ancestryId = 'ancestry.human'; c.selections.ancestryId = 'ancestry.giant'; }, /not honoured/);
   await expectError((c) => { c.contentProfile = 'core+hope-fear'; }, /contentProfile/);
 });
@@ -67,7 +67,7 @@ test('V1 rules: Mixed Ancestry, burden, granted cards, choices, companion and Be
   await expectError((c) => { c.options.mixedAncestry = false; }, /Mixed Ancestry option/, { options: { mixedAncestry: true } });
   await expectError((c) => { c.selections.secondAncestryId = 'ancestry.human'; }, /not honoured/, { secondAncestryId: 'ancestry.dwarf', ancestryId: 'ancestry.elf' });
   await expectError((c) => { c.equipment = { primaryWeaponId: 'weapon.battleaxe', secondaryWeaponId: 'weapon.round-shield', armorId: c.equipment.armorId }; }, /two-handed/, { classId: 'class.guardian' });
-  await expectError((c) => { c.domainCards.pop(); }, /exactly 3 domain cards/, { subclassId: 'subclass.school-of-knowledge' });
+  await expectError((c) => { c.domainCards.pop(); }, /expected 3 domain cards from character creation/, { subclassId: 'subclass.school-of-knowledge' });
   await expectError((c) => { c.featureChoices['feature.elemental-origin.elementalist'] = { option: 'shadow' }; }, /Element must be one of/, { subclassId: 'subclass.elemental-origin' });
   await expectError((c) => { c.featureChoices['feature.wizard.strange-patterns'] = { number: 13 }; }, /from 1 to 12/, { classId: 'class.wizard' });
   await expectError((c) => { c.featureChoices['feature.orderborne.dedicated'].sayings.pop(); }, /exactly three/, { communityId: 'community.orderborne' });

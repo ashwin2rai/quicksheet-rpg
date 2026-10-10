@@ -27,7 +27,7 @@ test('all-Random generation validates and covers every supported option', async 
     const c = generateCharacter({ seed: `random-${i}` }, catalog);
     assert.ok(validateCharacter(c, catalog).valid);
     for (const key of ['ancestryId', 'communityId', 'classId', 'subclassId']) seen[key].add(c.selections[key]);
-    c.domainCards.forEach((x) => seen.cards.add(x.cardId));
+    c.domainCards.forEach((x) => seen.cards.add(x.cardId)); // Level 1: creation cards only
     seen.primary.add(c.equipment.primaryWeaponId);
     seen.armor.add(c.equipment.armorId);
   }
@@ -35,8 +35,8 @@ test('all-Random generation validates and covers every supported option', async 
   assert.equal(seen.communityId.size, catalog.communities.length);
   assert.equal(seen.classId.size, catalog.classes.length);
   assert.equal(seen.subclassId.size, catalog.subclasses.length);
-  assert.equal(seen.cards.size, catalog.domainCards.length, 'every level 1 card should appear');
-  assert.equal(seen.armor.size, catalog.armor.length);
+  assert.equal(seen.cards.size, catalog.domainCards.filter((x) => x.level === 1).length, 'every level 1 card should appear');
+  assert.equal(seen.armor.size, catalog.armor.filter((a) => a.tier === 1).length);
   assert.ok(seen.primary.size >= 12, `expected varied weapons, saw ${seen.primary.size}`);
 });
 
@@ -82,7 +82,8 @@ test('incompatible or unknown selections fail loudly instead of emitting a sheet
   expectCode({ classId: 'class.guardian', subclassId: 'subclass.troubadour' }, 'subclass-class-mismatch');
   expectCode({ classId: 'class.assassin' }, 'unknown-id'); // Hope & Fear class: not in Core Only
   expectCode({ ancestryId: 'community.highborne' }, 'unknown-id');
-  expectCode({ level: 2 }, 'unsupported-level');
+  expectCode({ level: 11 }, 'unsupported-level');
+  expectCode({ level: 0 }, 'unsupported-level');
   expectCode({ contentProfile: 'core+hope-fear' }, 'unsupported-profile');
 });
 

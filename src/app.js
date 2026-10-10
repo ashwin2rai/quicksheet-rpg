@@ -6,11 +6,13 @@ import { generateCharacter, GenerationError } from './generator.js';
 import { renderCharacterMarkdown } from './markdown.js';
 import { markdownToHtml } from './preview.js';
 import { buildDownload } from './sheet-file.js';
+import { GENERATOR_VERSION } from './version.js';
 
 const RANDOM = '';
 const $ = (id) => document.getElementById(id);
 const els = {
   form: $('generator-form'),
+  level: $('level'),
   ancestry: $('ancestry'),
   community: $('community'),
   cls: $('class'),
@@ -68,7 +70,7 @@ function generate() {
   showError('');
   try {
     const character = generateCharacter({
-      level: 1,
+      level: Number(els.level.value),
       ancestryId: els.ancestry.value || null,
       communityId: els.community.value || null,
       classId: els.cls.value || null,
@@ -154,6 +156,7 @@ async function init() {
   els.copy.addEventListener('click', copyMarkdown);
   els.download.addEventListener('click', downloadMarkdown);
   els.generate.disabled = false;
+  $('version').textContent = `QuickSheet ${GENERATOR_VERSION} - data ${state.catalog.dataVersion}`;
   announce('Ready.');
 }
 

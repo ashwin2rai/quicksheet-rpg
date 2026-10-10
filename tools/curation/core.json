@@ -1,6 +1,6 @@
 {
   "$comment": "QuickSheet curation for the core content profile. Selects which Old Gus SRD records are imported and records QuickSheet's structured reading of each feature's mechanics. Every imported class/ancestry/community feature, subclass Foundation feature, domain card and gear feature MUST have an entry; the importer fails otherwise. Subclass Specialization/Mastery features without an entry default to 'deferred' (see defaults). kind: 'effects' = implemented by one or more effect properties (modifiers, resource, attack, flags, grants, resolver, companion, display); 'reference' = situational/at-table effect with no generation-time numbers; 'deferred' = needs progression support (V2) and must never be acquired by the generator. Modifier values: a number, 'proficiency', 'level', or 'halfUp:<trait>' (half the effective trait, rounded up, minimum 0). Resource counts: 'tier', 'level', 'proficiency', 'trait:<trait>' or 'trait:spellcast'.",
-  "milestone": "M1",
+  "milestone": "M2",
   "sourceSet": "core",
   "sourceVersion": "2.0",
   "select": {
@@ -77,20 +77,14 @@
       "splendor",
       "valor"
     ],
-    "domainCardMaxLevel": 1,
-    "weaponTierMax": 1,
-    "armorTierMax": 1,
+    "domainCardMaxLevel": 10,
+    "weaponTierMax": 4,
+    "armorTierMax": 4,
     "beastforms": true,
     "consumables": [
       "minor-health-potion",
       "minor-stamina-potion"
     ]
-  },
-  "defaults": {
-    "subclassUpperTierMechanics": {
-      "kind": "deferred",
-      "note": "Specialization/Mastery features are classified when V2 progression can acquire them."
-    }
   },
   "nameCorrections": {
     "$comment": "Upstream typos corrected on import; each is recorded in docs/rules-decisions.md.",
@@ -123,6 +117,65 @@
         ],
         "reason": "Official text reads 'The drawing of a lover'."
       }
+    },
+    "cards": {
+      "card.notorious": {
+        "text": "People know who you are and what you've done, and they treat you differently because of it. When you leverage your notoriety to get what you want, you can **mark a Stress** before you roll to gain a +10 bonus to the result. Your food and drinks are always free wherever you go, and everything else you buy is reduced in price by one bag of gold (to a minimum of one handful).",
+        "reason": "Old Gus appends a loadout/vault exemption sentence that is not in the SRD 2.0 text."
+      },
+      "card.mass-disguise": {
+        "replace": [
+          [
+            "Presences Roll",
+            "Presence Rolls"
+          ]
+        ],
+        "reason": "Old Gus typo."
+      }
+    },
+    "beastformFeatures": {
+      "beastform.mythic-beast/Evolved": {
+        "replace": [
+          [
+            "- A +2 bonus to the trait used by this form\n- Your damage die",
+            "- A +2 bonus to the trait used by this form\n- A +3 bonus to Evasion\n- Your damage die"
+          ]
+        ],
+        "reason": "Old Gus omits the '+3 bonus to Evasion' line."
+      }
+    },
+    "weapons": {
+      "weapon.knuckle-blades": {
+        "burden": "two-handed",
+        "reason": "Official SRD 2.0 lists Two-Handed."
+      },
+      "weapon.swinging-ropeblade": {
+        "burden": "two-handed",
+        "reason": "Official SRD 2.0 lists Two-Handed."
+      },
+      "weapon.legendary-glowing-rings": {
+        "burden": "two-handed",
+        "reason": "Official SRD 2.0 lists Two-Handed."
+      },
+      "weapon.hand-sling": {
+        "range": "Very Far",
+        "reason": "Official SRD 2.0 lists Very Far range."
+      }
+    },
+    "excludeNotInSrd": {
+      "reason": "Present in Old Gus (Core Rulebook) but absent from the official SRD 2.0, so not available to QuickSheet.",
+      "ids": [
+        "weapon.axe-of-fortunis",
+        "weapon.blessed-anlace",
+        "weapon.firestaff",
+        "weapon.ghostblade",
+        "weapon.gilded-bow",
+        "weapon.ilmaris-rifle",
+        "weapon.mage-orb",
+        "weapon.runes-of-ruination",
+        "weapon.widogast-pendant",
+        "weapon.sword-of-light-and-flame"
+      ]
     }
   },
   "excludeFromRandomGear": {
@@ -281,8 +334,11 @@
       "kind": "reference"
     },
     "feature.wordsmith.epic-poetry": {
-      "kind": "deferred",
-      "note": "Rally Die becomes d10; requires V2 progression to acquire Mastery."
+      "kind": "effects",
+      "resourceUpgrade": {
+        "id": "rally-die",
+        "value": "d10"
+      }
     },
     "feature.warden-of-the-elements.elemental-incarnation": {
       "kind": "reference",
@@ -307,15 +363,25 @@
       "kind": "reference"
     },
     "feature.stalwart.unrelenting": {
-      "kind": "deferred",
-      "note": "+2 thresholds; requires V2 progression to acquire Specialization."
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "thresholds",
+          "value": 2
+        }
+      ]
     },
     "feature.stalwart.partners-in-arms": {
       "kind": "reference"
     },
     "feature.stalwart.undaunted": {
-      "kind": "deferred",
-      "note": "+3 thresholds; requires V2 progression to acquire Mastery."
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "thresholds",
+          "value": 3
+        }
+      ]
     },
     "feature.stalwart.loyal-protector": {
       "kind": "reference"
@@ -370,7 +436,59 @@
           "Vigilant",
           "We Always Find Them",
           "You Can't Hit What You Can't Find"
-        ]
+        ],
+        "advancements": [
+          {
+            "id": "intelligent",
+            "label": "Intelligent",
+            "slots": 3,
+            "text": "Your companion gains a permanent +1 bonus to a Companion Experience of your choice."
+          },
+          {
+            "id": "light-in-the-dark",
+            "label": "Light in the Dark",
+            "slots": 1,
+            "text": "Use this as an additional Hope slot your character can mark."
+          },
+          {
+            "id": "creature-comfort",
+            "label": "Creature Comfort",
+            "slots": 1,
+            "text": "Once per rest, when you take time during a quiet moment to give your companion love and attention, you can gain a Hope or you can both clear a Stress."
+          },
+          {
+            "id": "armored",
+            "label": "Armored",
+            "slots": 1,
+            "text": "When your companion takes damage, you can mark one of your Armor Slots instead of marking one of their Stress."
+          },
+          {
+            "id": "vicious",
+            "label": "Vicious",
+            "slots": 3,
+            "text": "Increase your companion's damage dice or range by one step (d6 to d8, Close to Far, etc.)."
+          },
+          {
+            "id": "resilient",
+            "label": "Resilient",
+            "slots": 3,
+            "text": "Your companion gains an additional Stress slot."
+          },
+          {
+            "id": "bonded",
+            "label": "Bonded",
+            "slots": 1,
+            "text": "When you mark your last Hit Point, your companion rushes to your side to comfort you. Roll a number of d6s equal to the unmarked Stress slots they have and mark them. If any roll a 6, your companion helps you up. Clear your last Hit Point and return to the scene."
+          },
+          {
+            "id": "aware",
+            "label": "Aware",
+            "slots": 3,
+            "text": "Your companion gains a permanent +2 bonus to their Evasion."
+          }
+        ],
+        "advancementSource": "Option text: SRD 2.0 'Leveling Up Your Companion'. Slot counts: official Ranger Companion sheet as transcribed by Old Gus (not stated in the SRD text). Old Gus gives Aware as +1 Evasion; the official SRD says +2, which is used.",
+        "maxDamageDie": 12
       }
     },
     "feature.wayfinder.ruthless-predator": {
@@ -650,6 +768,143 @@
     },
     "feature.wildborne.lightfoot": {
       "kind": "reference"
+    },
+    "feature.warden-of-the-elements.elemental-aura": {
+      "kind": "reference"
+    },
+    "feature.warden-of-the-elements.elemental-dominion": {
+      "kind": "reference"
+    },
+    "feature.warden-of-renewal.regenerative-reach": {
+      "kind": "reference"
+    },
+    "feature.warden-of-renewal.wardens-protection": {
+      "kind": "reference"
+    },
+    "feature.warden-of-renewal.defender": {
+      "kind": "reference"
+    },
+    "feature.beastbound.expert-training": {
+      "kind": "effects",
+      "grants": {
+        "companionAdvancements": 1
+      }
+    },
+    "feature.beastbound.advanced-training": {
+      "kind": "effects",
+      "grants": {
+        "companionAdvancements": 2
+      }
+    },
+    "feature.beastbound.loyal-friend": {
+      "kind": "reference"
+    },
+    "feature.wayfinder.elusive-predator": {
+      "kind": "reference"
+    },
+    "feature.wayfinder.apex-predator": {
+      "kind": "reference"
+    },
+    "feature.nightwalker.dark-cloud": {
+      "kind": "reference"
+    },
+    "feature.nightwalker.adrenaline": {
+      "kind": "reference"
+    },
+    "feature.nightwalker.fleeting-shadow": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "evasion",
+          "value": 1
+        }
+      ]
+    },
+    "feature.nightwalker.vanishing-act": {
+      "kind": "reference"
+    },
+    "feature.syndicate.contacts-everywhere": {
+      "kind": "reference"
+    },
+    "feature.syndicate.reliable-backup": {
+      "kind": "reference"
+    },
+    "feature.divine-wielder.devout": {
+      "kind": "reference"
+    },
+    "feature.divine-wielder.sacred-resonance": {
+      "kind": "reference"
+    },
+    "feature.winged-sentinel.ethereal-visage": {
+      "kind": "reference"
+    },
+    "feature.winged-sentinel.ascendant": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "severeThreshold",
+          "value": 4
+        }
+      ]
+    },
+    "feature.winged-sentinel.power-of-the-gods": {
+      "kind": "reference"
+    },
+    "feature.elemental-origin.natural-evasion": {
+      "kind": "reference"
+    },
+    "feature.elemental-origin.transcendence": {
+      "kind": "reference",
+      "note": "Benefits are chosen each time you transform and last until your next rest."
+    },
+    "feature.primal-origin.enchanted-aid": {
+      "kind": "reference"
+    },
+    "feature.primal-origin.arcane-charge": {
+      "kind": "reference"
+    },
+    "feature.call-of-the-brave.rise-to-the-challenge": {
+      "kind": "reference"
+    },
+    "feature.call-of-the-brave.camaraderie": {
+      "kind": "reference"
+    },
+    "feature.call-of-the-slayer.weapon-specialist": {
+      "kind": "reference"
+    },
+    "feature.call-of-the-slayer.martial-preparation": {
+      "kind": "reference"
+    },
+    "feature.school-of-knowledge.accomplished": {
+      "kind": "effects",
+      "grants": {
+        "domainCards": 1
+      }
+    },
+    "feature.school-of-knowledge.perfect-recall": {
+      "kind": "reference"
+    },
+    "feature.school-of-knowledge.brilliant": {
+      "kind": "effects",
+      "grants": {
+        "domainCards": 1
+      }
+    },
+    "feature.school-of-knowledge.honed-expertise": {
+      "kind": "reference"
+    },
+    "feature.school-of-war.conjure-shield": {
+      "kind": "reference",
+      "note": "Adds Proficiency to Evasion only while you have at least 2 Hope."
+    },
+    "feature.school-of-war.fueled-by-fear": {
+      "kind": "reference"
+    },
+    "feature.school-of-war.thrive-in-chaos": {
+      "kind": "reference"
+    },
+    "feature.school-of-war.have-no-fear": {
+      "kind": "reference"
     }
   },
   "cardMechanics": {
@@ -755,9 +1010,692 @@
     },
     "card.i-am-your-shield": {
       "kind": "reference"
+    },
+    "card.cinder-grasp": {
+      "kind": "reference"
+    },
+    "card.floating-eye": {
+      "kind": "reference"
+    },
+    "card.counterspell": {
+      "kind": "reference"
+    },
+    "card.flight": {
+      "kind": "effects",
+      "resource": {
+        "id": "flight",
+        "label": "Flight tokens per casting",
+        "count": "trait:agility",
+        "min": 1
+      }
+    },
+    "card.blink-out": {
+      "kind": "reference"
+    },
+    "card.preservation-blast": {
+      "kind": "reference"
+    },
+    "card.chain-lightning": {
+      "kind": "reference"
+    },
+    "card.premonition": {
+      "kind": "reference"
+    },
+    "card.rift-walker": {
+      "kind": "reference"
+    },
+    "card.telekinesis": {
+      "kind": "reference"
+    },
+    "card.arcana-touched": {
+      "kind": "reference"
+    },
+    "card.cloaking-blast": {
+      "kind": "reference"
+    },
+    "card.arcane-reflection": {
+      "kind": "reference"
+    },
+    "card.confusing-aura": {
+      "kind": "reference"
+    },
+    "card.earthquake": {
+      "kind": "reference"
+    },
+    "card.sensory-projection": {
+      "kind": "reference"
+    },
+    "card.adjust-reality": {
+      "kind": "reference"
+    },
+    "card.falling-sky": {
+      "kind": "reference"
+    },
+    "card.a-soldiers-bond": {
+      "kind": "reference"
+    },
+    "card.reckless": {
+      "kind": "reference"
+    },
+    "card.scramble": {
+      "kind": "reference"
+    },
+    "card.versatile-fighter": {
+      "kind": "reference"
+    },
+    "card.deadly-focus": {
+      "kind": "reference"
+    },
+    "card.fortified-armor": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "thresholds",
+          "value": 2
+        }
+      ],
+      "note": "QuickSheet characters always wear armor."
+    },
+    "card.champions-edge": {
+      "kind": "reference"
+    },
+    "card.vitality": {
+      "kind": "effects",
+      "resolver": "chooseBenefits",
+      "persistent": true,
+      "vaultOnAcquire": true,
+      "choice": {
+        "label": "Vitality benefits",
+        "count": 2,
+        "options": {
+          "stress": [
+            {
+              "target": "stressSlots",
+              "value": 1
+            }
+          ],
+          "hp": [
+            {
+              "target": "hpSlots",
+              "value": 1
+            }
+          ],
+          "thresholds": [
+            {
+              "target": "thresholds",
+              "value": 2
+            }
+          ]
+        },
+        "optionLabels": {
+          "stress": "one Stress slot",
+          "hp": "one Hit Point slot",
+          "thresholds": "+2 damage thresholds"
+        }
+      }
+    },
+    "card.battle-hardened": {
+      "kind": "reference"
+    },
+    "card.rage-up": {
+      "kind": "reference"
+    },
+    "card.blade-touched": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "weaponAttackRoll",
+          "value": 2,
+          "requires": {
+            "loadoutDomain": "domain.blade",
+            "min": 4
+          }
+        },
+        {
+          "target": "severeThreshold",
+          "value": 4,
+          "requires": {
+            "loadoutDomain": "domain.blade",
+            "min": 4
+          }
+        }
+      ]
+    },
+    "card.glancing-blow": {
+      "kind": "reference"
+    },
+    "card.battle-cry": {
+      "kind": "reference"
+    },
+    "card.frenzy": {
+      "kind": "reference"
+    },
+    "card.gore-and-glory": {
+      "kind": "reference"
+    },
+    "card.reapers-strike": {
+      "kind": "reference"
+    },
+    "card.battle-monster": {
+      "kind": "reference"
+    },
+    "card.onslaught": {
+      "kind": "reference"
+    },
+    "card.ferocity": {
+      "kind": "reference"
+    },
+    "card.strategic-approach": {
+      "kind": "effects",
+      "resource": {
+        "id": "strategic-approach",
+        "label": "Strategic Approach tokens per long rest",
+        "count": "trait:knowledge",
+        "min": 1
+      }
+    },
+    "card.brace": {
+      "kind": "reference"
+    },
+    "card.tactician": {
+      "kind": "reference"
+    },
+    "card.boost": {
+      "kind": "reference"
+    },
+    "card.redirect": {
+      "kind": "reference"
+    },
+    "card.know-thy-enemy": {
+      "kind": "reference"
+    },
+    "card.signature-move": {
+      "kind": "reference"
+    },
+    "card.rapid-riposte": {
+      "kind": "reference"
+    },
+    "card.recovery": {
+      "kind": "reference"
+    },
+    "card.bone-touched": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "trait.agility",
+          "value": 1,
+          "requires": {
+            "loadoutDomain": "domain.bone",
+            "min": 4
+          }
+        }
+      ]
+    },
+    "card.cruel-precision": {
+      "kind": "reference"
+    },
+    "card.breaking-blow": {
+      "kind": "reference"
+    },
+    "card.wrangle": {
+      "kind": "reference"
+    },
+    "card.on-the-brink": {
+      "kind": "reference"
+    },
+    "card.splintering-strike": {
+      "kind": "reference"
+    },
+    "card.deathrun": {
+      "kind": "reference"
+    },
+    "card.swift-step": {
+      "kind": "reference"
+    },
+    "card.book-of-sitil": {
+      "kind": "reference"
+    },
+    "card.book-of-vagras": {
+      "kind": "reference"
+    },
+    "card.book-of-korvax": {
+      "kind": "reference"
+    },
+    "card.book-of-norai": {
+      "kind": "reference"
+    },
+    "card.book-of-exota": {
+      "kind": "reference"
+    },
+    "card.book-of-grynn": {
+      "kind": "reference"
+    },
+    "card.manifest-wall": {
+      "kind": "reference"
+    },
+    "card.teleport": {
+      "kind": "reference"
+    },
+    "card.banish": {
+      "kind": "reference"
+    },
+    "card.sigil-of-retribution": {
+      "kind": "effects",
+      "resource": {
+        "id": "sigil-of-retribution",
+        "label": "Sigil of Retribution d8s (maximum held)",
+        "count": "level",
+        "die": "d8"
+      }
+    },
+    "card.book-of-homet": {
+      "kind": "reference"
+    },
+    "card.codex-touched": {
+      "kind": "reference"
+    },
+    "card.book-of-vyola": {
+      "kind": "reference"
+    },
+    "card.safe-haven": {
+      "kind": "reference"
+    },
+    "card.book-of-ronin": {
+      "kind": "reference"
+    },
+    "card.disintegration-wave": {
+      "kind": "reference"
+    },
+    "card.book-of-yarrow": {
+      "kind": "reference"
+    },
+    "card.transcendent-union": {
+      "kind": "reference"
+    },
+    "card.tell-no-lies": {
+      "kind": "reference"
+    },
+    "card.troublemaker": {
+      "kind": "reference"
+    },
+    "card.hypnotic-shimmer": {
+      "kind": "reference"
+    },
+    "card.invisibility": {
+      "kind": "effects",
+      "resource": {
+        "id": "invisibility",
+        "label": "Invisibility tokens per casting",
+        "count": "trait:spellcast"
+      }
+    },
+    "card.soothing-speech": {
+      "kind": "reference"
+    },
+    "card.through-your-eyes": {
+      "kind": "reference"
+    },
+    "card.tought-delver": {
+      "kind": "reference"
+    },
+    "card.words-of-discord": {
+      "kind": "reference"
+    },
+    "card.never-upstaged": {
+      "kind": "reference"
+    },
+    "card.share-the-burden": {
+      "kind": "reference"
+    },
+    "card.endless-charisma": {
+      "kind": "reference"
+    },
+    "card.grace-touched": {
+      "kind": "reference"
+    },
+    "card.astral-projection": {
+      "kind": "reference"
+    },
+    "card.mass-enrapture": {
+      "kind": "reference"
+    },
+    "card.copycat": {
+      "kind": "reference"
+    },
+    "card.master-of-the-craft": {
+      "kind": "effects",
+      "resolver": "masterOfTheCraft",
+      "persistent": true,
+      "vaultOnAcquire": true
+    },
+    "card.encore": {
+      "kind": "reference"
+    },
+    "card.notorious": {
+      "kind": "reference"
+    },
+    "card.midnight-spirit": {
+      "kind": "reference"
+    },
+    "card.shadowbind": {
+      "kind": "reference"
+    },
+    "card.chokehold": {
+      "kind": "reference"
+    },
+    "card.veil-of-night": {
+      "kind": "reference"
+    },
+    "card.glyph-of-nightfall": {
+      "kind": "reference"
+    },
+    "card.stealth-expertise": {
+      "kind": "reference"
+    },
+    "card.hush": {
+      "kind": "reference"
+    },
+    "card.phantom-retreat": {
+      "kind": "reference"
+    },
+    "card.dark-whispers": {
+      "kind": "reference"
+    },
+    "card.mass-disguise": {
+      "kind": "reference"
+    },
+    "card.midnight-touched": {
+      "kind": "reference"
+    },
+    "card.vanishing-dodge": {
+      "kind": "reference"
+    },
+    "card.shadowhunter": {
+      "kind": "reference"
+    },
+    "card.spellcharge": {
+      "kind": "effects",
+      "resource": {
+        "id": "spellcharge",
+        "label": "Spellcharge tokens (maximum stored)",
+        "count": "trait:spellcast"
+      }
+    },
+    "card.night-terror": {
+      "kind": "reference"
+    },
+    "card.twilight-toll": {
+      "kind": "reference"
+    },
+    "card.eclipse": {
+      "kind": "reference"
+    },
+    "card.specter-of-the-dark": {
+      "kind": "reference"
+    },
+    "card.conjure-swarm": {
+      "kind": "reference"
+    },
+    "card.natural-familiar": {
+      "kind": "reference"
+    },
+    "card.corrosive-projectile": {
+      "kind": "reference"
+    },
+    "card.towering-stalk": {
+      "kind": "reference"
+    },
+    "card.death-grip": {
+      "kind": "reference"
+    },
+    "card.healing-field": {
+      "kind": "reference"
+    },
+    "card.thorn-skin": {
+      "kind": "effects",
+      "resource": {
+        "id": "thorn-skin",
+        "label": "Thorn Skin tokens per use",
+        "count": "trait:spellcast"
+      }
+    },
+    "card.wild-fortress": {
+      "kind": "reference"
+    },
+    "card.conjured-steeds": {
+      "kind": "reference"
+    },
+    "card.forager": {
+      "kind": "reference"
+    },
+    "card.sage-touched": {
+      "kind": "reference"
+    },
+    "card.wild-surge": {
+      "kind": "reference"
+    },
+    "card.forest-sprites": {
+      "kind": "reference"
+    },
+    "card.rejuvenation-barrier": {
+      "kind": "reference"
+    },
+    "card.fane-of-the-wilds": {
+      "kind": "reference"
+    },
+    "card.plant-dominion": {
+      "kind": "reference"
+    },
+    "card.force-of-nature": {
+      "kind": "reference"
+    },
+    "card.tempest": {
+      "kind": "reference"
+    },
+    "card.final-words": {
+      "kind": "reference"
+    },
+    "card.healing-hands": {
+      "kind": "reference"
+    },
+    "card.second-wind": {
+      "kind": "reference"
+    },
+    "card.voice-of-reason": {
+      "kind": "reference"
+    },
+    "card.divination": {
+      "kind": "reference"
+    },
+    "card.life-ward": {
+      "kind": "reference"
+    },
+    "card.shape-material": {
+      "kind": "reference"
+    },
+    "card.smite": {
+      "kind": "reference"
+    },
+    "card.restoration": {
+      "kind": "effects",
+      "resource": {
+        "id": "restoration",
+        "label": "Restoration tokens per long rest",
+        "count": "trait:spellcast"
+      }
+    },
+    "card.zone-of-protection": {
+      "kind": "reference"
+    },
+    "card.healing-strike": {
+      "kind": "reference"
+    },
+    "card.splendor-touched": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "severeThreshold",
+          "value": 3,
+          "requires": {
+            "loadoutDomain": "domain.splendor",
+            "min": 4
+          }
+        }
+      ]
+    },
+    "card.shield-aura": {
+      "kind": "reference"
+    },
+    "card.stunning-sunlight": {
+      "kind": "reference"
+    },
+    "card.overwhelming-aura": {
+      "kind": "reference"
+    },
+    "card.salvation-beam": {
+      "kind": "reference"
+    },
+    "card.invigoration": {
+      "kind": "reference"
+    },
+    "card.resurrection": {
+      "kind": "reference"
+    },
+    "card.body-basher": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "meleeWeaponDamage",
+          "value": "trait:strength"
+        }
+      ]
+    },
+    "card.bold-presence": {
+      "kind": "reference"
+    },
+    "card.critical-inspiration": {
+      "kind": "reference"
+    },
+    "card.lean-on-me": {
+      "kind": "reference"
+    },
+    "card.goad-them-on": {
+      "kind": "reference"
+    },
+    "card.support-tank": {
+      "kind": "reference"
+    },
+    "card.armorer": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "armorScore",
+          "value": 1
+        }
+      ],
+      "note": "QuickSheet characters always wear armor."
+    },
+    "card.rousing-strike": {
+      "kind": "reference"
+    },
+    "card.inevitable": {
+      "kind": "reference"
+    },
+    "card.rise-up": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "severeThreshold",
+          "value": "proficiency"
+        }
+      ]
+    },
+    "card.shrug-it-off": {
+      "kind": "reference"
+    },
+    "card.valor-touched": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "armorScore",
+          "value": 1,
+          "requires": {
+            "loadoutDomain": "domain.valor",
+            "min": 4
+          }
+        }
+      ]
+    },
+    "card.full-surge": {
+      "kind": "reference"
+    },
+    "card.ground-pound": {
+      "kind": "reference"
+    },
+    "card.hold-the-line": {
+      "kind": "reference"
+    },
+    "card.lead-by-example": {
+      "kind": "reference"
+    },
+    "card.unbreakable": {
+      "kind": "reference"
+    },
+    "card.unyielding-armor": {
+      "kind": "reference"
     }
   },
   "gearFeatureMechanics": {
+    "Barrier": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "armorScore",
+          "value": "$1"
+        },
+        {
+          "target": "evasion",
+          "value": -1
+        }
+      ],
+      "match": "^\\+(\\d+) to Armor Score; -1 to Evasion\\.?$"
+    },
+    "Protective": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "armorScore",
+          "value": "$1"
+        }
+      ],
+      "match": "^\\+(\\d+) to Armor Score$"
+    },
+    "Paired": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "primaryWeaponDamage",
+          "value": "$1",
+          "condition": "targets within Melee range"
+        }
+      ],
+      "match": "^\\+(\\d+) to primary weapon damage to targets within Melee range$"
+    },
+    "Double Duty": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "armorScore",
+          "value": 1
+        },
+        {
+          "target": "primaryWeaponDamage",
+          "value": 1,
+          "condition": "targets within Melee range"
+        }
+      ],
+      "match": "^\\+1 to Armor Score; \\+1 to primary weapon damage within Melee range$"
+    },
     "Reliable": {
       "kind": "effects",
       "modifiers": [
@@ -766,7 +1704,8 @@
           "value": 1,
           "scope": "self"
         }
-      ]
+      ],
+      "match": "^\\+1 to attack rolls$"
     },
     "Massive": {
       "kind": "effects",
@@ -776,6 +1715,7 @@
           "value": -1
         }
       ],
+      "match": "^-1 to Evasion; on a successful attack",
       "alsoAtTable": true
     },
     "Cumbersome": {
@@ -785,7 +1725,8 @@
           "target": "trait.finesse",
           "value": -1
         }
-      ]
+      ],
+      "match": "^-1 to Finesse$"
     },
     "Heavy": {
       "kind": "effects",
@@ -794,7 +1735,8 @@
           "target": "evasion",
           "value": -1
         }
-      ]
+      ],
+      "match": "^-1 to Evasion$"
     },
     "Very Heavy": {
       "kind": "effects",
@@ -807,7 +1749,8 @@
           "target": "trait.agility",
           "value": -1
         }
-      ]
+      ],
+      "match": "^-2 to Evasion; -1 to Agility$"
     },
     "Flexible": {
       "kind": "effects",
@@ -816,56 +1759,242 @@
           "target": "evasion",
           "value": 1
         }
-      ]
+      ],
+      "match": "^\\+1 to Evasion$"
     },
-    "Protective": {
+    "Brave": {
       "kind": "effects",
       "modifiers": [
         {
-          "target": "armorScore",
-          "value": 1
+          "target": "evasion",
+          "value": -1
+        },
+        {
+          "target": "severeThreshold",
+          "value": 3
         }
-      ]
+      ],
+      "match": "^-1 to Evasion; \\+3 to Severe damage threshold$"
     },
-    "Barrier": {
+    "Destructive": {
       "kind": "effects",
       "modifiers": [
         {
-          "target": "armorScore",
-          "value": 2
+          "target": "trait.agility",
+          "value": -1
+        }
+      ],
+      "match": "^-1 to Agility; on a successful attack",
+      "alsoAtTable": true
+    },
+    "Difficult": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "trait.agility",
+          "value": -1
+        },
+        {
+          "target": "trait.strength",
+          "value": -1
+        },
+        {
+          "target": "trait.finesse",
+          "value": -1
+        },
+        {
+          "target": "trait.instinct",
+          "value": -1
+        },
+        {
+          "target": "trait.presence",
+          "value": -1
+        },
+        {
+          "target": "trait.knowledge",
+          "value": -1
         },
         {
           "target": "evasion",
           "value": -1
         }
-      ]
+      ],
+      "match": "^-1 to all character traits and Evasion$"
     },
-    "Paired": {
+    "Gilded": {
       "kind": "effects",
       "modifiers": [
         {
-          "target": "primaryWeaponDamage",
-          "value": 2,
-          "condition": "targets within Melee range"
+          "target": "trait.presence",
+          "value": 1
         }
-      ]
+      ],
+      "match": "^\\+1 to Presence$"
     },
-    "Quick": {
+    "Bonded": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "damageRolls",
+          "value": "level"
+        }
+      ],
+      "match": "^Gain a bonus to your damage rolls equal to your level\\.$"
+    },
+    "Sharpening": {
+      "kind": "effects",
+      "modifiers": [
+        {
+          "target": "damageRolls",
+          "value": "trait:agility"
+        }
+      ],
+      "match": "^Gain a bonus to your damage rolls equal to your Agility\\.$"
+    },
+    "Pompous": {
+      "kind": "effects",
+      "restriction": {
+        "trait": "presence",
+        "max": 0
+      },
+      "match": "^You must have a Presence of 0 or lower to use this weapon\\.$"
+    },
+    "Bouncing": {
       "kind": "reference"
     },
-    "Powerful": {
+    "Brutal": {
       "kind": "reference"
     },
-    "Returning": {
+    "Burning": {
       "kind": "reference"
     },
-    "Versatile": {
+    "Channeling": {
+      "kind": "reference"
+    },
+    "Charged": {
+      "kind": "reference"
+    },
+    "Concussive": {
+      "kind": "reference"
+    },
+    "Deadly": {
+      "kind": "reference"
+    },
+    "Deflecting": {
+      "kind": "reference"
+    },
+    "Devastating": {
+      "kind": "reference"
+    },
+    "Doubled Up": {
+      "kind": "reference"
+    },
+    "Dueling": {
+      "kind": "reference"
+    },
+    "Eruptive": {
+      "kind": "reference"
+    },
+    "Fortified": {
+      "kind": "reference"
+    },
+    "Grappling": {
+      "kind": "reference"
+    },
+    "Greedy": {
       "kind": "reference"
     },
     "Hooked": {
       "kind": "reference"
     },
+    "Hopeful": {
+      "kind": "reference"
+    },
+    "Impenetrable": {
+      "kind": "reference"
+    },
+    "Invigorating": {
+      "kind": "reference"
+    },
+    "Lifestealing": {
+      "kind": "reference"
+    },
+    "Locked On": {
+      "kind": "reference"
+    },
+    "Long": {
+      "kind": "reference"
+    },
+    "Magic": {
+      "kind": "reference"
+    },
+    "Painful": {
+      "kind": "reference"
+    },
+    "Parry": {
+      "kind": "reference"
+    },
+    "Persuasive": {
+      "kind": "reference"
+    },
+    "Physical": {
+      "kind": "reference"
+    },
+    "Powerful": {
+      "kind": "reference"
+    },
+    "Quick": {
+      "kind": "reference"
+    },
+    "Quiet": {
+      "kind": "reference"
+    },
+    "Reinforced": {
+      "kind": "reference"
+    },
+    "Reloading": {
+      "kind": "reference"
+    },
+    "Resilient": {
+      "kind": "reference"
+    },
+    "Retractable": {
+      "kind": "reference"
+    },
+    "Returning": {
+      "kind": "reference"
+    },
+    "Scary": {
+      "kind": "reference"
+    },
+    "Serrated": {
+      "kind": "reference"
+    },
+    "Sharp": {
+      "kind": "reference"
+    },
+    "Sheltering": {
+      "kind": "reference"
+    },
+    "Shifting": {
+      "kind": "reference"
+    },
     "Startling": {
+      "kind": "reference"
+    },
+    "Timebending": {
+      "kind": "reference"
+    },
+    "Timeslowing": {
+      "kind": "reference"
+    },
+    "Truthseeking": {
+      "kind": "reference"
+    },
+    "Versatile": {
+      "kind": "reference"
+    },
+    "Warded": {
       "kind": "reference"
     }
   },

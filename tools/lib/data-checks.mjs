@@ -6,11 +6,12 @@ import { RULES } from '../../src/rules.js';
 
 const SOURCE_SETS = ['core', 'hope-fear'];
 const MECHANIC_KINDS = ['effects', 'reference', 'deferred'];
-const EFFECT_KEYS = ['modifiers', 'resource', 'attack', 'flags', 'grants', 'resolver', 'companion', 'display'];
+const EFFECT_KEYS = ['modifiers', 'resource', 'attack', 'flags', 'grants', 'resolver', 'companion', 'display', 'resourceUpgrade', 'restriction'];
 const KNOWN_FLAGS = ['ignore-burden'];
 const RESOURCE_COUNTS = /^(tier|level|proficiency|trait:(spellcast|agility|strength|finesse|instinct|presence|knowledge))$/;
 const MODIFIER_TARGETS = new Set([
-  'evasion', 'hpSlots', 'stressSlots', 'armorScore', 'thresholds', 'attackRoll', 'primaryWeaponDamage', 'physicalDamage',
+  'evasion', 'hpSlots', 'stressSlots', 'armorScore', 'thresholds', 'severeThreshold', 'attackRoll', 'weaponAttackRoll',
+  'primaryWeaponDamage', 'physicalDamage', 'damageRolls', 'meleeWeaponDamage',
   ...TRAITS.map((t) => `trait.${t}`),
 ]);
 const RANGES = ['Melee', 'Very Close', 'Close', 'Far', 'Very Far'];
@@ -130,6 +131,16 @@ export function checkData({ manifest, gameDataByProfile, flavor }) {
     }
   }
 
+  // No markup may leak from upstream HTML into any data string.
+  const scan = (value, where) => {
+    if (typeof value === 'string') { if (/<\/?[a-z][^>]*>/i.test(value)) err(`${where}: contains HTML markup`); }
+    else if (Array.isArray(value)) value.forEach((v, i) => scan(v, `${where}[${i}]`));
+    else if (value && typeof value === 'object') for (const [k, v] of Object.entries(value)) scan(v, `${where}.${k}`);
+  };
+  for (const [profileName, gameData] of Object.entries(gameDataByProfile)) {
+    for (const [collection, bundle] of Object.entries(gameData)) for (const r of bundle.records ?? []) scan(r, `[${profileName}] ${collection}:${r.id}`);
+  }
+
   // Flavor tables (original QuickSheet content)
   for (const [key, bundle] of Object.entries(flavor)) {
     if (bundle.meta?.source !== 'quicksheet-original') err(`flavor ${key}: meta.source must be quicksheet-original`);
@@ -143,7 +154,9 @@ export function checkData({ manifest, gameDataByProfile, flavor }) {
   for (const key of ['distinguishingDetails', 'personalities', 'motivations', 'origins', 'turningPoints', 'hookTemplates']) {
     if (!flavor.details[key]?.length) err(`flavor details.${key} is empty`);
   }
+  const ADV = ['traits', 'hp', 'stress', 'experiences', 'domainCard', 'evasion', 'subclass', 'proficiency'];
   for (const s of flavor.classStyles.records) {
+    for (const [k, v] of Object.entries(s.advancementWeights ?? {})) if (!ADV.includes(k) || !(v > 0)) err(`flavor: bad advancement weight ${k} for ${s.classId}`);
     for (const tag of s.conceptTags) if (!flavor.details.conceptTails[tag]?.length) err(`flavor: concept tag ${tag} for ${s.classId} has no tails`);
     for (const tag of s.experienceTags) if (!exps.some((e) => e.tags.includes(tag))) err(`flavor: no Experiences tagged ${tag} (${s.classId})`);
   }
@@ -161,7 +174,9 @@ function checkMechanics(m, where, p, get) {
   if (m.kind !== 'effects' && effects.length) p(`${where}: '${m.kind}' kind must not declare effects (${effects.join(', ')})`);
   for (const mod of m.modifiers ?? []) {
     if (!MODIFIER_TARGETS.has(mod.target)) p(`${where}: unknown modifier target ${mod.target}`);
-    const okValue = typeof mod.value === 'number' || ['proficiency', 'level'].includes(mod.value) || /^halfUp:(agility|strength|finesse|instinct|presence|knowledge)$/.test(mod.value);
+    const okValue = typeof mod.value === 'number' || ['proficiency', 'level'].includes(mod.value) || /^(halfUp|trait):(agility|strength|finesse|instinct|presence|knowledge)$/.test(mod.value);
+    if (mod.requires && !(typeof mod.requires.loadoutDomain === 'string' && Number.isInteger(mod.requires.min))) p(`${where}: bad modifier requirement`);
+    if (mod.requires) get(mod.requires.loadoutDomain, 'domains', where);
     if (!okValue) p(`${where}: bad modifier value ${mod.value}`);
     if (mod.target.startsWith('trait.') && typeof mod.value !== 'number') p(`${where}: trait modifiers must be plain numbers`);
   }
@@ -170,6 +185,10 @@ function checkMechanics(m, where, p, get) {
     if (!resolver) p(`${where}: resolver ${m.resolver} is not implemented`);
     if (m.resolver === 'chooseOption' && !(m.choice?.options?.length > 1 && m.choice.label)) p(`${where}: chooseOption needs a label and at least two options`);
     if (m.resolver === 'chooseNumber' && !(Number.isInteger(m.choice?.min) && Number.isInteger(m.choice?.max) && m.choice.min < m.choice.max)) p(`${where}: chooseNumber needs integer min < max`);
+    if (m.resolver === 'chooseBenefits') {
+      const opts = Object.entries(m.choice?.options ?? {});
+      if (!(opts.length > m.choice?.count) || opts.some(([k, mods]) => !mods.every((x) => MODIFIER_TARGETS.has(x.target)) || !m.choice.optionLabels?.[k])) p(`${where}: chooseBenefits needs labelled options with valid modifiers`);
+    }
   }
   if (m.resource) {
     const r = m.resource;
@@ -185,12 +204,19 @@ function checkMechanics(m, where, p, get) {
   for (const flag of m.flags ?? []) if (!KNOWN_FLAGS.includes(flag)) p(`${where}: unknown flag ${flag}`);
   (m.grants?.items ?? []).forEach((id) => get(id, 'items', where));
   if (m.grants?.domainCards !== undefined && !(Number.isInteger(m.grants.domainCards) && m.grants.domainCards > 0)) p(`${where}: bad domainCards grant`);
+  if (m.grants?.companionAdvancements !== undefined && !(Number.isInteger(m.grants.companionAdvancements) && m.grants.companionAdvancements > 0)) p(`${where}: bad companionAdvancements grant`);
+  if (m.resourceUpgrade && !(m.resourceUpgrade.id && /^d\d+$/.test(m.resourceUpgrade.value))) p(`${where}: bad resourceUpgrade`);
+  if (m.restriction && !(TRAITS.includes(m.restriction.trait) && Number.isInteger(m.restriction.max))) p(`${where}: bad restriction`);
+  if ((m.persistent || m.vaultOnAcquire) && !m.resolver && !m.modifiers) p(`${where}: persistent/vault-on-acquire cards need an effect`);
+  if (m.resource?.min !== undefined && !Number.isInteger(m.resource.min)) p(`${where}: resource min must be an integer`);
   if (m.companion) {
     const c = m.companion;
     for (const key of ['evasion', 'stressSlots', 'damageDie', 'experienceCount', 'experienceModifier']) if (!Number.isInteger(c[key])) p(`${where}: companion.${key} must be an integer`);
     if (!RANGES.includes(c.attackRange)) p(`${where}: companion attack range`);
     if (!(c.exampleExperiences?.length >= c.experienceCount)) p(`${where}: companion needs enough example Experiences`);
     if (m.resolver !== 'beastboundCompanion') p(`${where}: companion requires the beastboundCompanion resolver`);
+    if (!c.advancements?.length || c.advancements.some((a) => !a.id || !a.label || !Number.isInteger(a.slots) || !a.text)) p(`${where}: companion advancements need id, label, slots and text`);
+    if (!Number.isInteger(c.maxDamageDie)) p(`${where}: companion needs maxDamageDie`);
   }
   if (m.display !== undefined && m.display !== 'beastforms') p(`${where}: unknown display ${m.display}`);
 }

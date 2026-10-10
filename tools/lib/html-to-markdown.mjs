@@ -21,7 +21,14 @@ export function decodeEntities(text) {
 
 export function htmlToMarkdown(html) {
   let s = String(html).replace(/\r?\n/g, ' ');
+  // Repair an upstream anchor that is missing its closing '>' (e.g. <a href='#x'text</a>).
+  s = s.replace(/<a\b\s+href='[^']*'(?=[^>\s])/g, '<a>');
   s = s.replace(/<a\b[^>]*>(.*?)<\/a>/g, '$1');
+  // Ordered lists become "1. ..." items.
+  s = s.replace(/<ol\b[^>]*>(.*?)<\/ol>/g, (_, inner) => {
+    let n = 0;
+    return `\n${inner.replace(/<li\b[^>]*>(.*?)<\/li>/g, (__, item) => `\n${++n}. ${item.replace(/<\/?p>/g, ' ')}\n`)}\n`;
+  });
   s = s.replace(/<span\b[^>]*>(.*?)<\/span>/g, '$1');
   s = s.replace(/<strong>\s*<em>(.*?)<\/em>\s*<\/strong>/g, '***$1***');
   s = s.replace(/<em>\s*<strong>(.*?)<\/strong>\s*<\/em>/g, '***$1***');
@@ -38,7 +45,8 @@ export function htmlToMarkdown(html) {
   return lines
     .map((line, i) => {
       if (i === 0) return line;
-      const listContinues = line.startsWith('- ') && lines[i - 1].startsWith('- ');
+      const isItem = (l) => /^(- |\d+\. )/.test(l);
+      const listContinues = isItem(line) && isItem(lines[i - 1]);
       return (listContinues ? '\n' : '\n\n') + line;
     })
     .join('');

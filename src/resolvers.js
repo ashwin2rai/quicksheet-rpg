@@ -41,6 +41,46 @@ export const RESOLVERS = Object.freeze({
     detail: (choice) => String(choice.number),
   }),
 
+  // Generic: choose `count` distinct benefits from mechanics.choice.options, each a list of
+  // modifiers. Used by Vitality ("permanently gain two of the following benefits").
+  chooseBenefits: Object.freeze({
+    resolve({ rng, mechanics }) {
+      return { options: rng.weightedSample(Object.keys(mechanics.choice.options), mechanics.choice.count) };
+    },
+    validate(choice, _character, mechanics) {
+      const keys = Object.keys(mechanics.choice.options);
+      const picked = choice?.options ?? [];
+      if (picked.length !== mechanics.choice.count || new Set(picked).size !== picked.length || picked.some((k) => !keys.includes(k))) {
+        return [`${mechanics.choice.label} needs ${mechanics.choice.count} different options from ${keys.join(', ')}`];
+      }
+      return [];
+    },
+    modifiers: (choice, mechanics) => choice.options.flatMap((k) => mechanics.choice.options[k]),
+    describe: (choice, _character, mechanics) => `${mechanics.choice.label}: ${choice.options.map((k) => mechanics.choice.optionLabels[k]).join(' and ')}`,
+  }),
+
+  // Master of the Craft: "Gain a permanent +2 bonus to two of your Experiences or a
+  // permanent +3 bonus to one of your Experiences."
+  masterOfTheCraft: Object.freeze({
+    resolve({ character, rng }) {
+      const exps = character.experiences;
+      if (rng.next() < 0.5 && exps.length >= 2) return { mode: 'two', experienceIds: rng.weightedSample(exps, 2).map((e) => e.id) };
+      return { mode: 'one', experienceIds: [rng.pick(exps).id] };
+    },
+    validate(choice, character) {
+      const ids = choice?.experienceIds ?? [];
+      const want = choice?.mode === 'two' ? 2 : choice?.mode === 'one' ? 1 : null;
+      if (!want || ids.length !== want || new Set(ids).size !== ids.length) return ['Master of the Craft needs +2 to two Experiences or +3 to one'];
+      if (ids.some((id) => !character.experiences.some((e) => e.id === id))) return ['Master of the Craft chose an Experience the character does not have'];
+      return [];
+    },
+    modifiers: (choice) => choice.experienceIds.map((id) => ({ target: `experience:${id}`, value: choice.mode === 'two' ? 2 : 3 })),
+    describe(choice, character) {
+      const name = (id) => character.experiences.find((e) => e.id === id)?.name ?? id;
+      return `Master of the Craft: ${choice.experienceIds.map((id) => `${name(id)} ${choice.mode === 'two' ? '+2' : '+3'}`).join(', ')}`;
+    },
+  }),
+
   // Clank, Purposeful Design: "At character creation, choose one of your
   // Experiences that best aligns with this purpose and gain a permanent +1 bonus to it."
   clankPurposefulDesign: Object.freeze({

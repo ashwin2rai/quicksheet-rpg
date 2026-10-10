@@ -8,6 +8,7 @@ import { RULES } from './rules.js';
 import { RESOLVERS } from './resolvers.js';
 import { acquiredFeatures, deriveStats, featureFlags, grantedDomainCards } from './derive.js';
 import { validateCharacter } from './validate.js';
+import { acquireCard, advanceOneLevel, arrangeLoadout, trainedTraits } from './progression.js';
 import { GENERATOR_VERSION, SRD_VERSION, CHARACTER_SCHEMA_VERSION, SUPPORTED_LEVELS } from './version.js';
 
 export const MAX_ATTEMPTS = 25;
@@ -34,8 +35,9 @@ const PRONOUN_FORMS = {
 /**
  * @param {object} input { level, ancestryId, communityId, classId, subclassId, contentProfile, seed, options }
  * @param {object} catalog from loadCatalog/createCatalog
+ * @param {{ onAttempt?: Function }} [hooks] optional diagnostics callback, called after each attempt
  */
-export function generateCharacter(input, catalog) {
+export function generateCharacter(input, catalog, { onAttempt } = {}) {
   const {
     level = 1,
     ancestryId = null,
@@ -62,6 +64,7 @@ export function generateCharacter(input, catalog) {
     const character = buildCandidate({ fixed, level, seed: String(seed), contentProfile, options, rng, catalog });
     const result = validateCharacter(character, catalog);
     const quality = qualityIssues(character, catalog);
+    onAttempt?.({ attempt, errors: result.errors, quality });
     if (result.valid && quality.length === 0) return character;
     failures.push({ attempt, errors: result.errors, quality });
   }
@@ -129,7 +132,7 @@ function buildCandidate({ fixed, level, seed, contentProfile, options, rng, cata
       ? catalog.get(fixed.secondAncestryId)
       : rng.pick(catalog.ancestries.filter((a) => a.id !== ancestry.id));
   const community = fixed.communityId ? catalog.get(fixed.communityId) : rng.pick(catalog.communities);
-  const tier = tierForLevel(level);
+  const targetLevel = level;
 
   const character = {
     schemaVersion: CHARACTER_SCHEMA_VERSION,
@@ -140,7 +143,7 @@ function buildCandidate({ fixed, level, seed, contentProfile, options, rng, cata
     seed,
     requested: { ...fixed },
     options: { mixedAncestry: mixed },
-    level,
+    level: 1,
     selections: { ancestryId: ancestry.id, secondAncestryId: secondAncestry ? secondAncestry.id : null, communityId: community.id, classId: cls.id, subclassId: subclass.id },
     subclassTiers: ['foundation'],
     traits: allocateTraits(rng, cls, subclass),
@@ -157,16 +160,17 @@ function buildCandidate({ fixed, level, seed, contentProfile, options, rng, cata
   };
 
   const flags = featureFlags(character, catalog);
-  character.equipment = chooseLoadout(rng, catalog, { cls, subclass, traits: character.traits, tier, ignoreBurden: flags.has('ignore-burden') });
+  character.equipment = chooseLoadout(rng, catalog, { cls, subclass, traits: character.traits, tier: 1, ignoreBurden: flags.has('ignore-burden') });
 
   character.inventory = [
     ...RULES.STARTING_KIT.map((itemId) => ({ itemId, quantity: 1, source: 'starting-kit' })),
     { itemId: rng.pick(RULES.STARTING_POTIONS), quantity: 1, source: 'starting-potion' },
   ];
 
-  character.domainCards = rng
-    .weightedSample(catalog.domainCardsFor(cls.id, level), RULES.STARTING_DOMAIN_CARDS + grantedDomainCards(character, catalog))
-    .map((card) => ({ cardId: card.id, acquiredAtLevel: 1, location: 'loadout' }));
+  for (const card of rng.weightedSample(catalog.domainCardsFor(cls.id, 1), RULES.STARTING_DOMAIN_CARDS + grantedDomainCards(character, catalog))) {
+    acquireCard(character, card, 1, 'creation', { rng, catalog });
+  }
+  arrangeLoadout(character, catalog);
 
   const style = catalog.classStyle(cls.id);
   character.experiences = rng
@@ -181,8 +185,19 @@ function buildCandidate({ fixed, level, seed, contentProfile, options, rng, cata
   }
 
   character.flavor = generateFlavor(rng, catalog, { cls, ancestry, secondAncestry, community });
-  character.derived = deriveStats(character, catalog);
-  return character;
+
+  // Higher levels: apply legal level-ups one at a time from the Level 1 character.
+  let current = character;
+  while (current.level < targetLevel) current = advanceOneLevel(current, catalog, rng);
+  if (targetLevel > 1) {
+    // Instant-character gear assumption (docs/rules-decisions.md): equipment is chosen from
+    // the final tier's tables like at creation; no loot, gold or magic items are invented.
+    current.equipment = chooseLoadout(rng, catalog, {
+      cls, subclass, traits: trainedTraits(current), tier: tierForLevel(targetLevel), ignoreBurden: flags.has('ignore-burden'),
+    });
+  }
+  current.derived = deriveStats(current, catalog);
+  return current;
 }
 
 /** Assigns +2, +1, +1, +0, +0, -1, favouring the class's suggested priorities and spellcast trait. */
@@ -195,12 +210,20 @@ function allocateTraits(rng, cls, subclass) {
 }
 
 function chooseLoadout(rng, catalog, { cls, subclass, traits, tier, ignoreBurden }) {
+  const meetsRestriction = (item) => {
+    const r = item.feature?.mechanics?.restriction;
+    return !r || traits[r.trait] <= r.max;
+  };
   const usable = (w) =>
     w.tier <= tier &&
     (!w.magic || Boolean(subclass.spellcastTrait)) &&
-    !w.tags.some((t) => RANDOM_GEAR_EXCLUDED_TAGS.includes(t));
+    !w.tags.some((t) => RANDOM_GEAR_EXCLUDED_TAGS.includes(t)) &&
+    meetsRestriction(w);
+  // Gear of the character's own tier, occasionally one tier below (RD-034).
+  const tierWeight = (item) => (item.tier === tier ? 8 : item.tier === tier - 1 ? 1 : 0);
   const traitOf = (w) => (w.trait === 'spellcast' ? subclass.spellcastTrait : w.trait);
-  const weightOf = (suggestedId) => (w) => GEAR_TRAIT_WEIGHT[traits[traitOf(w)]] * (w.id === suggestedId ? 2 : 1);
+  const traitWeight = (value) => GEAR_TRAIT_WEIGHT[Math.max(-1, Math.min(2, value))] * (value > 2 ? 1.5 : 1);
+  const weightOf = (suggestedId) => (w) => traitWeight(traits[traitOf(w)]) * tierWeight(w) * (w.id === suggestedId ? 2 : 1);
 
   const primary = rng.weighted(catalog.weapons.filter((w) => w.slot === 'primary' && usable(w)), weightOf(cls.suggested.primaryWeaponId));
   let secondary = null;
@@ -215,7 +238,7 @@ function chooseLoadout(rng, catalog, { cls, subclass, traits, tier, ignoreBurden
     catalog.armor.filter((a) => a.tier <= tier && !a.tags.some((t) => RANDOM_GEAR_EXCLUDED_TAGS.includes(t))),
     (a) => {
       const agilityPenalty = (a.feature?.mechanics?.modifiers ?? []).some((m) => m.target === 'trait.agility');
-      return (a.id === cls.suggested.armorId ? 2 : 1) * (agilityPenalty && traits.agility > 0 ? 0.5 : 1);
+      return tierWeight(a) * (a.id === cls.suggested.armorId ? 2 : 1) * (agilityPenalty && traits.agility > 0 ? 0.5 : 1);
     },
   );
   return { primaryWeaponId: primary.id, secondaryWeaponId: secondary ? secondary.id : null, armorId: armor.id };

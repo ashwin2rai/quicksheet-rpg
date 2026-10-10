@@ -15,7 +15,7 @@ Original code and flavor tables: Apache License 2.0 ([LICENSE](LICENSE)). SRD co
 Requires Node.js 20+. No dependencies.
 
 ```sh
-npm run serve                 # http://localhost:8000 (must be served over HTTP)
+npm run serve                 # http://localhost:8000 (no-cache dev server)
 npm test                      # tests and snapshots (UPDATE_SNAPSHOTS=1 to accept changes)
 npm run validate:data         # data checks
 npm run smoke                 # static deployment checks

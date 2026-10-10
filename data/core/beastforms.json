@@ -692,7 +692,7 @@
       "id": "beastform.legendary-beast",
       "name": "Legendary Beast",
       "tier": 3,
-      "examples": "Upgraded <a href='#druid-beastform-tier-1'>Tier 1</a> Options",
+      "examples": "Upgraded Tier 1 Options",
       "traitBonus": {
         "trait": "strength",
         "value": 2
@@ -953,7 +953,7 @@
       "id": "beastform.mythic-beast",
       "name": "Mythic Beast",
       "tier": 4,
-      "examples": "Upgraded <a href='#druid-beastform-tier-1'>Tier 1</a> or <a href='#druid-beastform-tier-2'>Tier 2</a> Options",
+      "examples": "Upgraded Tier 1 or Tier 2 Options",
       "traitBonus": null,
       "evasionBonus": 0,
       "attack": null,
@@ -961,7 +961,7 @@
       "features": [
         {
           "name": "Evolved",
-          "text": "Pick a Tier 1 or Tier 2 Beastform option and become a larger, more powerful version of that creature. While you're in this form, you retain all traits and features from the original form and gain the following bonuses:\n\n- A +9 bonus to damage rolls\n- A +2 bonus to the trait used by this form\n- Your damage die increases by one size (**d6** becomes **d8**, **d8** becomes **d10**, *etc.*)"
+          "text": "Pick a Tier 1 or Tier 2 Beastform option and become a larger, more powerful version of that creature. While you're in this form, you retain all traits and features from the original form and gain the following bonuses:\n\n- A +9 bonus to damage rolls\n- A +2 bonus to the trait used by this form\n- A +3 bonus to Evasion\n- Your damage die increases by one size (**d6** becomes **d8**, **d8** becomes **d10**, *etc.*)"
         }
       ],
       "variant": "composite",

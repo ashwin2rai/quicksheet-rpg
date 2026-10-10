@@ -47,6 +47,56 @@ function renderBeastforms(push, d, catalog) {
   push('');
 }
 
+function renderCompositeBeastforms(push, d, catalog) {
+  if (!d.compositeBeastforms.length) return;
+  push('**Composite forms** (built on another form; apply the bonuses below to that form\'s statistics):', '');
+  for (const id of d.compositeBeastforms) {
+    const form = catalog.get(id);
+    push(`- **${form.name}** (Tier ${form.tier}${form.examples ? `; ${form.examples}` : ''}): ${form.features.map((f) => `*${f.name}:* ${f.text.replace(/\n+/g, ' ')}`).join(' ')}`);
+  }
+  push('');
+}
+
+const SUBCLASS_TIER_LABEL = { specialization: 'Specialization', mastery: 'Mastery' };
+const OPTION_TEXT = {
+  hp: '+1 Hit Point slot',
+  stress: '+1 Stress slot',
+  evasion: '+1 Evasion',
+  proficiency: '+1 Proficiency (both advancements)',
+};
+
+function describeHistoryEntry(h, c, catalog) {
+  const expName = (id) => c.experiences.find((e) => e.id === id)?.name ?? id;
+  const cardName = (id) => {
+    const card = catalog.get(id);
+    return `*${card.name}* (${catalog.get(card.domainId).name} ${card.level})`;
+  };
+  const parts = [];
+  if (h.tierAchievement) {
+    const t = h.tierAchievement;
+    parts.push(`Tier achievement: new Experience *${expName(t.experienceId)}* +2, Proficiency +1${t.clearedMarkedTraits ? ', marked traits cleared' : ''}${t.companionExperience ? `; companion gains *${t.companionExperience}* +2` : ''}.`);
+  }
+  const advs = h.advancements.map((a) => {
+    if (a.option === 'traits') return `+1 ${a.traits.map((t) => TRAIT_LABELS[t]).join(' and +1 ')}`;
+    if (a.option === 'experiences') return `+1 to ${a.experienceIds.map(expName).join(' and ')}`;
+    if (a.option === 'domainCard') return `extra domain card ${cardName(a.cardId)}`;
+    if (a.option === 'subclass') return `${SUBCLASS_TIER_LABEL[a.subclassTier]} subclass features`;
+    return OPTION_TEXT[a.option];
+  });
+  parts.push(`Advancements: ${advs.join('; ')}.`);
+  if (h.grantedCardIds.length) parts.push(`Granted card${h.grantedCardIds.length > 1 ? 's' : ''}: ${h.grantedCardIds.map(cardName).join(', ')}.`);
+  if (h.domainCardId) parts.push(`Domain card: ${cardName(h.domainCardId)}.`);
+  if (h.companion.length) {
+    parts.push(`Companion: ${h.companion.map((p) => {
+      const label = { 'light-in-the-dark': 'Light in the Dark', 'creature-comfort': 'Creature Comfort' }[p.option] ?? capitalize(p.option);
+      if (p.option === 'vicious') return `Vicious (${p.detail === 'die' ? 'damage die' : 'range'} +1 step)`;
+      if (p.option === 'intelligent') return `Intelligent (+1 ${p.experience})`;
+      return label;
+    }).join(', ')}.`);
+  }
+  return `- **Level ${h.level} (Tier ${h.tier}):** ${parts.join(' ')}`;
+}
+
 function renderCompanion(push, comp) {
   push(`### Companion: ${comp.name}`, '');
   push(`*${capitalize(comp.animal)} - animal type and name are suggestions; settle them with your GM.*`, '');
@@ -57,6 +107,11 @@ function renderCompanion(push, comp) {
     `**Experiences** ${comp.experiences.map((e) => `${e.name} ${signed(e.modifier)}`).join(', ')}`,
     '',
   );
+  if (comp.upgrades.length) {
+    push('**Companion level-up options taken** (numbers above already include them):', '');
+    for (const u of comp.upgrades) push(`- **${u.label}**${u.times > 1 ? ` x${u.times}` : ''}: ${u.text}`);
+    push('');
+  }
 }
 
 export function renderCharacterMarkdown(character, catalog) {
@@ -103,7 +158,11 @@ export function renderCharacterMarkdown(character, catalog) {
   push('');
 
   // 3. Combat & gear
-  push('## Combat & Gear', '', '### Weapons', '');
+  push('## Combat & Gear', '');
+  if (c.level > 1) {
+    push(`*Gear assumption: weapons and armor are chosen from the Tier ${d.tier} equipment tables (or lower) like at character creation. QuickSheet does not invent loot, gold or magic items earned in play.*`, '');
+  }
+  push('### Weapons', '');
   push('| Slot | Weapon | Attack | Range | Damage | Burden |', '| --- | --- | --- | --- | --- | --- |');
   for (const w of d.weapons) {
     push(`| ${capitalize(w.slot)} | ${cell(w.name)} | ${TRAIT_LABELS[w.attackTrait]} ${signed(w.attackModifier)} | ${w.range} | ${w.damage} ${damageTypeLabel(w.damageType)} | ${burdenLabel(w.burden)} |`);
@@ -121,6 +180,10 @@ export function renderCharacterMarkdown(character, catalog) {
   if (d.physicalDamageBonus) {
     weaponNotes.push(`- Physical damage above includes +${d.physicalDamageBonus.value} from ${d.physicalDamageBonus.sources.join(', ')}.`);
   }
+  for (const b of d.damageBonuses) {
+    weaponNotes.push(`- Damage above includes ${signed(b.value)} from ${b.sourceName}${b.condition ? ` (${b.condition})` : ''}.`);
+  }
+  for (const b of d.weaponAttackBonus) weaponNotes.push(`- Attack rolls above include ${signed(b.value)} from ${b.sourceName}.`);
   if (weaponNotes.length) push(...weaponNotes, '');
 
   if (d.extraAttacks.length) {
@@ -148,8 +211,12 @@ export function renderCharacterMarkdown(character, catalog) {
   // 4. Experiences
   push('## Experiences', '');
   for (const e of d.experiences) {
-    const detail = e.bonuses.length ? ` (+2 base, ${e.bonuses.map((b) => `${signed(b.value)} ${b.sourceName}`).join(', ')})` : '';
-    push(`- **${e.name}** ${signed(e.modifier)}${detail}`);
+    const record = c.experiences.find((x) => x.id === e.id);
+    const notes = [
+      ...(record?.source === 'tier-achievement' ? [`gained at level ${record.acquiredAtLevel}`] : []),
+      ...(e.bonuses.length ? [`+2 base, ${e.bonuses.map((b) => `${signed(b.value)} ${b.sourceName}`).join(', ')}`] : []),
+    ];
+    push(`- **${e.name}** ${signed(e.modifier)}${notes.length ? ` (${notes.join('; ')})` : ''}`);
   }
   push('');
 
@@ -178,7 +245,10 @@ export function renderCharacterMarkdown(character, catalog) {
   }
   section(`Community: ${community.name}`, features.filter((f) => f.category === 'community'), (f) => choiceSuffix(f));
   section(`Class: ${cls.name}`, features.filter((f) => f.category === 'class' || f.category === 'hope'), (f) => choiceSuffix(f));
-  if (d.beastforms.length) renderBeastforms(push, d, catalog);
+  if (d.beastforms.length) {
+    renderBeastforms(push, d, catalog);
+    renderCompositeBeastforms(push, d, catalog);
+  }
   section(`Subclass: ${subclass.name} (Foundation)`, features.filter((f) => f.category === 'subclass-foundation'), (f) => choiceSuffix(f));
   if (d.companion) renderCompanion(push, d.companion);
   for (const [category, label] of [['subclass-specialization', 'Specialization'], ['subclass-mastery', 'Mastery']]) {
@@ -195,10 +265,16 @@ export function renderCharacterMarkdown(character, catalog) {
       push(`| ${cell(card.name)} | ${catalog.get(card.domainId).name} | ${card.level} | ${card.type} | ${card.recallCost} |`);
     }
     push('');
-    for (const { card } of list) {
+    for (const { entry, card } of list) {
+      const notes = [];
       const res = d.resources.find((r) => r.sourceId === card.id);
-      const resLine = res ? `  \n*${res.label}: ${res.value} (${res.basis}).*` : '';
-      push(`### ${card.name}`, '', `*${catalog.get(card.domainId).name} ${card.level} - ${card.type} - Recall ${card.recallCost}*${resLine}`, '', card.text, '');
+      if (res) notes.push(`${res.label}: ${res.value} (${res.basis}).`);
+      const choice = c.featureChoices[card.id];
+      if (choice && card.mechanics.resolver) notes.push(`${RESOLVERS[card.mechanics.resolver].describe(choice, c, card.mechanics)}.`);
+      if (card.mechanics.vaultOnAcquire) notes.push('Placed in the vault permanently; its benefit still applies.');
+      if (c.level > 1) notes.push(`Acquired at level ${entry.acquiredAtLevel}.`);
+      const noteLine = notes.length ? `  \n*${notes.join(' ')}*` : '';
+      push(`### ${card.name}`, '', `*${catalog.get(card.domainId).name} ${card.level} - ${card.type} - Recall ${card.recallCost}*${noteLine}`, '', card.text, '');
     }
   };
   cardSection('Domain Cards - Active Loadout', cards.filter((x) => x.entry.location === 'loadout'));
@@ -225,7 +301,7 @@ export function renderCharacterMarkdown(character, catalog) {
   // 8. Advancement history (V2+)
   if (c.advancementHistory.length) {
     push('## Advancement History', '');
-    for (const h of c.advancementHistory) push(`- **Level ${h.level}:** ${h.summary ?? ''}`.trimEnd());
+    for (const h of c.advancementHistory) push(describeHistoryEntry(h, c, catalog));
     push('');
   }
 

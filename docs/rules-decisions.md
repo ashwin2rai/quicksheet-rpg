@@ -60,7 +60,7 @@ Subclass Specialization and Mastery features default to `deferred` until V2 clas
 
 **RD-015: Class dice.** The Rally Die (Bard: d6, d8 at level 5) and the Unstoppable Die (Guardian: d4, d6 at level 5) are stored as level-indexed resources. Wordsmith's Epic Poetry (Rally Die d10) is a Mastery feature and marked `deferred`. Counted resources are covered in RD-027.
 
-**RD-016: Stalwart threshold bonuses.** Unwavering (+1) is applied at Level 1. Unrelenting (+2) and Undaunted (+3) are `deferred`. **Open for V2:** confirm from the official text that these bonuses stack (a total of +6 at Mastery).
+**RD-016: Stalwart threshold bonuses.** Unwavering (+1), Unrelenting (+2) and Undaunted (+3) are each worded as a separate "permanent bonus to your damage thresholds", so they stack: a total of +6 once Mastery is acquired.
 
 **RD-017: Card tokens.** Inspirational Words (tokens equal to Presence), Unleash Chaos and Uncanny Disguise (tokens equal to the Spellcast trait) show their token count on the sheet. Tokens are spent and tracked at the table.
 
@@ -90,7 +90,7 @@ Subclass Specialization and Mastery features default to `deferred` until V2 clas
 - The attack uses the current trait for the form's attack trait, plus the form's trait bonus when they match.
 - Damage dice equal Proficiency.
 
-Armor stays part of the body, so armor effects persist. The *Evolution* Hope feature's temporary +1 is not pre-applied. Tier 3–4 Legendary/Mythic Beast and Hybrid forms are built from other forms. They are imported with `variant: 'composite'` and excluded until V2 can expand them.
+Armor stays part of the body, so armor effects persist. The *Evolution* Hope feature's temporary +1 is not pre-applied. Tier 3–4 Legendary/Mythic Beast and Hybrid forms are built from other forms (`variant: 'composite'`). They are listed with their rules text below the table, because their numbers depend on which base form the player picks.
 
 **RD-025: Upstream corrections.** These are recorded in `tools/curation/core.json` (`officialOverrides`, `nameCorrections`) and applied by the importer:
 - **Rogue *Cloaked*.** Old Gus appends "Otherwise, this bonus lasts until your next rest.", which belongs to *Rogue's Dodge*. Official text used.
@@ -99,6 +99,13 @@ Armor stays part of the body, so armor effects persist. The *Evolution* Hope fea
 - **Warrior class item.** Changed to "the drawing of a lover".
 - **Nightwalker.** Old Gus merges each tier's two features into one string. The importer splits them.
 - **Nightwalker "Fleting Shadow".** Corrected to "Fleeting Shadow".
+- **Notorious (Grace 10).** Old Gus appends "This card doesn't count against your loadout's domain card maximum of 5 and can't be placed in your vault." That sentence is not in SRD 2.0, so it is removed and the card is treated as an ordinary card.
+- **Mythic Beast *Evolved*.** Old Gus omits the "+3 bonus to Evasion" line. Restored.
+- **Mass Disguise.** "Presences Roll" corrected to "Presence Rolls".
+- **Tier 2–4 weapons.** Official statistics used: Knuckle Blades, Swinging Ropeblade and Legendary Glowing Rings are Two-Handed; Hand Sling's range is Very Far.
+- **Companion *Aware*.** The official text gives +2 Evasion (Old Gus says +1).
+- **Metric conversions.** Old Gus adds conversions such as "50 feet (15 m)". These are stripped on import.
+- **Composite Beastform examples.** Upstream HTML links in these fields are converted to plain text.
 
 **RD-026: Warrior *Combat Training*.**
 - "You ignore burden when equipping weapons": a Warrior may equip a secondary weapon alongside a two-handed primary. The generator does this about 40% of the time, and the validator allows it only for characters with the `ignore-burden` flag.
@@ -131,3 +138,53 @@ A Seraph with a Spellcast trait of 0 or less would have no Prayer Dice. That is 
 **RD-031: Warden of the Elements *Elemental Incarnation*.** The element is chosen each time the feature is used, so no choice is made at creation. Earth's threshold bonus applies only while channeling and is not added to the sheet's thresholds.
 
 **RD-032: Syndicate *Well-Connected*** contacts are created on arrival somewhere, not at character creation, so no contact is generated.
+
+## V2: Levels 1–10
+
+**RD-033: Level-up sequence.** Characters above Level 1 are never built as a stat block. The generator creates a legal Level 1 character and applies `advanceOneLevel` once per level, following SRD 2.0 "Leveling Up":
+1. Tier achievements at levels 2, 5 and 8: a new +2 Experience and +1 Proficiency. At 5 and 8, marked traits are cleared.
+2. Two advancements with an unmarked slot from the current tier or below. Proficiency costs both.
+3. Damage thresholds +1. This is computed as armor base + level and never stored, so it cannot be counted twice.
+4. One new domain card at or below the new level.
+
+Every choice is recorded in `advancementHistory`, shown on the sheet, and replayed by the validator, which checks each step against the rules at the level it happened. The per-tier slot counts come from the official character sheet's level-up section as transcribed by Old Gus:
+- Tiers 2–4 each have: traits ×3, HP ×2, Stress ×2, Experiences ×1, domain card ×1, Evasion ×1.
+- Tiers 3–4 also have: upgraded subclass ×1 and Proficiency ×1 (costs both advancements).
+
+The SRD text describes the options but does not print the table. The table is consistent with the SRD's Proficiency benchmarks (Tier 2: 2, Tier 3: 3–4, Tier 4: 4–6). When a lower-tier slot is still unmarked, the generator uses the current tier's slot first.
+
+**RD-034: Instant-character gear assumption.** The SRD does not say what equipment a hypothetical high-level hero has collected.
+- Above Level 1, weapons and armor are re-chosen from the final tier's tables in the same trait-weighted way as at creation: mostly the character's own tier, sometimes one tier below.
+- Inventory, potion, class item and gold stay as at creation.
+- No loot, magic items or extra gold are invented.
+
+The sheet states this assumption.
+
+**RD-035: Content outside the official SRD.** Ten Tier 3–4 magic weapons in Old Gus come from the Core Rulebook and are not in the SRD 2.0 PDF: Axe of Fortunis, Blessed Anlace, Firestaff, Ghostblade, Gilded Bow, Ilmari's Rifle, Mage Orb, Runes of Ruination, Widogast Pendant, Sword of Light and Flame. They are excluded on import (`officialOverrides.excludeNotInSrd`). Every remaining weapon and armor row, and every card header, was matched against the official PDF.
+
+**RD-036: Multiclassing** is an optional core rule that QuickSheet does not generate. The advancement is absent from the option table, and the validator rejects it. The data model leaves room to add it later.
+
+**RD-037: Advancement weighting.** Choices are weighted, never restricted, toward what suits the class:
+- Default weights are in `src/progression.js`; per-class adjustments are `advancementWeights` in `data/flavor/class-styles.json` (for example Guardians favor HP and Stress, Rogues Evasion, Wizards domain cards).
+- Upgraded subclass is weighted highly, so most high-level characters reach Mastery.
+- Trait advancements favor the class's suggested priorities and its Spellcast trait.
+- Domain cards favor higher-level cards.
+
+**RD-038: Loadout and vault.** After each level the loadout holds the five highest-level cards (ties: most recently acquired). The rest go to the vault.
+- Cards that say "place this card in your vault permanently" (Vitality, Master of the Craft) stay in the vault, and their chosen benefit still applies.
+- Recall costs are not paid when building an instant character.
+- The optional step-four exchange of a previously acquired card is not used.
+- Card bonuses that need 4+ cards of a domain in the loadout ("-Touched" cards) are evaluated on the final loadout.
+
+**RD-039: Companion progression.**
+- A Beastbound companion takes one level-up option per level. *Expert Training* (+1) and *Advanced Training* (+2) add one-time extra picks at the level they are acquired.
+- *Vicious* improves the damage die (up to d12) or the range (up to Very Far).
+- The companion gains a new Experience, from the SRD's examples, whenever the character gains one from a tier achievement.
+- Option slot counts come from the official companion sheet as transcribed by Old Gus.
+
+**RD-040: Stat-based card and gear bonuses.**
+- "Bonus equal to your Strength/Agility" effects (Body Basher, Sharpening) use the effective trait, never below 0.
+- Fortified Armor and Armorer apply because QuickSheet characters always wear armor.
+- Situational bonuses stay at-the-table rules and are not added to the sheet's numbers. Examples: Shadowhunter in darkness, Conjure Shield with 2+ Hope, and Transcendence while transformed.
+
+**RD-041: Gear restrictions.** *Pompous* weapons ("You must have a Presence of 0 or lower") are only chosen when the character's Presence allows it. The validator checks the final Presence after all modifiers.

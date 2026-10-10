@@ -32,7 +32,7 @@ The importer runs only the leading data section (array literals) of the upstream
 
 ## Cross-check against the official SRD
 
-`data/srd-sources.lock.json` pins the official SRD 2.0 PDF. In V1 every imported Level 1 text and number was compared with it (see RD-001 and RD-025 in `docs/rules-decisions.md` for results and corrections). To repeat the check after an upstream change:
+`data/srd-sources.lock.json` pins the official SRD 2.0 PDF. In V1 and V2 every imported text and number was compared with it: all features, all 189 domain cards, all Beastforms, and every weapon and armor row (see RD-001, RD-025 and RD-035 in `docs/rules-decisions.md` for results, corrections and exclusions). To repeat the check after an upstream change:
 1. Extract the PDF's text with any PDF-to-text tool.
 2. Search it for each record's text and statistics.
 
