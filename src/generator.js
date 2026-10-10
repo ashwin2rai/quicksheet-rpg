@@ -57,7 +57,7 @@ export function generateCharacter(input, catalog, { onAttempt } = {}) {
   } = input ?? {};
 
   if (!SUPPORTED_LEVELS.includes(level)) {
-    throw new GenerationError(`Level ${level} is not supported yet. QuickSheet currently generates Level 1 characters only.`, { code: 'unsupported-level' });
+    throw new GenerationError(`Level ${level} is not supported. QuickSheet generates levels ${SUPPORTED_LEVELS[0]}-${SUPPORTED_LEVELS.at(-1)}.`, { code: 'unsupported-level' });
   }
   if (contentProfile !== catalog.contentProfile) {
     throw new GenerationError(`Content profile "${contentProfile}" is not available. Supported: "${catalog.contentProfile}".`, { code: 'unsupported-profile' });

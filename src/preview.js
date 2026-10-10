@@ -4,8 +4,8 @@
 // rules, emphasis, inline code and bare https links). All text is HTML-escaped
 // before formatting, so the preview cannot inject markup.
 
-const escapeHtml = (text) =>
-  text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+export const escapeHtml = (text) =>
+  String(text ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 
 function inline(raw) {
   const codeSpans = [];

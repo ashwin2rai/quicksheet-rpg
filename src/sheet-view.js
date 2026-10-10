@@ -1,11 +1,7 @@
 // The visual character folio is a *presentation of the Markdown document*.
 // It does not depend on the generator's internal model or change exported bytes.
 // Generated and imported QuickSheet .md files take the same rendering path.
-import { markdownToHtml } from './preview.js';
-
-const escapeHtml = (value) => String(value ?? '')
-  .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-  .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+import { escapeHtml, markdownToHtml } from './preview.js';
 
 const clean = (value) => String(value ?? '').trim();
 const safeClass = (value) => clean(value).toLowerCase().replace(/[^a-z0-9-]+/g, '-').replace(/^-+|-+$/g, '');
@@ -104,10 +100,21 @@ function statNumber(glance, label) {
   return glance.values.get(label.toLowerCase())?.match(/^-?\d+/)?.[0] ?? '—';
 }
 
-function marks(count, filled, kind) {
-  const safeCount = Math.max(0, Math.min(30, Number(count) || 0));
-  const safeFilled = Math.max(0, Math.min(safeCount, Number(filled) || 0));
-  return `<div class="folio-track folio-track--${kind}" aria-hidden="true">${Array.from({ length: safeCount }, (_, i) => `<span class="folio-track-mark${i < safeFilled ? ' is-filled' : ''}"></span>`).join('')}</div>`;
+const resourceMode = {
+  hp: 'marked', stress: 'marked', hope: 'available', armor: 'marked',
+  rally: 'spent', prayer: 'spent', slayer: 'held', combo: 'marked',
+  patron: 'marked', commune: 'rolled', focus: 'held', favor: 'held',
+};
+
+function marks(count, filled, kind, label) {
+  const total = Math.max(0, Math.min(30, Number(count) || 0));
+  const active = Math.max(0, Math.min(total, Number(filled) || 0));
+  const mode = resourceMode[kind] || 'marked';
+  const buttons = Array.from({ length: total }, (_, i) => {
+    const pressed = i < active;
+    return `<button type="button" class="folio-track-mark${pressed ? ' is-filled' : ''}" data-resource="${kind}" data-index="${i}" aria-pressed="${pressed}" aria-label="${escapeHtml(label)} slot ${i + 1}: ${pressed ? mode : 'empty'}. Activate to toggle."><span class="visually-hidden">${i + 1}</span></button>`;
+  }).join('');
+  return `<div class="folio-track folio-track--${kind}" data-track="${kind}" data-label="${escapeHtml(label)}" data-mode="${mode}">${buttons}</div>`;
 }
 
 function counter(label, value, kind) {
@@ -116,11 +123,57 @@ function counter(label, value, kind) {
   const max = isHope ? value.match(/max\s+(\d+)/i)?.[1] : kind === 'armor' ? value.match(/\((\d+)\s+Armor Slots/i)?.[1] : value.match(/(\d+)\s+slots/i)?.[1];
   const used = isHope ? value.match(/^(\d+)/)?.[1] : value.match(/(\d+)\s+marked/i)?.[1];
   if (!max) return `<div class="folio-counter"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`;
-  const detail = isHope ? `${used || '0'} available / ${max} max` : `${used || '0'} marked / ${max} slots`;
-  return `<div class="folio-counter" aria-label="${escapeHtml(label)}: ${detail}">
-    <div class="folio-counter-top"><span>${escapeHtml(label)}</span><strong>${isHope ? escapeHtml(`${used || '0'} / ${max}`) : escapeHtml(max)}</strong></div>
-    ${marks(max, used, kind)}<small>${escapeHtml(detail)}</small>
+  const count = Math.min(Number(max), Number(used ?? 0));
+  const mode = resourceMode[kind];
+  return `<div class="folio-counter">
+    <div class="folio-counter-top"><span>${escapeHtml(label)}</span><strong data-count-for="${kind}" aria-live="polite">${count} / ${max}</strong></div>
+    ${marks(max, count, kind, label)}
+    <small data-detail-for="${kind}">${count} ${mode} / ${max} slots</small>
   </div>`;
+}
+
+// Feature resources with manual markers: [key, label, At a Glance field, fixed slot count].
+// Without a fixed count, the slots come from the dice count (e.g. "3d4"). Favor starts filled to its value.
+const FEATURE_TRACKS = [
+  ['rally', 'Rally Die', 'rally die', 1],
+  ['prayer', 'Prayer dice', 'prayer dice per session', null],
+  ['slayer', 'Slayer dice', 'slayer dice (maximum stored)', null],
+  ['combo', 'Combo Die', 'combo die', 1],
+  ['patron', 'Patron Die', 'patron die', 1],
+  ['commune', 'Commune dice', 'commune dice', null],
+  ['focus', 'Focus', 'focus', 6],
+  ['favor', 'Favor', 'favor', 6],
+];
+const TRACKED_FIELDS = new Set([...FEATURE_TRACKS.map(([, , field]) => field), 'unstoppable die']);
+
+function specialResources(glance) {
+  const values = glance.values;
+  const cards = [];
+  for (const [key, label, field, fixed] of FEATURE_TRACKS) {
+    const value = values.get(field);
+    if (!value) continue;
+    const die = value.match(/\b(\d*)d(\d+)\b/i);
+    const count = fixed ?? (die ? Number(die[1] || 1) : 0);
+    const initial = key === 'favor' ? Number(value.match(/^\d+/)?.[0] ?? 0) : 0;
+    if (!count || count > 30) continue;
+    const mode = resourceMode[key];
+    const type = die ? `d${die[2]}` : (key === 'focus' || key === 'favor' ? 'POOL' : '');
+    cards.push(`<div class="special-resource-card">
+      <div class="special-resource-head"><div><span class="special-resource-label">${escapeHtml(label)}</span><small>${escapeHtml(type)}</small></div><strong data-count-for="${key}" aria-live="polite">${initial} / ${count}</strong></div>
+      ${marks(count, initial, key, label)}
+      <small class="special-resource-detail" data-detail-for="${key}">${initial} ${mode} / ${count} slots</small>
+    </div>`);
+  }
+  const unstoppable = values.get('unstoppable die');
+  if (unstoppable) {
+    const max = Math.max(2, Math.min(20, Number(unstoppable.match(/\bd(\d+)/i)?.[1] ?? 4)));
+    cards.push(`<div class="special-resource-card special-resource-card--die">
+      <div class="special-resource-head"><div><span class="special-resource-label">Unstoppable Die</span><small>d${max} · face value</small></div></div>
+      <div class="die-control" data-die="unstoppable" data-max="${max}" data-value="0"><button type="button" data-adjust="-1" aria-label="Decrease Unstoppable Die face">−</button><strong data-die-value aria-live="polite">—</strong><button type="button" data-adjust="1" aria-label="Increase Unstoppable Die face">+</button></div>
+      <small class="special-resource-detail">— is inactive; adjust manually</small>
+    </div>`);
+  }
+  return cards.length ? `<div class="special-resources"><h4>Feature resources <span>Manual marks, no dice rolling</span></h4><div class="special-resource-grid">${cards.join('')}</div></div>` : '';
 }
 
 function glanceMarkup(glance) {
@@ -129,12 +182,12 @@ function glanceMarkup(glance) {
   const major = damage.match(/Major\s+(\d+)/i)?.[1] ?? '—';
   const severe = damage.match(/Severe\s+(\d+)/i)?.[1] ?? '—';
   const statTiles = [ ['Evasion', statNumber(glance, 'Evasion')], ['Proficiency', statNumber(glance, 'Proficiency')], ['Armor score', statNumber(glance, 'Armor Score')] ];
-  const extraResources = [...glance.values].filter(([name]) => !['evasion', 'proficiency', 'spellcast trait', 'hp', 'stress', 'hope', 'armor score', 'damage thresholds'].includes(name));
+  const extraResources = [...glance.values].filter(([name]) => !['evasion', 'proficiency', 'spellcast trait', 'hp', 'stress', 'hope', 'armor score', 'damage thresholds'].includes(name) && !TRACKED_FIELDS.has(name));
   const totals = `<div class="quick-stat-grid">${statTiles.map(([label, value]) => `<div class="quick-stat"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`).join('')}</div>`;
   const tracks = `<div class="resource-stack">${counter('Hit points', glance.values.get('hp'), 'hp')}${counter('Stress', glance.values.get('stress'), 'stress')}${counter('Hope', glance.values.get('hope'), 'hope')}${counter('Armor slots', glance.values.get('armor score'), 'armor')}</div>`;
   const thresholds = `<div class="thresholds"><div><span>Major damage</span><strong>${escapeHtml(major)}</strong></div><span class="thresholds-rule" aria-hidden="true">/</span><div><span>Severe damage</span><strong>${escapeHtml(severe)}</strong></div></div>`;
   const extra = [glance.values.get('spellcast trait') ? `<div class="spellcast"><span>Spellcast trait</span><strong>${escapeHtml(glance.values.get('spellcast trait'))}</strong></div>` : '', ...extraResources.map(([name, val]) => `<div class="spellcast"><span>${escapeHtml(name)}</span><strong>${escapeHtml(val)}</strong></div>`) ].filter(Boolean).join('');
-  return { traitMarkup, vitals: totals + tracks + thresholds + extra };
+  return { traitMarkup, vitals: totals + tracks + thresholds + specialResources(glance) + extra };
 }
 
 function experiencesMarkup(body) {
@@ -169,12 +222,39 @@ function combatMarkup(body) {
   return chunks.join('');
 }
 
+function featureCards(body, family) {
+  // The generated document uses **Feature Name.** at the start of each
+  // feature's first paragraph. A card owns any following paragraphs / lists.
+  const paragraphs = clean(body).split(/\n{2,}/);
+  const cards = [];
+  let current = null;
+  for (const part of paragraphs) {
+    const match = part.match(/^\*\*([^*\n]+?)\.\*\*\s*([\s\S]*)$/);
+    if (match) {
+      if (current) cards.push(current);
+      current = { title: match[1], body: match[2] };
+    } else if (current) {
+      current.body += `\n\n${part}`;
+    } else if (part.trim()) {
+      cards.push({ title: '', body: part });
+    }
+  }
+  if (current) cards.push(current);
+  return `<div class="feature-card-grid">${cards.map(({ title, body: text }) => `<article class="feature-card feature-card--${safeClass(family)}">
+    <div class="feature-card-top"><span>${escapeHtml(family)}</span><span aria-hidden="true">✧</span></div>
+    ${title ? `<h5>${escapeHtml(title)}</h5>` : ''}
+    <div class="prose">${markdownToHtml(text)}</div>
+  </article>`).join('')}</div>`;
+}
+
 function featureBlocks(body) {
   return subSections(body).map((block) => {
     if (!block.title) return `<div class="prose">${markdownToHtml(block.body)}</div>`;
     const prefix = block.title.split(':')[0];
-    const isLong = /beastform|companion/i.test(block.title);
-    return { title: block.title, prefix, long: isLong, html: `<section class="feature-group"><div class="feature-group-head"><span class="feature-group-rule"></span><span>${escapeHtml(prefix)}</span></div><h4>${escapeHtml(block.title.includes(':') ? block.title.slice(block.title.indexOf(':') + 1).trim() : block.title)}</h4><div class="prose">${markdownToHtml(block.body)}</div></section>` };
+    const isLong = /beastform|companion|martial stances/i.test(block.title);
+    const title = block.title.includes(':') ? block.title.slice(block.title.indexOf(':') + 1).trim() : block.title;
+    const content = isLong ? `<div class="feature-reference prose">${markdownToHtml(block.body)}</div>` : featureCards(block.body, prefix);
+    return { title: block.title, prefix, long: isLong, html: `<section class="feature-group feature-group--${safeClass(prefix)}"><div class="feature-group-head"><span class="feature-group-rule"></span><span>${escapeHtml(prefix)}</span></div><h4>${escapeHtml(title)}</h4>${content}</section>` };
   });
 }
 
@@ -260,6 +340,7 @@ export function renderCharacterSheet(markdown) {
     ${longFeatures.length ? panel('wide-features-panel', 'Reference / Special features', 'Forms & companions', longFeatures.map((f) => f.html).join('')) : ''}
     ${hook ? panel('story-panel', '08 / The person behind the numbers', 'Character story', storyMarkup(hook)) : ''}
     ${history ? panel('history-panel', '09 / The journey so far', 'Advancement history', historyMarkup(history)) : ''}
+    ${panel('notes-panel', '10 / Your chronicle', 'Session notes', `<label class="notes-label" for="folio-session-notes">Your notes, discoveries & reminders</label><textarea id="folio-session-notes" data-session-notes rows="7" maxlength="30000" placeholder="What happened in your last session? Who did you meet? What must you remember?"></textarea><p class="notes-hint">Notes and marked slots are saved in your downloaded HTML or Markdown file. To keep future changes, download a new copy.</p>`)}
     ${attribution ? `<details class="folio-attribution"><summary>Source notes & attribution</summary><div class="prose">${markdownToHtml(attribution)}</div></details>` : ''}
     <div class="folio-endmark" aria-hidden="true">✧ <span>QUICKSHEET • THE STORY IS YOURS</span> ✧</div>
   </div>`;

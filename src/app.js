@@ -4,7 +4,7 @@ import { loadCatalog } from './catalog.js';
 import { generateCharacter, GenerationError } from './generator.js';
 import { renderCharacterMarkdown } from './markdown.js';
 import { renderCharacterSheet, sheetNameFromMarkdown } from './sheet-view.js';
-import { buildDownload } from './sheet-file.js';
+import { buildDownload, buildHtmlDownload } from './sheet-file.js';
 import { GENERATOR_VERSION } from './version.js';
 
 const RANDOM = '';
@@ -21,11 +21,37 @@ const els = {
   empty: $('empty-state'), output: $('output'), preview: $('preview'),
   sourceView: $('source-preview'), source: $('markdown-source'),
   sheetTab: $('view-sheet'), sourceTab: $('view-source'),
-  copy: $('copy'), download: $('download'), openFile: $('open-file'), fileInput: $('file-input'),
+  copy: $('copy'), download: $('download'), downloadHtml: $('download-html'), theme: $('theme-toggle'),
+  openFile: $('open-file'), fileInput: $('file-input'),
 };
 
 // One catalog per content profile, loaded on first use.
-const state = { catalog: null, catalogs: {}, markdown: '', character: null, selectedView: 'sheet' };
+const state = { catalog: null, catalogs: {}, markdown: '', baseMarkdown: '', character: null,
+  selectedView: 'sheet', controller: null, htmlAssets: null };
+
+const folioRuntime = window.QuickSheetFolio;
+
+function setTheme(mode) {
+  folioRuntime.applyTheme(els.theme, mode);
+  try { localStorage.setItem('quicksheet:theme', document.documentElement.dataset.theme); } catch { /* private modes may block storage */ }
+}
+
+function initializeTheme() {
+  let choice;
+  try { choice = localStorage.getItem('quicksheet:theme'); } catch { /* storage is optional */ }
+  if (choice !== 'dark' && choice !== 'light') choice = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  setTheme(choice);
+  els.theme.addEventListener('click', () => setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'));
+}
+
+function currentSession() {
+  return state.controller?.snapshot() ?? { notes: '', resources: {}, trackingEnabled: false };
+}
+
+function updateExportMarkdown() {
+  state.markdown = folioRuntime.composeMarkdown(state.baseMarkdown, currentSession());
+  els.source.textContent = state.markdown;
+}
 
 function fillSelect(select, records, { keep = true } = {}) {
   const previous = select.value;
@@ -113,10 +139,14 @@ function switchView(view, { focus = false } = {}) {
 }
 
 function showSheet(markdown, character, message) {
+  state.controller?.destroy();
+  const session = folioRuntime.parseMarkdown(markdown);
   state.character = character;
+  state.baseMarkdown = session.baseMarkdown;
   state.markdown = markdown;
-  els.preview.innerHTML = renderCharacterSheet(markdown);
-  els.source.textContent = markdown; // never insert untrusted Markdown as HTML
+  els.preview.innerHTML = renderCharacterSheet(session.baseMarkdown);
+  state.controller = folioRuntime.mount(els.preview, { ...session, onChange: updateExportMarkdown });
+  els.source.textContent = markdown; // user-controlled Markdown is never inserted as HTML
   els.empty.hidden = true;
   els.output.hidden = false;
   switchView('sheet');
@@ -160,7 +190,7 @@ async function openMarkdownFile(file) {
     const markdown = await file.text();
     if (!markdown.trim()) throw new Error('The selected file is empty.');
     const name = sheetNameFromMarkdown(markdown);
-    // Import is view-only. It never runs generation, rule validation or editing.
+    // Import never runs generation or rules validation. Session notes/marks remain editable.
     const virtualCharacter = { flavor: { name }, seed: 'imported' };
     showSheet(markdown, virtualCharacter, `Opened ${file.name}.`);
   } catch (error) {
@@ -172,22 +202,7 @@ async function openMarkdownFile(file) {
 
 async function copyMarkdown() {
   if (!state.markdown) return;
-  let copied = false;
-  try {
-    await navigator.clipboard.writeText(state.markdown);
-    copied = true;
-  } catch {
-    // Fallback for browsers that restrict async clipboard access.
-    const area = document.createElement('textarea');
-    area.value = state.markdown;
-    area.setAttribute('readonly', '');
-    area.style.position = 'fixed';
-    area.style.opacity = '0';
-    document.body.append(area);
-    area.select();
-    copied = document.execCommand('copy');
-    area.remove();
-  }
+  const copied = await navigator.clipboard?.writeText(state.markdown).then(() => true, () => false);
   if (copied) {
     els.copy.textContent = 'Copied ✓';
     window.setTimeout(() => { els.copy.textContent = 'Copy Markdown'; }, 1800);
@@ -195,21 +210,46 @@ async function copyMarkdown() {
   announce(copied ? 'Markdown copied to clipboard.' : 'Copy failed. Use Download .md instead.');
 }
 
-function downloadMarkdown() {
-  if (!state.markdown) return;
-  const file = buildDownload(state.markdown, state.character);
-  const url = URL.createObjectURL(new Blob([file.content], { type: file.mimeType }));
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = file.filename;
-  document.body.append(link);
-  link.click();
-  link.remove();
-  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+function downloadBlob(file) {
+  folioRuntime.download(file.content, file.filename, file.mimeType);
   announce(`Downloaded ${file.filename}.`);
 }
 
+function downloadMarkdown() {
+  if (!state.markdown) return;
+  downloadBlob(buildDownload(state.markdown, state.character));
+}
+
+async function localHtmlAssets() {
+  // Fetch only this repo's local files; the exported HTML contains their full
+  // text inline and never needs a network connection after download.
+  state.htmlAssets ??= Promise.all(['../styles.css', './folio-runtime.js', './standalone-init.js'].map(async (path) => {
+    const response = await fetch(new URL(path, import.meta.url));
+    if (!response.ok) throw new Error(`Could not load a local HTML asset (${response.status}).`);
+    return response.text();
+  })).catch((error) => { state.htmlAssets = null; throw error; });
+  return state.htmlAssets;
+}
+
+async function downloadHtml() {
+  if (!state.baseMarkdown || !state.character) return;
+  els.downloadHtml.disabled = true;
+  showError('');
+  try {
+    const [stylesheet, runtime, bootstrap] = await localHtmlAssets();
+    const file = buildHtmlDownload({ baseMarkdown: state.baseMarkdown, character: state.character,
+      session: currentSession(), stylesheet, runtime, bootstrap,
+      theme: document.documentElement.dataset.theme });
+    downloadBlob(file);
+  } catch (error) {
+    showError(`Could not prepare the HTML file: ${error.message}`);
+  } finally {
+    els.downloadHtml.disabled = false;
+  }
+}
+
 async function init() {
+  initializeTheme();
   // Viewing an existing .md works even when the local game-data catalog fails.
   els.openFile.addEventListener('click', () => els.fileInput.click());
   els.fileInput.addEventListener('change', () => openMarkdownFile(els.fileInput.files[0]));
@@ -226,6 +266,7 @@ async function init() {
   }
   els.copy.addEventListener('click', copyMarkdown);
   els.download.addEventListener('click', downloadMarkdown);
+  els.downloadHtml.addEventListener('click', downloadHtml);
 
   const readJson = async (path) => {
     const response = await fetch(new URL(`../data/${path}`, import.meta.url));

@@ -64,16 +64,10 @@ export function createCatalog({ manifest, contentProfile, gameData, flavor }) {
     dataVersion: manifest.dataVersion,
     srdVersion: manifest.srdVersion,
     ...lists,
-    flavor: Object.freeze({
-      ...withoutMeta(flavor.names),
-      ...withoutMeta(flavor.details),
-      ...withoutMeta(flavor.companions),
-      ...withoutMeta(flavor.sayings),
-      ...withoutMeta(flavor.patrons ?? {}),
-      ...withoutMeta(flavor.aspects ?? {}),
-      experiences,
-      classStyles,
-    }),
+    // Flat lookup of every flavor table (names, details, aspects, ...); experiences and class styles are indexed.
+    flavor: Object.freeze(Object.assign({}, ...Object.entries(flavor)
+      .filter(([key]) => !['experiences', 'classStyles'].includes(key))
+      .map(([, bundle]) => withoutMeta(bundle)), { experiences, classStyles })),
 
     has: (id) => byId.has(id),
     get(id) {

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,6 +7,7 @@
   <meta name="description" content="QuickSheet: a free, unofficial instant Daggerheart-compatible character generator. Beautiful character sheets, faithful Markdown exports, no account required.">
   <title>QuickSheet — The Adventurer's Folio</title>
   <link rel="stylesheet" href="styles.css">
+  <script defer src="src/folio-runtime.js"></script>
   <script type="module" src="src/app.js"></script>
 </head>
 <body>
@@ -21,6 +22,9 @@
         <span class="edition-tag"><span class="edition-dot" aria-hidden="true"></span> CORE RULES · SRD 2.0</span>
         <span class="topbar-divider" aria-hidden="true"></span>
         <span class="privacy-tag">NO ACCOUNT. NO DATA SENT.</span>
+      </div>
+      <div class="topbar-controls">
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Switch to dark mode"><span data-theme-symbol aria-hidden="true">☾</span><span data-theme-label>Dark mode</span></button>
       </div>
     </header>
 
@@ -79,7 +83,7 @@
         <div class="workbench-bottom">
           <div class="mini-sigil" aria-hidden="true">✧</div>
           <p><strong>Ready in one click.</strong> Complete characters, rules-checked from the core SRD, levels 1–10.</p>
-          <span class="bench-note">A CHARACTER GENERATOR, NOT A LIVE TRACKER.</span>
+          <span class="bench-note">OPTIONAL VISUAL MARKS. NO RULES AUTOMATION.</span>
         </div>
       </aside>
 
@@ -88,7 +92,7 @@
           <div>
             <span class="small-caps eyebrow-line">02 — THE CHRONICLE</span>
             <h2 id="output-heading">Character <em>folio.</em></h2>
-            <p>A modern sheet for the adventure ahead. Yours to keep as Markdown.</p>
+            <p>A living folio for the adventure ahead. Save it as Markdown or a standalone HTML sheet.</p>
           </div>
           <div class="stage-menu">
             <button type="button" id="open-file" class="quiet-button"><span aria-hidden="true">↥</span> Open .md</button>
@@ -112,7 +116,8 @@
             </div>
             <div class="actions">
               <button id="copy" type="button" class="quiet-button">Copy Markdown</button>
-              <button id="download" type="button" class="download-button"><span aria-hidden="true">↓</span> Download .md</button>
+              <button id="download" type="button" class="quiet-button"><span aria-hidden="true">↓</span> Download .md</button>
+              <button id="download-html" type="button" class="download-button"><span aria-hidden="true">↓</span> Save HTML folio</button>
             </div>
           </div>
           <article id="preview" class="sheet" role="tabpanel" aria-labelledby="view-sheet" tabindex="0"></article>
