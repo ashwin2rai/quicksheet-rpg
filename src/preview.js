@@ -66,7 +66,11 @@ export function markdownToHtml(markdown) {
     }
 
     const paragraph = [];
-    while (i < lines.length && lines[i].trim() && !/^(#{1,6}\s|- |\||-{3,}\s*$)/.test(lines[i])) paragraph.push(lines[i++]);
+    // A pipe outside a valid table is ordinary text, not a reason to stall.
+    while (i < lines.length && lines[i].trim() && !/^(#{1,6}\s|- |-{3,}\s*$)/.test(lines[i])) {
+      if (paragraph.length && lines[i].startsWith('|') && /^\|\s*:?-{3,}/.test(lines[i + 1] ?? '')) break;
+      paragraph.push(lines[i++]);
+    }
     html.push(`<p>${paragraph.map((l, idx) => inline(l.replace(/ {2,}$/, '')) + (idx < paragraph.length - 1 ? (/ {2,}$/.test(l) ? '<br>' : ' ') : '')).join('')}</p>`);
   }
   return html.join('\n');

@@ -3,75 +3,124 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="QuickSheet: a free, unofficial instant character generator for Daggerheart™ Compatible play. Generates readable Markdown character sheets.">
-  <title>QuickSheet - Instant characters for Daggerheart™ Compatible play</title>
+  <meta name="theme-color" content="#17201f">
+  <meta name="description" content="QuickSheet: a free, unofficial instant Daggerheart-compatible character generator. Beautiful character sheets, faithful Markdown exports, no account required.">
+  <title>QuickSheet — The Adventurer's Folio</title>
   <link rel="stylesheet" href="styles.css">
   <script type="module" src="src/app.js"></script>
 </head>
 <body>
-  <header class="site-header">
-    <h1>QuickSheet</h1>
-    <p class="tagline">Instant characters. Simple sheets. Ready for adventure.</p>
-    <p class="notice">A free, unofficial, non-commercial fan generator for Daggerheart™ Compatible play. Not affiliated with or endorsed by Darrington Press or Critical Role.</p>
-  </header>
-
-  <main>
-    <noscript>
-      <p class="error">QuickSheet generates characters in your browser and needs JavaScript to be enabled. Nothing is sent anywhere.</p>
-    </noscript>
-
-    <section class="controls" aria-labelledby="controls-heading">
-      <h2 id="controls-heading" class="visually-hidden">Character options</h2>
-      <p class="scope">Generates complete characters at any level from 1 to 10 from the core SRD: all 9 classes, 18 subclasses, 18 ancestries and 9 communities. The Hope &amp; Fear expansion arrives in a later release.</p>
-      <form id="generator-form" novalidate>
-        <div class="fields">
-          <label for="level">Level
-            <select id="level" name="level">
-              <option value="1" selected>1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
-              <option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>
-            </select>
-          </label>
-          <label for="ancestry">Ancestry
-            <select id="ancestry" name="ancestry"><option value="">Random</option></select>
-          </label>
-          <label for="community">Community
-            <select id="community" name="community"><option value="">Random</option></select>
-          </label>
-          <label for="class">Class
-            <select id="class" name="class"><option value="">Random</option></select>
-          </label>
-          <label for="subclass">Subclass
-            <select id="subclass" name="subclass" disabled><option value="">Random</option></select>
-          </label>
-        </div>
-        <div class="mixed-row">
-          <label class="checkbox" for="mixed"><input type="checkbox" id="mixed" name="mixed"> Mixed Ancestry <span class="hint">(top feature from Ancestry, bottom feature from Second Ancestry)</span></label>
-          <label for="second-ancestry" id="second-ancestry-label" hidden>Second Ancestry
-            <select id="second-ancestry" name="second-ancestry"><option value="">Random</option></select>
-          </label>
-        </div>
-        <button id="generate" type="submit" class="primary" disabled>Generate Character</button>
-      </form>
-      <p id="error" class="error" role="alert" hidden></p>
-      <p id="status" class="visually-hidden" role="status" aria-live="polite"></p>
-    </section>
-
-    <section id="output" class="output" aria-labelledby="output-heading" hidden>
-      <div class="output-bar">
-        <h2 id="output-heading">Character Sheet</h2>
-        <div class="actions">
-          <button id="copy" type="button">Copy Markdown</button>
-          <button id="download" type="button">Download .md</button>
-        </div>
+  <div class="ambient-glow" aria-hidden="true"></div>
+  <div class="app-frame">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="QuickSheet home">
+        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        <span class="brand-wordmark">quick<span>sheet</span><small>THE ADVENTURER'S FOLIO</small></span>
+      </a>
+      <div class="topbar-aside">
+        <span class="edition-tag"><span class="edition-dot" aria-hidden="true"></span> CORE RULES · SRD 2.0</span>
+        <span class="topbar-divider" aria-hidden="true"></span>
+        <span class="privacy-tag">NO ACCOUNT. NO DATA SENT.</span>
       </div>
-      <article id="preview" class="sheet" tabindex="-1"></article>
-    </section>
-  </main>
+    </header>
 
-  <footer class="site-footer">
-    <p>This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the <a href="https://darringtonpress.com/license/">Darrington Press Community Gaming License</a>. See the <a href="https://www.daggerheart.com/srd/">official SRD</a>.</p>
-    <p>Game text was referenced from <a href="https://github.com/callmepartario/og-dhsrd">Old Gus' edited SRD</a> and further selected and reformatted by QuickSheet. Daggerheart was designed by Spenser Starke and Rowan Hall and published by Darrington Press. QuickSheet is not sponsored, affiliated, endorsed or approved by Darrington Press or Critical Role. <a href="https://www.daggerheart.com/">daggerheart.com</a></p>
-    <p id="version"></p>
-  </footer>
+    <main class="workspace">
+      <aside class="workbench" aria-labelledby="controls-heading">
+        <div class="workbench-intro">
+          <span class="small-caps eyebrow-line">01 — THE MAKING</span>
+          <h1 id="controls-heading">A new story <em>awaits.</em></h1>
+          <p>Forge a ready-to-play adventurer in a moment. Leave the choices to fate, or make a few of your own.</p>
+        </div>
+        <noscript><p class="error">QuickSheet runs privately in your browser and requires JavaScript. Enable it to generate characters.</p></noscript>
+        <section class="controls" aria-label="Character generation settings">
+          <form id="generator-form" novalidate>
+            <div class="field-section-heading"><span>THE ESSENTIALS</span><span>01 / 02</span></div>
+            <div class="fields">
+              <label for="level">Level
+                <select id="level" name="level">
+                  <option value="1" selected>Level 1</option><option value="2">Level 2</option><option value="3">Level 3</option><option value="4">Level 4</option><option value="5">Level 5</option>
+                  <option value="6">Level 6</option><option value="7">Level 7</option><option value="8">Level 8</option><option value="9">Level 9</option><option value="10">Level 10</option>
+                </select>
+              </label>
+              <label for="class">Class
+                <select id="class" name="class"><option value="">Random</option></select>
+              </label>
+              <label for="subclass">Subclass
+                <select id="subclass" name="subclass" disabled><option value="">Random</option></select>
+              </label>
+              <label for="ancestry">Ancestry
+                <select id="ancestry" name="ancestry"><option value="">Random</option></select>
+              </label>
+              <label for="community">Community
+                <select id="community" name="community"><option value="">Random</option></select>
+              </label>
+            </div>
+            <div class="field-section-heading secondary-heading"><span>OPTIONAL DETAIL</span><span>02 / 02</span></div>
+            <div class="mixed-row">
+              <label class="checkbox" for="mixed"><input type="checkbox" id="mixed" name="mixed"><span class="checkbox-copy"><strong>Mixed ancestry</strong><small>First ancestry top feature + second ancestry bottom feature</small></span></label>
+              <label for="second-ancestry" id="second-ancestry-label" hidden>Second ancestry
+                <select id="second-ancestry" name="second-ancestry"><option value="">Random</option></select>
+              </label>
+            </div>
+            <button id="generate" type="submit" class="primary-button" disabled><span class="primary-icon" aria-hidden="true">✦</span><span id="generate-label">Generate character</span><span class="primary-arrow" aria-hidden="true">↗</span></button>
+          </form>
+          <p id="error" class="error" role="alert" hidden></p>
+          <p id="status" class="visually-hidden" role="status" aria-live="polite"></p>
+        </section>
+        <div class="workbench-bottom">
+          <div class="mini-sigil" aria-hidden="true">✧</div>
+          <p><strong>Ready in one click.</strong> Complete characters, rules-checked from the core SRD, levels 1–10.</p>
+          <span class="bench-note">A CHARACTER GENERATOR, NOT A LIVE TRACKER.</span>
+        </div>
+      </aside>
+
+      <section class="stage" aria-labelledby="output-heading">
+        <div class="stage-heading">
+          <div>
+            <span class="small-caps eyebrow-line">02 — THE CHRONICLE</span>
+            <h2 id="output-heading">Character <em>folio.</em></h2>
+            <p>A modern sheet for the adventure ahead. Yours to keep as Markdown.</p>
+          </div>
+          <div class="stage-menu">
+            <button type="button" id="open-file" class="quiet-button"><span aria-hidden="true">↥</span> Open .md</button>
+            <input type="file" id="file-input" class="visually-hidden" accept=".md,text/markdown,text/plain" aria-label="Open a Markdown character sheet">
+          </div>
+        </div>
+
+        <div id="empty-state" class="empty-state">
+          <div class="empty-geometry" aria-hidden="true"><div class="empty-orbit empty-orbit-one"></div><div class="empty-orbit empty-orbit-two"></div><div class="empty-symbol">✦</div></div>
+          <span class="small-caps">AN UNWRITTEN TALE</span>
+          <h3>A legend begins<br>with a single page.</h3>
+          <p>Set your preferences, then generate a character. Their entire story will unfold here in a beautifully arranged character sheet.</p>
+          <div class="empty-bottom"><span class="empty-dash"></span><span>FORM &amp; FATE, PERFECTLY ALIGNED</span><span class="empty-dash"></span></div>
+        </div>
+
+        <div id="output" class="output" hidden>
+          <div class="output-toolbar">
+            <div class="view-tabs" role="tablist" aria-label="Character sheet display">
+              <button id="view-sheet" type="button" role="tab" aria-selected="true" aria-controls="preview" class="view-tab is-active">Folio view</button>
+              <button id="view-source" type="button" role="tab" aria-selected="false" aria-controls="source-preview" class="view-tab">Markdown</button>
+            </div>
+            <div class="actions">
+              <button id="copy" type="button" class="quiet-button">Copy Markdown</button>
+              <button id="download" type="button" class="download-button"><span aria-hidden="true">↓</span> Download .md</button>
+            </div>
+          </div>
+          <article id="preview" class="sheet" role="tabpanel" aria-labelledby="view-sheet" tabindex="0"></article>
+          <div id="source-preview" class="source-view" role="tabpanel" aria-labelledby="view-source" tabindex="0" hidden>
+            <div class="source-view-header"><span>THE ORIGINAL DOCUMENT</span><span>UTF-8 · MARKDOWN</span></div>
+            <pre id="markdown-source"></pre>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-top"><span class="footer-wordmark">quicksheet <span>✧</span></span><span>INDEPENDENT. UNOFFICIAL. MADE FOR THE TABLE.</span></div>
+      <p>QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.</p>
+      <p>This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material, used under the <a href="https://darringtonpress.com/license/">Darrington Press Community Gaming License</a>. See the <a href="https://www.daggerheart.com/srd/">official SRD</a>. Game text was referenced from <a href="https://github.com/callmepartario/og-dhsrd">Old Gus' edited SRD</a> and further selected and reformatted by QuickSheet. Daggerheart was designed by Spenser Starke and Rowan Hall and published by Darrington Press.</p>
+      <p class="version" id="version"></p>
+    </footer>
+  </div>
 </body>
 </html>
