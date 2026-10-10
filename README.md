@@ -4,6 +4,8 @@ A free, unofficial instant character generator for Daggerheart™ Compatible pla
 
 [Check it out here](https://ashwin2rai.github.io/quicksheet-rpg/) 
 
+If QuickSheet is useful to you, you can [buy me a coffee](https://buymeacoffee.com/ashwin2rai) ☕
+
 ## Attribution
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used under the [Darrington Press Community Gaming License](https://darringtonpress.com/license/). Official SRD: https://www.daggerheart.com/srd/

@@ -479,6 +479,7 @@ body { font-size: 16px; line-height: 1.65; }
 .theme-toggle:hover { background:#f8e5c9; }
 .theme-toggle [data-theme-symbol] { font-size:20px; line-height:1; }
 .topbar-controls { display:flex; align-items:center; gap:10px; }
+.support-link { text-decoration:none; }
 /* The light theme includes the generator shell, not only the paper sheet. */
 html[data-theme="light"] body { color:#283a31; background:#e9e5db; }
 html[data-theme="light"] .ambient-glow { background:radial-gradient(ellipse 72% 60% at 55% -5%, #f7f2e7, transparent 85%); }
