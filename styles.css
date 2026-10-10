@@ -545,6 +545,9 @@ html[data-theme="dark"] .die-control > button:hover:not(:disabled) { background:
 html[data-theme="dark"] .experience-entry { border-color:#536357; }
 html[data-theme="dark"] .experience-entry strong, html[data-theme="dark"] .prose, html[data-theme="dark"] .story-prose, html[data-theme="dark"] .folio-fallback { color:#eae4d9; }
 html[data-theme="dark"] .experience-entry small { color:#bcb4a6; }
+html[data-theme="dark"] .prose strong { color:#fff3e0; }
+html[data-theme="dark"] .prose em, html[data-theme="dark"] .prose code { color:#ddd2c0; }
+html[data-theme="dark"] .feature-group .prose p > strong:first-child { color:#b4dcc0; }
 html[data-theme="dark"] .experience-mod { color:#eaf6e7; background:#415a48; border-color:#6c886f; }
 html[data-theme="dark"] .equipment-section { border-color:#536357; }
 html[data-theme="dark"] .gear-note, html[data-theme="dark"] .weapon-card, html[data-theme="dark"] .feature-card, html[data-theme="dark"] .domain-card, html[data-theme="dark"] .feature-reference { background:linear-gradient(145deg,#334036,#2b3730); border-color:#697767; color:#f1e7d8; }
