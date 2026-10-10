@@ -98,7 +98,7 @@ When you choose not to equip armor, you have a base Armor Score of 3 + your Stre
 
 ## Character Hook
 
-**High Concept:** Wandering Paladin of the Quiet Hand  
+**High Concept:** Gentle Holy Warrior  
 **Trouble:** Magic Leaks Out When I'm Upset  
 **Appearance:** Dresses in glowing clothes, has the air of an evangelist, and is recognizable by a ring worn on a chain because it no longer fits.  
 **Personality:** Meticulous about gear and careless about personal safety.  

@@ -116,7 +116,7 @@ Additionally, before you make a **Spellcast Roll** while within a natural enviro
 
 ## Character Hook
 
-**High Concept:** Hedge Druid, Black Sheep of the Tumbledown Family  
+**High Concept:** Wild Shapeshifter Seeking Redemption  
 **Trouble:** Falls in Love Every Other Week  
 **Appearance:** Dresses in loose clothes, has the air of a hippie, and is recognizable by an armband of black cloth worn for someone unnamed.  
 **Personality:** An incorrigible flirt with excellent manners.  

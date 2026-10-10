@@ -202,13 +202,11 @@ export function checkData({ manifest, gameDataByProfile, flavor }) {
   const distinct = (list, min, what) => { if ((list?.length ?? 0) < min || new Set(list).size !== list.length) err(`flavor aspects: need at least ${min} distinct ${what}`); };
   for (const c of Object.values(gameDataByProfile).flatMap((g) => g.classes?.records ?? [])) distinct(a.highConceptRoles?.[c.id], 6, `high concept roles for ${c.id}`);
   distinct(a.highConceptDescriptors, 20, 'descriptors');
-  distinct(a.highConceptSidelines, 15, 'sidelines');
-  distinct(a.highConceptCircles, 15, 'circles');
-  distinct(a.highConceptFamilyTies, 5, 'family ties');
+  distinct(a.highConceptPurposes, 10, 'purposes');
   distinct(a.troubles?.personal, 20, 'personal troubles');
   distinct(a.troubles?.relationships, 20, 'relationship troubles');
   for (const t of a.highConceptTemplates ?? []) {
-    if (!(t.weight > 0) || !t.template.includes('{role}') || (t.template.match(/\{(\w+)\}/g) ?? []).some((x) => !['{role}', '{descriptor}', '{sideline}', '{circle}', '{familyTie}'].includes(x))) err(`flavor aspects: bad template ${t.template}`);
+    if (!(t.weight > 0) || !t.template.includes('{role}') || (t.template.match(/\{(\w+)\}/g) ?? []).some((x) => !['{role}', '{descriptor}', '{purpose}'].includes(x))) err(`flavor aspects: bad template ${t.template}`);
   }
   if (!a.highConceptTemplates?.length) err('flavor aspects: no high concept templates');
   const patrons = flavor.patrons?.patronNames ?? [];

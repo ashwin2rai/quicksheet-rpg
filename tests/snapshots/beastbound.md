@@ -115,7 +115,7 @@ If you end this movement within Melee range of an adversary and immediately make
 
 ## Character Hook
 
-**High Concept:** Hard-Luck Trail-Finder  
+**High Concept:** Dreamy Wilderness Guide  
 **Trouble:** The Bottle Is Always Calling  
 **Appearance:** Dresses in stained clothes, has the air of a teacher, and is recognizable by a perpetually sunburned nose.  
 **Personality:** Prone to grand speeches at inconvenient moments.  

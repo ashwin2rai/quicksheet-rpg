@@ -96,7 +96,7 @@
 
 ## Character Hook
 
-**High Concept:** Penniless Keeper of Old Songs  
+**High Concept:** Famous Street Performer  
 **Trouble:** Betrothed to Someone I've Never Met  
 **Appearance:** Dresses in extravagant clothes, has the air of a magician, and is recognizable by a faint smell of woodsmoke that never quite washes out.  
 **Personality:** Unshakably calm until someone mentions a certain name.  

@@ -108,7 +108,7 @@ Gain a bonus to your Evasion equal to half your Agility.
 
 ## Character Hook
 
-**High Concept:** Battle-Weary Duelist  
+**High Concept:** Overconfident Duelist  
 **Trouble:** Hunted by the Order I Betrayed  
 **Appearance:** Dresses in reinforced clothes, has the air of a hired hand, and is recognizable by boots resoled countless times.  
 **Personality:** Superstitious about everything except real danger.  

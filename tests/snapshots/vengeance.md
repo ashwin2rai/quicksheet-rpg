@@ -97,7 +97,7 @@ When an ally within Very Close range would take damage, you can **mark a Stress*
 
 ## Character Hook
 
-**High Concept:** Siege Veteran of the Black Lantern Players  
+**High Concept:** Dreamy Gatekeeper  
 **Trouble:** Someone Is Writing Unflattering Songs About Me  
 **Appearance:** Dresses in intricate clothes, has the air of a general, and is recognizable by a bundle of letters tied with string, never opened.  
 **Personality:** Restless whenever things go quiet.  

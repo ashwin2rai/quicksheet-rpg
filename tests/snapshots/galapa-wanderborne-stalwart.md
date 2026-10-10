@@ -110,7 +110,7 @@ When you choose not to equip armor, you have a base Armor Score of 3 + your Stre
 
 ## Character Hook
 
-**High Concept:** Runaway Shield of the Weak  
+**High Concept:** Runaway Bodyguard  
 **Trouble:** Left a Partner Behind in a Burning City  
 **Appearance:** Dresses in casual clothes, has the air of an elephant, and is recognizable by a sprig of dried herbs tucked behind one ear.  
 **Personality:** A rule-follower slowly learning to bend.  

@@ -222,7 +222,7 @@ You use the full force of your body in a fight. On a successful attack using a w
 
 ## Character Hook
 
-**High Concept:** Last Line of Defense, The Emberly Who Got Away  
+**High Concept:** Watch Captain Out to See the World  
 **Trouble:** An Apprentice I Never Asked For  
 **Appearance:** Dresses in padded clothes, has the air of a captain, and is recognizable by a smile that reaches the eyes a moment late.  
 **Personality:** Dry-humored and quietly observant.  

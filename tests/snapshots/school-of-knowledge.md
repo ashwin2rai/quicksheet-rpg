@@ -104,7 +104,7 @@ Make a **Spellcast Roll** against a target within Far range. On a success, **spe
 
 ## Character Hook
 
-**High Concept:** Scholar of Forbidden Lore and Lapsed Priest  
+**High Concept:** Scholar Out to See the World  
 **Trouble:** Wanted Poster in Three Cities  
 **Appearance:** Dresses in layered clothes, has the air of an eccentric, and is recognizable by a limp that worsens before rain.  
 **Personality:** A born host who feeds everyone within reach.  

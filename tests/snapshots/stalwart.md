@@ -101,7 +101,7 @@ When you roll your damage dice, you can reroll any 1s or 2s.
 
 ## Character Hook
 
-**High Concept:** Unlicensed Siege Veteran  
+**High Concept:** Self-Taught Gatekeeper  
 **Trouble:** Must Be the Center of Attention  
 **Appearance:** Dresses in tactical clothes, has the air of a wrestler, and is recognizable by a smile that reaches the eyes a moment late.  
 **Personality:** A terrible liar who keeps trying anyway.  

@@ -103,7 +103,7 @@ Gain a bonus to your Evasion equal to half your Agility.
 
 ## Character Hook
 
-**High Concept:** Mountain Guide of the Ember Court  
+**High Concept:** Famous Woodland Archer  
 **Trouble:** Wanted Poster in Three Cities  
 **Appearance:** Dresses in tactical clothes, has the air of a child, and is recognizable by a tattered ribbon from a long-ago festival.  
 **Personality:** Courteous, careful and always three steps ahead.  

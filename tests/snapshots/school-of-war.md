@@ -96,7 +96,7 @@ Once per rest, after an ally attempts an action roll but before the consequences
 
 ## Character Hook
 
-**High Concept:** Theoretical Magician of the Moonwell Coven  
+**High Concept:** Lucky Inventor  
 **Trouble:** Promised My Firstborn to a Fey Bargainer  
 **Appearance:** Dresses in common clothes, has the air of a lit fuse, and is recognizable by a patch over one eye that is sometimes switched to the other.  
 **Personality:** Contemplative, with long silences that mean something.  

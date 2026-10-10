@@ -178,7 +178,7 @@ When an ally within Very Close range would take damage, you can **mark a Stress*
 
 ## Character Hook
 
-**High Concept:** Bare-Knuckle Champion, Youngest of Nine Starling Siblings  
+**High Concept:** Boxer Chasing Fame  
 **Trouble:** Left a Partner Behind in a Burning City  
 **Appearance:** Dresses in pristine clothes, has the air of a veteran, and is recognizable by a patched cloak in three different colors.  
 **Personality:** Old-souled and hopeless with money.  

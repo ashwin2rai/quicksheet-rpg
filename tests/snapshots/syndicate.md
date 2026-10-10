@@ -104,7 +104,7 @@ Place a number of tokens equal to your Spellcast trait on this card. When you ta
 
 ## Character Hook
 
-**High Concept:** Notorious Card-Table Cheat  
+**High Concept:** Hopeful Fence  
 **Trouble:** My Mentor Disapproves of Everything I Do  
 **Appearance:** Dresses in leather clothes, has the air of a bandit, and is recognizable by a sprig of dried herbs tucked behind one ear.  
 **Personality:** Courteous, careful and always three steps ahead.  

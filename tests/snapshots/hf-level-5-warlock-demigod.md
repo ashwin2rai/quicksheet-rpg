@@ -172,7 +172,7 @@ Make a **Spellcast Roll** against a target within Close range. On a success, the
 
 ## Character Hook
 
-**High Concept:** Retired Fiend-Touched Mystic  
+**High Concept:** Aging Demon Dealer  
 **Trouble:** Sleepwalks Into Danger  
 **Appearance:** Dresses in lavish clothes, has the air of a soothsayer, and is recognizable by a limp that worsens before rain.  
 **Personality:** A rule-breaker slowly learning why the rules exist.  

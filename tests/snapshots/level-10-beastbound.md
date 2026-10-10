@@ -222,7 +222,7 @@ When you mark an Armor Slot to reduce incoming damage, you can **mark a Stress**
 
 ## Character Hook
 
-**High Concept:** Pathfinder, Pride of the Sandeford Clan  
+**High Concept:** Mountain Ranger Paying Off a Debt  
 **Trouble:** Someone Is Writing Unflattering Songs About Me  
 **Appearance:** Dresses in flowing clothes, has the air of a watchdog, and is recognizable by a patch over one eye that is sometimes switched to the other.  
 **Personality:** Relentlessly curious.  

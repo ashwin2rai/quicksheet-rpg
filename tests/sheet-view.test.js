@@ -22,7 +22,7 @@ test('the visual folio presents the exact Markdown identity, traits, vitals and 
   assert.match(html, /Deft Deceiver/);
   assert.match(html, /Shadow Stepper/);
   assert.match(html, /What did you get caught doing/);
-  assert.match(html, /High Concept:<\/strong> Shadow Courier of the Last Light Hospice/);
+  assert.match(html, /High Concept:<\/strong> Exiled Charming Scoundrel/);
   assert.match(html, /Trouble:<\/strong> Owes the Wrong People Money/);
   assert.match(html, /Source notes & attribution/);
 });

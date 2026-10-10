@@ -103,7 +103,7 @@ Make a **Spellcast Roll** against a target within Close range. On a success, the
 
 ## Character Hook
 
-**High Concept:** Exiled Debt-Bound Spellcaster  
+**High Concept:** Clumsy Cursed Spellcaster  
 **Trouble:** Sworn Enemy of a Minor Noble  
 **Appearance:** Dresses in mended clothes, has the air of a soothsayer, and is recognizable by an elaborate braid with a single bead for every year on the road.  
 **Personality:** Sarcastic armor over an earnest heart.  

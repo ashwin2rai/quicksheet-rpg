@@ -99,7 +99,7 @@
 
 ## Character Hook
 
-**High Concept:** Traveling Playwright, Embarrassment of the Wildemere Dynasty  
+**High Concept:** Wandering Singer Trying to Start Over  
 **Trouble:** Too Proud to Ask for Help  
 **Appearance:** Dresses in oversized clothes, has the air of a barkeep, and is recognizable by a habit of humming quietly.  
 **Personality:** Meticulous about gear and careless about personal safety.  

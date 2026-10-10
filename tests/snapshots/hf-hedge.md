@@ -112,8 +112,8 @@ At the end of the scene, clear all unspent tokens.
 
 ## Character Hook
 
-**High Concept:** Ex-Royal Hexmonger of the Ashen Veil  
-**Trouble:** My Twin Is Everything I'm Not  
+**High Concept:** Swamp Witch Hiding From the Past  
+**Trouble:** Old Wounds Ache at the Worst Moments  
 **Appearance:** Dresses in stately clothes, has the air of a candle flame, and is recognizable by spectacles mended with copper wire.  
 **Personality:** Competitive about everything, even chores.  
 **Backstory:** Before their mentor's last words made no sense until much later, Lucan Yarnwhistle lived an ordinary life in a monastery carved into a cliff face. Now Lucan has one goal: to see every corner of the map at least once.
@@ -123,7 +123,7 @@ At the end of the scene, clear all unspent tokens.
 **Connection prompts** (ask another player):
 
 - I once appeared to you in a dream and shared a vision of the future. What did I tell you?
-- What do you typically come to me for advice about?
+- What unique ritual or practice have I taught you that we now perform together?
 
 ---
 

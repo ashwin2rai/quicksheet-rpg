@@ -105,7 +105,7 @@ On a failure, you must spend a Hope or mark a Stress.
 
 ## Character Hook
 
-**High Concept:** Reformed Bargain-Maker  
+**High Concept:** Brave Bargainer  
 **Trouble:** A Sibling Who Keeps Getting Into Trouble  
 **Appearance:** Dresses in sacred clothes, has the air of a hot mess, and is recognizable by a hand-drawn map tattooed along one forearm.  
 **Personality:** Nosy, chatty and impossible to dislike.  

@@ -97,7 +97,7 @@
 
 ## Character Hook
 
-**High Concept:** Traveling Playwright of the Brass Compass Society  
+**High Concept:** Hot-Headed Wandering Singer  
 **Trouble:** Collects Trouble Like Souvenirs  
 **Appearance:** Dresses in wild clothes, has the air of a rock star, and is recognizable by a dozen knotted strings around one ankle.  
 **Personality:** A rule-follower slowly learning to bend.  

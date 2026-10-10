@@ -143,7 +143,7 @@ When you taunt or provoke a target within Far range, make a Presence Roll agains
 
 ## Character Hook
 
-**High Concept:** Gentleman Thief, Disowned Heir of House Farthing  
+**High Concept:** Pickpocket Looking for a Lost Friend  
 **Trouble:** A Creature I Spared Keeps Finding Me  
 **Appearance:** Dresses in tight clothes, has the air of a gambler, and is recognizable by a ring worn on a chain because it no longer fits.  
 **Personality:** Contemplative, with long silences that mean something.  

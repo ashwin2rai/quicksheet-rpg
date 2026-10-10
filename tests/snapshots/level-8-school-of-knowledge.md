@@ -229,7 +229,7 @@ Additionally, you're emboldened in moments of duress. When all of your Stress sl
 
 ## Character Hook
 
-**High Concept:** Haunted Battle Wizard  
+**High Concept:** Lazy Apprentice Mage  
 **Trouble:** Too Honest for My Own Good  
 **Appearance:** Dresses in tight clothes, has the air of a lit fuse, and is recognizable by spectacles mended with copper wire.  
 **Personality:** Theatrical even when ordering breakfast.  

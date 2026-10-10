@@ -102,7 +102,7 @@ If you end this movement within Melee range of an adversary and immediately make
 
 ## Character Hook
 
-**High Concept:** Monastery Martial Artist of the Black Lantern Players  
+**High Concept:** Dreamy Monk  
 **Trouble:** The Duke's Daughter Fancies Me  
 **Appearance:** Dresses in haphazard clothes, has the air of a golden retriever, and is recognizable by a voice that carries farther than expected.  
 **Personality:** Grimly practical, with a hidden soft spot for strays.  

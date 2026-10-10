@@ -93,7 +93,7 @@ Gain a bonus to your Evasion equal to half your Agility.
 
 ## Character Hook
 
-**High Concept:** Itinerant Mountain Guide  
+**High Concept:** Stubborn Woodland Archer  
 **Trouble:** Terrified of Deep Water  
 **Appearance:** Dresses in stained clothes, has the air of a survivalist, and is recognizable by rings on nearly every finger.  
 **Personality:** A worrier who plans for every disaster but the real one.  

@@ -103,7 +103,7 @@ When you make a successful attack against a target within Very Close range, you 
 
 ## Character Hook
 
-**High Concept:** Grim Former Gladiator  
+**High Concept:** Hot-Headed Gladiator  
 **Trouble:** A Creature I Spared Keeps Finding Me  
 **Appearance:** Dresses in weathered clothes, has the air of a hero, and is recognizable by a faint smell of woodsmoke that never quite washes out.  
 **Personality:** A storyteller who exaggerates everything except the dangerous parts.  

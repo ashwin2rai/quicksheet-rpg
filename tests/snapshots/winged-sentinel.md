@@ -98,7 +98,7 @@ When an ally within Very Close range would take damage, you can **mark a Stress*
 
 ## Character Hook
 
-**High Concept:** Crusader of Lost Causes, Last Hope of the Vellacott Line  
+**High Concept:** Faithful Healer Out for Revenge  
 **Trouble:** Can't Resist a Wager  
 **Appearance:** Dresses in natural clothes, has the air of a monk, and is recognizable by a limp that worsens before rain.  
 **Personality:** Always the first to volunteer and the last to complain.  

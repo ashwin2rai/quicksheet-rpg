@@ -189,7 +189,7 @@ Once per long rest, when you compliment someone or ask them about something they
 
 ## Character Hook
 
-**High Concept:** Quiet Knife and Beekeeper  
+**High Concept:** Guild Assassin Sworn to Protect  
 **Trouble:** The Bottle Is Always Calling  
 **Appearance:** Dresses in sinister clothes, has the air of a hunter, and is recognizable by a habit of naming every horse, cart and campfire.  
 **Personality:** An incurable optimist.  

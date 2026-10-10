@@ -105,7 +105,7 @@ When you make a successful attack against a target within Very Close range, you 
 
 ## Character Hook
 
-**High Concept:** Executioner in Exile, The Only Honest Foxglove  
+**High Concept:** Shadow Agent Looking for a Home  
 **Trouble:** Sticky Fingers  
 **Appearance:** Dresses in sinister clothes, has the air of a butcher, and is recognizable by an elaborate braid with a single bead for every year on the road.  
 **Personality:** Dry-humored and quietly observant.  

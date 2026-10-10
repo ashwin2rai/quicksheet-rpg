@@ -123,7 +123,7 @@ Additionally, before you make a **Spellcast Roll** while within a natural enviro
 
 ## Character Hook
 
-**High Concept:** Hedge Druid, The Only Honest Clearbrook  
+**High Concept:** Wild Shapeshifter Looking for a Home  
 **Trouble:** Trusts Too Easily  
 **Appearance:** Dresses in grown clothes, has the air of a witch, and is recognizable by a walking stick carved with tiny faces.  
 **Personality:** Cheerful in a crisis and anxious in peacetime.  

@@ -191,7 +191,7 @@ When you make a successful attack against a target within Very Close range, you 
 
 ## Character Hook
 
-**High Concept:** Sellsword, Youngest of Nine Underhill Siblings  
+**High Concept:** Mercenary Hiding From the Past  
 **Trouble:** Holds Grudges Forever  
 **Appearance:** Dresses in sleek clothes, has the air of a hero, and is recognizable by an unusually precise way of standing.  
 **Personality:** Polite to a fault, even to would-be assassins.  

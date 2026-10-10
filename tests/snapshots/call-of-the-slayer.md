@@ -100,7 +100,7 @@ When you take Severe damage, you can **mark a Stress** to reduce the severity by
 
 ## Character Hook
 
-**High Concept:** Axe-for-Hire and Amateur Astronomer  
+**High Concept:** Swordmaster Searching for the Truth  
 **Trouble:** My Rescuer Expects Repayment  
 **Appearance:** Dresses in sparing clothes, has the air of a gladiator, and is recognizable by a patch over one eye that is sometimes switched to the other.  
 **Personality:** Superstitious about everything except real danger.  

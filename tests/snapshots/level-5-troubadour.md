@@ -160,7 +160,7 @@ Make a **Spellcast Roll** against a target within Very Close range. On a success
 
 ## Character Hook
 
-**High Concept:** Grim Wandering Minstrel  
+**High Concept:** Hot-Headed Court Poet  
 **Trouble:** My Patron Has Opinions  
 **Appearance:** Dresses in fancy clothes, has the air of a magician, and is recognizable by a hat pinned with dozens of travel tokens.  
 **Personality:** Quick to anger, quicker to apologize.  

@@ -95,8 +95,8 @@ When an ally within Very Close range would take damage, you can **mark a Stress*
 
 ## Character Hook
 
-**High Concept:** Unlikely Dockside Bruiser of the Wayfarers' Lodge  
-**Trouble:** A Debt to the Temple I Can Never Repay  
+**High Concept:** Street Fighter On the Run  
+**Trouble:** Hunger for Forbidden Knowledge  
 **Appearance:** Dresses in practical clothes, has the air of a golden retriever, and is recognizable by ink-stained fingertips.  
 **Personality:** Warm but impossible to rush.  
 **Backstory:** Abelard Rivensong grew up in an island where the ferry comes once a month. Everything changed when the stars went dark for one whole night. Now Abelard wants to discover what lies beyond a door in their dreams.
@@ -105,8 +105,8 @@ When an ally within Very Close range would take damage, you can **mark a Stress*
 
 **Connection prompts** (ask another player):
 
-- I still haven't forgiven you for something you said to me. What was it, and why did you say it?
 - What do I rely on you for during our travels? How do you feel about it?
+- I still haven't forgiven you for something you said to me. What was it, and why did you say it?
 
 ---
 

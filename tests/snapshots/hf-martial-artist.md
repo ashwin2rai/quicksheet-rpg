@@ -106,7 +106,7 @@ When an ally within Very Close range would take damage, you can **mark a Stress*
 
 ## Character Hook
 
-**High Concept:** Soft-Hearted Iron-Fisted Bouncer  
+**High Concept:** Wandering Bouncer  
 **Trouble:** Never Backs Down From a Dare  
 **Appearance:** Dresses in haphazard clothes, has the air of a flowing river, and is recognizable by a scent of lavender and lamp oil.  
 **Personality:** Cheerful in a crisis and anxious in peacetime.  

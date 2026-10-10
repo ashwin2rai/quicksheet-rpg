@@ -106,7 +106,7 @@ On a failure, you must spend a Hope or mark a Stress.
 
 ## Character Hook
 
-**High Concept:** Talisman Maker and Failed Baker  
+**High Concept:** Charm Maker With Something to Prove  
 **Trouble:** An Apprentice I Never Asked For  
 **Appearance:** Dresses in ragged clothes, has the air of a spider, and is recognizable by a nose broken at least twice.  
 **Personality:** Polite to a fault, even to would-be assassins.  

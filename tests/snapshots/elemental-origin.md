@@ -108,7 +108,7 @@ If a target you hit is *Vulnerable*, they take an extra **1d8** damage.
 
 ## Character Hook
 
-**High Concept:** Spark-Fingered Runaway and Secret Romantic Novelist  
+**High Concept:** Restless Illusionist  
 **Trouble:** Overthinks Everything  
 **Appearance:** Dresses in flamboyant clothes, has the air of a wolf in sheep's clothing, and is recognizable by a tiny bell sewn to the hem of a sleeve.  
 **Personality:** Superstitious about everything except real danger.  

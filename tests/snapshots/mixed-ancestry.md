@@ -104,7 +104,7 @@ When you take Severe damage, you can **mark a Stress** to reduce the severity by
 
 ## Character Hook
 
-**High Concept:** Penniless Caravan Protector  
+**High Concept:** Shy Bridge Keeper  
 **Trouble:** Never Learned When to Stop Talking  
 **Appearance:** Dresses in weathered clothes, has the air of an elephant, and is recognizable by a missing fingertip and a story that changes every time.  
 **Personality:** Theatrical even when ordering breakfast.  

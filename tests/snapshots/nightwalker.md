@@ -96,7 +96,7 @@ You have advantage on action rolls to pick nonmagical locks, disarm nonmagical t
 
 ## Character Hook
 
-**High Concept:** Shadow Courier of the Last Light Hospice  
+**High Concept:** Exiled Charming Scoundrel  
 **Trouble:** Owes the Wrong People Money  
 **Appearance:** Dresses in tactical clothes, has the air of a pirate, and is recognizable by an armband of black cloth worn for someone unnamed.  
 **Personality:** Unfailingly honest even when it hurts.  

@@ -241,7 +241,7 @@ You clear a number of Hit Points equal to the number of Hit Points the target ma
 
 ## Character Hook
 
-**High Concept:** Hedge Witch, Heir to the Northcott Debts  
+**High Concept:** Hedge Witch Sworn to Protect  
 **Trouble:** Old Friends on the Wrong Side of the Law  
 **Appearance:** Dresses in stately clothes, has the air of an old tree, and is recognizable by a walking stick carved with tiny faces.  
 **Personality:** Competitive about everything, even chores.  

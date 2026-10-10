@@ -101,7 +101,7 @@ You have advantage on action rolls to pick nonmagical locks, disarm nonmagical t
 
 ## Character Hook
 
-**High Concept:** Gentle Wild Magic Prodigy  
+**High Concept:** Hot-Headed Born Spellcaster  
 **Trouble:** My Mentor Disapproves of Everything I Do  
 **Appearance:** Dresses in inconspicuous clothes, has the air of a celebrity, and is recognizable by a collection of keys that open nothing anyone knows of.  
 **Personality:** A gracious winner and a spectacular loser.  

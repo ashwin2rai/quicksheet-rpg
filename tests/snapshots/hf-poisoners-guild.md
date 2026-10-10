@@ -103,7 +103,7 @@ When you take Severe damage, you can **mark a Stress** to reduce the severity by
 
 ## Character Hook
 
-**High Concept:** Royal Taster Turned Poisoner, The Sandeford Who Got Away  
+**High Concept:** Executioner Hoping to Make Amends  
 **Trouble:** Pride Before Every Fall  
 **Appearance:** Dresses in padded for silence clothes, has the air of a judge, and is recognizable by a tiny bell sewn to the hem of a sleeve.  
 **Personality:** Grimly practical, with a hidden soft spot for strays.  

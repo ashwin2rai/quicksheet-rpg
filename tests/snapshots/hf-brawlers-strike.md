@@ -111,7 +111,7 @@ Additionally, you can **spend a Hope** to make them temporarily *Vulnerable*.
 
 ## Character Hook
 
-**High Concept:** Pit Fighter, Last Hope of the Shadewell Line  
+**High Concept:** Pit Fighter With Something to Prove  
 **Trouble:** Must Be the Center of Attention  
 **Appearance:** Dresses in standard-issue clothes, has the air of a protector, and is recognizable by a knitted hat in summer and winter alike.  
 **Personality:** Bookish and blunt in equal measure.  

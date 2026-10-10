@@ -291,7 +291,7 @@ Make a **Spellcast Roll (13)**. On a success, **spend 2 Hope** to grow a natural
 
 ## Character Hook
 
-**High Concept:** Moonlit Shapechanger and Secret Poet  
+**High Concept:** Nature Priest Out for Revenge  
 **Trouble:** Too Proud to Ask for Help  
 **Appearance:** Dresses in camouflaged clothes, has the air of a fox, and is recognizable by a coat with far too many pockets.  
 **Personality:** Competitive about everything, even chores.  

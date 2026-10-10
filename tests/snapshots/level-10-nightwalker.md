@@ -217,7 +217,7 @@ Make a **Spellcast Roll** against a target within Very Close range. On a success
 
 ## Character Hook
 
-**High Concept:** Card-Table Cheat of the Willow Lane Orphanage  
+**High Concept:** Infamous Fence  
 **Trouble:** The Inquisitors Have My Description  
 **Appearance:** Dresses in tactical clothes, has the air of a con artist, and is recognizable by a small scar through one eyebrow.  
 **Personality:** Superstitious about everything except real danger.  
