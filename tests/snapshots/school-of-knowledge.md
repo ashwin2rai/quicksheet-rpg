@@ -1,6 +1,6 @@
-# Halden Ashgrove
+# Mattea Brightwater
 
-*A Faerie wizard raised among the Ridgeborne who left home with more questions than answers.*
+*A Faerie wizard raised among the Ridgeborne who keeps a journal no one is allowed to read.*
 
 **Level:** 1 (Tier 1) | **Class:** Wizard - School of Knowledge  
 **Heritage:** Faerie / Ridgeborne | **Pronouns:** they/them
@@ -41,8 +41,8 @@
 
 ## Experiences
 
-- **Reads the Night Sky** +2
-- **Locksmith** +2
+- **Brewmaster** +2
+- **Scroll Copyist** +2
 
 ## Features
 
@@ -104,16 +104,17 @@ Make a **Spellcast Roll** against a target within Far range. On a success, **spe
 
 ## Character Hook
 
-**Appearance:** Dresses in layered clothes, has the air of an eccentric, and is recognizable by a neat row of brass buttons.  
-**Personality:** Competitive about everything, even chores.  
-**Motivation:** Wants to understand a strange dream that keeps returning.  
-**Backstory:** Few in a busy crossroads inn expected much of Halden Ashgrove, until a festival ended in disaster. Since then, Halden has set out to understand a strange dream that keeps returning.
+**High Concept:** Scholar of Forbidden Lore and Lapsed Priest  
+**Trouble:** Wanted Poster in Three Cities  
+**Appearance:** Dresses in layered clothes, has the air of an eccentric, and is recognizable by a limp that worsens before rain.  
+**Personality:** A born host who feeds everyone within reach.  
+**Backstory:** Before a dragon's shadow passed over the harvest, Mattea Brightwater lived an ordinary life in a lumber camp in giant pines. Now Mattea has one goal: to keep a reckless younger sibling alive.
 
 **Background question:** What responsibilities did your community once count on you for? How did you let them down?
 
 **Connection prompts** (ask another player):
 
-- What secret about yourself have you entrusted only to me?
+- What favor have I asked of you that you're not sure you can fulfill?
 - What weird hobby or strange fascination do we both share?
 
 ---
@@ -122,6 +123,6 @@ Make a **Spellcast Roll** against a target within Far range. On a success, **spe
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

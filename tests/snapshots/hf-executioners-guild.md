@@ -1,6 +1,6 @@
-# Ezio Pellow
+# Gus Foxglove
 
-*A Ribbet assassin raised among the Freeborne who settles arguments with a raised blade.*
+*A Ribbet assassin raised among the Freeborne who carries a weapon with a name and a history.*
 
 **Level:** 1 (Tier 1) | **Class:** Assassin - Executioners Guild  
 **Heritage:** Ribbet / Freeborne | **Pronouns:** they/them
@@ -53,8 +53,8 @@
 
 ## Experiences
 
-- **Knows a Fence** +2
-- **Blends Into Crowds** +2
+- **Market Day Hustler** +2
+- **Glacier Crossing** +2
 
 ## Features
 
@@ -105,16 +105,17 @@ When you make a successful attack against a target within Very Close range, you 
 
 ## Character Hook
 
-**Appearance:** Dresses in sinister clothes, has the air of a butcher, and is recognizable by a faded tattoo of a compass rose.  
-**Personality:** Warm but impossible to rush.  
-**Motivation:** Wants to find a sibling who left home without a word.  
-**Backstory:** Ezio Pellow grew up in a riverside market town. Everything changed when a festival ended in disaster. Now Ezio wants to find a sibling who left home without a word.
+**High Concept:** Executioner in Exile, The Only Honest Foxglove  
+**Trouble:** Sticky Fingers  
+**Appearance:** Dresses in sinister clothes, has the air of a butcher, and is recognizable by an elaborate braid with a single bead for every year on the road.  
+**Personality:** Dry-humored and quietly observant.  
+**Backstory:** Gus Foxglove grew up in a sleepy farming village. Everything changed when a beloved teacher was arrested on a false charge. Now Gus wants to prove that a long-held family story is true.
 
-**Background question:** What organization trained you in the art of killing, and how did you become a member?
+**Background question:** You once killed someone you were close to. What happened, and how did it change you?
 
 **Connection prompts** (ask another player):
 
-- What secret about myself did I tell you, and how did it change your view of me?
+- How did you save me when I was on the brink of death? What have I promised you as repayment?
 
 ---
 
@@ -122,6 +123,6 @@ When you make a successful attack against a target within Very Close range, you 
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

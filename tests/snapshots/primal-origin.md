@@ -1,6 +1,6 @@
-# Edda Thistledown
+# Rook Moorcroft
 
-*A Halfling sorcerer raised among the Ridgeborne who has a debt to repay and a long road ahead.*
+*A Halfling sorcerer raised among the Ridgeborne who bets on long odds and usually loses gracefully.*
 
 **Level:** 1 (Tier 1) | **Class:** Sorcerer - Primal Origin  
 **Heritage:** Halfling / Ridgeborne | **Pronouns:** she/her
@@ -43,8 +43,8 @@
 
 ## Experiences
 
-- **Locksmith** +2
-- **Caravan Guard** +2
+- **Amateur Alchemist** +2
+- **Ferry Operator** +2
 
 ## Features
 
@@ -101,12 +101,13 @@ You have advantage on action rolls to pick nonmagical locks, disarm nonmagical t
 
 ## Character Hook
 
-**Appearance:** Dresses in inconspicuous clothes, has the air of a celebrity, and is recognizable by an unusually precise way of standing.  
-**Personality:** Fiercely loyal and slow to trust.  
-**Motivation:** Wants to see every corner of the map at least once.  
-**Backstory:** Edda Thistledown left a crowded port city the season a flood washed away the only road home, and has spent every day since trying to see every corner of the map at least once.
+**High Concept:** Gentle Wild Magic Prodigy  
+**Trouble:** My Mentor Disapproves of Everything I Do  
+**Appearance:** Dresses in inconspicuous clothes, has the air of a celebrity, and is recognizable by a collection of keys that open nothing anyone knows of.  
+**Personality:** A gracious winner and a spectacular loser.  
+**Backstory:** When a stranger challenged her to a duel and lost on purpose, Rook Moorcroft packed a bag and walked out of a hamlet at the edge of an old forest without looking back. Somewhere ahead is the chance to find the person who taught her to read and say thank you.
 
-**Background question:** What did you do that made the people in your community wary of you?
+**Background question:** What mentor taught you to control your untamed magic, and why are they no longer able to guide you?
 
 **Connection prompts** (ask another player):
 
@@ -118,6 +119,6 @@ You have advantage on action rolls to pick nonmagical locks, disarm nonmagical t
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

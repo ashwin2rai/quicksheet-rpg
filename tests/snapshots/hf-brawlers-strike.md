@@ -1,6 +1,6 @@
-# Dalia Whitlock
+# Oriel Shadewell
 
-*A Clank brawler raised among the Freeborne who is searching for something lost.*
+*A Clank brawler raised among the Freeborne who left home with more questions than answers.*
 
 **Level:** 1 (Tier 1) | **Class:** Brawler - Martial Artist  
 **Heritage:** Clank / Freeborne | **Pronouns:** she/her
@@ -47,14 +47,14 @@
 
 ## Experiences
 
-- **Beekeeper** +3 (+2 base, +1 Purposeful Design)
-- **Armorer's Apprentice** +2
+- **Archery Contest Champion** +3 (+2 base, +1 Purposeful Design)
+- **Amateur Alchemist** +2
 
 ## Features
 
 ### Ancestry: Clank
 
-**Purposeful Design.** *(Purpose-aligned Experience: Beekeeper (+1))* Decide who made you and for what purpose. At character creation, choose one of your Experiences that best aligns with this purpose and gain a permanent +1 bonus to it.
+**Purposeful Design.** *(Purpose-aligned Experience: Archery Contest Champion (+1))* Decide who made you and for what purpose. At character creation, choose one of your Experiences that best aligns with this purpose and gain a permanent +1 bonus to it.
 
 **Efficient.** When you take a short rest, you can choose a long rest move instead of a short rest move.
 
@@ -111,17 +111,18 @@ Additionally, you can **spend a Hope** to make them temporarily *Vulnerable*.
 
 ## Character Hook
 
-**Appearance:** Dresses in standard-issue clothes, has the air of a protector, and is recognizable by a carefully mended scarf.  
-**Personality:** Fiercely loyal and slow to trust.  
-**Motivation:** Wants to outshine a rival who never takes her seriously.  
-**Backstory:** Dalia Whitlock left a hamlet at the edge of an old forest the season she witnessed something never meant to be seen, and has spent every day since trying to outshine a rival who never takes her seriously.
+**High Concept:** Pit Fighter, Last Hope of the Shadewell Line  
+**Trouble:** Must Be the Center of Attention  
+**Appearance:** Dresses in standard-issue clothes, has the air of a protector, and is recognizable by a knitted hat in summer and winter alike.  
+**Personality:** Bookish and blunt in equal measure.  
+**Backstory:** When a flood washed away the only road home, Oriel Shadewell packed a bag and walked out of a shrine town that fills with pilgrims each spring without looking back. Somewhere ahead is the chance to chart the stars from the top of every mountain.
 
-**Background question:** Where did you spend time during your formative years that taught you, directly or indirectly, how to fight in the style you use?
+**Background question:** Who did you recently lose a fight to that you're desperate for a rematch against?
 
 **Connection prompts** (ask another player):
 
+- What do I rely on you for during our travels? How do you feel about it?
 - I still haven't forgiven you for something you said to me. What was it, and why did you say it?
-- What is one thing we're both afraid of?
 
 ---
 
@@ -129,6 +130,6 @@ Additionally, you can **spend a Hope** to make them temporarily *Vulnerable*.
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

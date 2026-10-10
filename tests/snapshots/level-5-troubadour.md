@@ -1,6 +1,6 @@
-# Kestrel Deepwell
+# Casimir Lanternhill
 
-*A Clank bard raised among the Orderborne who turns every scrape into a story.*
+*A Clank bard raised among the Orderborne who writes satire the powerful pretend not to hear.*
 
 **Level:** 5 (Tier 3) | **Class:** Bard - Troubadour  
 **Heritage:** Clank / Orderborne | **Pronouns:** they/them
@@ -9,12 +9,12 @@
 
 | Agility | Strength | Finesse | Instinct | Presence | Knowledge |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| +0 | +1 | +1 | +0 | +3 | +0 |
+| +0 | +2 | +2 | +0 | +3 | +0 |
 
-**Evasion** 11 | **Proficiency** 3 | **Spellcast trait** Presence  
-**HP** 8 slots (0 marked) | **Stress** 7 slots (0 marked)  
-**Hope** 2 (max 6) | **Armor Score** 5 (5 Armor Slots, 0 marked)  
-**Damage Thresholds** Major 16 / Severe 32
+**Evasion** 10 | **Proficiency** 3 | **Spellcast trait** Presence  
+**HP** 7 slots (0 marked) | **Stress** 6 slots (0 marked)  
+**Hope** 2 (max 6) | **Armor Score** 6 (6 Armor Slots, 0 marked)  
+**Damage Thresholds** Major 18 / Severe 36
 
 **Rally Die** d8
 
@@ -26,13 +26,15 @@
 
 | Slot | Weapon | Attack | Range | Damage | Burden |
 | --- | --- | --- | --- | --- | --- |
-| Primary | Advanced Arcane Gauntlets | Strength +1 | Melee | 3d10+9 mag | Two-Handed |
+| Primary | Advanced Arcane Gauntlets | Strength +2 | Melee | 3d10+9 mag | Two-Handed |
 
 - **Advanced Arcane Gauntlets** is a magic weapon (requires a Spellcast trait).
 
 ### Armor
 
-**Advanced Leather Armor** - base thresholds 11 / 27, base score 5
+**Advanced Chainmail Armor** - base thresholds 13 / 31, base score 6
+
+- **Heavy:** -1 to Evasion
 
 ### Inventory
 
@@ -45,22 +47,22 @@
 
 ## Experiences
 
-- **Card Sharp** +2
-- **Mimic of Voices** +4 (+2 base, +1 Advancements, +1 Purposeful Design)
-- **Archive Runner** +3 (gained at level 2; +2 base, +1 Advancements)
-- **Tavern Storyteller** +2 (gained at level 5)
+- **Dance Hall Champion** +4 (+2 base, +2 Advancements)
+- **Courtly Etiquette** +3 (+2 base, +1 Purposeful Design)
+- **Cave Diver** +4 (gained at level 2; +2 base, +2 Advancements)
+- **Shadow on the Wall** +2 (gained at level 5)
 
 ## Features
 
 ### Ancestry: Clank
 
-**Purposeful Design.** *(Purpose-aligned Experience: Mimic of Voices (+1))* Decide who made you and for what purpose. At character creation, choose one of your Experiences that best aligns with this purpose and gain a permanent +1 bonus to it.
+**Purposeful Design.** *(Purpose-aligned Experience: Courtly Etiquette (+1))* Decide who made you and for what purpose. At character creation, choose one of your Experiences that best aligns with this purpose and gain a permanent +1 bonus to it.
 
 **Efficient.** When you take a short rest, you can choose a long rest move instead of a short rest move.
 
 ### Community: Orderborne
 
-**Dedicated.** *(Your sayings: "Order is a kindness we give to each other."; "Patience is a weapon."; "Stand where you are needed.")* Record three sayings or values your upbringing instilled in you. Once per rest, when you describe how you're embodying one of these principles through your current action, you can roll a **d20** as your Hope Die.
+**Dedicated.** *(Your sayings: "Patience is a weapon."; "The work is the prayer."; "Ask once, listen twice.")* Record three sayings or values your upbringing instilled in you. Once per rest, when you describe how you're embodying one of these principles through your current action, you can roll a **d20** as your Hope Die.
 
 ### Class: Bard
 
@@ -81,10 +83,10 @@
 | Card | Domain | Level | Type | Recall |
 | --- | --- | :---: | --- | :---: |
 | Book of Vagras | Codex | 2 | Grimoire | 2 |
-| Book of Korvax | Codex | 3 | Grimoire | 2 |
+| Inspirational Words | Grace | 1 | Ability | 1 |
+| Tell No Lies | Grace | 2 | Spell | 1 |
 | Book of Grynn | Codex | 4 | Grimoire | 2 |
-| Hypnotic Shimmer | Grace | 3 | Spell | 1 |
-| Thought Delver | Grace | 5 | Spell | 2 |
+| Book of Sitil | Codex | 2 | Grimoire | 2 |
 
 ### Book of Vagras
 
@@ -95,14 +97,25 @@
 - ***Arcane Door:*** When you have no adversaries within Melee range, make a **Spellcast Roll (13)**. On a success, **spend a Hope** to create a portal from where you are to a point within Far range you can see. It closes once a creature has passed through it.
 - ***Reveal:*** Make a **Spellcast Roll**. If there is anything magically hidden within Close range, it is revealed.
 
-### Book of Korvax
+### Inspirational Words
 
-*Codex 3 - Grimoire - Recall 2*  
+*Grace 1 - Ability - Recall 1*  
+*Inspirational Words tokens per long rest: 3 (equal to your Presence). Acquired at level 2.*
+
+Your speech is imbued with power. After a long rest, place a number of tokens on this card equal to your Presence. When you speak with an ally, you can spend a token from this card to give them one benefit from the following options:
+
+- Your ally clears a Stress.
+- Your ally clears a Hit Point.
+- Your ally gains a Hope.
+
+When you take a long rest, clear all unspent tokens.
+
+### Tell No Lies
+
+*Grace 2 - Spell - Recall 1*  
 *Acquired at level 3.*
 
-- ***Levitation:*** Make a **Spellcast Roll** to temporarily lift a target you can see up into the air and move them within Close range of their original position.
-- ***Recant:*** **Spend a Hope** to force a target within Melee range to make a Reaction Roll **(15)**. On a failure, they forget the last minute of your conversation.
-- ***Rune Circle:*** **Mark a Stress** to create a temporary magical circle on the ground where you stand. All adversaries within Melee range, or who enter Melee range, take **2d12+4** magic damage and are knocked back to Very Close range.
+Make a **Spellcast Roll** against a target within Very Close range. On a success, they can't lie to you while they remain within Close range, but they are not compelled to speak. If you ask them a question and they refuse to answer, they must mark a Stress and the effect ends. The target is typically unaware this spell has been cast on them until it causes them to utter the truth.
 
 ### Book of Grynn
 
@@ -113,21 +126,14 @@
 - ***Time Lock:*** Target an object within Far range. That object stops in time and space exactly where it is until your next rest. If a creature tries to move it, make a **Spellcast Roll** against them to maintain this spell.
 - ***Wall of Flame:*** Make a **Spellcast Roll (15)**. On a success, create a temporary wall of magical flame between two points within Far range. All creatures in its path must choose a side to be on, and anything that subsequently passes through the wall takes **4d10+3** magic damage.
 
-### Hypnotic Shimmer
+### Book of Sitil
 
-*Grace 3 - Spell - Recall 1*  
-*Acquired at level 4.*
-
-Make a **Spellcast Roll** against all adversaries in front of you within Close range. Once per rest on a success, create an illusion of flashing colors and lights that temporarily *Stuns* targets you succeed against and forces them to mark a Stress. While *Stunned*, they can't use reactions and can't take any other actions until they clear this condition.
-
-### Thought Delver
-
-*Grace 5 - Spell - Recall 2*  
+*Codex 2 - Grimoire - Recall 2*  
 *Acquired at level 5.*
 
-You can peek into the minds of others. **Spend a Hope** to read the vague surface thoughts of a target within Far range. Make a **Spellcast Roll** against the target to delve for deeper, more hidden thoughts.
-
-On a roll with Fear, the target might, at the GM's discretion, become aware that you're reading their thoughts.
+- ***Adjust Appearance:*** You magically shift your appearance and clothing to avoid recognition.
+- ***Parallela:*** **Spend 2 Hope** to cast this spell on yourself or an ally within Close range. The next time the target makes an attack, they can hit an additional target within range that their attack roll would succeed against. You can only hold this spell on one creature at a time.
+- ***Illusion:*** Make a **Spellcast Roll (14)**. On a success, create a temporary visual illusion no larger than you within Close range that lasts for as long as you look at it. It holds up to scrutiny until an observer is within Melee range.
 
 ## Domain Cards - Vault
 
@@ -154,23 +160,24 @@ On a roll with Fear, the target might, at the GM's discretion, become aware that
 
 ## Character Hook
 
-**Appearance:** Dresses in fancy clothes, has the air of a magician, and is recognizable by a patched cloak in three different colors.  
-**Personality:** Restless whenever things go quiet.  
-**Motivation:** Wants to make a name worth remembering.  
-**Backstory:** Kestrel Deepwell left a crumbling hilltop monastery the season their mentor disappeared on an ordinary errand, and has spent every day since trying to make a name worth remembering.
+**High Concept:** Grim Wandering Minstrel  
+**Trouble:** My Patron Has Opinions  
+**Appearance:** Dresses in fancy clothes, has the air of a magician, and is recognizable by a hat pinned with dozens of travel tokens.  
+**Personality:** Quick to anger, quicker to apologize.  
+**Backstory:** Casimir Lanternhill was born in a busy crossroads inn and might have stayed forever, but the river turned red for three days. These days Casimir travels with a single purpose: to stop a war before it starts.
 
-**Background question:** Who from your community taught you to have such confidence in yourself?
+**Background question:** You were in love once. Who did you adore, and how did they hurt you?
 
 **Connection prompts** (ask another player):
 
-- What made you realize we were going to be such good friends?
+- Why do you grab my hand at night?
 
 ## Advancement History
 
-- **Level 2 (Tier 2):** Tier achievement: new Experience *Archive Runner* +2, Proficiency +1. Advancements: +1 Evasion; +1 Hit Point slot. Domain card: *Book of Vagras* (Codex 2).
-- **Level 3 (Tier 2):** Advancements: +1 to Archive Runner and Mimic of Voices; +1 Hit Point slot. Domain card: *Book of Korvax* (Codex 3).
-- **Level 4 (Tier 2):** Advancements: +1 Instinct and +1 Presence; extra domain card *Book of Grynn* (Codex 4). Domain card: *Hypnotic Shimmer* (Grace 3).
-- **Level 5 (Tier 3):** Tier achievement: new Experience *Tavern Storyteller* +2, Proficiency +1, marked traits cleared. Advancements: +1 Hit Point slot; +1 Stress slot. Domain card: *Thought Delver* (Grace 5).
+- **Level 2 (Tier 2):** Tier achievement: new Experience *Cave Diver* +2, Proficiency +1. Advancements: extra domain card *Book of Vagras* (Codex 2); +1 Strength and +1 Presence. Domain card: *Inspirational Words* (Grace 1).
+- **Level 3 (Tier 2):** Advancements: +1 Evasion; +1 Hit Point slot. Domain card: *Tell No Lies* (Grace 2).
+- **Level 4 (Tier 2):** Advancements: +1 Finesse and +1 Instinct; +1 to Cave Diver and Dance Hall Champion. Domain card: *Book of Grynn* (Codex 4).
+- **Level 5 (Tier 3):** Tier achievement: new Experience *Shadow on the Wall* +2, Proficiency +1, marked traits cleared. Advancements: +1 Hit Point slot; +1 to Dance Hall Champion and Cave Diver. Domain card: *Book of Sitil* (Codex 2).
 
 ---
 
@@ -178,6 +185,6 @@ On a roll with Fear, the target might, at the GM's discretion, become aware that
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

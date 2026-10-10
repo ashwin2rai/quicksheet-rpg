@@ -1,6 +1,6 @@
-# Soren Fennick
+# Radomir Stonebridge
 
-*A Giant wizard raised among the Highborne who has a debt to repay and a long road ahead.*
+*A Giant wizard raised among the Highborne who bets on long odds and usually loses gracefully.*
 
 **Level:** 8 (Tier 4) | **Class:** Wizard - School of Knowledge  
 **Heritage:** Giant / Highborne | **Pronouns:** she/her
@@ -9,12 +9,12 @@
 
 | Agility | Strength | Finesse | Instinct | Presence | Knowledge |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| +1 | +2 | +0 | +3 | +1 | +4 |
+| +0 | +1 | +1 | +1 | +3 | +3 |
 
-**Evasion** 11 | **Proficiency** 5 | **Spellcast trait** Knowledge  
-**HP** 8 slots (0 marked) | **Stress** 8 slots (0 marked)  
-**Hope** 2 (max 6) | **Armor Score** 4 (4 Armor Slots, 0 marked)  
-**Damage Thresholds** Major 23 / Severe 48
+**Evasion** 12 | **Proficiency** 6 | **Spellcast trait** Knowledge  
+**HP** 7 slots (0 marked) | **Stress** 7 slots (0 marked)  
+**Hope** 2 (max 6) | **Armor Score** 6 (6 Armor Slots, 0 marked)  
+**Damage Thresholds** Major 21 / Severe 44
 
 ## Combat & Gear
 
@@ -24,16 +24,17 @@
 
 | Slot | Weapon | Attack | Range | Damage | Burden |
 | --- | --- | --- | --- | --- | --- |
-| Primary | Midas Scythe | Knowledge +4 | Melee | 5d10+9 mag | Two-Handed |
+| Primary | Fusion Gloves | Knowledge +3 | Very Far | 6d6+17 mag | Two-Handed |
 
-- **Midas Scythe** is a magic weapon (requires a Spellcast trait).
-- **Midas Scythe - Greedy:** Spend a handful of gold to gain a +1 bonus to your Proficiency on a damage roll.
+- **Fusion Gloves** is a magic weapon (requires a Spellcast trait).
+- **Fusion Gloves - Bonded:** Gain a bonus to your damage rolls equal to your level.
+- Damage above includes +8 from Fusion Gloves (Bonded).
 
 ### Armor
 
-**Full Fortified Armor** - base thresholds 15 / 40, base score 4
+**Veritas Opal Armor** - base thresholds 13 / 36, base score 6
 
-- **Fortified:** When you mark an Armor Slot, you reduce the severity of an attack by two thresholds instead of one.
+- **Truthseeking:** This armor glows when another creature within Close range tells a lie.
 
 ### Inventory
 
@@ -46,11 +47,11 @@
 
 ## Experiences
 
-- **Scroll Copyist** +4 (+2 base, +2 Advancements)
-- **Archive Runner** +2
-- **Horse Handler** +3 (gained at level 2; +2 base, +1 Advancements)
-- **Shipwright's Hands** +3 (gained at level 5; +2 base, +1 Advancements)
-- **Back-Alley Duelist** +2 (gained at level 8)
+- **Guild Politics** +3 (+2 base, +1 Advancements)
+- **Armorer's Apprentice** +2
+- **Knows Every Back Alley** +3 (gained at level 2; +2 base, +1 Advancements)
+- **Former Poison Taster** +2 (gained at level 5)
+- **Poison Plant Expert** +2 (gained at level 8)
 
 ## Features
 
@@ -90,34 +91,43 @@ You can change this number when you take a long rest.
 
 | Card | Domain | Level | Type | Recall |
 | --- | --- | :---: | --- | :---: |
-| Divination | Splendor | 4 | Spell | 1 |
-| Sigil of Retribution | Codex | 6 | Spell | 2 |
-| Banish | Codex | 6 | Spell | 0 |
+| Book of Korvax | Codex | 3 | Grimoire | 2 |
+| Manifest Wall | Codex | 5 | Spell | 2 |
+| Teleport | Codex | 5 | Spell | 2 |
 | Splendor-Touched | Splendor | 7 | Ability | 2 |
-| Stunning Sunlight | Splendor | 8 | Spell | 2 |
+| Shield Aura | Splendor | 8 | Spell | 2 |
 
-### Divination
+### Book of Korvax
 
-*Splendor 4 - Spell - Recall 1*  
-*Acquired at level 4.*
+*Codex 3 - Grimoire - Recall 2*  
+*Acquired at level 5.*
 
-Once per long rest, **spend 3 Hope** to reach out to the forces beyond and ask one "yes or no" question about an event, person, place, or situation in the near future. For a moment, the present falls away and you see the answer before you.
+- ***Levitation:*** Make a **Spellcast Roll** to temporarily lift a target you can see up into the air and move them within Close range of their original position.
+- ***Recant:*** **Spend a Hope** to force a target within Melee range to make a Reaction Roll **(15)**. On a failure, they forget the last minute of your conversation.
+- ***Rune Circle:*** **Mark a Stress** to create a temporary magical circle on the ground where you stand. All adversaries within Melee range, or who enter Melee range, take **2d12+4** magic damage and are knocked back to Very Close range.
 
-### Sigil of Retribution
+### Manifest Wall
 
-*Codex 6 - Spell - Recall 2*  
-*Sigil of Retribution d8s (maximum held): 8d8 (equal to your level). Acquired at level 6.*
+*Codex 5 - Spell - Recall 2*  
+*Acquired at level 5.*
 
-Mark an adversary within Close range with a sigil of retribution. The GM gains a Fear. When the marked adversary deals damage to you or your allies, place a **d8** on this card. You can hold a number of **d8s** equal to your level. When you successfully attack the marked adversary, roll the dice on this card and add the total to your damage roll, then clear the dice. This effect ends when the marked adversary is defeated or you cast Sigil of Retribution again.
+Make a **Spellcast Roll (15)**. Once per rest on a success, **spend a Hope** to create a temporary magical wall between two points within Far range. It can be up to 50 feet high and form at any angle. Creatures or objects in its path are shunted to a side of your choice. The wall stays up until your next rest or you cast Manifest Wall again.
 
-### Banish
+### Teleport
 
-*Codex 6 - Spell - Recall 0*  
+*Codex 5 - Spell - Recall 2*  
 *Acquired at level 6.*
 
-Make a **Spellcast Roll** against a target within Close range. On a success, roll a number of **d20s** equal to your Spellcast trait. The target must make a reaction roll with a Difficulty equal to your highest result. On a success, the target must mark a Stress but isn't banished. Once per rest on a failure, they are banished from this realm.
+Once per long rest, you can instantly teleport yourself and any number of willing targets within Close range to a place you've been before. Choose one of the following options, then make a **Spellcast Roll (16)**:
 
-When the PCs roll with Fear, the Difficulty gains a -1 penalty and the target makes another reaction roll. On a success, they return from banishment.
+- If you know the place very well, gain a +3 bonus.
+- If you've visited the place frequently, gain a +1 bonus.
+- If you've visited the place infrequently, gain no modifier.
+- If you've only been there once, gain a -2 penalty.
+
+On a success, you appear where you were intending to go.
+
+On a failure, you appear off course, with the range of failure determining how far off course.
 
 ### Splendor-Touched
 
@@ -129,12 +139,14 @@ When 4 or more of the domain cards in your loadout are from the Splendor domain,
 - +3 bonus to your Severe damage threshold
 - Once per long rest, when incoming damage would require you to mark a number of Hit Points, you can choose to mark that much Stress or spend that much Hope instead.
 
-### Stunning Sunlight
+### Shield Aura
 
 *Splendor 8 - Spell - Recall 2*  
 *Acquired at level 8.*
 
-Make a **Spellcast Roll** to unleash powerful rays of burning sunlight against all adversaries in front of you within Far range. On a success, **spend any number of Hope** and force that many targets you succeeded against to make a Reaction Roll **(14)**. Targets who succeed take **3d20+3** magic damage. Targets who fail take **4d20+5** magic damage and are temporarily *Stunned*. While *Stunned*, they can't use reactions and can't take any other actions until they clear this condition.
+**Mark a Stress** to cast a protective aura on a target within Very Close range. When the target marks an Armor Slot, they reduce the severity of the attack by an additional threshold. If this spell causes a creature who would be damaged to instead mark no Hit Points, the effect ends.
+
+You can only hold Shield Aura on one creature at a time.
 
 ## Domain Cards - Vault
 
@@ -143,10 +155,11 @@ Make a **Spellcast Roll** to unleash powerful rays of burning sunlight against a
 | Book of Illiat | Codex | 1 | Grimoire | 2 |
 | Book of Ava | Codex | 1 | Grimoire | 2 |
 | Bolt Beacon | Splendor | 1 | Spell | 1 |
-| Book of Sitil | Codex | 2 | Grimoire | 2 |
-| Book of Vagras | Codex | 2 | Grimoire | 2 |
+| Book of Tyfar | Codex | 1 | Grimoire | 2 |
+| Healing Hands | Splendor | 2 | Spell | 1 |
+| Second Wind | Splendor | 3 | Ability | 2 |
 | Voice of Reason | Splendor | 3 | Ability | 1 |
-| Mending Touch | Splendor | 1 | Spell | 1 |
+| Book of Sitil | Codex | 2 | Grimoire | 2 |
 
 ### Book of Illiat
 
@@ -173,64 +186,70 @@ Make a **Spellcast Roll** to unleash powerful rays of burning sunlight against a
 
 Make a **Spellcast Roll** against a target within Far range. On a success, **spend a Hope** to send a bolt of shimmering light toward them, dealing **d8+2** magic damage using your Proficiency. The target becomes temporarily *Vulnerable* and glows brightly until this condition is cleared.
 
-### Book of Sitil
+### Book of Tyfar
 
-*Codex 2 - Grimoire - Recall 2*  
+*Codex 1 - Grimoire - Recall 2*  
 *Acquired at level 2.*
 
-- ***Adjust Appearance:*** You magically shift your appearance and clothing to avoid recognition.
-- ***Parallela:*** **Spend 2 Hope** to cast this spell on yourself or an ally within Close range. The next time the target makes an attack, they can hit an additional target within range that their attack roll would succeed against. You can only hold this spell on one creature at a time.
-- ***Illusion:*** Make a **Spellcast Roll (14)**. On a success, create a temporary visual illusion no larger than you within Close range that lasts for as long as you look at it. It holds up to scrutiny until an observer is within Melee range.
+- ***Wild Flame:*** Make a **Spellcast Roll** against up to three adversaries within Melee range. Targets you succeed against take **2d6** magic damage and must mark a Stress as flames erupt from your hand.
+- ***Magic Hand:*** You conjure a magical hand with the same size and strength as your own within Far range.
+- ***Mysterious Mist:*** Make a **Spellcast Roll (13)** to cast a temporary thick fog that gathers in a stationary area within Very Close range. The fog heavily obscures this area and everything in it.
 
-### Book of Vagras
+### Healing Hands
 
-*Codex 2 - Grimoire - Recall 2*  
+*Splendor 2 - Spell - Recall 1*  
+*Acquired at level 2.*
+
+Make a **Spellcast Roll (13)** and target a creature other than yourself within Melee range. On a success, mark a Stress to clear 2 Hit Points or 2 Stress on the target. On a failure, mark a Stress to clear a Hit Point or a Stress on the target. You can't heal the same target again until your next long rest.
+
+### Second Wind
+
+*Splendor 3 - Ability - Recall 2*  
 *Acquired at level 3.*
 
-- ***Runic Lock:*** Make a **Spellcast Roll (15)** on an object you're touching that can close (such as a lock, chest, or box). Once per rest on a success, you can lock the object so it can only be opened by creatures of your choice. Someone with access to magic and an hour of time to study the spell can break it.
-- ***Arcane Door:*** When you have no adversaries within Melee range, make a **Spellcast Roll (13)**. On a success, **spend a Hope** to create a portal from where you are to a point within Far range you can see. It closes once a creature has passed through it.
-- ***Reveal:*** Make a **Spellcast Roll**. If there is anything magically hidden within Close range, it is revealed.
+Once per rest, when you succeed on an attack against an adversary, you can clear 3 Stress or a Hit Point. On a success with Hope, you also clear 3 Stress or a Hit Point on an ally within Close range of you.
 
 ### Voice of Reason
 
 *Splendor 3 - Ability - Recall 1*  
-*Acquired at level 3.*
+*Acquired at level 4.*
 
 You speak with an unmatched power and authority. You have advantage on action rolls to de-escalate violent situations or convince someone to follow your lead.
 
 Additionally, you're emboldened in moments of duress. When all of your Stress slots are marked, you gain a +1 bonus to your Proficiency for damage rolls.
 
-### Mending Touch
+### Book of Sitil
 
-*Splendor 1 - Spell - Recall 1*  
+*Codex 2 - Grimoire - Recall 2*  
 *Acquired at level 5.*
 
-You lay your hands upon a creature and channel healing magic to close their wounds. When you can take a few minutes to focus on the target you're helping, you can **spend 2 Hope** to clear a Hit Point or a Stress on them.
-
-Once per long rest, when you spend this healing time learning something new about them or revealing something about yourself, you can clear 2 Hit Points or 2 Stress on them instead.
+- ***Adjust Appearance:*** You magically shift your appearance and clothing to avoid recognition.
+- ***Parallela:*** **Spend 2 Hope** to cast this spell on yourself or an ally within Close range. The next time the target makes an attack, they can hit an additional target within range that their attack roll would succeed against. You can only hold this spell on one creature at a time.
+- ***Illusion:*** Make a **Spellcast Roll (14)**. On a success, create a temporary visual illusion no larger than you within Close range that lasts for as long as you look at it. It holds up to scrutiny until an observer is within Melee range.
 
 ## Character Hook
 
-**Appearance:** Dresses in tight clothes, has the air of a lit fuse, and is recognizable by a faded tattoo of a compass rose.  
-**Personality:** Dry-humored and quietly observant.  
-**Motivation:** Wants to learn the truth about where she came from.  
-**Backstory:** Soren Fennick left a riverside market town the season a friend took the blame for something she did, and has spent every day since trying to learn the truth about where she came from.
+**High Concept:** Haunted Battle Wizard  
+**Trouble:** Too Honest for My Own Good  
+**Appearance:** Dresses in tight clothes, has the air of a lit fuse, and is recognizable by spectacles mended with copper wire.  
+**Personality:** Theatrical even when ordering breakfast.  
+**Backstory:** When the ground split open beneath the town square, Radomir Stonebridge packed a bag and walked out of a riverside market town without looking back. Somewhere ahead is the chance to uncover what really happened to her first adventuring party.
 
 **Background question:** What responsibilities did your community once count on you for? How did you let them down?
 
 **Connection prompts** (ask another player):
 
-- What favor have I asked of you that you're not sure you can fulfill?
+- What weird hobby or strange fascination do we both share?
 
 ## Advancement History
 
-- **Level 2 (Tier 2):** Tier achievement: new Experience *Horse Handler* +2, Proficiency +1. Advancements: +1 Hit Point slot; +1 Agility and +1 Knowledge. Domain card: *Book of Sitil* (Codex 2).
-- **Level 3 (Tier 2):** Advancements: +1 Instinct and +1 Strength; extra domain card *Book of Vagras* (Codex 2). Domain card: *Voice of Reason* (Splendor 3).
-- **Level 4 (Tier 2):** Advancements: +1 to Scroll Copyist and Horse Handler; +1 Stress slot. Domain card: *Divination* (Splendor 4).
-- **Level 5 (Tier 3):** Tier achievement: new Experience *Shipwright's Hands* +2, Proficiency +1, marked traits cleared. Advancements: +1 Stress slot; +1 Hit Point slot. Domain card: *Mending Touch* (Splendor 1).
-- **Level 6 (Tier 3):** Advancements: Specialization subclass features; +1 to Scroll Copyist and Shipwright's Hands. Granted card: *Sigil of Retribution* (Codex 6). Domain card: *Banish* (Codex 6).
-- **Level 7 (Tier 3):** Advancements: +1 Knowledge and +1 Strength; +1 Agility and +1 Instinct. Domain card: *Splendor-Touched* (Splendor 7).
-- **Level 8 (Tier 4):** Tier achievement: new Experience *Back-Alley Duelist* +2, Proficiency +1, marked traits cleared. Advancements: +1 Proficiency (both advancements). Domain card: *Stunning Sunlight* (Splendor 8).
+- **Level 2 (Tier 2):** Tier achievement: new Experience *Knows Every Back Alley* +2, Proficiency +1. Advancements: +1 Knowledge and +1 Finesse; extra domain card *Book of Tyfar* (Codex 1). Domain card: *Healing Hands* (Splendor 2).
+- **Level 3 (Tier 2):** Advancements: +1 to Guild Politics and Knows Every Back Alley; +1 Stress slot. Domain card: *Second Wind* (Splendor 3).
+- **Level 4 (Tier 2):** Advancements: +1 Hit Point slot; +1 Strength and +1 Presence. Domain card: *Voice of Reason* (Splendor 3).
+- **Level 5 (Tier 3):** Tier achievement: new Experience *Former Poison Taster* +2, Proficiency +1, marked traits cleared. Advancements: Specialization subclass features; extra domain card *Manifest Wall* (Codex 5). Granted card: *Book of Korvax* (Codex 3). Domain card: *Book of Sitil* (Codex 2).
+- **Level 6 (Tier 3):** Advancements: +1 Proficiency (both advancements). Domain card: *Teleport* (Codex 5).
+- **Level 7 (Tier 3):** Advancements: +1 Agility and +1 Presence; +1 Evasion. Domain card: *Splendor-Touched* (Splendor 7).
+- **Level 8 (Tier 4):** Tier achievement: new Experience *Poison Plant Expert* +2, Proficiency +1, marked traits cleared. Advancements: +1 Proficiency (both advancements). Domain card: *Shield Aura* (Splendor 8).
 
 ---
 
@@ -238,6 +257,6 @@ Once per long rest, when you spend this healing time learning something new abou
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

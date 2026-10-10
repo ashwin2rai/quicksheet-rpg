@@ -1,6 +1,6 @@
-# Sabra Fennick
+# Nikita Tallowmere
 
-*A Firbolg warlock raised among the Orderborne who studies power to keep it from the wrong hands.*
+*A Firbolg warlock raised among the Orderborne who is still paying off a strange bargain.*
 
 **Level:** 1 (Tier 1) | **Class:** Warlock - Pact of the Endless  
 **Heritage:** Firbolg / Orderborne | **Pronouns:** he/him
@@ -51,8 +51,8 @@
 
 ## Experiences
 
-- **Night Watch Veteran** +2
-- **Raised Behind an Inn Counter** +2
+- **Keeper of Old Rites** +2
+- **Armorer's Apprentice** +2
 
 ## Features
 
@@ -64,11 +64,11 @@
 
 ### Community: Orderborne
 
-**Dedicated.** *(Your sayings: "Duty before comfort."; "Stand where you are needed."; "The many are stronger than the one.")* Record three sayings or values your upbringing instilled in you. Once per rest, when you describe how you're embodying one of these principles through your current action, you can roll a **d20** as your Hope Die.
+**Dedicated.** *(Your sayings: "A promise kept is a wall that never falls."; "Ask once, listen twice."; "Rise before the sun, rest after the work.")* Record three sayings or values your upbringing instilled in you. Once per rest, when you describe how you're embodying one of these principles through your current action, you can roll a **d20** as your Hope Die.
 
 ### Class: Warlock
 
-**Patron's Pact.** *(Patron: the Hollow King Beneath the Hill, sphere of influence Strength; Patron Die: d6)* You have committed yourself to a supernatural entity—such as a god, fae, or demon—in exchange for power. Write their name on your character sheet, then work with your GM to determine their sphere of influence (such as Nature, Chaos, Wisdom, Mischief, Love, War, Justice, or Death). Before making an action roll that relates to your patron's sphere of influence, you can **spend a Favor** to call upon their aid, rolling your Patron Die and adding its result to the total. Your Patron Die starts at a **d6** and increases to a **d8** at level 5.
+**Patron's Pact.** *(Patron: the Thousand-Voiced Tide, sphere of influence Strength; Patron Die: d6)* You have committed yourself to a supernatural entity—such as a god, fae, or demon—in exchange for power. Write their name on your character sheet, then work with your GM to determine their sphere of influence (such as Nature, Chaos, Wisdom, Mischief, Love, War, Justice, or Death). Before making an action roll that relates to your patron's sphere of influence, you can **spend a Favor** to call upon their aid, rolling your Patron Die and adding its result to the total. Your Patron Die starts at a **d6** and increases to a **d8** at level 5.
 
 **Favor.** *(Favor: 3, starting Favor; you can hold at most 6)* You start with 3 Favor. You can use a downtime move to show tribute to your patron. Describe how and gain Favor equal to your Spellcast trait. Additionally, when you succeed on an action roll with Hope, you can choose to gain a Favor instead of a Hope.
 
@@ -103,17 +103,18 @@ Make a **Spellcast Roll** against a target within Close range. On a success, the
 
 ## Character Hook
 
-**Appearance:** Dresses in mended clothes, has the air of a soothsayer, and is recognizable by a faded tattoo of a compass rose.  
-**Personality:** Quick to forgive and slow to forget.  
-**Motivation:** Wants to learn the truth about where he came from.  
-**Backstory:** Sabra Fennick left a hamlet at the edge of an old forest the season his mentor disappeared on an ordinary errand, and has spent every day since trying to learn the truth about where he came from.
+**High Concept:** Exiled Debt-Bound Spellcaster  
+**Trouble:** Sworn Enemy of a Minor Noble  
+**Appearance:** Dresses in mended clothes, has the air of a soothsayer, and is recognizable by an elaborate braid with a single bead for every year on the road.  
+**Personality:** Sarcastic armor over an earnest heart.  
+**Backstory:** The story in a cliffside aerie of messenger birds is that Nikita Tallowmere left after the river turned red for three days. The truth is stranger, but the goal is simple: Nikita means to build something that will outlast him.
 
 **Background question:** Who from your community shunned you after you made a pact with your patron?
 
 **Connection prompts** (ask another player):
 
-- Why do you think I confide in you about what my patron says and does?
 - Our relationship has changed since you saw me show tribute to my patron. What did you see, and how has it affected you?
+- I once did something very foolish, and you've never let me live it down. What was it?
 
 ---
 
@@ -121,6 +122,6 @@ Make a **Spellcast Roll** against a target within Close range. On a success, the
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

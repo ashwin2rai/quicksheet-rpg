@@ -1,6 +1,6 @@
-# Ulla Glasswright
+# Ursel Underhill
 
-*An Earthkin brawler raised among the Highborne who has spent a lifetime learning to fight.*
+*An Earthkin brawler raised among the Highborne who settles arguments with a raised blade.*
 
 **Level:** 1 (Tier 1) | **Class:** Brawler - Juggernaut  
 **Heritage:** Earthkin / Highborne | **Transformation:** Shapeshifter | **Pronouns:** he/him
@@ -44,8 +44,8 @@
 
 ## Experiences
 
-- **Gossip Network** +2
-- **Settles Tavern Brawls** +2
+- **Shield Wall Drills** +2
+- **Retired Pit Fighter** +2
 
 ## Features
 
@@ -102,18 +102,19 @@ If you end this movement within Melee range of an adversary and immediately make
 
 ## Character Hook
 
-**Appearance:** Dresses in haphazard clothes, has the air of a golden retriever, and is recognizable by ink-stained fingertips.  
-**Personality:** Cheerful in a crisis and anxious in peacetime.  
-**Motivation:** Wants to prove that a long-held family story is true.  
-**Backstory:** Ulla Glasswright left a riverside market town the season he found a map hidden inside an old instrument case, and has spent every day since trying to prove that a long-held family story is true.
+**High Concept:** Monastery Martial Artist of the Black Lantern Players  
+**Trouble:** The Duke's Daughter Fancies Me  
+**Appearance:** Dresses in haphazard clothes, has the air of a golden retriever, and is recognizable by a voice that carries farther than expected.  
+**Personality:** Grimly practical, with a hidden soft spot for strays.  
+**Backstory:** The story in a crumbling hilltop monastery is that Ursel Underhill left after he won a fortune and lost it the same night. The truth is stranger, but the goal is simple: Ursel means to learn the truth about where he came from.
 
-**Background question:** Where did you spend time during your formative years that taught you, directly or indirectly, how to fight in the style you use?
+**Background question:** Who did you recently lose a fight to that you're desperate for a rematch against?
 
-**Transformation question:** Which ancestry do you live as more than others? Why do you spend so much time in this form?
+**Transformation question:** Someone you loved dearly abandoned you when they found out about your ability to change shape. Who was it, and what happened?
 
 **Connection prompts** (ask another player):
 
-- What do I rely on you for during our travels? How do you feel about it?
+- What is one thing we're both afraid of?
 - I still haven't forgiven you for something you said to me. What was it, and why did you say it?
 
 ---
@@ -122,6 +123,6 @@ If you end this movement within Melee range of an adversary and immediately make
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

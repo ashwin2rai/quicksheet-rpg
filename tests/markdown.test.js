@@ -89,6 +89,8 @@ for (const profile of ['core', HOPE_FEAR]) test(`every sheet has the required se
     assert.ok(md.includes(`**Evasion** ${c.derived.evasion} `));
     assert.ok(md.includes(`Major ${c.derived.thresholds.major} / Severe ${c.derived.thresholds.severe}`));
     for (const e of c.derived.experiences) assert.ok(md.includes(`**${e.name}** +${e.modifier}`));
+    assert.ok(md.includes(`**High Concept:** ${c.flavor.highConcept}  \n**Trouble:** ${c.flavor.trouble}  \n`));
+    assert.doesNotMatch(md, /\*\*Motivation:\*\*/);
     for (const card of c.domainCards) assert.ok(md.includes(`### ${catalog.get(card.cardId).name}`));
     for (const w of c.derived.weapons) assert.ok(md.includes(`| ${w.damage} ${w.damageType} |`));
     for (const a of c.derived.extraAttacks) assert.ok(md.includes(`| ${a.damage} ${a.damageType} |`));

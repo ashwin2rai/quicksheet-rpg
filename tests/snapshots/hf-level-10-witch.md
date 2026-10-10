@@ -1,6 +1,6 @@
-# Lio Thistledown
+# Emeric Northcott
 
-*An Aetheris witch raised among the Wanderborne whose magic arrived sooner than wanted.*
+*An Aetheris witch raised among the Wanderborne who learned magic from a book best left unopened.*
 
 **Level:** 10 (Tier 4) | **Class:** Witch - Moon  
 **Heritage:** Aetheris / Wanderborne | **Pronouns:** he/him
@@ -9,14 +9,14 @@
 
 | Agility | Strength | Finesse | Instinct | Presence | Knowledge |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| +0 | -1 | +4 | +3 | +1 | +2 |
+| -1 | -1 | +2 | +3 | +2 | +1 |
 
-**Evasion** 11 | **Proficiency** 6 | **Spellcast trait** Instinct  
-**HP** 8 slots (0 marked) | **Stress** 10 slots (0 marked)  
+*Trait totals include equipment: Agility -1 from Legendary Full Plate Armor (Very Heavy).*
+
+**Evasion** 9 | **Proficiency** 6 | **Spellcast trait** Instinct  
+**HP** 9 slots (0 marked) | **Stress** 11 slots (0 marked)  
 **Hope** 2 (max 6) | **Armor Score** 7 (7 Armor Slots, 0 marked)  
-**Damage Thresholds** Major 26 / Severe 53
-
-*Your active loadout holds 4 domain cards (equipment).*
+**Damage Thresholds** Major 27 / Severe 54
 
 **Hex targets at once** 3 (equal to your Instinct)  
 **Commune dice** 3d6 (equal to your Instinct)
@@ -29,15 +29,19 @@
 
 | Slot | Weapon | Attack | Range | Damage | Burden |
 | --- | --- | --- | --- | --- | --- |
-| Primary | Legendary Glowing Rings | Agility +0 | Very Close | 6d10+11 mag | Two-Handed |
+| Primary | Legendary Casting Dagger | Instinct +3 | Close | 6d6+9 mag | One-Handed |
+| Secondary | Blackblood Tendril | Instinct +3 | Close | 6d6+8 mag | One-Handed |
 
-- **Legendary Glowing Rings** is a magic weapon (requires a Spellcast trait).
+- **Legendary Casting Dagger** is a magic weapon (requires a Spellcast trait).
+- **Legendary Casting Dagger - Versatile:** This weapon can also be used with these statistics—Instinct, Melee, d8+9.
+- **Blackblood Tendril** is a magic weapon (requires a Spellcast trait).
+- **Blackblood Tendril - Poisonous:** When a target marks any number of Hit Points from an attack you rolled with Fear, they mark an equal number of Stress.
 
 ### Armor
 
-**Rune-Forged Exosuit** - base thresholds 12 / 39, base score 7
+**Legendary Full Plate Armor** - base thresholds 17 / 44, base score 7
 
-- **Attuned:** The maximum number of domain cards in your loadout is reduced by one, but you gain a bonus to your damage thresholds equal to your tier.
+- **Very Heavy:** -2 to Evasion; -1 to Agility
 
 ### Inventory
 
@@ -51,11 +55,11 @@
 
 ## Experiences
 
-- **Card Sharp** +3 (+2 base, +1 Advancements)
-- **Expelled Apprentice** +3 (+2 base, +1 Advancements)
-- **Tournament Squire** +2 (gained at level 2)
-- **Herb Lore** +2 (gained at level 5)
-- **Reads the Night Sky** +2 (gained at level 8)
+- **Secret Courier** +3 (+2 base, +1 Advancements)
+- **Poison Plant Expert** +2
+- **River Pilot** +3 (gained at level 2; +2 base, +1 Advancements)
+- **No One Gets Left Behind** +2 (gained at level 5)
+- **Keeper of Old Rites** +2 (gained at level 8)
 
 ## Features
 
@@ -93,39 +97,31 @@ Unless you **mark a Stress** to maintain your *Glamour*, it drops when you mark 
 
 **Ire of Pale Light.** When a *Hexed* creature within Very Far range fails an attack, they must mark a Stress.
 
-### Subclass: Moon (Mastery)
-
-**Lunar Phases.** At the beginning of each session, roll a **d6** and place it on this card. You gain the matching effect until the end of session.
-
-- 1: ***New.*** **Spend a Hope** to negate Minor damage.
-- 2–3: ***Waxing.*** +2 to damage rolls
-- 4: ***Full.*** +3 to damage thresholds
-- 5–6: ***Waning.*** +1 to Evasion
-
-Once per rest, you can **spend a Hope** to increase the value of this die by one. If you increase the value of a 6, it becomes a 1.
-
 ## Domain Cards - Active Loadout
 
 | Card | Domain | Level | Type | Recall |
 | --- | --- | :---: | --- | :---: |
-| Forager | Sage | 6 | Ability | 1 |
+| Wild Fortress | Sage | 5 | Spell | 1 |
+| Dire Strike | Dread | 5 | Spell | 2 |
 | Forest Sprites | Sage | 8 | Spell | 2 |
-| Plant Dominion | Sage | 9 | Spell | 1 |
+| Wild Surge | Sage | 7 | Spell | 2 |
 | Fane of the Wilds | Sage | 9 | Ability | 2 |
 
-### Forager
+### Wild Fortress
 
-*Sage 6 - Ability - Recall 1*  
-*Acquired at level 6.*
+*Sage 5 - Spell - Recall 1*  
+*Acquired at level 5.*
 
-As an additional downtime move you can choose, roll a **d6** to see what you forage. Work with the GM to describe it and add it to your inventory as a consumable. Your party can carry up to five foraged consumables at a time.
+Make a **Spellcast Roll (13)**. On a success, **spend 2 Hope** to grow a natural barricade in the shape of a dome that you and one ally can take cover within. While inside the dome, a creature can't be targeted by attacks and can't make attacks. Attacks made against the dome automatically succeed. The dome has the following damage thresholds and lasts until it marks 3 Hit Points. Place tokens on this card to represent marking Hit Points.
 
-1. A unique food (Clear 2 Stress)
-2. A beautiful relic (Gain 2 Hope)
-3. An arcane rune (+2 to a Spellcast Roll)
-4. A healing vial (Clear 2 Hit Points)
-5. A luck charm (Reroll any die)
-6. Choose one of the options above.
+- **Thresholds:** 15/30
+
+### Dire Strike
+
+*Dread 5 - Spell - Recall 2*  
+*Acquired at level 7.*
+
+When a target marks any number of Hit Points from an attack you make, you can **spend a Hope** to drain power from them. The GM loses a Fear.
 
 ### Forest Sprites
 
@@ -139,12 +135,14 @@ Make a **Spellcast Roll (13)**. On a success, **spend any number of Hope** to cr
 
 A sprite vanishes after granting a benefit or taking any damage.
 
-### Plant Dominion
+### Wild Surge
 
-*Sage 9 - Spell - Recall 1*  
+*Sage 7 - Spell - Recall 2*  
 *Acquired at level 9.*
 
-Make a **Spellcast Roll (18)**. Once per long rest on a success, you reshape the natural world, changing the surrounding plant life anywhere within Far range of you. For example, you can grow trees instantly, clear a path through dense vines, or create a wall of roots.
+Once per long rest, mark a Stress to channel the natural world around you and enhance yourself. Describe how your appearance changes, then place a **d6** on this card with the 1 value facing up.
+
+While the Wild Surge Die is active, you add its value to every action roll you make. After you add its value to a roll, increase the Wild Surge Die's value by one. When the die's value would exceed 6 or you take a rest, this form drops and you must **mark an additional Stress**.
 
 ### Fane of the Wilds
 
@@ -165,12 +163,11 @@ When you take a long rest, clear all unspent tokens.
 | --- | --- | :---: | --- | :---: |
 | Gifted Tracker | Sage | 1 | Ability | 0 |
 | Nature's Tongue | Sage | 1 | Ability | 0 |
-| Natural Familiar | Sage | 2 | Spell | 1 |
-| Siphon Essence | Dread | 2 | Spell | 1 |
+| Conjure Swarm | Sage | 2 | Spell | 1 |
 | Umbral Veil | Dread | 1 | Spell | 1 |
-| Healing Field | Sage | 4 | Spell | 2 |
-| Death Grip | Sage | 4 | Spell | 1 |
-| Terrify | Dread | 3 | Spell | 1 |
+| Towering Stalk | Sage | 3 | Spell | 1 |
+| Blighting Strike | Dread | 1 | Spell | 1 |
+| Siphon Essence | Dread | 2 | Spell | 1 |
 
 ### Gifted Tracker
 
@@ -195,23 +192,13 @@ You can speak the language of the natural world. When you want to speak to the p
 
 Additionally, before you make a **Spellcast Roll** while within a natural environment, you can **spend a Hope** to gain a +2 bonus to the roll.
 
-### Natural Familiar
+### Conjure Swarm
 
 *Sage 2 - Spell - Recall 1*  
 *Acquired at level 2.*
 
-**Spend a Hope** to summon a small nature spirit or forest critter to your side until your next rest, you cast Natural Familiar again, or the familiar is targeted by an attack. If you **spend an additional Hope**, you can summon a familiar that flies. You can communicate with them, make a **Spellcast Roll** to command them to perform simple tasks, and mark a Stress to see through their eyes.
-
-When you deal damage to an adversary within Melee range of your familiar, you add a **d6** to your damage roll.
-
-### Siphon Essence
-
-*Dread 2 - Spell - Recall 1*  
-*Acquired at level 2.*
-
-Make a **Spellcast Roll** against a target within Very Close range. Once per long rest on a success, the target takes **d12+4** magic damage using your Proficiency. On a success with Fear, you gain a +1 bonus to your Proficiency for this attack.
-
-You clear a number of Hit Points equal to the number of Hit Points the target marked from this attack.
+- ***Tekaira Armored Beetles:*** **Mark a Stress** to conjure armored beetles that encircle you. When you next take damage, reduce the severity by one threshold. You can **spend a Hope** to keep the beetles conjured after taking damage.
+- ***Fire Flies:*** Make a **Spellcast Roll** against all adversaries within Close range. **Spend a Hope** to deal **2d8+3** magic damage to targets you succeeded against.
 
 ### Umbral Veil
 
@@ -222,43 +209,45 @@ Once per rest, you can **mark a Stress** to encase yourself in shadowy energy. W
 
 At the end of the scene, clear all unspent tokens.
 
-### Healing Field
+### Towering Stalk
 
-*Sage 4 - Spell - Recall 2*  
+*Sage 3 - Spell - Recall 1*  
+*Acquired at level 3.*
+
+Once per rest, you can conjure a thick, twisting stalk within Close range that can be easily climbed. Its height can grow up to Far range.
+
+**Mark a Stress** to use this spell as an attack. Make a **Spellcast Roll** against an adversary or group of adversaries within Close range. The erupting stalk lifts targets you succeed against into the air and drops them, dealing **d8** physical damage using your Proficiency.
+
+### Blighting Strike
+
+*Dread 1 - Spell - Recall 1*  
 *Acquired at level 4.*
 
-Once per long rest, you can conjure a field of healing plants around you. Everywhere within Close range of you bursts to life with vibrant nature, allowing you and all allies in the area to clear a Hit Point.
+Make a **Spellcast Roll** against a target within Far range. On a success:
 
-**Spend 2 Hope** to allow you and all allies to clear 2 Hit Points instead.
+- On a roll with Hope, deal **d6+1** magic damage using your Proficiency. On a roll with Fear, deal **d10+1** magic damage using your Proficiency.
+- The target's next successful attack deals half damage.
 
-### Death Grip
+On a failure, you must spend a Hope or mark a Stress.
 
-*Sage 4 - Spell - Recall 1*  
-*Acquired at level 5.*
+### Siphon Essence
 
-Make a **Spellcast Roll** against a target within Close range and choose one of the following options:
+*Dread 2 - Spell - Recall 1*  
+*Acquired at level 6.*
 
-- You pull the target into Melee range or pull yourself into Melee range of them.
-- You constrict the target and force them to mark 2 Stress.
-- All adversaries between you and the target must succeed on a Reaction Roll **(13)** or be hit by vines, taking **3d6+2** physical damage.
+Make a **Spellcast Roll** against a target within Very Close range. Once per long rest on a success, the target takes **d12+4** magic damage using your Proficiency. On a success with Fear, you gain a +1 bonus to your Proficiency for this attack.
 
-On a success, vines reach out from your hands, causing the chosen effect and temporarily *Restraining* the target.
-
-### Terrify
-
-*Dread 3 - Spell - Recall 1*  
-*Acquired at level 7.*
-
-Make a **Spellcast Roll** against a target within Close range. On a success, the target marks **1d4** Stress, and you can make the target flee one range away from you (such as Very Close to Close or Close to Far). On a success with Fear, the target also becomes temporarily *Vulnerable*.
+You clear a number of Hit Points equal to the number of Hit Points the target marked from this attack.
 
 ## Character Hook
 
-**Appearance:** Dresses in stately clothes, has the air of an old tree, and is recognizable by mismatched earrings.  
-**Personality:** Relentlessly curious.  
-**Motivation:** Wants to make a name worth remembering.  
-**Backstory:** Lio Thistledown grew up in a walled city with too many rules. Everything changed when his mentor disappeared on an ordinary errand. Now Lio wants to make a name worth remembering.
+**High Concept:** Hedge Witch, Heir to the Northcott Debts  
+**Trouble:** Old Friends on the Wrong Side of the Law  
+**Appearance:** Dresses in stately clothes, has the air of an old tree, and is recognizable by a walking stick carved with tiny faces.  
+**Personality:** Competitive about everything, even chores.  
+**Backstory:** Few in a glassblowers' quarter expected much of Emeric Northcott, until someone mistook him for a person of importance and he played along. Since then, Emeric has set out to stop a war before it starts.
 
-**Background question:** Who from your community feared your magical craft? What rumor did they spread about you, and what truth did it contain?
+**Background question:** You once used your power to help someone in a dire situation. Who were they, and why did they come to you?
 
 **Connection prompts** (ask another player):
 
@@ -267,15 +256,15 @@ Make a **Spellcast Roll** against a target within Close range. On a success, the
 
 ## Advancement History
 
-- **Level 2 (Tier 2):** Tier achievement: new Experience *Tournament Squire* +2, Proficiency +1. Advancements: extra domain card *Natural Familiar* (Sage 2); +1 Evasion. Domain card: *Siphon Essence* (Dread 2).
-- **Level 3 (Tier 2):** Advancements: +1 Finesse and +1 Presence; +1 Hit Point slot. Domain card: *Umbral Veil* (Dread 1).
-- **Level 4 (Tier 2):** Advancements: +1 Instinct and +1 Knowledge; +1 Hit Point slot. Domain card: *Healing Field* (Sage 4).
-- **Level 5 (Tier 3):** Tier achievement: new Experience *Herb Lore* +2, Proficiency +1, marked traits cleared. Advancements: Specialization subclass features; +1 Stress slot. Domain card: *Death Grip* (Sage 4).
-- **Level 6 (Tier 3):** Advancements: +1 to Card Sharp and Expelled Apprentice; +1 Stress slot. Domain card: *Forager* (Sage 6).
-- **Level 7 (Tier 3):** Advancements: +1 Stress slot; +1 Instinct and +1 Finesse. Domain card: *Terrify* (Dread 3).
-- **Level 8 (Tier 4):** Tier achievement: new Experience *Reads the Night Sky* +2, Proficiency +1, marked traits cleared. Advancements: +1 Stress slot; Mastery subclass features. Domain card: *Forest Sprites* (Sage 8).
-- **Level 9 (Tier 4):** Advancements: +1 Proficiency (both advancements). Domain card: *Plant Dominion* (Sage 9).
-- **Level 10 (Tier 4):** Advancements: +1 Proficiency (both advancements). Domain card: *Fane of the Wilds* (Sage 9).
+- **Level 2 (Tier 2):** Tier achievement: new Experience *River Pilot* +2, Proficiency +1. Advancements: +1 Presence and +1 Instinct; +1 Stress slot. Domain card: *Conjure Swarm* (Sage 2).
+- **Level 3 (Tier 2):** Advancements: +1 Stress slot; extra domain card *Umbral Veil* (Dread 1). Domain card: *Towering Stalk* (Sage 3).
+- **Level 4 (Tier 2):** Advancements: +1 Hit Point slot; +1 Hit Point slot. Domain card: *Blighting Strike* (Dread 1).
+- **Level 5 (Tier 3):** Tier achievement: new Experience *No One Gets Left Behind* +2, Proficiency +1, marked traits cleared. Advancements: +1 Evasion; +1 Instinct and +1 Presence. Domain card: *Wild Fortress* (Sage 5).
+- **Level 6 (Tier 3):** Advancements: +1 to Secret Courier and River Pilot; +1 Stress slot. Domain card: *Siphon Essence* (Dread 2).
+- **Level 7 (Tier 3):** Advancements: +1 Stress slot; +1 Hit Point slot. Domain card: *Dire Strike* (Dread 5).
+- **Level 8 (Tier 4):** Tier achievement: new Experience *Keeper of Old Rites* +2, Proficiency +1, marked traits cleared. Advancements: +1 Proficiency (both advancements). Domain card: *Forest Sprites* (Sage 8).
+- **Level 9 (Tier 4):** Advancements: +1 Proficiency (both advancements). Domain card: *Wild Surge* (Sage 7).
+- **Level 10 (Tier 4):** Advancements: +1 Stress slot; Specialization subclass features. Domain card: *Fane of the Wilds* (Sage 9).
 
 ---
 
@@ -283,6 +272,6 @@ Make a **Spellcast Roll** against a target within Close range. On a success, the
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

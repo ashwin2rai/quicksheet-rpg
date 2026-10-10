@@ -1,6 +1,6 @@
-# Halden Westerly
+# Mattea Rosethorn
 
-*An Orc bard raised among the Highborne who never misses a chance at an audience.*
+*An Orc bard raised among the Highborne who can quiet a riot with a single verse.*
 
 **Level:** 1 (Tier 1) | **Class:** Bard - Troubadour  
 **Heritage:** Orc / Highborne | **Pronouns:** she/her
@@ -43,8 +43,8 @@
 
 ## Experiences
 
-- **Street Performer** +2
-- **Noble Family Trees** +2
+- **Mimic of Voices** +2
+- **Horse Handler** +2
 
 ## Features
 
@@ -97,17 +97,18 @@
 
 ## Character Hook
 
-**Appearance:** Dresses in wild clothes, has the air of a rock star, and is recognizable by a neat row of brass buttons.  
-**Personality:** An incurable optimist.  
-**Motivation:** Wants to learn the truth about where she came from.  
-**Backstory:** Few in a riverside market town expected much of Halden Westerly, until a fire destroyed everything she knew. Since then, Halden has set out to learn the truth about where she came from.
+**High Concept:** Traveling Playwright of the Brass Compass Society  
+**Trouble:** Collects Trouble Like Souvenirs  
+**Appearance:** Dresses in wild clothes, has the air of a rock star, and is recognizable by a dozen knotted strings around one ankle.  
+**Personality:** A rule-follower slowly learning to bend.  
+**Backstory:** Everyone in a sleepy farming village remembers the day a stranger left her a sealed letter and vanished. Mattea Rosethorn remembers it differently, and that is why Mattea intends to laugh in the face of the creature that haunts her nightmares.
 
 **Background question:** You were in love once. Who did you adore, and how did they hurt you?
 
 **Connection prompts** (ask another player):
 
-- What do I do that annoys you?
 - What made you realize we were going to be such good friends?
+- Why do you grab my hand at night?
 
 ---
 
@@ -115,6 +116,6 @@
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

@@ -1,6 +1,6 @@
-# Lenna Brackenridge
+# Damaris Wildemere
 
-*A Human wizard raised among the Orderborne who is searching for something lost.*
+*A Human wizard raised among the Orderborne who left home with more questions than answers.*
 
 **Level:** 1 (Tier 1) | **Class:** Wizard - School of War  
 **Heritage:** Human / Orderborne | **Pronouns:** they/them
@@ -44,8 +44,8 @@
 
 ## Experiences
 
-- **Former Dockhand** +2
-- **Village Blacksmith** +2
+- **Heckler Tamer** +2
+- **Mender of the Sick** +2
 
 ## Features
 
@@ -57,7 +57,7 @@
 
 ### Community: Orderborne
 
-**Dedicated.** *(Your sayings: "A promise kept is a wall that never falls."; "Stand where you are needed."; "Never leave a task half-done.")* Record three sayings or values your upbringing instilled in you. Once per rest, when you describe how you're embodying one of these principles through your current action, you can roll a **d20** as your Hope Die.
+**Dedicated.** *(Your sayings: "Speak plainly, act fairly."; "What is broken can be mended."; "Truth spoken softly still carries.")* Record three sayings or values your upbringing instilled in you. Once per rest, when you describe how you're embodying one of these principles through your current action, you can roll a **d20** as your Hope Die.
 
 ### Class: Wizard
 
@@ -96,16 +96,17 @@ Once per rest, after an ally attempts an action roll but before the consequences
 
 ## Character Hook
 
-**Appearance:** Dresses in common clothes, has the air of a lit fuse, and is recognizable by rings on nearly every finger.  
-**Personality:** Restless whenever things go quiet.  
-**Motivation:** Wants to recover a stolen heirloom.  
-**Backstory:** Lenna Brackenridge left a riverside market town the season they won a contest that was meant to be lost, and has spent every day since trying to recover a stolen heirloom.
+**High Concept:** Theoretical Magician of the Moonwell Coven  
+**Trouble:** Promised My Firstborn to a Fey Bargainer  
+**Appearance:** Dresses in common clothes, has the air of a lit fuse, and is recognizable by a patch over one eye that is sometimes switched to the other.  
+**Personality:** Contemplative, with long silences that mean something.  
+**Backstory:** The story in a sleepy farming village is that Damaris Wildemere left after the stars went dark for one whole night. The truth is stranger, but the goal is simple: Damaris means to find a cure for a sickness that took their village.
 
 **Background question:** You have a powerful rival. Who are they, and why are you so determined to defeat them?
 
 **Connection prompts** (ask another player):
 
-- What weird hobby or strange fascination do we both share?
+- What secret about yourself have you entrusted only to me?
 
 ---
 
@@ -113,6 +114,6 @@ Once per rest, after an ally attempts an action roll but before the consequences
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

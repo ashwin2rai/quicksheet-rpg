@@ -1,20 +1,22 @@
-# Corin Rivensong
+# Lucan Yarnwhistle
 
-*An Infernis witch raised among the Reborne who chases the edges of what magic can do.*
+*A Tidekin witch raised among the Reborne who has seen too much to be surprised and still is.*
 
 **Level:** 1 (Tier 1) | **Class:** Witch - Hedge  
-**Heritage:** Infernis / Reborne | **Pronouns:** they/them
+**Heritage:** Tidekin / Reborne | **Pronouns:** they/them
 
 ## At a Glance
 
 | Agility | Strength | Finesse | Instinct | Presence | Knowledge |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| -1 | +0 | +0 | +1 | +1 | +2 |
+| -1 | +1 | -1 | +0 | +1 | +2 |
 
-**Evasion** 11 | **Proficiency** 1 | **Spellcast trait** Knowledge  
+*Trait totals include equipment: Agility -1 from Full Plate Armor (Very Heavy).*
+
+**Evasion** 8 | **Proficiency** 1 | **Spellcast trait** Knowledge  
 **HP** 6 slots (0 marked) | **Stress** 6 slots (0 marked)  
-**Hope** 2 (max 6) | **Armor Score** 3 (3 Armor Slots, 0 marked)  
-**Damage Thresholds** Major 6 / Severe 12
+**Hope** 2 (max 6) | **Armor Score** 5 (5 Armor Slots, 0 marked)  
+**Damage Thresholds** Major 9 / Severe 18
 
 **Hex targets at once** 2 (equal to your Knowledge)  
 **Commune dice** 2d6 (equal to your Knowledge)
@@ -25,17 +27,19 @@
 
 | Slot | Weapon | Attack | Range | Damage | Burden |
 | --- | --- | --- | --- | --- | --- |
-| Primary | Rapier | Presence +1 | Melee | 1d8 phy | One-Handed |
-| Secondary | Hatchet | Agility -1 | Melee | 1d8 phy | One-Handed |
+| Primary | Shadowblade | Presence +1 | Melee | 1d8 phy/mag | One-Handed |
+| Secondary | Rune Shield | Knowledge +2 | Melee | 1d4 mag | One-Handed |
 
-- **Rapier - Quick:** When you make an attack, you can **mark a Stress** to target another creature within range.
-- **Hatchet - Follow-Up:** On a successful attack with your primary weapon within Melee range, you can **mark a Stress** to gain a +1 bonus to your Proficiency for this attack.
+- **Shadowblade** is a magic weapon (requires a Spellcast trait).
+- **Shadowblade - Otherworldly:** On a successful attack, you can deal physical or magic damage.
+- **Rune Shield** is a magic weapon (requires a Spellcast trait).
+- **Rune Shield - Protective:** +1 to Armor Score
 
 ### Armor
 
-**Gambeson Armor** - base thresholds 5 / 11, base score 3
+**Full Plate Armor** - base thresholds 8 / 17, base score 4
 
-- **Flexible:** +1 to Evasion
+- **Very Heavy:** -2 to Evasion; -1 to Agility
 
 ### Inventory
 
@@ -48,16 +52,16 @@
 
 ## Experiences
 
-- **Deer Hunter** +2
-- **Debt Collector** +2
+- **Rune Scribe** +2
+- **Brewmaster** +2
 
 ## Features
 
-### Ancestry: Infernis
+### Ancestry: Tidekin
 
-**Fearless.** When you roll with Fear, you can **mark 2 Stress** to change it into a roll with Hope instead.
+**Amphibious.** You can breathe and move naturally underwater.
 
-**Dread Visage.** You have advantage on rolls to intimidate hostile creatures.
+**Lifespring.** Once per rest when you have access to a small amount of water, you can **mark a Stress** to clear a Hit Point on yourself or an ally within Very Close range.
 
 ### Community: Reborne
 
@@ -87,34 +91,34 @@ When you join a new community or rediscover your old one, you can permanently tr
 
 | Card | Domain | Level | Type | Recall |
 | --- | --- | :---: | --- | :---: |
-| Blighting Strike | Dread | 1 | Spell | 1 |
-| Voice of Dread | Dread | 1 | Spell | 0 |
+| Nature's Tongue | Sage | 1 | Ability | 0 |
+| Umbral Veil | Dread | 1 | Spell | 1 |
 
-### Blighting Strike
+### Nature's Tongue
+
+*Sage 1 - Ability - Recall 0*
+
+You can speak the language of the natural world. When you want to speak to the plants and animals around you, make an **Instinct Roll (12)**. On a success, they'll give you the information they know. On a roll with Fear, their knowledge might be limited or come at a cost.
+
+Additionally, before you make a **Spellcast Roll** while within a natural environment, you can **spend a Hope** to gain a +2 bonus to the roll.
+
+### Umbral Veil
 
 *Dread 1 - Spell - Recall 1*
 
-Make a **Spellcast Roll** against a target within Far range. On a success:
+Once per rest, you can **mark a Stress** to encase yourself in shadowy energy. When you do, place a number of tokens on this card equal to the number of Fear in the GM's pool. After an attack roll is made against you, you can spend any number of tokens to give the result a -1 penalty per token spent.
 
-- On a roll with Hope, deal **d6+1** magic damage using your Proficiency. On a roll with Fear, deal **d10+1** magic damage using your Proficiency.
-- The target's next successful attack deals half damage.
-
-On a failure, you must spend a Hope or mark a Stress.
-
-### Voice of Dread
-
-*Dread 1 - Spell - Recall 0*
-
-You can magically speak to a creature you can see, tormenting them with your words. Make a **Spellcast Roll** against them. On a success, they must mark a Stress and are frozen with terror, making them temporarily *Restrained*.
+At the end of the scene, clear all unspent tokens.
 
 ## Character Hook
 
-**Appearance:** Dresses in flowing clothes, has the air of a doctor, and is recognizable by rings on nearly every finger.  
-**Personality:** Proud, polite, and very stubborn.  
-**Motivation:** Wants to see every corner of the map at least once.  
-**Backstory:** Corin Rivensong grew up in a walled city with too many rules. Everything changed when they found a map hidden inside an old instrument case. Now Corin wants to see every corner of the map at least once.
+**High Concept:** Ex-Royal Hexmonger of the Ashen Veil  
+**Trouble:** My Twin Is Everything I'm Not  
+**Appearance:** Dresses in stately clothes, has the air of a candle flame, and is recognizable by spectacles mended with copper wire.  
+**Personality:** Competitive about everything, even chores.  
+**Backstory:** Before their mentor's last words made no sense until much later, Lucan Yarnwhistle lived an ordinary life in a monastery carved into a cliff face. Now Lucan has one goal: to see every corner of the map at least once.
 
-**Background question:** Your magic once opened a door best left closed. Who or what was on the other side?
+**Background question:** You once used your power to help someone in a dire situation. Who were they, and why did they come to you?
 
 **Connection prompts** (ask another player):
 
@@ -127,6 +131,6 @@ You can magically speak to a creature you can see, tormenting them with your wor
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

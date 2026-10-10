@@ -9,8 +9,8 @@ const snapshot = (name) => readFileSync(new URL(`snapshots/${name}`, import.meta
 test('the visual folio presents the exact Markdown identity, traits, vitals and combat data', () => {
   const markdown = snapshot('nightwalker.md');
   const html = renderCharacterSheet(markdown);
-  assert.equal(sheetNameFromMarkdown(markdown), 'Mattea Fennick');
-  assert.match(html, /Mattea Fennick/);
+  assert.equal(sheetNameFromMarkdown(markdown), 'Ottilie Tallowmere');
+  assert.match(html, /Ottilie Tallowmere/);
   assert.match(html, /Rogue · Nightwalker/);
   assert.match(html, /Fungril \/ Wildborne/);
   assert.equal((html.match(/class="trait"/g) ?? []).length, 6);
@@ -21,7 +21,9 @@ test('the visual folio presents the exact Markdown identity, traits, vitals and 
   assert.match(html, /1d8 mag/);
   assert.match(html, /Deft Deceiver/);
   assert.match(html, /Shadow Stepper/);
-  assert.match(html, /Who from your past/);
+  assert.match(html, /What did you get caught doing/);
+  assert.match(html, /High Concept:<\/strong> Shadow Courier of the Last Light Hospice/);
+  assert.match(html, /Trouble:<\/strong> Owes the Wrong People Money/);
   assert.match(html, /Source notes & attribution/);
 });
 

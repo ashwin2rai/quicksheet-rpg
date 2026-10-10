@@ -23,7 +23,7 @@ The SRD's Combat Wheelchair rules, which QuickSheet includes in its equipment da
 
 The following are original works by the QuickSheet contributors:
 - the source code (`src/`, `tools/`, `tests/`, `index.html`, `styles.css`)
-- the flavor tables in `data/flavor/` (names, descriptions, personalities, motivations, hook templates, Experience candidates, patron names)
+- the flavor tables in `data/flavor/` (names, descriptions, personalities, motivations, hook templates, Experience candidates, high concepts and troubles, patron names)
 - the mechanics curation in `tools/curation/`
 
 The `LICENSE` file (Apache License 2.0) covers only this original material. It does **not** relicense, supersede or expand the DPCGL terms for SRD content, and it grants no rights to Darrington Press or Critical Role trademarks, artwork or logos. QuickSheet uses no official artwork or logos. "Daggerheart" appears only to describe compatibility.

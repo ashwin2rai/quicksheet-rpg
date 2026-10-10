@@ -1,6 +1,6 @@
-# Vanya Fennick
+# Wilhelmina Silverbell
 
-*A Drakona sorcerer raised among the Orderborne who studies power to keep it from the wrong hands.*
+*A Drakona sorcerer raised among the Orderborne who treats magic like a stubborn animal to be tamed.*
 
 **Level:** 1 (Tier 1) | **Class:** Sorcerer - Elemental Origin  
 **Heritage:** Drakona / Orderborne | **Pronouns:** he/him
@@ -51,8 +51,8 @@
 
 ## Experiences
 
-- **Border Scout** +2
-- **Picks Locks for Fun** +2
+- **Dream Interpreter** +2
+- **Potion Taster** +2
 
 ## Features
 
@@ -64,7 +64,7 @@
 
 ### Community: Orderborne
 
-**Dedicated.** *(Your sayings: "Truth spoken softly still carries."; "Teach what you have learned."; "Owe nothing you cannot repay.")* Record three sayings or values your upbringing instilled in you. Once per rest, when you describe how you're embodying one of these principles through your current action, you can roll a **d20** as your Hope Die.
+**Dedicated.** *(Your sayings: "Keep your tools sharp and your temper dull."; "Rank is a responsibility, not a reward."; "Stand where you are needed.")* Record three sayings or values your upbringing instilled in you. Once per rest, when you describe how you're embodying one of these principles through your current action, you can roll a **d20** as your Hope Die.
 
 ### Class: Sorcerer
 
@@ -108,16 +108,17 @@ If a target you hit is *Vulnerable*, they take an extra **1d8** damage.
 
 ## Character Hook
 
-**Appearance:** Dresses in flamboyant clothes, has the air of a wolf in sheep's clothing, and is recognizable by a laugh that turns heads.  
-**Personality:** Fiercely loyal and slow to trust.  
-**Motivation:** Wants to atone for a mistake that cost others dearly.  
-**Backstory:** Few in a mining settlement deep in the hills expected much of Vanya Fennick, until a fire destroyed everything he knew. Since then, Vanya has set out to atone for a mistake that cost others dearly.
+**High Concept:** Spark-Fingered Runaway and Secret Romantic Novelist  
+**Trouble:** Overthinks Everything  
+**Appearance:** Dresses in flamboyant clothes, has the air of a wolf in sheep's clothing, and is recognizable by a tiny bell sewn to the hem of a sleeve.  
+**Personality:** Superstitious about everything except real danger.  
+**Backstory:** Before a fire destroyed everything he knew, Wilhelmina Silverbell lived an ordinary life in a reed-thatched marsh village. Now Wilhelmina has one goal: to make amends to someone he wronged long ago.
 
-**Background question:** What mentor taught you to control your untamed magic, and why are they no longer able to guide you?
+**Background question:** You have a deep fear you hide from everyone. What is it, and why does it scare you?
 
 **Connection prompts** (ask another player):
 
-- What did I do that makes you cautious around me?
+- Why do you trust me so deeply?
 
 ---
 
@@ -125,6 +126,6 @@ If a target you hit is *Vulnerable*, they take an extra **1d8** damage.
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

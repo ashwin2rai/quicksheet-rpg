@@ -1,6 +1,6 @@
-# Thane Brackenridge
+# Hana Wildemere
 
-*A Clank bard raised among the Ridgeborne who has a debt to repay and a long road ahead.*
+*A Clank bard raised among the Ridgeborne who bets on long odds and usually loses gracefully.*
 
 **Level:** 1 (Tier 1) | **Class:** Bard - Wordsmith  
 **Heritage:** Clank / Ridgeborne | **Pronouns:** they/them
@@ -47,14 +47,14 @@
 
 ## Experiences
 
-- **Stage Combat Choreographer** +3 (+2 base, +1 Purposeful Design)
-- **Picks Locks for Fun** +2
+- **Traveling Puppeteer** +3 (+2 base, +1 Purposeful Design)
+- **Summoning Circles** +2
 
 ## Features
 
 ### Ancestry: Clank
 
-**Purposeful Design.** *(Purpose-aligned Experience: Stage Combat Choreographer (+1))* Decide who made you and for what purpose. At character creation, choose one of your Experiences that best aligns with this purpose and gain a permanent +1 bonus to it.
+**Purposeful Design.** *(Purpose-aligned Experience: Traveling Puppeteer (+1))* Decide who made you and for what purpose. At character creation, choose one of your Experiences that best aligns with this purpose and gain a permanent +1 bonus to it.
 
 **Efficient.** When you take a short rest, you can choose a long rest move instead of a short rest move.
 
@@ -99,16 +99,17 @@
 
 ## Character Hook
 
-**Appearance:** Dresses in oversized clothes, has the air of a barkeep, and is recognizable by ink-stained fingertips.  
-**Personality:** Proud, polite, and very stubborn.  
-**Motivation:** Wants to prove that a long-held family story is true.  
-**Backstory:** Few in a traveling caravan expected much of Thane Brackenridge, until a friend took the blame for something they did. Since then, Thane has set out to prove that a long-held family story is true.
+**High Concept:** Traveling Playwright, Embarrassment of the Wildemere Dynasty  
+**Trouble:** Too Proud to Ask for Help  
+**Appearance:** Dresses in oversized clothes, has the air of a barkeep, and is recognizable by a habit of humming quietly.  
+**Personality:** Meticulous about gear and careless about personal safety.  
+**Backstory:** Everyone in a quiet vineyard at the end of a long valley remembers the day the ground split open beneath the town square. Hana Wildemere remembers it differently, and that is why Hana intends to learn the truth about where they came from.
 
-**Background question:** You were in love once. Who did you adore, and how did they hurt you?
+**Background question:** Who from your community taught you to have such confidence in yourself?
 
 **Connection prompts** (ask another player):
 
-- Why do you grab my hand at night?
+- What made you realize we were going to be such good friends?
 
 ---
 
@@ -116,6 +117,6 @@
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

@@ -1,6 +1,6 @@
-# Amaru Marrow
+# Bram Clearbrook
 
-*A Ribbet warrior raised among the Slyborne who fights so others will not have to.*
+*A Ribbet warrior raised among the Slyborne who fears his own strength.*
 
 **Level:** 1 (Tier 1) | **Class:** Warrior - Call of the Brave  
 **Heritage:** Ribbet / Slyborne | **Pronouns:** he/him
@@ -54,8 +54,8 @@
 
 ## Experiences
 
-- **Deer Hunter** +2
-- **Weather Watcher** +2
+- **Glacier Crossing** +2
+- **Ambush Survivor** +2
 
 ## Features
 
@@ -108,16 +108,17 @@ Gain a bonus to your Evasion equal to half your Agility.
 
 ## Character Hook
 
-**Appearance:** Dresses in reinforced clothes, has the air of a hired hand, and is recognizable by a braided cord tied around one wrist.  
-**Personality:** Fiercely loyal and slow to trust.  
-**Motivation:** Wants to atone for a mistake that cost others dearly.  
-**Backstory:** Amaru Marrow left a traveling caravan the season he found a map hidden inside an old instrument case, and has spent every day since trying to atone for a mistake that cost others dearly.
+**High Concept:** Battle-Weary Duelist  
+**Trouble:** Hunted by the Order I Betrayed  
+**Appearance:** Dresses in reinforced clothes, has the air of a hired hand, and is recognizable by boots resoled countless times.  
+**Personality:** Superstitious about everything except real danger.  
+**Backstory:** When he won a fortune and lost it the same night, Bram Clearbrook packed a bag and walked out of a quiet vineyard at the end of a long valley without looking back. Somewhere ahead is the chance to make amends to someone he wronged long ago.
 
-**Background question:** Who taught you to fight, and why did they stay behind when you left home?
+**Background question:** What legendary place have you always wanted to visit, and why is it so special?
 
 **Connection prompts** (ask another player):
 
-- We knew each other long before this party came together. How?
+- What mundane task do you usually help me with off the battlefield?
 
 ---
 
@@ -125,6 +126,6 @@ Gain a bonus to your Evasion equal to half your Agility.
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

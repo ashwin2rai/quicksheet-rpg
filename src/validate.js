@@ -217,7 +217,7 @@ function runChecks(c, catalog, err) {
 
   // ---- flavor completeness
   const fl = c.flavor ?? {};
-  for (const key of ['name', 'pronouns', 'concept', 'personality', 'motivation', 'hook', 'backgroundQuestion']) {
+  for (const key of ['name', 'pronouns', 'concept', 'personality', 'highConcept', 'trouble', 'motivation', 'hook', 'backgroundQuestion']) {
     if (typeof fl[key] !== 'string' || !fl[key].trim()) err(`flavor.${key} is missing`);
   }
   if (!Array.isArray(fl.connectionPrompts) || fl.connectionPrompts.length < 1 || fl.connectionPrompts.length > 2) err('flavor needs 1-2 connection prompts');

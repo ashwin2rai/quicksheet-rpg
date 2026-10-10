@@ -1,6 +1,6 @@
-# Teodor Lowmoor
+# Tadeo Wyvernhall
 
-*A Halfling rogue raised among the Orderborne who has a debt to repay and a long road ahead.*
+*A Halfling rogue raised among the Orderborne who trusts their gut over every map.*
 
 **Level:** 1 (Tier 1) | **Class:** Rogue - Syndicate  
 **Heritage:** Halfling / Orderborne | **Pronouns:** they/them
@@ -47,8 +47,8 @@
 
 ## Experiences
 
-- **Retired Pit Fighter** +2
-- **Traveling Puppeteer** +2
+- **Seasoned Pilgrim** +2
+- **Gossip Network** +2
 
 ## Features
 
@@ -60,7 +60,7 @@
 
 ### Community: Orderborne
 
-**Dedicated.** *(Your sayings: "Truth spoken softly still carries."; "Never leave a task half-done."; "Duty before comfort.")* Record three sayings or values your upbringing instilled in you. Once per rest, when you describe how you're embodying one of these principles through your current action, you can roll a **d20** as your Hope Die.
+**Dedicated.** *(Your sayings: "Keep your tools sharp and your temper dull."; "Truth spoken softly still carries."; "Duty before comfort.")* Record three sayings or values your upbringing instilled in you. Once per rest, when you describe how you're embodying one of these principles through your current action, you can roll a **d20** as your Hope Die.
 
 ### Class: Rogue
 
@@ -104,10 +104,11 @@ Place a number of tokens equal to your Spellcast trait on this card. When you ta
 
 ## Character Hook
 
-**Appearance:** Dresses in leather clothes, has the air of a bandit, and is recognizable by an old burn scar across the back of one hand.  
-**Personality:** Soft-spoken until something matters.  
-**Motivation:** Wants to find a place that truly feels like home.  
-**Backstory:** Few in a walled city with too many rules expected much of Teodor Lowmoor, until a flood washed away the only road home. Since then, Teodor has set out to find a place that truly feels like home.
+**High Concept:** Notorious Card-Table Cheat  
+**Trouble:** My Mentor Disapproves of Everything I Do  
+**Appearance:** Dresses in leather clothes, has the air of a bandit, and is recognizable by a sprig of dried herbs tucked behind one ear.  
+**Personality:** Courteous, careful and always three steps ahead.  
+**Backstory:** Before a magical storm erased a month from everyone's memory, Tadeo Wyvernhall lived an ordinary life in an orphanage run by retired soldiers. Now Tadeo has one goal: to finish a book their grandparent started.
 
 **Background question:** Who from your past were you most sad to say goodbye to?
 
@@ -121,6 +122,6 @@ Place a number of tokens equal to your Spellcast trait on this card. When you ta
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

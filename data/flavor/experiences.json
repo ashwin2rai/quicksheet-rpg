@@ -804,6 +804,764 @@
       "tags": [
         "martial"
       ]
+    },
+    {
+      "id": "exp.ghost-story-teller",
+      "name": "Ghost Story Teller",
+      "tags": [
+        "performance",
+        "lore"
+      ]
+    },
+    {
+      "id": "exp.jugglers-hands",
+      "name": "Juggler's Hands",
+      "tags": [
+        "performance",
+        "craft"
+      ]
+    },
+    {
+      "id": "exp.writes-scathing-satire",
+      "name": "Writes Scathing Satire",
+      "tags": [
+        "performance",
+        "social"
+      ]
+    },
+    {
+      "id": "exp.fire-eater",
+      "name": "Fire-Eater",
+      "tags": [
+        "performance",
+        "urban"
+      ]
+    },
+    {
+      "id": "exp.masked-ball-regular",
+      "name": "Masked Ball Regular",
+      "tags": [
+        "performance",
+        "social"
+      ]
+    },
+    {
+      "id": "exp.funeral-singer",
+      "name": "Funeral Singer",
+      "tags": [
+        "performance",
+        "faith"
+      ]
+    },
+    {
+      "id": "exp.dance-hall-champion",
+      "name": "Dance Hall Champion",
+      "tags": [
+        "performance",
+        "social"
+      ]
+    },
+    {
+      "id": "exp.heckler-tamer",
+      "name": "Heckler Tamer",
+      "tags": [
+        "performance",
+        "protection"
+      ]
+    },
+    {
+      "id": "exp.bribes-the-right-clerk",
+      "name": "Bribes the Right Clerk",
+      "tags": [
+        "social",
+        "urban"
+      ]
+    },
+    {
+      "id": "exp.remembers-every-name",
+      "name": "Remembers Every Name",
+      "tags": [
+        "social"
+      ]
+    },
+    {
+      "id": "exp.wedding-planner",
+      "name": "Wedding Planner",
+      "tags": [
+        "social",
+        "craft"
+      ]
+    },
+    {
+      "id": "exp.translator-for-traders",
+      "name": "Translator for Traders",
+      "tags": [
+        "social",
+        "travel"
+      ]
+    },
+    {
+      "id": "exp.knows-who-owes-whom",
+      "name": "Knows Who Owes Whom",
+      "tags": [
+        "social",
+        "urban"
+      ]
+    },
+    {
+      "id": "exp.charming-stern-grandparents",
+      "name": "Charming Stern Grandparents",
+      "tags": [
+        "social"
+      ]
+    },
+    {
+      "id": "exp.talks-down-drunks",
+      "name": "Talks Down Drunks",
+      "tags": [
+        "social",
+        "protection"
+      ]
+    },
+    {
+      "id": "exp.former-spy-handler",
+      "name": "Former Spy Handler",
+      "tags": [
+        "social",
+        "stealth"
+      ]
+    },
+    {
+      "id": "exp.auction-house-bidder",
+      "name": "Auction House Bidder",
+      "tags": [
+        "social",
+        "urban"
+      ]
+    },
+    {
+      "id": "exp.ancient-coins-and-currencies",
+      "name": "Ancient Coins and Currencies",
+      "tags": [
+        "lore"
+      ]
+    },
+    {
+      "id": "exp.monster-folklore",
+      "name": "Monster Folklore",
+      "tags": [
+        "lore",
+        "wilderness"
+      ]
+    },
+    {
+      "id": "exp.heraldry-expert",
+      "name": "Heraldry Expert",
+      "tags": [
+        "lore",
+        "social"
+      ]
+    },
+    {
+      "id": "exp.shipwreck-records",
+      "name": "Shipwreck Records",
+      "tags": [
+        "lore",
+        "travel"
+      ]
+    },
+    {
+      "id": "exp.forbidden-history",
+      "name": "Forbidden History",
+      "tags": [
+        "lore",
+        "arcane"
+      ]
+    },
+    {
+      "id": "exp.riddle-master",
+      "name": "Riddle Master",
+      "tags": [
+        "lore",
+        "social"
+      ]
+    },
+    {
+      "id": "exp.siege-engineer",
+      "name": "Siege Engineer",
+      "tags": [
+        "martial",
+        "craft"
+      ]
+    },
+    {
+      "id": "exp.cavalry-rider",
+      "name": "Cavalry Rider",
+      "tags": [
+        "martial",
+        "travel"
+      ]
+    },
+    {
+      "id": "exp.knife-thrower",
+      "name": "Knife Thrower",
+      "tags": [
+        "martial",
+        "performance"
+      ]
+    },
+    {
+      "id": "exp.brawled-in-every-port",
+      "name": "Brawled in Every Port",
+      "tags": [
+        "martial",
+        "travel"
+      ]
+    },
+    {
+      "id": "exp.fencing-instructor",
+      "name": "Fencing Instructor",
+      "tags": [
+        "martial",
+        "social"
+      ]
+    },
+    {
+      "id": "exp.ambush-survivor",
+      "name": "Ambush Survivor",
+      "tags": [
+        "martial",
+        "protection"
+      ]
+    },
+    {
+      "id": "exp.polearm-formations",
+      "name": "Polearm Formations",
+      "tags": [
+        "martial",
+        "protection"
+      ]
+    },
+    {
+      "id": "exp.bare-knuckle-boxer",
+      "name": "Bare-Knuckle Boxer",
+      "tags": [
+        "martial",
+        "urban"
+      ]
+    },
+    {
+      "id": "exp.disarming-opponents",
+      "name": "Disarming Opponents",
+      "tags": [
+        "martial"
+      ]
+    },
+    {
+      "id": "exp.escort-for-royals",
+      "name": "Escort for Royals",
+      "tags": [
+        "protection",
+        "social"
+      ]
+    },
+    {
+      "id": "exp.lifeguard-on-the-wild-coast",
+      "name": "Lifeguard on the Wild Coast",
+      "tags": [
+        "protection",
+        "wilderness"
+      ]
+    },
+    {
+      "id": "exp.firefighting-bucket-line",
+      "name": "Firefighting Bucket Line",
+      "tags": [
+        "protection",
+        "urban"
+      ]
+    },
+    {
+      "id": "exp.bandit-country-patrols",
+      "name": "Bandit Country Patrols",
+      "tags": [
+        "protection",
+        "wilderness"
+      ]
+    },
+    {
+      "id": "exp.keeps-watch-all-night",
+      "name": "Keeps Watch All Night",
+      "tags": [
+        "protection"
+      ]
+    },
+    {
+      "id": "exp.glassblower",
+      "name": "Glassblower",
+      "tags": [
+        "craft"
+      ]
+    },
+    {
+      "id": "exp.clockwork-tinkerer",
+      "name": "Clockwork Tinkerer",
+      "tags": [
+        "craft",
+        "arcane"
+      ]
+    },
+    {
+      "id": "exp.perfumer",
+      "name": "Perfumer",
+      "tags": [
+        "craft",
+        "social"
+      ]
+    },
+    {
+      "id": "exp.saddle-and-tack-maker",
+      "name": "Saddle and Tack Maker",
+      "tags": [
+        "craft",
+        "travel"
+      ]
+    },
+    {
+      "id": "exp.candlemaker",
+      "name": "Candlemaker",
+      "tags": [
+        "craft",
+        "faith"
+      ]
+    },
+    {
+      "id": "exp.builds-snares-and-traps",
+      "name": "Builds Snares and Traps",
+      "tags": [
+        "craft",
+        "wilderness"
+      ]
+    },
+    {
+      "id": "exp.tailor-to-the-nobility",
+      "name": "Tailor to the Nobility",
+      "tags": [
+        "craft",
+        "social"
+      ]
+    },
+    {
+      "id": "exp.rope-and-rigging",
+      "name": "Rope and Rigging",
+      "tags": [
+        "craft",
+        "travel"
+      ]
+    },
+    {
+      "id": "exp.potters-wheel",
+      "name": "Potter's Wheel",
+      "tags": [
+        "craft"
+      ]
+    },
+    {
+      "id": "exp.repairs-anything-with-wire",
+      "name": "Repairs Anything with Wire",
+      "tags": [
+        "craft"
+      ]
+    },
+    {
+      "id": "exp.desert-crossing",
+      "name": "Desert Crossing",
+      "tags": [
+        "travel",
+        "wilderness"
+      ]
+    },
+    {
+      "id": "exp.sailed-the-storm-belt",
+      "name": "Sailed the Storm Belt",
+      "tags": [
+        "travel"
+      ]
+    },
+    {
+      "id": "exp.map-memorizer",
+      "name": "Map Memorizer",
+      "tags": [
+        "travel",
+        "lore"
+      ]
+    },
+    {
+      "id": "exp.mule-train-driver",
+      "name": "Mule Train Driver",
+      "tags": [
+        "travel",
+        "wilderness"
+      ]
+    },
+    {
+      "id": "exp.pilgrim-guide",
+      "name": "Pilgrim Guide",
+      "tags": [
+        "travel",
+        "faith"
+      ]
+    },
+    {
+      "id": "exp.border-crossings",
+      "name": "Border Crossings",
+      "tags": [
+        "travel",
+        "stealth"
+      ]
+    },
+    {
+      "id": "exp.sleeps-anywhere",
+      "name": "Sleeps Anywhere",
+      "tags": [
+        "travel"
+      ]
+    },
+    {
+      "id": "exp.postal-rider",
+      "name": "Postal Rider",
+      "tags": [
+        "travel",
+        "urban"
+      ]
+    },
+    {
+      "id": "exp.sewer-navigator",
+      "name": "Sewer Navigator",
+      "tags": [
+        "urban",
+        "stealth"
+      ]
+    },
+    {
+      "id": "exp.market-day-hustler",
+      "name": "Market Day Hustler",
+      "tags": [
+        "urban",
+        "social"
+      ]
+    },
+    {
+      "id": "exp.rooftop-gardener",
+      "name": "Rooftop Gardener",
+      "tags": [
+        "urban",
+        "nature"
+      ]
+    },
+    {
+      "id": "exp.guild-politics",
+      "name": "Guild Politics",
+      "tags": [
+        "urban",
+        "social"
+      ]
+    },
+    {
+      "id": "exp.tenement-landlord",
+      "name": "Tenement Landlord",
+      "tags": [
+        "urban",
+        "social"
+      ]
+    },
+    {
+      "id": "exp.cave-diver",
+      "name": "Cave Diver",
+      "tags": [
+        "wilderness"
+      ]
+    },
+    {
+      "id": "exp.glacier-crossing",
+      "name": "Glacier Crossing",
+      "tags": [
+        "wilderness",
+        "travel"
+      ]
+    },
+    {
+      "id": "exp.falconer",
+      "name": "Falconer",
+      "tags": [
+        "wilderness",
+        "nature"
+      ]
+    },
+    {
+      "id": "exp.survives-on-bark-and-rainwater",
+      "name": "Survives on Bark and Rainwater",
+      "tags": [
+        "wilderness"
+      ]
+    },
+    {
+      "id": "exp.avalanche-survivor",
+      "name": "Avalanche Survivor",
+      "tags": [
+        "wilderness"
+      ]
+    },
+    {
+      "id": "exp.swamp-guide",
+      "name": "Swamp Guide",
+      "tags": [
+        "wilderness",
+        "nature"
+      ]
+    },
+    {
+      "id": "exp.wild-horse-tamer",
+      "name": "Wild Horse Tamer",
+      "tags": [
+        "nature",
+        "wilderness"
+      ]
+    },
+    {
+      "id": "exp.tree-whisperer",
+      "name": "Tree Whisperer",
+      "tags": [
+        "nature"
+      ]
+    },
+    {
+      "id": "exp.reads-animal-tracks",
+      "name": "Reads Animal Tracks",
+      "tags": [
+        "nature",
+        "wilderness"
+      ]
+    },
+    {
+      "id": "exp.orchard-keeper",
+      "name": "Orchard Keeper",
+      "tags": [
+        "nature",
+        "craft"
+      ]
+    },
+    {
+      "id": "exp.poison-plant-expert",
+      "name": "Poison Plant Expert",
+      "tags": [
+        "nature",
+        "lore"
+      ]
+    },
+    {
+      "id": "exp.raised-by-shepherds",
+      "name": "Raised by Shepherds",
+      "tags": [
+        "nature",
+        "wilderness"
+      ]
+    },
+    {
+      "id": "exp.fungal-cultivator",
+      "name": "Fungal Cultivator",
+      "tags": [
+        "nature",
+        "craft"
+      ]
+    },
+    {
+      "id": "exp.exorcism-assistant",
+      "name": "Exorcism Assistant",
+      "tags": [
+        "faith",
+        "arcane"
+      ]
+    },
+    {
+      "id": "exp.graveyard-keeper",
+      "name": "Graveyard Keeper",
+      "tags": [
+        "faith",
+        "protection"
+      ]
+    },
+    {
+      "id": "exp.confession-listener",
+      "name": "Confession Listener",
+      "tags": [
+        "faith",
+        "social"
+      ]
+    },
+    {
+      "id": "exp.fasting-discipline",
+      "name": "Fasting Discipline",
+      "tags": [
+        "faith"
+      ]
+    },
+    {
+      "id": "exp.pilgrimage-of-silence",
+      "name": "Pilgrimage of Silence",
+      "tags": [
+        "faith",
+        "travel"
+      ]
+    },
+    {
+      "id": "exp.reads-omens-in-smoke",
+      "name": "Reads Omens in Smoke",
+      "tags": [
+        "faith",
+        "lore"
+      ]
+    },
+    {
+      "id": "exp.shrine-restorer",
+      "name": "Shrine Restorer",
+      "tags": [
+        "faith",
+        "craft"
+      ]
+    },
+    {
+      "id": "exp.identifies-enchanted-objects",
+      "name": "Identifies Enchanted Objects",
+      "tags": [
+        "arcane",
+        "lore"
+      ]
+    },
+    {
+      "id": "exp.ley-line-dowsing",
+      "name": "Ley Line Dowsing",
+      "tags": [
+        "arcane",
+        "wilderness"
+      ]
+    },
+    {
+      "id": "exp.potion-taster",
+      "name": "Potion Taster",
+      "tags": [
+        "arcane",
+        "craft"
+      ]
+    },
+    {
+      "id": "exp.summoning-circles",
+      "name": "Summoning Circles",
+      "tags": [
+        "arcane"
+      ]
+    },
+    {
+      "id": "exp.dream-interpreter",
+      "name": "Dream Interpreter",
+      "tags": [
+        "arcane",
+        "social"
+      ]
+    },
+    {
+      "id": "exp.illusion-spotter",
+      "name": "Illusion Spotter",
+      "tags": [
+        "arcane",
+        "stealth"
+      ]
+    },
+    {
+      "id": "exp.magical-creature-handler",
+      "name": "Magical Creature Handler",
+      "tags": [
+        "arcane",
+        "nature"
+      ]
+    },
+    {
+      "id": "exp.enchanted-library-cataloguer",
+      "name": "Enchanted Library Cataloguer",
+      "tags": [
+        "arcane",
+        "lore"
+      ]
+    },
+    {
+      "id": "exp.disguise-artist",
+      "name": "Disguise Artist",
+      "tags": [
+        "stealth",
+        "social"
+      ]
+    },
+    {
+      "id": "exp.shadow-on-the-wall",
+      "name": "Shadow on the Wall",
+      "tags": [
+        "stealth"
+      ]
+    },
+    {
+      "id": "exp.safecracker",
+      "name": "Safecracker",
+      "tags": [
+        "stealth",
+        "craft"
+      ]
+    },
+    {
+      "id": "exp.counterfeiter",
+      "name": "Counterfeiter",
+      "tags": [
+        "stealth",
+        "craft"
+      ]
+    },
+    {
+      "id": "exp.tails-a-mark-unseen",
+      "name": "Tails a Mark Unseen",
+      "tags": [
+        "stealth",
+        "urban"
+      ]
+    },
+    {
+      "id": "exp.escape-artist",
+      "name": "Escape Artist",
+      "tags": [
+        "stealth",
+        "performance"
+      ]
+    },
+    {
+      "id": "exp.reads-lips",
+      "name": "Reads Lips",
+      "tags": [
+        "stealth",
+        "social"
+      ]
+    },
+    {
+      "id": "exp.hides-in-plain-sight",
+      "name": "Hides in Plain Sight",
+      "tags": [
+        "stealth"
+      ]
+    },
+    {
+      "id": "exp.night-fisher",
+      "name": "Night Fisher",
+      "tags": [
+        "wilderness",
+        "stealth"
+      ]
     }
   ]
 }

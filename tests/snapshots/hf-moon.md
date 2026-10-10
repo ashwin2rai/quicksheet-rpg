@@ -1,6 +1,6 @@
-# Hollis Fairweather
+# Kalani Saltmarsh
 
-*A Dwarf witch raised among the Reborne who is searching for something lost.*
+*A Dwarf witch raised among the Reborne who has a debt to repay and a long road ahead.*
 
 **Level:** 1 (Tier 1) | **Class:** Witch - Moon  
 **Heritage:** Dwarf / Reborne | **Pronouns:** they/them
@@ -45,8 +45,8 @@
 
 ## Experiences
 
-- **Reads a Room Quickly** +2
-- **Noble Family Trees** +2
+- **Student of Dead Languages** +2
+- **Battlefield Bandaging** +2
 
 ## Features
 
@@ -106,17 +106,18 @@ On a failure, you must spend a Hope or mark a Stress.
 
 ## Character Hook
 
-**Appearance:** Dresses in ragged clothes, has the air of a spider, and is recognizable by a laugh that turns heads.  
-**Personality:** Patient with people, impatient with excuses.  
-**Motivation:** Wants to find a place that truly feels like home.  
-**Backstory:** Few in a lighthouse on a lonely coast expected much of Hollis Fairweather, until a stranger left them a sealed letter and vanished. Since then, Hollis has set out to find a place that truly feels like home.
+**High Concept:** Talisman Maker and Failed Baker  
+**Trouble:** An Apprentice I Never Asked For  
+**Appearance:** Dresses in ragged clothes, has the air of a spider, and is recognizable by a nose broken at least twice.  
+**Personality:** Polite to a fault, even to would-be assassins.  
+**Backstory:** Kalani Saltmarsh was born in a mountain pass toll station and might have stayed forever, but they found a map hidden inside an old instrument case. These days Kalani travels with a single purpose: to finish a book their grandparent started.
 
-**Background question:** You once used your power to help someone in a dire situation. Who were they, and why did they come to you?
+**Background question:** Who from your community feared your magical craft? What rumor did they spread about you, and what truth did it contain?
 
 **Connection prompts** (ask another player):
 
-- What do you typically come to me for advice about?
 - What unique ritual or practice have I taught you that we now perform together?
+- What do you typically come to me for advice about?
 
 ---
 
@@ -124,6 +125,6 @@ On a failure, you must spend a Hope or mark a Stress.
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

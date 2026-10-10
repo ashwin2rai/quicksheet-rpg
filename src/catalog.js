@@ -70,6 +70,7 @@ export function createCatalog({ manifest, contentProfile, gameData, flavor }) {
       ...withoutMeta(flavor.companions),
       ...withoutMeta(flavor.sayings),
       ...withoutMeta(flavor.patrons ?? {}),
+      ...withoutMeta(flavor.aspects ?? {}),
       experiences,
       classStyles,
     }),

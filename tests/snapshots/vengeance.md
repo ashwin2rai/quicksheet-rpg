@@ -1,6 +1,6 @@
-# Fiora Stonebridge
+# Wren Larkspur
 
-*A Goblin guardian raised among the Underborne who has a debt to repay and a long road ahead.*
+*A Goblin guardian raised among the Underborne who bets on long odds and usually loses gracefully.*
 
 **Level:** 1 (Tier 1) | **Class:** Guardian - Vengeance  
 **Heritage:** Goblin / Underborne | **Pronouns:** she/her
@@ -43,8 +43,8 @@
 
 ## Experiences
 
-- **Mimic of Voices** +2
-- **Siege Survivor** +2
+- **Gossip Network** +2
+- **Battlefield Bandaging** +2
 
 ## Features
 
@@ -97,17 +97,18 @@ When an ally within Very Close range would take damage, you can **mark a Stress*
 
 ## Character Hook
 
-**Appearance:** Dresses in intricate clothes, has the air of a general, and is recognizable by a small scar through one eyebrow.  
-**Personality:** Blunt, honest, and secretly sentimental.  
-**Motivation:** Wants to understand a strange dream that keeps returning.  
-**Backstory:** Few in a sleepy farming village expected much of Fiora Stonebridge, until she found a map hidden inside an old instrument case. Since then, Fiora has set out to understand a strange dream that keeps returning.
+**High Concept:** Siege Veteran of the Black Lantern Players  
+**Trouble:** Someone Is Writing Unflattering Songs About Me  
+**Appearance:** Dresses in intricate clothes, has the air of a general, and is recognizable by a bundle of letters tied with string, never opened.  
+**Personality:** Restless whenever things go quiet.  
+**Backstory:** Before she won a fortune and lost it the same night, Wren Larkspur lived an ordinary life in a frontier fort that changed hands every few years. Now Wren has one goal: to become the best at one thing, anything, truly the best.
 
 **Background question:** You've been tasked with protecting something important and delivering it somewhere dangerous. What is it, and where does it need to go?
 
 **Connection prompts** (ask another player):
 
-- What small gift did you give me that you notice I always carry with me?
 - What lie have you told me about yourself that I absolutely believe?
+- What small gift did you give me that you notice I always carry with me?
 
 ---
 
@@ -115,6 +116,6 @@ When an ally within Very Close range would take damage, you can **mark a Stress*
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

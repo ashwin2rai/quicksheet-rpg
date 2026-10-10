@@ -1,6 +1,6 @@
-# Amaru Silverbell
+# Bastien Keelson
 
-*A Galapa guardian raised among the Wanderborne who left home with more questions than answers.*
+*A Galapa guardian raised among the Wanderborne who wants a quiet life and keeps not getting one.*
 
 **Level:** 1 (Tier 1) | **Class:** Guardian - Stalwart  
 **Heritage:** Galapa / Wanderborne | **Pronouns:** she/her
@@ -51,8 +51,8 @@
 
 ## Experiences
 
-- **Mender of the Sick** +2
-- **Smells a Coming Storm** +2
+- **Firefighting Bucket Line** +2
+- **Border Scout** +2
 
 ## Features
 
@@ -110,12 +110,13 @@ When you choose not to equip armor, you have a base Armor Score of 3 + your Stre
 
 ## Character Hook
 
-**Appearance:** Dresses in casual clothes, has the air of an elephant, and is recognizable by an old burn scar across the back of one hand.  
-**Personality:** An incurable optimist.  
-**Motivation:** Wants to prove that a long-held family story is true.  
-**Backstory:** Amaru Silverbell grew up in a hamlet at the edge of an old forest. Everything changed when a bargain went wrong in front of the whole town. Now Amaru wants to prove that a long-held family story is true.
+**High Concept:** Runaway Shield of the Weak  
+**Trouble:** Left a Partner Behind in a Burning City  
+**Appearance:** Dresses in casual clothes, has the air of an elephant, and is recognizable by a sprig of dried herbs tucked behind one ear.  
+**Personality:** A rule-follower slowly learning to bend.  
+**Backstory:** Few in a whaling port on a cold sea expected much of Bastien Keelson, until a prophecy was read aloud with her name in it. Since then, Bastien has set out to outshine a rival who never takes her seriously.
 
-**Background question:** Who from your community did you fail to protect, and why do you still think of them?
+**Background question:** You've been tasked with protecting something important and delivering it somewhere dangerous. What is it, and where does it need to go?
 
 **Connection prompts** (ask another player):
 
@@ -127,6 +128,6 @@ When you choose not to equip armor, you have a base Armor Score of 3 + your Stre
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

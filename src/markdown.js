@@ -13,7 +13,7 @@ export const ATTRIBUTION_LINES = Object.freeze([
     'Official SRD: https://www.daggerheart.com/srd/',
   "Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), " +
     'an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. ' +
-    'Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.',
+    'Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.',
   'QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. ' +
     'It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.',
 ]);
@@ -307,9 +307,10 @@ export function renderCharacterMarkdown(character, catalog) {
   const f = c.flavor;
   push('## Character Hook', '');
   push(
+    `**High Concept:** ${f.highConcept}  `,
+    `**Trouble:** ${f.trouble}  `,
     `**Appearance:** Dresses in ${f.appearance.clothes} clothes, has the air of ${f.appearance.attitude}, and is recognizable by ${f.appearance.detail}.  `,
     `**Personality:** ${capitalize(f.personality)}.  `,
-    `**Motivation:** Wants to ${f.motivation}.  `,
     `**Backstory:** ${f.hook}`,
     '',
     `**Background question:** ${f.backgroundQuestion}`,

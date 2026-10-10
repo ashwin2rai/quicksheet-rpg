@@ -1,6 +1,6 @@
-# Mattea Fennick
+# Ottilie Tallowmere
 
-*A Fungril rogue raised among the Wildborne who keeps a secret for every friend.*
+*A Fungril rogue raised among the Wildborne who never sits with his back to a door.*
 
 **Level:** 1 (Tier 1) | **Class:** Rogue - Nightwalker  
 **Heritage:** Fungril / Wildborne | **Pronouns:** he/him
@@ -48,8 +48,8 @@
 
 ## Experiences
 
-- **Mimic of Voices** +2
-- **Hired Bodyguard** +2
+- **Courtly Etiquette** +2
+- **City Lamplighter** +2
 
 ## Features
 
@@ -96,17 +96,18 @@ You have advantage on action rolls to pick nonmagical locks, disarm nonmagical t
 
 ## Character Hook
 
-**Appearance:** Dresses in tactical clothes, has the air of a pirate, and is recognizable by a well-worn leather satchel covered in stitched notes.  
-**Personality:** Quick to forgive and slow to forget.  
-**Motivation:** Wants to earn enough to rebuild a ruined family home.  
-**Backstory:** Mattea Fennick left a crumbling hilltop monastery the season a stranger left him a sealed letter and vanished, and has spent every day since trying to earn enough to rebuild a ruined family home.
+**High Concept:** Shadow Courier of the Last Light Hospice  
+**Trouble:** Owes the Wrong People Money  
+**Appearance:** Dresses in tactical clothes, has the air of a pirate, and is recognizable by an armband of black cloth worn for someone unnamed.  
+**Personality:** Unfailingly honest even when it hurts.  
+**Backstory:** The story in a busy crossroads inn is that Ottilie Tallowmere left after he found a map hidden inside an old instrument case. The truth is stranger, but the goal is simple: Ottilie means to recover a stolen heirloom.
 
-**Background question:** Who from your past were you most sad to say goodbye to?
+**Background question:** What did you get caught doing that got you exiled from your home community?
 
 **Connection prompts** (ask another player):
 
 - What have I discovered about your past that I hold secret from the others?
-- What did I recently convince you to do that got us both in trouble?
+- Who do you know from my past, and how have they influenced your feelings about me?
 
 ---
 
@@ -114,6 +115,6 @@ You have advantage on action rolls to pick nonmagical locks, disarm nonmagical t
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

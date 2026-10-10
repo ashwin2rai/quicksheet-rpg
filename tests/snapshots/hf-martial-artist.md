@@ -1,6 +1,6 @@
-# Oriel Lanternhill
+# Jago Briarwood
 
-*A Human brawler raised among the Frostborne who left home with more questions than answers.*
+*A Human brawler raised among the Frostborne who is better at starting trouble than ending it.*
 
 **Level:** 1 (Tier 1) | **Class:** Brawler - Martial Artist  
 **Heritage:** Human / Frostborne | **Pronouns:** they/them
@@ -47,8 +47,8 @@
 
 ## Experiences
 
-- **Raised a Houseful of Orphans** +2
-- **Siege Survivor** +2
+- **Shipwreck Records** +2
+- **Horse Handler** +2
 
 ## Features
 
@@ -106,12 +106,13 @@ When an ally within Very Close range would take damage, you can **mark a Stress*
 
 ## Character Hook
 
-**Appearance:** Dresses in haphazard clothes, has the air of a flowing river, and is recognizable by rings on nearly every finger.  
-**Personality:** Dry-humored and quietly observant.  
-**Motivation:** Wants to protect people who have no one else to stand up for them.  
-**Backstory:** Oriel Lanternhill grew up in a sleepy farming village. Everything changed when their mentor disappeared on an ordinary errand. Now Oriel wants to protect people who have no one else to stand up for them.
+**High Concept:** Soft-Hearted Iron-Fisted Bouncer  
+**Trouble:** Never Backs Down From a Dare  
+**Appearance:** Dresses in haphazard clothes, has the air of a flowing river, and is recognizable by a scent of lavender and lamp oil.  
+**Personality:** Cheerful in a crisis and anxious in peacetime.  
+**Backstory:** Few in a frontier fort that changed hands every few years expected much of Jago Briarwood, until a trusted friend sold them out for a handful of coins. Since then, Jago has set out to earn a seat at a table that once turned them away.
 
-**Background question:** What organization has vowed to kill you on sight, and what did you do to invoke their ire?
+**Background question:** Who did you recently lose a fight to that you're desperate for a rematch against?
 
 **Connection prompts** (ask another player):
 
@@ -123,6 +124,6 @@ When an ally within Very Close range would take damage, you can **mark a Stress*
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

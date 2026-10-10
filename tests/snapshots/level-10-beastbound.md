@@ -1,6 +1,6 @@
-# Amaru Whitlock
+# Bram Sandeford
 
-*A Halfling ranger raised among the Underborne who left home with more questions than answers.*
+*A Halfling ranger raised among the Underborne who has seen too much to be surprised and still is.*
 
 **Level:** 10 (Tier 4) | **Class:** Ranger - Beastbound  
 **Heritage:** Halfling / Underborne | **Pronouns:** she/her
@@ -9,12 +9,12 @@
 
 | Agility | Strength | Finesse | Instinct | Presence | Knowledge |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| +4 | +0 | +4 | +4 | +2 | +1 |
+| +4 | +0 | +3 | +3 | +1 | +2 |
 
-**Evasion** 15 | **Proficiency** 4 | **Spellcast trait** Agility  
-**HP** 10 slots (0 marked) | **Stress** 6 slots (0 marked)  
-**Hope** 2 (max 6) | **Armor Score** 4 (4 Armor Slots, 0 marked)  
-**Damage Thresholds** Major 25 / Severe 50
+**Evasion** 14 | **Proficiency** 5 | **Spellcast trait** Agility  
+**HP** 10 slots (0 marked) | **Stress** 8 slots (0 marked)  
+**Hope** 2 (max 6) | **Armor Score** 6 (6 Armor Slots, 0 marked)  
+**Damage Thresholds** Major 23 / Severe 46
 
 ## Combat & Gear
 
@@ -24,16 +24,16 @@
 
 | Slot | Weapon | Attack | Range | Damage | Burden |
 | --- | --- | --- | --- | --- | --- |
-| Primary | Bloodstaff | Instinct +4 | Far | 4d20+7 mag | Two-Handed |
+| Primary | Legendary Greatstaff | Knowledge +2 | Very Far | 5d6+9 mag | Two-Handed |
 
-- **Bloodstaff** is a magic weapon (requires a Spellcast trait).
-- **Bloodstaff - Painful:** Each time you make a successful attack, you must mark a Stress.
+- **Legendary Greatstaff** is a magic weapon (requires a Spellcast trait).
+- **Legendary Greatstaff - Powerful:** On a successful attack, roll an additional damage die and discard the lowest result.
 
 ### Armor
 
-**Full Fortified Armor** - base thresholds 15 / 40, base score 4
+**Emberwoven Armor** - base thresholds 13 / 36, base score 6
 
-- **Fortified:** When you mark an Armor Slot, you reduce the severity of an attack by two thresholds instead of one.
+- **Burning:** When an adversary attacks you within Melee range, they mark a Stress.
 
 ### Inventory
 
@@ -46,11 +46,11 @@
 
 ## Experiences
 
-- **Caravan Guard** +3 (+2 base, +1 Advancements)
-- **Weather Watcher** +3 (+2 base, +1 Advancements)
-- **Armorer's Apprentice** +2 (gained at level 2)
-- **Smells a Coming Storm** +2 (gained at level 5)
-- **Shameless Haggler** +2 (gained at level 8)
+- **Beekeeper** +3 (+2 base, +1 Advancements)
+- **Lifeguard on the Wild Coast** +2
+- **Exorcism Assistant** +2 (gained at level 2)
+- **Charming Stern Grandparents** +3 (gained at level 5; +2 base, +1 Advancements)
+- **Follows Faint Trails** +2 (gained at level 8)
 
 ## Features
 
@@ -76,29 +76,28 @@
 
 ### Subclass: Beastbound (Foundation)
 
-**Companion.** *(Companion: Cinder, coyote)* You have an animal companion of your choice (at the GM's discretion). They stay by your side unless you tell them otherwise.
+**Companion.** *(Companion: Gale, kestrel)* You have an animal companion of your choice (at the GM's discretion). They stay by your side unless you tell them otherwise.
 
 Take the Ranger Companion sheet. When you level up your character, choose a level-up option for your companion from this sheet as well.
 
-### Companion: Cinder
+### Companion: Gale
 
-*Coyote - animal type and name are suggestions; settle them with your GM.*
+*Kestrel - animal type and name are suggestions; settle them with your GM.*
 
-**Evasion** 16 | **Stress** 4 slots (0 marked; companions mark Stress instead of taking damage)  
-**Attack** Very Close, 4d10 phy (uses your Proficiency)  
+**Evasion** 14 | **Stress** 4 slots (0 marked; companions mark Stress instead of taking damage)  
+**Attack** Very Close, 5d10 phy (uses your Proficiency)  
 **Command** Spellcast Roll (Agility +4); spend a Hope to add a companion Experience  
-**Experiences** We Always Find Them +2, Service Animal +3, On High Alert +2, Expert Climber +2, Loyal Until the End +2
+**Experiences** We Always Find Them +2, Service Animal +3, Scout +2, Royal Companion +3, Navigation +3
 
 **Companion level-up options taken** (numbers above already include them):
 
-- **Intelligent**: Your companion gains a permanent +1 bonus to a Companion Experience of your choice.
-- **Light in the Dark**: Use this as an additional Hope slot your character can mark.
+- **Intelligent** x3: Your companion gains a permanent +1 bonus to a Companion Experience of your choice.
 - **Creature Comfort**: Once per rest, when you take time during a quiet moment to give your companion love and attention, you can gain a Hope or you can both clear a Stress.
 - **Armored**: When your companion takes damage, you can mark one of your Armor Slots instead of marking one of their Stress.
 - **Vicious** x3: Increase your companion's damage dice or range by one step (d6 to d8, Close to Far, etc.).
 - **Resilient**: Your companion gains an additional Stress slot.
 - **Bonded**: When you mark your last Hit Point, your companion rushes to your side to comfort you. Roll a number of d6s equal to the unmarked Stress slots they have and mark them. If any roll a 6, your companion helps you up. Clear your last Hit Point and return to the scene.
-- **Aware** x3: Your companion gains a permanent +2 bonus to their Evasion.
+- **Aware** x2: Your companion gains a permanent +2 bonus to their Evasion.
 
 ### Subclass: Beastbound (Specialization)
 
@@ -114,25 +113,35 @@ Take the Ranger Companion sheet. When you level up your character, choose a leve
 
 | Card | Domain | Level | Type | Recall |
 | --- | --- | :---: | --- | :---: |
-| Conjured Steeds | Sage | 6 | Spell | 0 |
-| Boost | Bone | 4 | Ability | 1 |
-| Plant Dominion | Sage | 9 | Spell | 1 |
+| Corrosive Projectile | Sage | 3 | Spell | 1 |
+| Tactician | Bone | 3 | Ability | 1 |
 | Sage-Touched | Sage | 7 | Ability | 2 |
-| Know Thy Enemy | Bone | 5 | Ability | 1 |
+| Plant Dominion | Sage | 9 | Spell | 1 |
+| Conjured Steeds | Sage | 6 | Spell | 0 |
 
-### Conjured Steeds
+### Corrosive Projectile
 
-*Sage 6 - Spell - Recall 0*  
-*Acquired at level 6.*
+*Sage 3 - Spell - Recall 1*  
+*Acquired at level 5.*
 
-**Spend any number of Hope** to conjure that many magical steeds (such as horses, camels, or elephants) that you and your allies can ride until your next long rest or the steeds take any damage. The steeds double your land speed while traveling and, when in danger, allow you to move within Far range without having to roll. Creatures riding a steed gain a -2 penalty to attack rolls and a +2 bonus to damage rolls.
+Make a **Spellcast Roll** against a target within Far range. On a success, deal **d6+4** magic damage using your Proficiency. Additionally, **mark 2 or more Stress** to make them permanently *Corroded*. While a target is *Corroded*, they gain a -1 penalty to their Difficulty for every 2 Stress you spent. This condition can stack.
 
-### Boost
+### Tactician
 
-*Bone 4 - Ability - Recall 1*  
+*Bone 3 - Ability - Recall 1*  
 *Acquired at level 7.*
 
-**Mark a Stress** to boost off a willing ally within Close range, fling yourself into the air, and perform an aerial attack against a target within Far range. You have advantage on the attack, add a **d10** to the damage roll, and end your move within Melee range of the target.
+When you Help an Ally, they can **spend a Hope** to add one of your Experiences to their roll alongside your advantage die. When making a Tag Team Roll, you can roll a **d20** as your Hope Die.
+
+### Sage-Touched
+
+*Sage 7 - Ability - Recall 2*  
+*Acquired at level 8.*
+
+When 4 or more of the domain cards in your loadout are from the Sage domain, gain the following benefits:
+
+- While you're in a natural environment, you gain a +2 bonus to your Spellcast Rolls.
+- Once per rest, you can double your Agility or Instinct when making a roll that uses that trait. You must choose to do this before you roll.
 
 ### Plant Dominion
 
@@ -141,29 +150,12 @@ Take the Ranger Companion sheet. When you level up your character, choose a leve
 
 Make a **Spellcast Roll (18)**. Once per long rest on a success, you reshape the natural world, changing the surrounding plant life anywhere within Far range of you. For example, you can grow trees instantly, clear a path through dense vines, or create a wall of roots.
 
-### Sage-Touched
+### Conjured Steeds
 
-*Sage 7 - Ability - Recall 2*  
+*Sage 6 - Spell - Recall 0*  
 *Acquired at level 10.*
 
-When 4 or more of the domain cards in your loadout are from the Sage domain, gain the following benefits:
-
-- While you're in a natural environment, you gain a +2 bonus to your Spellcast Rolls.
-- Once per rest, you can double your Agility or Instinct when making a roll that uses that trait. You must choose to do this before you roll.
-
-### Know Thy Enemy
-
-*Bone 5 - Ability - Recall 1*  
-*Acquired at level 10.*
-
-When observing a creature, you can make an **Instinct Roll** against them. On a success, **spend a Hope** and ask the GM for one set of information about the target from the following options:
-
-- Their unmarked Hit Points and Stress.
-- Their Difficulty and damage thresholds.
-- Their tactics and standard attack damage dice.
-- Their features and Experiences.
-
-Additionally on a success, you can **mark a Stress** to remove a Fear from the GM's Fear Pool.
+**Spend any number of Hope** to conjure that many magical steeds (such as horses, camels, or elephants) that you and your allies can ride until your next long rest or the steeds take any damage. The steeds double your land speed while traveling and, when in danger, allow you to move within Far range without having to roll. Creatures riding a steed gain a -2 penalty to attack rolls and a +2 bonus to damage rolls.
 
 ## Domain Cards - Vault
 
@@ -171,12 +163,10 @@ Additionally on a success, you can **mark a Stress** to remove a Fear from the G
 | --- | --- | :---: | --- | :---: |
 | I See It Coming | Bone | 1 | Ability | 1 |
 | Vicious Entangle | Sage | 1 | Spell | 1 |
-| Conjure Swarm | Sage | 2 | Spell | 1 |
+| Gifted Tracker | Sage | 1 | Ability | 0 |
 | Towering Stalk | Sage | 3 | Spell | 1 |
 | Brace | Bone | 3 | Ability | 1 |
-| Healing Field | Sage | 4 | Spell | 2 |
-| Gifted Tracker | Sage | 1 | Ability | 0 |
-| Natural Familiar | Sage | 2 | Spell | 1 |
+| Conjure Swarm | Sage | 2 | Spell | 1 |
 
 ### I See It Coming
 
@@ -192,13 +182,19 @@ When you're targeted by an attack made from beyond Melee range, you can **mark a
 
 Make a **Spellcast Roll** against a target within Far range. On a success, roots and vines reach out from the ground, dealing **1d8+1** physical damage and temporarily *Restraining* the target. Additionally on a success, you can **spend a Hope** to temporarily *Restrain* another adversary within Very Close range of your target.
 
-### Conjure Swarm
+### Gifted Tracker
 
-*Sage 2 - Spell - Recall 1*  
+*Sage 1 - Ability - Recall 0*  
 *Acquired at level 2.*
 
-- ***Tekaira Armored Beetles:*** **Mark a Stress** to conjure armored beetles that encircle you. When you next take damage, reduce the severity by one threshold. You can **spend a Hope** to keep the beetles conjured after taking damage.
-- ***Fire Flies:*** Make a **Spellcast Roll** against all adversaries within Close range. **Spend a Hope** to deal **2d8+3** magic damage to targets you succeeded against.
+When you're tracking a specific creature or group of creatures based on signs of their passage, you can **spend any number of Hope** and ask the GM that many questions from the following list.
+
+- What direction did they go?
+- How long ago did they pass through?
+- What were they doing in this location?
+- How many of them were here?
+
+When you encounter creatures you've tracked in this way, gain a +1 bonus to your Evasion against them.
 
 ### Towering Stalk
 
@@ -212,48 +208,25 @@ Once per rest, you can conjure a thick, twisting stalk within Close range that c
 ### Brace
 
 *Bone 3 - Ability - Recall 1*  
-*Acquired at level 3.*
+*Acquired at level 4.*
 
 When you mark an Armor Slot to reduce incoming damage, you can **mark a Stress** to mark an additional Armor Slot.
 
-### Healing Field
-
-*Sage 4 - Spell - Recall 2*  
-*Acquired at level 4.*
-
-Once per long rest, you can conjure a field of healing plants around you. Everywhere within Close range of you bursts to life with vibrant nature, allowing you and all allies in the area to clear a Hit Point.
-
-**Spend 2 Hope** to allow you and all allies to clear 2 Hit Points instead.
-
-### Gifted Tracker
-
-*Sage 1 - Ability - Recall 0*  
-*Acquired at level 5.*
-
-When you're tracking a specific creature or group of creatures based on signs of their passage, you can **spend any number of Hope** and ask the GM that many questions from the following list.
-
-- What direction did they go?
-- How long ago did they pass through?
-- What were they doing in this location?
-- How many of them were here?
-
-When you encounter creatures you've tracked in this way, gain a +1 bonus to your Evasion against them.
-
-### Natural Familiar
+### Conjure Swarm
 
 *Sage 2 - Spell - Recall 1*  
-*Acquired at level 8.*
+*Acquired at level 6.*
 
-**Spend a Hope** to summon a small nature spirit or forest critter to your side until your next rest, you cast Natural Familiar again, or the familiar is targeted by an attack. If you **spend an additional Hope**, you can summon a familiar that flies. You can communicate with them, make a **Spellcast Roll** to command them to perform simple tasks, and mark a Stress to see through their eyes.
-
-When you deal damage to an adversary within Melee range of your familiar, you add a **d6** to your damage roll.
+- ***Tekaira Armored Beetles:*** **Mark a Stress** to conjure armored beetles that encircle you. When you next take damage, reduce the severity by one threshold. You can **spend a Hope** to keep the beetles conjured after taking damage.
+- ***Fire Flies:*** Make a **Spellcast Roll** against all adversaries within Close range. **Spend a Hope** to deal **2d8+3** magic damage to targets you succeeded against.
 
 ## Character Hook
 
-**Appearance:** Dresses in flowing clothes, has the air of a watchdog, and is recognizable by rings on nearly every finger.  
-**Personality:** Warm but impossible to rush.  
-**Motivation:** Wants to repay a debt to someone who once saved her life.  
-**Backstory:** Few in a busy crossroads inn expected much of Amaru Whitlock, until a friend took the blame for something she did. Since then, Amaru has set out to repay a debt to someone who once saved her life.
+**High Concept:** Pathfinder, Pride of the Sandeford Clan  
+**Trouble:** Someone Is Writing Unflattering Songs About Me  
+**Appearance:** Dresses in flowing clothes, has the air of a watchdog, and is recognizable by a patch over one eye that is sometimes switched to the other.  
+**Personality:** Relentlessly curious.  
+**Backstory:** Everyone in a hidden valley that does not appear on maps remembers the day the ground split open beneath the town square. Bram Sandeford remembers it differently, and that is why Bram intends to earn enough to rebuild a ruined family home.
 
 **Background question:** You've traveled many dangerous lands, but what is the one place you refuse to go?
 
@@ -263,15 +236,15 @@ When you deal damage to an adversary within Melee range of your familiar, you ad
 
 ## Advancement History
 
-- **Level 2 (Tier 2):** Tier achievement: new Experience *Armorer's Apprentice* +2, Proficiency +1; companion gains *On High Alert* +2. Advancements: +1 Finesse and +1 Instinct; +1 Evasion. Domain card: *Conjure Swarm* (Sage 2). Companion: Intelligent (+1 Service Animal).
-- **Level 3 (Tier 2):** Advancements: extra domain card *Towering Stalk* (Sage 3); +1 Hit Point slot. Domain card: *Brace* (Bone 3). Companion: Creature Comfort.
-- **Level 4 (Tier 2):** Advancements: +1 Agility and +1 Presence; +1 Hit Point slot. Domain card: *Healing Field* (Sage 4). Companion: Armored.
-- **Level 5 (Tier 3):** Tier achievement: new Experience *Smells a Coming Storm* +2, Proficiency +1, marked traits cleared; companion gains *Expert Climber* +2. Advancements: +1 Finesse and +1 Agility; Specialization subclass features. Domain card: *Gifted Tracker* (Sage 1). Companion: Bonded, Aware.
-- **Level 6 (Tier 3):** Advancements: +1 Evasion; +1 Instinct and +1 Presence. Domain card: *Conjured Steeds* (Sage 6). Companion: Light in the Dark.
-- **Level 7 (Tier 3):** Advancements: +1 to Caravan Guard and Weather Watcher; +1 Knowledge and +1 Strength. Domain card: *Boost* (Bone 4). Companion: Vicious (damage die +1 step).
-- **Level 8 (Tier 4):** Tier achievement: new Experience *Shameless Haggler* +2, Proficiency +1, marked traits cleared; companion gains *Loyal Until the End* +2. Advancements: +1 Evasion; +1 Hit Point slot. Domain card: *Natural Familiar* (Sage 2). Companion: Vicious (range +1 step).
-- **Level 9 (Tier 4):** Advancements: Mastery subclass features; +1 Hit Point slot. Domain card: *Plant Dominion* (Sage 9). Companion: Vicious (damage die +1 step), Resilient, Aware.
-- **Level 10 (Tier 4):** Advancements: +1 Finesse and +1 Instinct; extra domain card *Sage-Touched* (Sage 7). Domain card: *Know Thy Enemy* (Bone 5). Companion: Aware.
+- **Level 2 (Tier 2):** Tier achievement: new Experience *Exorcism Assistant* +2, Proficiency +1; companion gains *Scout* +2. Advancements: +1 Agility and +1 Presence; +1 Evasion. Domain card: *Gifted Tracker* (Sage 1). Companion: Vicious (damage die +1 step).
+- **Level 3 (Tier 2):** Advancements: +1 Instinct and +1 Finesse; +1 Hit Point slot. Domain card: *Towering Stalk* (Sage 3). Companion: Creature Comfort.
+- **Level 4 (Tier 2):** Advancements: +1 Hit Point slot; +1 Strength and +1 Knowledge. Domain card: *Brace* (Bone 3). Companion: Bonded.
+- **Level 5 (Tier 3):** Tier achievement: new Experience *Charming Stern Grandparents* +2, Proficiency +1, marked traits cleared; companion gains *Royal Companion* +2. Advancements: +1 Proficiency (both advancements). Domain card: *Corrosive Projectile* (Sage 3). Companion: Armored.
+- **Level 6 (Tier 3):** Advancements: +1 Stress slot; +1 to Charming Stern Grandparents and Beekeeper. Domain card: *Conjure Swarm* (Sage 2). Companion: Intelligent (+1 Service Animal).
+- **Level 7 (Tier 3):** Advancements: +1 Agility and +1 Instinct; +1 Finesse and +1 Knowledge. Domain card: *Tactician* (Bone 3). Companion: Vicious (damage die +1 step).
+- **Level 8 (Tier 4):** Tier achievement: new Experience *Follows Faint Trails* +2, Proficiency +1, marked traits cleared; companion gains *Navigation* +2. Advancements: +1 Hit Point slot; Specialization subclass features. Domain card: *Sage-Touched* (Sage 7). Companion: Vicious (range +1 step), Resilient.
+- **Level 9 (Tier 4):** Advancements: +1 Hit Point slot; +1 Stress slot. Domain card: *Plant Dominion* (Sage 9). Companion: Intelligent (+1 Royal Companion).
+- **Level 10 (Tier 4):** Advancements: Mastery subclass features; +1 Evasion. Domain card: *Conjured Steeds* (Sage 6). Companion: Intelligent (+1 Navigation), Aware, Aware.
 
 ---
 
@@ -279,6 +252,6 @@ When you deal damage to an adversary within Melee range of your familiar, you ad
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

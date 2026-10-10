@@ -1,6 +1,6 @@
-# Briala Quarrystone
+# Joren Goldfinch
 
-*A Firbolg assassin raised among the Slyborne who is searching for something lost.*
+*A Firbolg assassin raised among the Slyborne who is running toward something rather than away.*
 
 **Level:** 8 (Tier 4) | **Class:** Assassin - Executioners Guild  
 **Heritage:** Firbolg / Slyborne | **Pronouns:** she/her
@@ -11,10 +11,10 @@
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | +4 | +1 | +3 | +0 | +2 | +1 |
 
-**Evasion** 13 | **Proficiency** 4 | **Spellcast trait** Agility  
-**HP** 8 slots (0 marked) | **Stress** 8 slots (0 marked)  
+**Evasion** 13 | **Proficiency** 6 | **Spellcast trait** Agility  
+**HP** 6 slots (0 marked) | **Stress** 8 slots (0 marked)  
 **Hope** 2 (max 6) | **Armor Score** 5 (5 Armor Slots, 0 marked)  
-**Damage Thresholds** Major 23 / Severe 46
+**Damage Thresholds** Major 22 / Severe 43
 
 **Marked for Death damage** +4d6 (equal to your tier; d6s from Ambush)
 
@@ -26,13 +26,14 @@
 
 | Slot | Weapon | Attack | Range | Damage | Burden |
 | --- | --- | --- | --- | --- | --- |
-| Primary | Advanced Longsword | Agility +4 | Melee | 4d10+9 phy | Two-Handed |
+| Primary | Legendary Dagger | Finesse +3 | Melee | 6d8+10 phy | One-Handed |
+| Secondary | Advanced Hand Crossbow | Finesse +3 | Far | 6d6+5 phy | One-Handed |
 
 ### Armor
 
-**Darkweave Shroud** - base thresholds 13 / 36, base score 5
+**Legendary Mage Robes** - base thresholds 10 / 31, base score 5
 
-- **Ghostwalker:** Once per rest, **mark a Stress** to move up to Close range through solid objects.
+- **Enchanted:** Gain a bonus to your damage thresholds equal to your Spellcast trait.
 
 ### Inventory
 
@@ -45,11 +46,11 @@
 
 ## Experiences
 
-- **Instrument Maker** +3 (+2 base, +1 Advancements)
-- **Siege Survivor** +2
-- **Rooftop Runner** +2 (gained at level 2)
-- **Ferry Operator** +3 (gained at level 5; +2 base, +1 Advancements)
-- **Survived a Magical Accident** +2 (gained at level 8)
+- **Cat Burglar** +2
+- **Instrument Maker** +2
+- **Fur Trapper** +2 (gained at level 2)
+- **Sleight of Hand** +2 (gained at level 5)
+- **Rooftop Runner** +2 (gained at level 8)
 
 ## Features
 
@@ -89,27 +90,27 @@ You can have only one adversary *Marked for Death* at a time. This condition las
 
 | Card | Domain | Level | Type | Recall |
 | --- | --- | :---: | --- | :---: |
-| Hush | Midnight | 5 | Spell | 1 |
-| Glyph of Nightfall | Midnight | 4 | Spell | 1 |
+| Versatile Fighter | Blade | 3 | Ability | 1 |
+| Stealth Expertise | Midnight | 4 | Ability | 0 |
 | Battle-Hardened | Blade | 6 | Ability | 2 |
-| Mass Disguise | Midnight | 6 | Spell | 0 |
+| Dark Whispers | Midnight | 6 | Spell | 0 |
 | Spellcharge | Midnight | 8 | Spell | 1 |
 
-### Hush
+### Versatile Fighter
 
-*Midnight 5 - Spell - Recall 1*  
-*Acquired at level 6.*
+*Blade 3 - Ability - Recall 1*  
+*Acquired at level 4.*
 
-Make a **Spellcast Roll** against a target within Close range. On a success, **spend a Hope** to conjure suppressive magic around the target that encompasses everything within Very Close range of them and follows them as they move.
+You can use a different character trait for an equipped weapon, rather than the trait the weapon calls for. When you deal damage, you can **mark a Stress** to use the maximum result of one of your damage dice instead of rolling it.
 
-The target and anything within the area is *Silenced* until the GM spends a Fear on their turn to clear this condition, you cast Hush again, or you take Major damage. While *Silenced*, they can't make noise and can't cast spells.
+### Stealth Expertise
 
-### Glyph of Nightfall
+*Midnight 4 - Ability - Recall 0*  
+*Acquired at level 5.*
 
-*Midnight 4 - Spell - Recall 1*  
-*Acquired at level 6.*
+When you roll with Fear while attempting to move unnoticed through a dangerous area, you can **mark a Stress** to roll with Hope instead.
 
-Make a **Spellcast Roll** against a target within Very Close range. On a success, **spend a Hope** to conjure a dark glyph upon their body that exposes their weak points, temporarily reducing the target's Difficulty by a value equal to your Knowledge (minimum 1).
+If an ally within Close range is also attempting to move unnoticed and rolls with Fear, you can **mark a Stress** to change their result to a roll with Hope.
 
 ### Battle-Hardened
 
@@ -118,14 +119,17 @@ Make a **Spellcast Roll** against a target within Very Close range. On a success
 
 Once per long rest when you would make a death move, you can **spend a Hope** to clear a Hit Point instead.
 
-### Mass Disguise
+### Dark Whispers
 
 *Midnight 6 - Spell - Recall 0*  
 *Acquired at level 7.*
 
-When you have a few minutes of silence to focus, you can **mark a Stress** to change the appearance of all willing creatures within Close range. Their new forms must share a general body structure and size, and can be somebody or something you've seen before or entirely fabricated. A disguised creature has advantage on Presence Rolls to avoid scrutiny.
+You can speak into the mind of any person with whom you've made physical contact. Once you've opened a channel with them, they can speak back into your mind. Additionally, you can **mark a Stress** to make a **Spellcast Roll** against them. On a success, you can ask the GM one of the following questions and receive an answer:
 
-Activate a Countdown (8). It ticks down as a consequence the GM chooses. When it triggers, the disguise drops.
+- Where are they?
+- What are they doing?
+- What are they afraid of?
+- What do they cherish most in the world?
 
 ### Spellcharge
 
@@ -142,11 +146,9 @@ When you make a successful attack against a target, you can spend any number of 
 | --- | --- | :---: | --- | :---: |
 | Rain of Blades | Midnight | 1 | Spell | 1 |
 | Not Good Enough | Blade | 1 | Ability | 1 |
+| Whirlwind | Blade | 1 | Ability | 0 |
 | Reckless | Blade | 2 | Ability | 1 |
 | A Soldier's Bond | Blade | 2 | Ability | 1 |
-| Shadowbind | Midnight | 2 | Spell | 0 |
-| Scramble | Blade | 3 | Ability | 1 |
-| Vitality | Blade | 5 | Ability | 0 |
 
 ### Rain of Blades
 
@@ -164,69 +166,50 @@ If a target you hit is *Vulnerable*, they take an extra **1d8** damage.
 
 When you roll your damage dice, you can reroll any 1s or 2s.
 
+### Whirlwind
+
+*Blade 1 - Ability - Recall 0*  
+*Acquired at level 2.*
+
+When you make a successful attack against a target within Very Close range, you can **spend a Hope** to use the attack against all other targets within Very Close range. All additional adversaries you succeed against with this ability take half damage.
+
 ### Reckless
 
 *Blade 2 - Ability - Recall 1*  
-*Acquired at level 2.*
+*Acquired at level 3.*
 
 **Mark a Stress** to gain advantage on an attack.
 
 ### A Soldier's Bond
 
 *Blade 2 - Ability - Recall 1*  
-*Acquired at level 3.*
+*Acquired at level 4.*
 
 Once per long rest, when you compliment someone or ask them about something they're good at, you can both gain 3 Hope.
 
-### Shadowbind
-
-*Midnight 2 - Spell - Recall 0*  
-*Acquired at level 4.*
-
-Make a **Spellcast Roll** against all adversaries within Very Close range. Targets you succeed against are temporarily *Restrained* as their shadow binds them in place.
-
-### Scramble
-
-*Blade 3 - Ability - Recall 1*  
-*Acquired at level 5.*
-
-Once per rest, when a creature within Melee range would deal damage to you, you can avoid the attack and safely move out of Melee range of the enemy.
-
-### Vitality
-
-*Blade 5 - Ability - Recall 0*  
-*Vitality benefits: one Stress slot and +2 damage thresholds. Placed in the vault permanently; its benefit still applies. Acquired at level 8.*
-
-When you choose this card, permanently gain two of the following benefits:
-
-- One Stress slot
-- One Hit Point slot
-- +2 bonus to your damage thresholds
-
-Then place this card in your vault permanently.
-
 ## Character Hook
 
-**Appearance:** Dresses in sinister clothes, has the air of a hunter, and is recognizable by a well-worn leather satchel covered in stitched notes.  
-**Personality:** Relentlessly curious.  
-**Motivation:** Wants to prove that a long-held family story is true.  
-**Backstory:** Briala Quarrystone left a walled city with too many rules the season a festival ended in disaster, and has spent every day since trying to prove that a long-held family story is true.
+**High Concept:** Quiet Knife and Beekeeper  
+**Trouble:** The Bottle Is Always Calling  
+**Appearance:** Dresses in sinister clothes, has the air of a hunter, and is recognizable by a habit of naming every horse, cart and campfire.  
+**Personality:** An incurable optimist.  
+**Backstory:** When she drew the short straw in a village lottery, Joren Goldfinch packed a bag and walked out of a terraced tea plantation without looking back. Somewhere ahead is the chance to find a place that truly feels like home.
 
-**Background question:** You once killed someone you were close to. What happened, and how did it change you?
+**Background question:** Throughout your career, one target has eluded you. Who are they, and how have they slipped through your fingers?
 
 **Connection prompts** (ask another player):
 
-- What secret about myself did I tell you, and how did it change your view of me?
+- How did you save me when I was on the brink of death? What have I promised you as repayment?
 
 ## Advancement History
 
-- **Level 2 (Tier 2):** Tier achievement: new Experience *Rooftop Runner* +2, Proficiency +1. Advancements: +1 Stress slot; +1 Instinct and +1 Agility. Domain card: *Reckless* (Blade 2).
-- **Level 3 (Tier 2):** Advancements: +1 Evasion; +1 Finesse and +1 Presence. Domain card: *A Soldier's Bond* (Blade 2).
-- **Level 4 (Tier 2):** Advancements: +1 Knowledge and +1 Strength; +1 Hit Point slot. Domain card: *Shadowbind* (Midnight 2).
-- **Level 5 (Tier 3):** Tier achievement: new Experience *Ferry Operator* +2, Proficiency +1, marked traits cleared. Advancements: +1 Hit Point slot; +1 to Ferry Operator and Instrument Maker. Domain card: *Scramble* (Blade 3).
-- **Level 6 (Tier 3):** Advancements: extra domain card *Hush* (Midnight 5); extra domain card *Glyph of Nightfall* (Midnight 4). Domain card: *Battle-Hardened* (Blade 6).
-- **Level 7 (Tier 3):** Advancements: +1 Hit Point slot; +1 Agility and +1 Finesse. Domain card: *Mass Disguise* (Midnight 6).
-- **Level 8 (Tier 4):** Tier achievement: new Experience *Survived a Magical Accident* +2, Proficiency +1, marked traits cleared. Advancements: extra domain card *Spellcharge* (Midnight 8); Specialization subclass features. Domain card: *Vitality* (Blade 5).
+- **Level 2 (Tier 2):** Tier achievement: new Experience *Fur Trapper* +2, Proficiency +1. Advancements: +1 Evasion; +1 Agility and +1 Finesse. Domain card: *Whirlwind* (Blade 1).
+- **Level 3 (Tier 2):** Advancements: +1 Presence and +1 Knowledge; +1 Instinct and +1 Strength. Domain card: *Reckless* (Blade 2).
+- **Level 4 (Tier 2):** Advancements: +1 Stress slot; extra domain card *Versatile Fighter* (Blade 3). Domain card: *A Soldier's Bond* (Blade 2).
+- **Level 5 (Tier 3):** Tier achievement: new Experience *Sleight of Hand* +2, Proficiency +1, marked traits cleared. Advancements: Specialization subclass features; +1 Hit Point slot. Domain card: *Stealth Expertise* (Midnight 4).
+- **Level 6 (Tier 3):** Advancements: +1 Stress slot; +1 Agility and +1 Finesse. Domain card: *Battle-Hardened* (Blade 6).
+- **Level 7 (Tier 3):** Advancements: +1 Proficiency (both advancements). Domain card: *Dark Whispers* (Midnight 6).
+- **Level 8 (Tier 4):** Tier achievement: new Experience *Rooftop Runner* +2, Proficiency +1, marked traits cleared. Advancements: +1 Proficiency (both advancements). Domain card: *Spellcharge* (Midnight 8).
 
 ---
 
@@ -234,6 +217,6 @@ Then place this card in your vault permanently.
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

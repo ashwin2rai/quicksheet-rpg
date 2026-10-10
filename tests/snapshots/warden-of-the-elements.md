@@ -1,6 +1,6 @@
-# Maren Yarrow
+# Eulalie Tumbledown
 
-*A Dwarf druid raised among the Highborne who left home with more questions than answers.*
+*A Dwarf druid raised among the Highborne who keeps a journal no one is allowed to read.*
 
 **Level:** 1 (Tier 1) | **Class:** Druid - Warden of the Elements  
 **Heritage:** Dwarf / Highborne | **Pronouns:** she/her
@@ -41,8 +41,8 @@
 
 ## Experiences
 
-- **Deer Hunter** +2
-- **Relic Guardian** +2
+- **Identifies Enchanted Objects** +2
+- **Rooftop Gardener** +2
 
 ## Features
 
@@ -116,10 +116,11 @@ Additionally, before you make a **Spellcast Roll** while within a natural enviro
 
 ## Character Hook
 
-**Appearance:** Dresses in loose clothes, has the air of a hippie, and is recognizable by a well-worn leather satchel covered in stitched notes.  
-**Personality:** Competitive about everything, even chores.  
-**Motivation:** Wants to make a name worth remembering.  
-**Backstory:** Few in a lighthouse on a lonely coast expected much of Maren Yarrow, until a bargain went wrong in front of the whole town. Since then, Maren has set out to make a name worth remembering.
+**High Concept:** Hedge Druid, Black Sheep of the Tumbledown Family  
+**Trouble:** Falls in Love Every Other Week  
+**Appearance:** Dresses in loose clothes, has the air of a hippie, and is recognizable by an armband of black cloth worn for someone unnamed.  
+**Personality:** An incorrigible flirt with excellent manners.  
+**Backstory:** Before she found a dying traveler who pressed a key into her hand, Eulalie Tumbledown lived an ordinary life in a canal city full of bridges. Now Eulalie has one goal: to build a home where no one is turned away.
 
 **Background question:** Why was the community you grew up in so reliant on nature and its creatures?
 
@@ -134,6 +135,6 @@ Additionally, before you make a **Spellcast Roll** while within a natural enviro
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

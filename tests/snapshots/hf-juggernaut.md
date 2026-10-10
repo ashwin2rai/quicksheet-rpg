@@ -1,6 +1,6 @@
-# Ilse Fairweather
+# Abelard Rivensong
 
-*A Skykin brawler raised among the Ridgeborne who has a debt to repay and a long road ahead.*
+*A Skykin brawler raised among the Ridgeborne who trusts their gut over every map.*
 
 **Level:** 1 (Tier 1) | **Class:** Brawler - Juggernaut  
 **Heritage:** Skykin / Ridgeborne | **Pronouns:** they/them
@@ -43,8 +43,8 @@
 
 ## Experiences
 
-- **Instrument Maker** +2
-- **Siege Survivor** +2
+- **Knows a Fence** +2
+- **Knows the Trade Roads** +2
 
 ## Features
 
@@ -95,17 +95,18 @@ When an ally within Very Close range would take damage, you can **mark a Stress*
 
 ## Character Hook
 
-**Appearance:** Dresses in practical clothes, has the air of a golden retriever, and is recognizable by a chipped front tooth worn with odd pride.  
+**High Concept:** Unlikely Dockside Bruiser of the Wayfarers' Lodge  
+**Trouble:** A Debt to the Temple I Can Never Repay  
+**Appearance:** Dresses in practical clothes, has the air of a golden retriever, and is recognizable by ink-stained fingertips.  
 **Personality:** Warm but impossible to rush.  
-**Motivation:** Wants to recover a stolen heirloom.  
-**Backstory:** Ilse Fairweather grew up in a traveling caravan. Everything changed when they won a contest that was meant to be lost. Now Ilse wants to recover a stolen heirloom.
+**Backstory:** Abelard Rivensong grew up in an island where the ferry comes once a month. Everything changed when the stars went dark for one whole night. Now Abelard wants to discover what lies beyond a door in their dreams.
 
 **Background question:** What organization has vowed to kill you on sight, and what did you do to invoke their ire?
 
 **Connection prompts** (ask another player):
 
 - I still haven't forgiven you for something you said to me. What was it, and why did you say it?
-- What is one thing we're both afraid of?
+- What do I rely on you for during our travels? How do you feel about it?
 
 ---
 
@@ -113,6 +114,6 @@ When an ally within Very Close range would take damage, you can **mark a Stress*
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

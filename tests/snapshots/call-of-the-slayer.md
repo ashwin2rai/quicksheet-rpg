@@ -1,6 +1,6 @@
-# Mirela Barrowell
+# Greer Calloway
 
-*A Faun warrior raised among the Highborne who settles arguments with a raised blade.*
+*A Faun warrior raised among the Highborne who carries a weapon with a name and a history.*
 
 **Level:** 1 (Tier 1) | **Class:** Warrior - Call of the Slayer  
 **Heritage:** Faun / Highborne | **Pronouns:** she/her
@@ -48,8 +48,8 @@
 
 ## Experiences
 
-- **Animal Healer** +2
-- **Former Dockhand** +2
+- **Bare-Knuckle Boxer** +2
+- **Dance Hall Champion** +2
 
 ## Features
 
@@ -100,12 +100,13 @@ When you take Severe damage, you can **mark a Stress** to reduce the severity by
 
 ## Character Hook
 
-**Appearance:** Dresses in sparing clothes, has the air of a gladiator, and is recognizable by rings on nearly every finger.  
-**Personality:** Fiercely loyal and slow to trust.  
-**Motivation:** Wants to find a place that truly feels like home.  
-**Backstory:** Mirela Barrowell grew up in a lighthouse on a lonely coast. Everything changed when a bargain went wrong in front of the whole town. Now Mirela wants to find a place that truly feels like home.
+**High Concept:** Axe-for-Hire and Amateur Astronomer  
+**Trouble:** My Rescuer Expects Repayment  
+**Appearance:** Dresses in sparing clothes, has the air of a gladiator, and is recognizable by a patch over one eye that is sometimes switched to the other.  
+**Personality:** Superstitious about everything except real danger.  
+**Backstory:** Greer Calloway left a ruined castle repurposed as a school the season a rival family burned the family business to the ground, and has spent every day since trying to return a stranger's lost letter to its intended reader.
 
-**Background question:** Somebody defeated you in battle years ago and left you to die. Who was it, and how did they betray you?
+**Background question:** Who taught you to fight, and why did they stay behind when you left home?
 
 **Connection prompts** (ask another player):
 
@@ -118,6 +119,6 @@ When you take Severe damage, you can **mark a Stress** to reduce the severity by
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

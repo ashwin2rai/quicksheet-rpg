@@ -1,6 +1,6 @@
-# Dalia Deepwell
+# Nell Kettleby
 
-*A Giant guardian raised among the Orderborne who would rather take a blow than watch one land.*
+*A Giant guardian raised among the Orderborne who is searching for something lost.*
 
 **Level:** 1 (Tier 1) | **Class:** Guardian - Stalwart  
 **Heritage:** Giant / Orderborne | **Pronouns:** he/him
@@ -47,8 +47,8 @@
 
 ## Experiences
 
-- **Animal Healer** +2
-- **Mimic of Voices** +2
+- **Knife Thrower** +2
+- **Village Matchmaker** +2
 
 ## Features
 
@@ -60,7 +60,7 @@
 
 ### Community: Orderborne
 
-**Dedicated.** *(Your sayings: "Duty before comfort."; "The many are stronger than the one."; "A promise kept is a wall that never falls.")* Record three sayings or values your upbringing instilled in you. Once per rest, when you describe how you're embodying one of these principles through your current action, you can roll a **d20** as your Hope Die.
+**Dedicated.** *(Your sayings: "Duty before comfort."; "Order is a kindness we give to each other."; "Speak plainly, act fairly.")* Record three sayings or values your upbringing instilled in you. Once per rest, when you describe how you're embodying one of these principles through your current action, you can roll a **d20** as your Hope Die.
 
 ### Class: Guardian
 
@@ -101,16 +101,17 @@ When you roll your damage dice, you can reroll any 1s or 2s.
 
 ## Character Hook
 
-**Appearance:** Dresses in tactical clothes, has the air of a wrestler, and is recognizable by a well-worn leather satchel covered in stitched notes.  
-**Personality:** Patient with people, impatient with excuses.  
-**Motivation:** Wants to see every corner of the map at least once.  
-**Backstory:** Dalia Deepwell grew up in a walled city with too many rules. Everything changed when a bargain went wrong in front of the whole town. Now Dalia wants to see every corner of the map at least once.
+**High Concept:** Unlicensed Siege Veteran  
+**Trouble:** Must Be the Center of Attention  
+**Appearance:** Dresses in tactical clothes, has the air of a wrestler, and is recognizable by a smile that reaches the eyes a moment late.  
+**Personality:** A terrible liar who keeps trying anyway.  
+**Backstory:** Few in a terraced tea plantation expected much of Nell Kettleby, until he alone walked out of a collapsed mine. Since then, Nell has set out to pay off a debt before the collectors find his family.
 
 **Background question:** You've been tasked with protecting something important and delivering it somewhere dangerous. What is it, and where does it need to go?
 
 **Connection prompts** (ask another player):
 
-- What small gift did you give me that you notice I always carry with me?
+- What lie have you told me about yourself that I absolutely believe?
 - How did I save your life the first time we met?
 
 ---
@@ -119,6 +120,6 @@ When you roll your damage dice, you can reroll any 1s or 2s.
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

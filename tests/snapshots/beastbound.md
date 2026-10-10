@@ -1,6 +1,6 @@
-# Bram Lowmoor
+# Halden Wyvernhall
 
-*A Galapa ranger raised among the Wildborne who has a debt to repay and a long road ahead.*
+*A Galapa ranger raised among the Wildborne who bets on long odds and usually loses gracefully.*
 
 **Level:** 1 (Tier 1) | **Class:** Ranger - Beastbound  
 **Heritage:** Galapa / Wildborne | **Pronouns:** they/them
@@ -45,8 +45,8 @@
 
 ## Experiences
 
-- **Fur Trapper** +2
-- **Shield Wall Drills** +2
+- **Reads Animal Tracks** +2
+- **Camp Cook** +2
 
 ## Features
 
@@ -72,13 +72,13 @@
 
 ### Subclass: Beastbound (Foundation)
 
-**Companion.** *(Companion: Ember, monitor lizard)* You have an animal companion of your choice (at the GM's discretion). They stay by your side unless you tell them otherwise.
+**Companion.** *(Companion: Kestrel, cockatoo)* You have an animal companion of your choice (at the GM's discretion). They stay by your side unless you tell them otherwise.
 
 Take the Ranger Companion sheet. When you level up your character, choose a level-up option for your companion from this sheet as well.
 
-### Companion: Ember
+### Companion: Kestrel
 
-*Monitor lizard - animal type and name are suggestions; settle them with your GM.*
+*Cockatoo - animal type and name are suggestions; settle them with your GM.*
 
 **Evasion** 10 | **Stress** 3 slots (0 marked; companions mark Stress instead of taking damage)  
 **Attack** Melee, 1d6 phy (uses your Proficiency)  
@@ -115,17 +115,18 @@ If you end this movement within Melee range of an adversary and immediately make
 
 ## Character Hook
 
-**Appearance:** Dresses in stained clothes, has the air of a teacher, and is recognizable by a well-worn leather satchel covered in stitched notes.  
-**Personality:** Competitive about everything, even chores.  
-**Motivation:** Wants to make a name worth remembering.  
-**Backstory:** Bram Lowmoor grew up in a crowded port city. Everything changed when they won a contest that was meant to be lost. Now Bram wants to make a name worth remembering.
+**High Concept:** Hard-Luck Trail-Finder  
+**Trouble:** The Bottle Is Always Calling  
+**Appearance:** Dresses in stained clothes, has the air of a teacher, and is recognizable by a perpetually sunburned nose.  
+**Personality:** Prone to grand speeches at inconvenient moments.  
+**Backstory:** Halden Wyvernhall left a floating market on a slow brown river the season the stars went dark for one whole night, and has spent every day since trying to stop a war before it starts.
 
-**Background question:** A terrible creature hurt your community, and you've vowed to hunt them down. What are they, and what unique trail or sign do they leave behind?
+**Background question:** You've traveled many dangerous lands, but what is the one place you refuse to go?
 
 **Connection prompts** (ask another player):
 
-- Why do you act differently when we're alone than when others are around?
 - What threat have you asked me to watch for, and why are you worried about it?
+- What friendly competition do we have?
 
 ---
 
@@ -133,6 +134,6 @@ If you end this movement within Melee range of an adversary and immediately make
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

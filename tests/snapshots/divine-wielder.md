@@ -1,6 +1,6 @@
-# Bram Rivensong
+# Ines Heathcote
 
-*A Dwarf seraph raised among the Underborne who is searching for something lost.*
+*A Dwarf seraph raised among the Underborne who keeps a journal no one is allowed to read.*
 
 **Level:** 1 (Tier 1) | **Class:** Seraph - Divine Wielder  
 **Heritage:** Dwarf / Underborne | **Pronouns:** they/them
@@ -45,8 +45,8 @@
 
 ## Experiences
 
-- **Mountain Shepherd** +2
-- **Battlefield Bandaging** +2
+- **Fur Trapper** +2
+- **Ran the Alms House** +2
 
 ## Features
 
@@ -98,12 +98,13 @@ When you choose not to equip armor, you have a base Armor Score of 3 + your Stre
 
 ## Character Hook
 
-**Appearance:** Dresses in glowing clothes, has the air of an evangelist, and is recognizable by a small scar through one eyebrow.  
-**Personality:** Proud, polite, and very stubborn.  
-**Motivation:** Wants to outshine a rival who never takes them seriously.  
-**Backstory:** Bram Rivensong grew up in a sleepy farming village. Everything changed when their mentor disappeared on an ordinary errand. Now Bram wants to outshine a rival who never takes them seriously.
+**High Concept:** Wandering Paladin of the Quiet Hand  
+**Trouble:** Magic Leaks Out When I'm Upset  
+**Appearance:** Dresses in glowing clothes, has the air of an evangelist, and is recognizable by a ring worn on a chain because it no longer fits.  
+**Personality:** Meticulous about gear and careless about personal safety.  
+**Backstory:** Ines Heathcote left a smoky foundry town the season a trusted friend sold them out for a handful of coins, and has spent every day since trying to chart the stars from the top of every mountain.
 
-**Background question:** Which god did you devote yourself to? What incredible feat did they perform for you in a moment of desperation?
+**Background question:** How did your appearance change after taking your oath?
 
 **Connection prompts** (ask another player):
 
@@ -115,6 +116,6 @@ When you choose not to equip armor, you have a base Armor Score of 3 + your Stre
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

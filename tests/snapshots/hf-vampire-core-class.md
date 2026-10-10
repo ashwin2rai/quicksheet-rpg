@@ -1,6 +1,6 @@
-# Talia Oakhart
+# Ruslan Farthing
 
-*A Tidekin rogue raised among the Loreborne who is rarely seen and never caught.*
+*A Tidekin rogue raised among the Loreborne who trusts locks less than people.*
 
 **Level:** 3 (Tier 2) | **Class:** Rogue - Syndicate  
 **Heritage:** Tidekin / Loreborne | **Transformation:** Vampire | **Pronouns:** he/him
@@ -9,12 +9,12 @@
 
 | Agility | Strength | Finesse | Instinct | Presence | Knowledge |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| +2 | +0 | +3 | -1 | +0 | +1 |
+| +2 | +0 | +2 | +0 | +0 | +1 |
 
-**Evasion** 13 | **Proficiency** 2 | **Spellcast trait** Finesse  
+**Evasion** 12 | **Proficiency** 2 | **Spellcast trait** Finesse  
 **HP** 7 slots (0 marked) | **Stress** 6 slots (0 marked)  
 **Hope** 2 (max 6) | **Armor Score** 5 (5 Armor Slots, 0 marked)  
-**Damage Thresholds** Major 14 / Severe 26
+**Damage Thresholds** Major 16 / Severe 30
 
 **Sneak Attack damage** +2d6 (equal to your tier)
 
@@ -26,22 +26,26 @@
 
 | Slot | Weapon | Attack | Range | Damage | Burden |
 | --- | --- | --- | --- | --- | --- |
-| Primary | Improved Dagger | Finesse +3 | Melee | 2d8+4 phy | One-Handed |
-| Secondary | Improved Hand Crossbow | Finesse +3 | Far | 2d6+3 phy | One-Handed |
+| Primary | Bladed Whip | Agility +2 | Very Close | 2d8+3 phy | One-Handed |
+| Secondary | Improved Shortsword | Agility +2 | Melee | 2d8+2 phy | One-Handed |
+
+- **Bladed Whip - Quick:** When you make an attack, you can **mark a Stress** to target another creature within range.
+- **Bladed Whip** deals **2d8+6** phy against targets within Melee range while paired with your secondary weapon.
+- **Improved Shortsword - Paired:** +3 to primary weapon damage to targets within Melee range
 
 ### Other Attacks
 
 | Attack | Roll | Range | Damage | Cost |
 | --- | --- | --- | --- | --- |
-| Fangs | Finesse +3 | Melee | 2d6 phy | - |
+| Fangs | Agility +2 | Melee | 2d6 phy | - |
 
 *From features; see Features for full rules. Fangs uses a trait of your choice; shown with your highest trait.*
 
 ### Armor
 
-**Rosewild Armor** - base thresholds 11 / 23, base score 5
+**Improved Banded Armor** - base thresholds 13 / 27, base score 5
 
-- **Hopeful:** When you would spend a Hope, you can **mark an Armor Slot** instead.
+- **Bulky:** -1 to Evasion; when you take Severe damage, you must mark a Stress.
 
 ### Inventory
 
@@ -54,9 +58,9 @@
 
 ## Experiences
 
-- **Rooftop Runner** +2
-- **Smuggler's Routes** +2
-- **Blends Into Crowds** +2 (gained at level 2)
+- **Tenement Landlord** +3 (+2 base, +1 Advancements)
+- **Back-Alley Duelist** +3 (+2 base, +1 Advancements)
+- **Smuggler's Routes** +2 (gained at level 2)
 
 ## Features
 
@@ -100,9 +104,8 @@
 | --- | --- | :---: | --- | :---: |
 | Inspirational Words | Grace | 1 | Ability | 1 |
 | Enrapture | Grace | 1 | Spell | 0 |
-| Pick and Pull | Midnight | 1 | Ability | 0 |
-| Tell No Lies | Grace | 2 | Spell | 1 |
-| Midnight Spirit | Midnight | 2 | Spell | 1 |
+| Troublemaker | Grace | 2 | Ability | 2 |
+| Deft Deceiver | Grace | 1 | Ability | 0 |
 
 ### Inspirational Words
 
@@ -124,39 +127,31 @@ When you take a long rest, clear all unspent tokens.
 
 Make a **Spellcast Roll** against a target within Close range. On a success, they become temporarily *Enraptured*. While *Enraptured*, a target's attention is fixed on you, narrowing their field of view and drowning out any sound but your voice. Once per rest on a success, you can **mark a Stress** to force the *Enraptured* target to mark a Stress as well.
 
-### Pick and Pull
+### Troublemaker
 
-*Midnight 1 - Ability - Recall 0*  
+*Grace 2 - Ability - Recall 2*  
 *Acquired at level 2.*
 
-You have advantage on action rolls to pick nonmagical locks, disarm nonmagical traps, or steal items from a target (either through stealth or by force).
+When you taunt or provoke a target within Far range, make a Presence Roll against them. Once per rest on a success, roll a number of **d4s** equal to your Proficiency. The target must mark Stress equal to the highest result rolled.
 
-### Tell No Lies
+### Deft Deceiver
 
-*Grace 2 - Spell - Recall 1*  
-*Acquired at level 2.*
-
-Make a **Spellcast Roll** against a target within Very Close range. On a success, they can't lie to you while they remain within Close range, but they are not compelled to speak. If you ask them a question and they refuse to answer, they must mark a Stress and the effect ends. The target is typically unaware this spell has been cast on them until it causes them to utter the truth.
-
-### Midnight Spirit
-
-*Midnight 2 - Spell - Recall 1*  
+*Grace 1 - Ability - Recall 0*  
 *Acquired at level 3.*
 
-**Spend a Hope** to summon a humanoid-sized spirit that can move or carry things for you until your next rest.
-
-You can also send it to attack an adversary. When you do, make a **Spellcast Roll** against a target within Very Far range. On a success, the spirit moves into Melee range with that target. Roll a number of **d6s** equal to your Spellcast trait and deal that much magic damage to the target. The spirit then dissipates. You can only have one spirit at a time.
+**Spend a Hope** to gain advantage on a roll to deceive or trick someone into believing a lie you tell them.
 
 ## Character Hook
 
-**Appearance:** Dresses in tight clothes, has the air of a gambler, and is recognizable by a small scar through one eyebrow.  
-**Personality:** Generous to a fault.  
-**Motivation:** Wants to learn the truth about where he came from.  
-**Backstory:** Few in a crumbling hilltop monastery expected much of Talia Oakhart, until a fire destroyed everything he knew. Since then, Talia has set out to learn the truth about where he came from.
+**High Concept:** Gentleman Thief, Disowned Heir of House Farthing  
+**Trouble:** A Creature I Spared Keeps Finding Me  
+**Appearance:** Dresses in tight clothes, has the air of a gambler, and is recognizable by a ring worn on a chain because it no longer fits.  
+**Personality:** Contemplative, with long silences that mean something.  
+**Backstory:** Everyone in a lighthouse on a lonely coast remembers the day he witnessed something never meant to be seen. Ruslan Farthing remembers it differently, and that is why Ruslan intends to build something that will outlast him.
 
 **Background question:** You used to have a different life, but you've tried to leave it behind. Who from your past is still chasing you?
 
-**Transformation question:** The vampire who sired you still has a hold over you. What's their name, and what do they want you to do for them?
+**Transformation question:** You once killed an innocent for their blood. What characteristic of theirs do you notice most in others?
 
 **Connection prompts** (ask another player):
 
@@ -165,8 +160,8 @@ You can also send it to attack an adversary. When you do, make a **Spellcast Rol
 
 ## Advancement History
 
-- **Level 2 (Tier 2):** Tier achievement: new Experience *Blends Into Crowds* +2, Proficiency +1. Advancements: +1 Hit Point slot; extra domain card *Pick and Pull* (Midnight 1). Domain card: *Tell No Lies* (Grace 2).
-- **Level 3 (Tier 2):** Advancements: +1 Finesse and +1 Agility; +1 Evasion. Domain card: *Midnight Spirit* (Midnight 2).
+- **Level 2 (Tier 2):** Tier achievement: new Experience *Smuggler's Routes* +2, Proficiency +1. Advancements: +1 Agility and +1 Instinct; +1 to Tenement Landlord and Back-Alley Duelist. Domain card: *Troublemaker* (Grace 2).
+- **Level 3 (Tier 2):** Advancements: +1 Evasion; +1 Hit Point slot. Domain card: *Deft Deceiver* (Grace 1).
 
 ---
 
@@ -174,6 +169,6 @@ You can also send it to attack an adversary. When you do, make a **Spellcast Rol
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

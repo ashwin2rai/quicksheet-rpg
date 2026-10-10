@@ -86,6 +86,7 @@
     "classStyles": "flavor/class-styles.json",
     "companions": "flavor/companions.json",
     "sayings": "flavor/sayings.json",
-    "patrons": "flavor/patrons.json"
+    "patrons": "flavor/patrons.json",
+    "aspects": "flavor/aspects.json"
   }
 }

@@ -1,6 +1,6 @@
-# Ines Millbrook
+# Ambrose Crowhurst
 
-*A Drakona ranger raised among the Orderborne who left home with more questions than answers.*
+*A Drakona ranger raised among the Orderborne who has seen too much to be surprised and still is.*
 
 **Level:** 1 (Tier 1) | **Class:** Ranger - Wayfinder  
 **Heritage:** Drakona / Orderborne | **Pronouns:** she/her
@@ -49,8 +49,8 @@
 
 ## Experiences
 
-- **Drill Instructor** +2
-- **Stands Firm Under Pressure** +2
+- **Spots a Pickpocket** +2
+- **Cliffside Egg Gatherer** +2
 
 ## Features
 
@@ -62,7 +62,7 @@
 
 ### Community: Orderborne
 
-**Dedicated.** *(Your sayings: "Waste nothing."; "Respect is earned in deeds, not words."; "Truth spoken softly still carries.")* Record three sayings or values your upbringing instilled in you. Once per rest, when you describe how you're embodying one of these principles through your current action, you can roll a **d20** as your Hope Die.
+**Dedicated.** *(Your sayings: "Rank is a responsibility, not a reward."; "Your word is your worth."; "No one stands taller by kneeling on another.")* Record three sayings or values your upbringing instilled in you. Once per rest, when you describe how you're embodying one of these principles through your current action, you can roll a **d20** as your Hope Die.
 
 ### Class: Ranger
 
@@ -103,17 +103,18 @@ Gain a bonus to your Evasion equal to half your Agility.
 
 ## Character Hook
 
-**Appearance:** Dresses in tactical clothes, has the air of a child, and is recognizable by a habit of humming quietly.  
-**Personality:** Soft-spoken until something matters.  
-**Motivation:** Wants to find a place that truly feels like home.  
-**Backstory:** Ines Millbrook left a mining settlement deep in the hills the season she won a contest that was meant to be lost, and has spent every day since trying to find a place that truly feels like home.
+**High Concept:** Mountain Guide of the Ember Court  
+**Trouble:** Wanted Poster in Three Cities  
+**Appearance:** Dresses in tactical clothes, has the air of a child, and is recognizable by a tattered ribbon from a long-ago festival.  
+**Personality:** Courteous, careful and always three steps ahead.  
+**Backstory:** When she broke a vow without meaning to, Ambrose Crowhurst packed a bag and walked out of a reed-thatched marsh village without looking back. Somewhere ahead is the chance to return a stranger's lost letter to its intended reader.
 
-**Background question:** Your first kill almost killed you, too. What was it, and what part of you was never the same after that event?
+**Background question:** You've traveled many dangerous lands, but what is the one place you refuse to go?
 
 **Connection prompts** (ask another player):
 
-- Why do you act differently when we're alone than when others are around?
 - What friendly competition do we have?
+- Why do you act differently when we're alone than when others are around?
 
 ---
 
@@ -121,6 +122,6 @@ Gain a bonus to your Evasion equal to half your Agility.
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

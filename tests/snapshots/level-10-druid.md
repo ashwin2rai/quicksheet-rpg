@@ -1,6 +1,6 @@
-# Dalia Windmere
+# Nell Sweetbriar
 
-*A Simiah druid raised among the Highborne who left home with more questions than answers.*
+*A Simiah druid raised among the Highborne who is better at starting trouble than ending it.*
 
 **Level:** 10 (Tier 4) | **Class:** Druid - Warden of the Elements  
 **Heritage:** Simiah / Highborne | **Pronouns:** he/him
@@ -9,11 +9,11 @@
 
 | Agility | Strength | Finesse | Instinct | Presence | Knowledge |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| +1 | -1 | +0 | +2 | +1 | +2 |
+| +1 | -1 | +1 | +2 | +0 | +2 |
 
-**Evasion** 14 | **Proficiency** 6 | **Spellcast trait** Instinct  
-**HP** 8 slots (0 marked) | **Stress** 8 slots (0 marked)  
-**Hope** 2 (max 6) | **Armor Score** 7 (7 Armor Slots, 0 marked)  
+**Evasion** 12 | **Proficiency** 6 | **Spellcast trait** Instinct  
+**HP** 9 slots (0 marked) | **Stress** 8 slots (0 marked)  
+**Hope** 2 (max 6) | **Armor Score** 6 (6 Armor Slots, 0 marked)  
 **Damage Thresholds** Major 23 / Severe 46
 
 ## Combat & Gear
@@ -24,16 +24,17 @@
 
 | Slot | Weapon | Attack | Range | Damage | Burden |
 | --- | --- | --- | --- | --- | --- |
-| Primary | Legendary Cutlass | Presence +1 | Melee | 6d8+10 phy | One-Handed |
-| Secondary | Primer Shard | Instinct +2 | Very Close | 6d4 phy | One-Handed |
+| Primary | Hand Cannon | Finesse +1 | Very Far | 6d6+12 phy | One-Handed |
+| Secondary | Hand Sling | Finesse +1 | Very Far | 6d6+4 phy | One-Handed |
 
-- **Primer Shard - Locked On:** On a successful attack, your next attack against the same target with your primary weapon automatically succeeds.
+- **Hand Cannon - Reloading:** After you make an attack, roll a **d6**. On a 1, you must mark Stress to reload this weapon before you can fire it again.
+- **Hand Sling - Versatile:** This weapon can also be used with these statistics—Finesse, Close, d8+4.
 
 ### Armor
 
-**Dunamis Silkchain** - base thresholds 13 / 36, base score 7
+**Veritas Opal Armor** - base thresholds 13 / 36, base score 6
 
-- **Timeslowing:** **Mark an Armor Slot** to roll a **d4** and add its result as a bonus to your Evasion against an incoming attack.
+- **Truthseeking:** This armor glows when another creature within Close range tells a lie.
 
 ### Inventory
 
@@ -46,11 +47,11 @@
 
 ## Experiences
 
-- **Horse Handler** +3 (+2 base, +1 Advancements)
-- **Arcane Theory** +2
-- **Settles Tavern Brawls** +3 (gained at level 2; +2 base, +1 Advancements)
-- **Border Scout** +2 (gained at level 5)
-- **Follows Faint Trails** +2 (gained at level 8)
+- **Deer Hunter** +3 (+2 base, +1 Advancements)
+- **Glacier Crossing** +3 (+2 base, +1 Advancements)
+- **Desert Crossing** +3 (gained at level 2; +2 base, +1 Advancements)
+- **Potter's Wheel** +3 (gained at level 5; +2 base, +1 Advancements)
+- **Magical Creature Handler** +2 (gained at level 8)
 
 ## Features
 
@@ -78,26 +79,26 @@ Numbers below already include the form's bonuses and your current traits, Evasio
 
 | Form | Evasion | Attack | Range | Damage | Advantage on |
 | --- | :---: | --- | --- | --- | --- |
-| Agile Scout (Fox, Mouse, Weasel, etc.) | 16 | Agility +2 | Melee | 6d4 phy | deceive, locate, sneak |
-| Aquatic Scout (Eel, Fish, Octopus, etc.) | 16 | Agility +2 | Melee | 6d4 phy | navigate, sneak, swim |
-| Household Friend (Cat, Dog, Rabbit, etc.) | 16 | Instinct +3 | Melee | 6d6 phy | climb, locate, protect |
-| Nimble Grazer (Deer, Gazelle, Goat, etc.) | 17 | Agility +2 | Melee | 6d6 phy | leap, sneak, sprint |
-| Pack Predator (Coyote, Hyena, Wolf, etc.) | 15 | Strength +1 | Melee | 6d8+2 phy | attack, sprint, track |
-| Stalking Arachnid (Tarantula, Wolf Spider, etc.) | 16 | Finesse +1 | Melee | 6d6+1 phy | attack, climb, sneak |
-| Armored Sentry (Armadillo, Pangolin, Turtle, etc.) | 15 | Strength +0 | Melee | 6d8+2 phy | dig, locate, protect |
-| Mighty Strider (Camel, Horse, Zebra, etc.) | 16 | Agility +2 | Melee | 6d8+1 phy | leap, navigate, sprint |
-| Pouncing Predator (Cheetah, Lion, Panther, etc.) | 17 | Instinct +3 | Melee | 6d8+6 phy | attack, climb, sneak |
-| Powerful Beast (Bear, Bull, Moose, etc.) | 15 | Strength +2 | Melee | 6d10+4 phy | navigate, protect, scare |
-| Striking Serpent (Cobra, Rattlesnake, Viper, etc.) | 16 | Finesse +1 | Very Close | 6d8+4 phy | climb, deceive, sprint |
-| Winged Beast (Hawk, Owl, Raven, etc.) | 17 | Finesse +1 | Melee | 6d4+2 phy | deceive, locate, scare |
-| Aquatic Predator (Dolphin, Orca, Shark, etc.) | 18 | Agility +3 | Melee | 6d10+6 phy | attack, swim, track |
-| Great Predator (Dire Wolf, Velociraptor, Sabertooth Tiger, etc.) | 16 | Strength +1 | Melee | 6d12+8 phy | attack, sneak, sprint |
-| Great Winged Beast (Giant Eagle, Falcon, etc.) | 17 | Finesse +2 | Melee | 6d8+6 phy | deceive, distract, locate |
-| Mighty Lizard (Alligator, Crocodile, Gila Monster, etc.) | 15 | Instinct +4 | Melee | 6d10+7 phy | attack, sneak, track |
-| Epic Aquatic Beast (Giant Squid, Whale, etc.) | 17 | Agility +4 | Melee | 6d10+10 phy | locate, protect, scare, track |
-| Massive Behemoth (Elephant, Mammoth, Rhinoceros, etc.) | 15 | Strength +2 | Melee | 6d12+12 phy | locate, protect, scare, sprint |
-| Mythic Aerial Hunter (Dragon, Pterodactyl, Roc, Wyvern, etc.) | 18 | Finesse +3 | Melee | 6d10+11 phy | attack, deceive, locate, navigate |
-| Terrible Lizard (Brachiosaurus, Tyrannosaurus, etc.) | 16 | Strength +2 | Melee | 6d12+10 phy | attack, deceive, scare, track |
+| Agile Scout (Fox, Mouse, Weasel, etc.) | 14 | Agility +2 | Melee | 6d4 phy | deceive, locate, sneak |
+| Aquatic Scout (Eel, Fish, Octopus, etc.) | 14 | Agility +2 | Melee | 6d4 phy | navigate, sneak, swim |
+| Household Friend (Cat, Dog, Rabbit, etc.) | 14 | Instinct +3 | Melee | 6d6 phy | climb, locate, protect |
+| Nimble Grazer (Deer, Gazelle, Goat, etc.) | 15 | Agility +2 | Melee | 6d6 phy | leap, sneak, sprint |
+| Pack Predator (Coyote, Hyena, Wolf, etc.) | 13 | Strength +1 | Melee | 6d8+2 phy | attack, sprint, track |
+| Stalking Arachnid (Tarantula, Wolf Spider, etc.) | 14 | Finesse +2 | Melee | 6d6+1 phy | attack, climb, sneak |
+| Armored Sentry (Armadillo, Pangolin, Turtle, etc.) | 13 | Strength +0 | Melee | 6d8+2 phy | dig, locate, protect |
+| Mighty Strider (Camel, Horse, Zebra, etc.) | 14 | Agility +2 | Melee | 6d8+1 phy | leap, navigate, sprint |
+| Pouncing Predator (Cheetah, Lion, Panther, etc.) | 15 | Instinct +3 | Melee | 6d8+6 phy | attack, climb, sneak |
+| Powerful Beast (Bear, Bull, Moose, etc.) | 13 | Strength +2 | Melee | 6d10+4 phy | navigate, protect, scare |
+| Striking Serpent (Cobra, Rattlesnake, Viper, etc.) | 14 | Finesse +2 | Very Close | 6d8+4 phy | climb, deceive, sprint |
+| Winged Beast (Hawk, Owl, Raven, etc.) | 15 | Finesse +2 | Melee | 6d4+2 phy | deceive, locate, scare |
+| Aquatic Predator (Dolphin, Orca, Shark, etc.) | 16 | Agility +3 | Melee | 6d10+6 phy | attack, swim, track |
+| Great Predator (Dire Wolf, Velociraptor, Sabertooth Tiger, etc.) | 14 | Strength +1 | Melee | 6d12+8 phy | attack, sneak, sprint |
+| Great Winged Beast (Giant Eagle, Falcon, etc.) | 15 | Finesse +3 | Melee | 6d8+6 phy | deceive, distract, locate |
+| Mighty Lizard (Alligator, Crocodile, Gila Monster, etc.) | 13 | Instinct +4 | Melee | 6d10+7 phy | attack, sneak, track |
+| Epic Aquatic Beast (Giant Squid, Whale, etc.) | 15 | Agility +4 | Melee | 6d10+10 phy | locate, protect, scare, track |
+| Massive Behemoth (Elephant, Mammoth, Rhinoceros, etc.) | 13 | Strength +2 | Melee | 6d12+12 phy | locate, protect, scare, sprint |
+| Mythic Aerial Hunter (Dragon, Pterodactyl, Roc, Wyvern, etc.) | 16 | Finesse +4 | Melee | 6d10+11 phy | attack, deceive, locate, navigate |
+| Terrible Lizard (Brachiosaurus, Tyrannosaurus, etc.) | 14 | Strength +2 | Melee | 6d12+10 phy | attack, deceive, scare, track |
 
 - **Agile Scout:** Agility +1; *Agile:* Your movement is silent, and you can **spend a Hope** to move up to Far range without rolling. *Fragile:* When you take Major or greater damage, you drop out of Beastform.
 - **Aquatic Scout:** Agility +1; *Aquatic:* You can breathe and move naturally underwater. *Fragile:* When you take Major or greater damage, you drop out of Beastform.
@@ -158,51 +159,50 @@ Numbers below already include the form's bonuses and your current traits, Evasio
 
 | Card | Domain | Level | Type | Recall |
 | --- | --- | :---: | --- | :---: |
-| Cloaking Blast | Arcana | 7 | Spell | 2 |
-| Plant Dominion | Sage | 9 | Spell | 1 |
+| Telekinesis | Arcana | 6 | Spell | 0 |
+| Wild Surge | Sage | 7 | Spell | 2 |
 | Rejuvenation Barrier | Sage | 8 | Spell | 1 |
-| Sage-Touched | Sage | 7 | Ability | 2 |
-| Confusing Aura | Arcana | 8 | Spell | 2 |
+| Cloaking Blast | Arcana | 7 | Spell | 2 |
+| Falling Sky | Arcana | 10 | Spell | 1 |
 
-### Cloaking Blast
+### Telekinesis
 
-*Arcana 7 - Spell - Recall 2*  
-*Acquired at level 7.*
+*Arcana 6 - Spell - Recall 0*  
+*Acquired at level 6.*
 
-When you make a successful Spellcast Roll to cast a different spell, you can **spend a Hope** to become *Cloaked*. While *Cloaked*, you remain unseen if you are stationary when an adversary moves to where they would normally see you. When you move into or within an adversary's line of sight or make an attack, you are no longer *Cloaked*.
+Make a **Spellcast Roll** against a target within Far range. On a success, you can use your mind to move them anywhere within Far range of their original position. You can throw the lifted target as an attack by making an additional Spellcast Roll against the second target you're trying to attack. On a success, deal **d12+4** physical damage to the second target using your Proficiency. This spell then ends.
 
-### Plant Dominion
+### Wild Surge
 
-*Sage 9 - Spell - Recall 1*  
-*Acquired at level 9.*
+*Sage 7 - Spell - Recall 2*  
+*Acquired at level 8.*
 
-Make a **Spellcast Roll (18)**. Once per long rest on a success, you reshape the natural world, changing the surrounding plant life anywhere within Far range of you. For example, you can grow trees instantly, clear a path through dense vines, or create a wall of roots.
+Once per long rest, mark a Stress to channel the natural world around you and enhance yourself. Describe how your appearance changes, then place a **d6** on this card with the 1 value facing up.
+
+While the Wild Surge Die is active, you add its value to every action roll you make. After you add its value to a roll, increase the Wild Surge Die's value by one. When the die's value would exceed 6 or you take a rest, this form drops and you must **mark an additional Stress**.
 
 ### Rejuvenation Barrier
 
 *Sage 8 - Spell - Recall 1*  
-*Acquired at level 10.*
+*Acquired at level 9.*
 
 Make a **Spellcast Roll (15)**. Once per rest on a success, create a temporary barrier of protective energy around you at Very Close range. You and all allies within the barrier when this spell is cast clear **1d4** Hit Points. While the barrier is up, you and all allies within have resistance to physical damage from outside the barrier.
 
 When you move, the barrier follows you.
 
-### Sage-Touched
+### Cloaking Blast
 
-*Sage 7 - Ability - Recall 2*  
+*Arcana 7 - Spell - Recall 2*  
+*Acquired at level 9.*
+
+When you make a successful Spellcast Roll to cast a different spell, you can **spend a Hope** to become *Cloaked*. While *Cloaked*, you remain unseen if you are stationary when an adversary moves to where they would normally see you. When you move into or within an adversary's line of sight or make an attack, you are no longer *Cloaked*.
+
+### Falling Sky
+
+*Arcana 10 - Spell - Recall 1*  
 *Acquired at level 10.*
 
-When 4 or more of the domain cards in your loadout are from the Sage domain, gain the following benefits:
-
-- While you're in a natural environment, you gain a +2 bonus to your Spellcast Rolls.
-- Once per rest, you can double your Agility or Instinct when making a roll that uses that trait. You must choose to do this before you roll.
-
-### Confusing Aura
-
-*Arcana 8 - Spell - Recall 2*  
-*Acquired at level 10.*
-
-Make a **Spellcast Roll (14)**. Once per long rest on a success, you create a layer of illusion over your body that makes it hard to tell exactly where you are. **Mark any number of Stress** to make that many additional layers. When an adversary makes an attack against you, roll a number of **d6s** equal to the number of layers currently active. If any roll a 5 or higher, one layer of the aura is destroyed and the attack fails. If all the results are 4 or lower, you take the damage and this spell ends.
+Make a **Spellcast Roll** against all adversaries within Far range. **Mark any number of Stress** to make shards of arcana rain down from above. Targets you succeed against take **1d20+2** magic damage for each Stress marked.
 
 ## Domain Cards - Vault
 
@@ -210,13 +210,13 @@ Make a **Spellcast Roll (14)**. Once per long rest on a success, you create a la
 | --- | --- | :---: | --- | :---: |
 | Wall Walk | Arcana | 1 | Spell | 1 |
 | Nature's Tongue | Sage | 1 | Ability | 0 |
-| Conjure Swarm | Sage | 2 | Spell | 1 |
-| Floating Eye | Arcana | 2 | Spell | 0 |
-| Corrosive Projectile | Sage | 3 | Spell | 1 |
-| Preservation Blast | Arcana | 4 | Spell | 2 |
-| Cinder Grasp | Arcana | 2 | Spell | 1 |
-| Forager | Sage | 6 | Ability | 1 |
+| Natural Familiar | Sage | 2 | Spell | 1 |
 | Counterspell | Arcana | 3 | Spell | 2 |
+| Corrosive Projectile | Sage | 3 | Spell | 1 |
+| Healing Field | Sage | 4 | Spell | 2 |
+| Cinder Grasp | Arcana | 2 | Spell | 1 |
+| Wild Fortress | Sage | 5 | Spell | 1 |
+| Floating Eye | Arcana | 2 | Spell | 0 |
 
 ### Wall Walk
 
@@ -234,20 +234,21 @@ You can speak the language of the natural world. When you want to speak to the p
 
 Additionally, before you make a **Spellcast Roll** while within a natural environment, you can **spend a Hope** to gain a +2 bonus to the roll.
 
-### Conjure Swarm
+### Natural Familiar
 
 *Sage 2 - Spell - Recall 1*  
 *Acquired at level 2.*
 
-- ***Tekaira Armored Beetles:*** **Mark a Stress** to conjure armored beetles that encircle you. When you next take damage, reduce the severity by one threshold. You can **spend a Hope** to keep the beetles conjured after taking damage.
-- ***Fire Flies:*** Make a **Spellcast Roll** against all adversaries within Close range. **Spend a Hope** to deal **2d8+3** magic damage to targets you succeeded against.
+**Spend a Hope** to summon a small nature spirit or forest critter to your side until your next rest, you cast Natural Familiar again, or the familiar is targeted by an attack. If you **spend an additional Hope**, you can summon a familiar that flies. You can communicate with them, make a **Spellcast Roll** to command them to perform simple tasks, and mark a Stress to see through their eyes.
 
-### Floating Eye
+When you deal damage to an adversary within Melee range of your familiar, you add a **d6** to your damage roll.
 
-*Arcana 2 - Spell - Recall 0*  
-*Acquired at level 2.*
+### Counterspell
 
-**Spend a Hope** to create a single, small floating orb that you can move anywhere within Very Far range. While this spell is active, you can see through the orb as though you're looking out from its position. You can transition between using your own senses and seeing through the orb freely. If the orb takes damage or moves out of range, the spell ends.
+*Arcana 3 - Spell - Recall 2*  
+*Acquired at level 3.*
+
+You can interrupt a magical effect taking place by making a reaction roll using your Spellcast trait. On a success, the effect stops and any consequences are avoided, and this card is placed in your vault.
 
 ### Corrosive Projectile
 
@@ -256,12 +257,14 @@ Additionally, before you make a **Spellcast Roll** while within a natural enviro
 
 Make a **Spellcast Roll** against a target within Far range. On a success, deal **d6+4** magic damage using your Proficiency. Additionally, **mark 2 or more Stress** to make them permanently *Corroded*. While a target is *Corroded*, they gain a -1 penalty to their Difficulty for every 2 Stress you spent. This condition can stack.
 
-### Preservation Blast
+### Healing Field
 
-*Arcana 4 - Spell - Recall 2*  
+*Sage 4 - Spell - Recall 2*  
 *Acquired at level 4.*
 
-Make a **Spellcast Roll** against all targets within Melee range. Targets you succeed against are forced back to Far range and take **d8+3** magic damage using your Spellcast trait.
+Once per long rest, you can conjure a field of healing plants around you. Everywhere within Close range of you bursts to life with vibrant nature, allowing you and all allies in the area to clear a Hit Point.
+
+**Spend 2 Hope** to allow you and all allies to clear 2 Hit Points instead.
 
 ### Cinder Grasp
 
@@ -270,51 +273,47 @@ Make a **Spellcast Roll** against all targets within Melee range. Targets you su
 
 Make a **Spellcast Roll** against a target within Melee range. On a success, the target instantly bursts into flames, takes **1d20+3** magic damage, and is temporarily lit *On Fire*. When a creature acts while *On Fire*, they must take an extra **2d6** magic damage if they are still *On Fire* at the end of their action.
 
-### Forager
+### Wild Fortress
 
-*Sage 6 - Ability - Recall 1*  
-*Acquired at level 6.*
+*Sage 5 - Spell - Recall 1*  
+*Acquired at level 5.*
 
-As an additional downtime move you can choose, roll a **d6** to see what you forage. Work with the GM to describe it and add it to your inventory as a consumable. Your party can carry up to five foraged consumables at a time.
+Make a **Spellcast Roll (13)**. On a success, **spend 2 Hope** to grow a natural barricade in the shape of a dome that you and one ally can take cover within. While inside the dome, a creature can't be targeted by attacks and can't make attacks. Attacks made against the dome automatically succeed. The dome has the following damage thresholds and lasts until it marks 3 Hit Points. Place tokens on this card to represent marking Hit Points.
 
-1. A unique food (Clear 2 Stress)
-2. A beautiful relic (Gain 2 Hope)
-3. An arcane rune (+2 to a Spellcast Roll)
-4. A healing vial (Clear 2 Hit Points)
-5. A luck charm (Reroll any die)
-6. Choose one of the options above.
+- **Thresholds:** 15/30
 
-### Counterspell
+### Floating Eye
 
-*Arcana 3 - Spell - Recall 2*  
-*Acquired at level 8.*
+*Arcana 2 - Spell - Recall 0*  
+*Acquired at level 7.*
 
-You can interrupt a magical effect taking place by making a reaction roll using your Spellcast trait. On a success, the effect stops and any consequences are avoided, and this card is placed in your vault.
+**Spend a Hope** to create a single, small floating orb that you can move anywhere within Very Far range. While this spell is active, you can see through the orb as though you're looking out from its position. You can transition between using your own senses and seeing through the orb freely. If the orb takes damage or moves out of range, the spell ends.
 
 ## Character Hook
 
-**Appearance:** Dresses in camouflaged clothes, has the air of a fox, and is recognizable by a habit of humming quietly.  
-**Personality:** Relentlessly curious.  
-**Motivation:** Wants to repay a debt to someone who once saved his life.  
-**Backstory:** Few in a busy crossroads inn expected much of Dalia Windmere, until he won a contest that was meant to be lost. Since then, Dalia has set out to repay a debt to someone who once saved his life.
+**High Concept:** Moonlit Shapechanger and Secret Poet  
+**Trouble:** Too Proud to Ask for Help  
+**Appearance:** Dresses in camouflaged clothes, has the air of a fox, and is recognizable by a coat with far too many pockets.  
+**Personality:** Competitive about everything, even chores.  
+**Backstory:** Everyone in a fortified abbey on a windswept moor remembers the day he broke a vow without meaning to. Nell Sweetbriar remembers it differently, and that is why Nell intends to earn enough to rebuild a ruined family home.
 
 **Background question:** Who has been trying to hunt you down? What do they want from you?
 
 **Connection prompts** (ask another player):
 
-- What affectionate nickname have you given me?
+- What animal do I say you remind me of?
 
 ## Advancement History
 
-- **Level 2 (Tier 2):** Tier achievement: new Experience *Settles Tavern Brawls* +2, Proficiency +1. Advancements: +1 Hit Point slot; extra domain card *Conjure Swarm* (Sage 2). Domain card: *Floating Eye* (Arcana 2).
-- **Level 3 (Tier 2):** Advancements: +1 to Horse Handler and Settles Tavern Brawls; +1 Evasion. Domain card: *Corrosive Projectile* (Sage 3).
-- **Level 4 (Tier 2):** Advancements: +1 Instinct and +1 Presence; +1 Stress slot. Domain card: *Preservation Blast* (Arcana 4).
-- **Level 5 (Tier 3):** Tier achievement: new Experience *Border Scout* +2, Proficiency +1, marked traits cleared. Advancements: Specialization subclass features; +1 Hit Point slot. Domain card: *Cinder Grasp* (Arcana 2).
-- **Level 6 (Tier 3):** Advancements: +1 Proficiency (both advancements). Domain card: *Forager* (Sage 6).
-- **Level 7 (Tier 3):** Advancements: +1 Stress slot; +1 Evasion. Domain card: *Cloaking Blast* (Arcana 7).
-- **Level 8 (Tier 4):** Tier achievement: new Experience *Follows Faint Trails* +2, Proficiency +1, marked traits cleared. Advancements: +1 Evasion; Mastery subclass features. Domain card: *Counterspell* (Arcana 3).
-- **Level 9 (Tier 4):** Advancements: +1 Proficiency (both advancements). Domain card: *Plant Dominion* (Sage 9).
-- **Level 10 (Tier 4):** Advancements: extra domain card *Rejuvenation Barrier* (Sage 8); extra domain card *Sage-Touched* (Sage 7). Domain card: *Confusing Aura* (Arcana 8).
+- **Level 2 (Tier 2):** Tier achievement: new Experience *Desert Crossing* +2, Proficiency +1. Advancements: +1 Hit Point slot; +1 Evasion. Domain card: *Natural Familiar* (Sage 2).
+- **Level 3 (Tier 2):** Advancements: extra domain card *Counterspell* (Arcana 3); +1 Stress slot. Domain card: *Corrosive Projectile* (Sage 3).
+- **Level 4 (Tier 2):** Advancements: +1 Stress slot; +1 Hit Point slot. Domain card: *Healing Field* (Sage 4).
+- **Level 5 (Tier 3):** Tier achievement: new Experience *Potter's Wheel* +2, Proficiency +1, marked traits cleared. Advancements: extra domain card *Cinder Grasp* (Arcana 2); Specialization subclass features. Domain card: *Wild Fortress* (Sage 5).
+- **Level 6 (Tier 3):** Advancements: +1 to Potter's Wheel and Glacier Crossing; +1 Hit Point slot. Domain card: *Telekinesis* (Arcana 6).
+- **Level 7 (Tier 3):** Advancements: +1 Proficiency (both advancements). Domain card: *Floating Eye* (Arcana 2).
+- **Level 8 (Tier 4):** Tier achievement: new Experience *Magical Creature Handler* +2, Proficiency +1, marked traits cleared. Advancements: +1 Proficiency (both advancements). Domain card: *Wild Surge* (Sage 7).
+- **Level 9 (Tier 4):** Advancements: Mastery subclass features; extra domain card *Rejuvenation Barrier* (Sage 8). Domain card: *Cloaking Blast* (Arcana 7).
+- **Level 10 (Tier 4):** Advancements: +1 Instinct and +1 Finesse; +1 to Desert Crossing and Deer Hunter. Domain card: *Falling Sky* (Arcana 10).
 
 ---
 
@@ -322,6 +321,6 @@ You can interrupt a magical effect taking place by making a reaction roll using 
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

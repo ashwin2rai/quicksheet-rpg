@@ -1,6 +1,6 @@
-# Nadir Glasswright
+# Honora Vellacott
 
-*A Firbolg seraph raised among the Ridgeborne who answers a calling few can hear.*
+*A Firbolg seraph raised among the Ridgeborne who carries the prayers of an entire village.*
 
 **Level:** 1 (Tier 1) | **Class:** Seraph - Winged Sentinel  
 **Heritage:** Firbolg / Ridgeborne | **Pronouns:** they/them
@@ -47,8 +47,8 @@
 
 ## Experiences
 
-- **Expelled Apprentice** +2
-- **Night Watch Veteran** +2
+- **Glacier Crossing** +2
+- **Tended a Sacred Grove** +2
 
 ## Features
 
@@ -98,16 +98,17 @@ When an ally within Very Close range would take damage, you can **mark a Stress*
 
 ## Character Hook
 
-**Appearance:** Dresses in natural clothes, has the air of a monk, and is recognizable by a neat row of brass buttons.  
-**Personality:** Fiercely loyal and slow to trust.  
-**Motivation:** Wants to find a place that truly feels like home.  
-**Backstory:** Nadir Glasswright grew up in a walled city with too many rules. Everything changed when a festival ended in disaster. Now Nadir wants to find a place that truly feels like home.
+**High Concept:** Crusader of Lost Causes, Last Hope of the Vellacott Line  
+**Trouble:** Can't Resist a Wager  
+**Appearance:** Dresses in natural clothes, has the air of a monk, and is recognizable by a limp that worsens before rain.  
+**Personality:** Always the first to volunteer and the last to complain.  
+**Backstory:** Honora Vellacott grew up in a glassblowers' quarter. Everything changed when they opened a box that should have stayed closed. Now Honora wants to master a skill everyone said they had started too late to learn.
 
 **Background question:** How did your appearance change after taking your oath?
 
 **Connection prompts** (ask another player):
 
-- You've told me to protect one member of our party above all others, even yourself. Who are they and why?
+- What promise did you make me agree to, should you die on the battlefield?
 
 ---
 
@@ -115,6 +116,6 @@ When an ally within Very Close range would take damage, you can **mark a Stress*
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

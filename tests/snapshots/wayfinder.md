@@ -1,6 +1,6 @@
-# Soren Fairweather
+# Rosalind Saltmarsh
 
-*A Faun ranger raised among the Loreborne who left the city behind for open sky.*
+*A Faun ranger raised among the Loreborne who never takes the same trail twice.*
 
 **Level:** 1 (Tier 1) | **Class:** Ranger - Wayfinder  
 **Heritage:** Faun / Loreborne | **Pronouns:** she/her
@@ -39,8 +39,8 @@
 
 ## Experiences
 
-- **Mender of the Sick** +2
-- **Cat Burglar** +2
+- **Mule Train Driver** +2
+- **Cave Diver** +2
 
 ## Features
 
@@ -93,16 +93,17 @@ Gain a bonus to your Evasion equal to half your Agility.
 
 ## Character Hook
 
-**Appearance:** Dresses in stained clothes, has the air of a survivalist, and is recognizable by mismatched earrings.  
-**Personality:** Methodical, with a list for every occasion.  
-**Motivation:** Wants to prove that a long-held family story is true.  
-**Backstory:** Few in a busy crossroads inn expected much of Soren Fairweather, until a stranger left her a sealed letter and vanished. Since then, Soren has set out to prove that a long-held family story is true.
+**High Concept:** Itinerant Mountain Guide  
+**Trouble:** Terrified of Deep Water  
+**Appearance:** Dresses in stained clothes, has the air of a survivalist, and is recognizable by rings on nearly every finger.  
+**Personality:** A worrier who plans for every disaster but the real one.  
+**Backstory:** Everyone in a lumber camp in giant pines remembers the day a bargain went wrong in front of the whole town. Rosalind Saltmarsh remembers it differently, and that is why Rosalind intends to outshine a rival who never takes her seriously.
 
-**Background question:** Your first kill almost killed you, too. What was it, and what part of you was never the same after that event?
+**Background question:** You've traveled many dangerous lands, but what is the one place you refuse to go?
 
 **Connection prompts** (ask another player):
 
-- What friendly competition do we have?
+- Why do you act differently when we're alone than when others are around?
 - What threat have you asked me to watch for, and why are you worried about it?
 
 ---
@@ -111,6 +112,6 @@ Gain a bonus to your Evasion equal to half your Agility.
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

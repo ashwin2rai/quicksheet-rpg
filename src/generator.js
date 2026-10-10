@@ -282,6 +282,23 @@ function chooseLoadout(rng, catalog, { cls, subclass, traits, tier, ignoreBurden
   return { primaryWeaponId: primary.id, secondaryWeaponId: secondary ? secondary.id : null, armorId: armor.id };
 }
 
+/** High concept: a short phrase for who the character is and what they do, built from class roles. */
+function highConcept(rng, f, cls, family) {
+  const role = rng.pick(f.highConceptRoles[cls.id]);
+  // Avoid "Shadow of the Court of the Ember Court" and "Wandering Wandering Minstrel".
+  const templates = /\bof\b/i.test(role) ? f.highConceptTemplates.filter((t) => !t.template.includes('{circle}')) : f.highConceptTemplates;
+  const { template } = rng.weighted(templates, (t) => t.weight);
+  const descriptors = f.highConceptDescriptors.filter((d) => !d.toLowerCase().split(/[\s-]+/).some((w) => role.toLowerCase().split(/[\s-]+/).includes(w)));
+  const parts = {
+    role,
+    descriptor: template.includes('{descriptor}') ? rng.pick(descriptors) : '',
+    sideline: template.includes('{sideline}') ? rng.pick(f.highConceptSidelines) : '',
+    circle: template.includes('{circle}') ? rng.pick(f.highConceptCircles) : '',
+    familyTie: template.includes('{familyTie}') ? rng.pick(f.highConceptFamilyTies) : '',
+  };
+  return template.replace(/\{(\w+)\}/g, (_, key) => parts[key]).replaceAll('{family}', family);
+}
+
 const article = (word) => (/^[aeiou]/i.test(word) ? 'an' : 'a');
 const capitalize = (text) => text.charAt(0).toUpperCase() + text.slice(1);
 
@@ -290,7 +307,8 @@ function generateFlavor(rng, catalog, { cls, ancestry, secondAncestry, community
   const pronouns = rng.pick(f.pronouns);
   const forms = PRONOUN_FORMS[pronouns];
   const first = rng.pick(f.givenNames);
-  const name = `${first} ${rng.pick(f.familyNames)}`;
+  const family = rng.pick(f.familyNames);
+  const name = `${first} ${family}`;
   const fill = (text) => text.replace(/\{(\w+)\}/g, (match, key) => {
     if (key === 'name') return name;
     if (key === 'first') return first;
@@ -299,7 +317,7 @@ function generateFlavor(rng, catalog, { cls, ancestry, secondAncestry, community
   });
   const style = catalog.classStyle(cls.id);
   const tailTags = style.conceptTags.filter((t) => f.conceptTails[t]);
-  const tails = [...tailTags.flatMap((t) => f.conceptTails[t]), ...f.conceptTails.general];
+  const tails = [...tailTags.flatMap((t) => f.conceptTails[t]), ...f.conceptTails.general].map(fill);
   const motivation = fill(rng.pick(f.motivations));
   const hook = fill(rng.pick(f.hookTemplates)
     .replaceAll('{origin}', rng.pick(f.origins))
@@ -319,6 +337,8 @@ function generateFlavor(rng, catalog, { cls, ancestry, secondAncestry, community
       detail: rng.pick(f.distinguishingDetails),
     },
     personality: rng.pick(f.personalities),
+    highConcept: highConcept(rng, f, cls, family),
+    trouble: rng.pick(f.troubles[rng.pick(['personal', 'relationships'])]).replaceAll('{family}', family),
     motivation,
     hook,
     backgroundQuestion: rng.pick(cls.backgroundQuestions),
@@ -326,7 +346,7 @@ function generateFlavor(rng, catalog, { cls, ancestry, secondAncestry, community
     ...(transformation ? { transformationQuestion: rng.pick(transformation.questions) } : {}),
     provenance: {
       srdClassGuide: ['appearance.clothes', 'appearance.attitude', 'backgroundQuestion', 'connectionPrompts', ...(transformation ? ['transformationQuestion'] : [])],
-      quicksheetOriginal: ['name', 'pronouns', 'concept', 'appearance.detail', 'personality', 'motivation', 'hook'],
+      quicksheetOriginal: ['name', 'pronouns', 'concept', 'appearance.detail', 'personality', 'highConcept', 'trouble', 'motivation', 'hook'],
     },
   };
 }

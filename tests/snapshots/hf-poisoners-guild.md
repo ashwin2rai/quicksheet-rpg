@@ -1,6 +1,6 @@
-# Oriel Whitlock
+# Isolde Sandeford
 
-*A Goblin assassin raised among the Warborne who fights so others will not have to.*
+*A Goblin assassin raised among the Warborne who fears his own strength.*
 
 **Level:** 1 (Tier 1) | **Class:** Assassin - Poisoners Guild  
 **Heritage:** Goblin / Warborne | **Pronouns:** he/him
@@ -47,8 +47,8 @@
 
 ## Experiences
 
-- **Hired Bodyguard** +2
-- **Shameless Haggler** +2
+- **Smuggler's Routes** +2
+- **Student of Dead Languages** +2
 
 ## Features
 
@@ -103,17 +103,18 @@ When you take Severe damage, you can **mark a Stress** to reduce the severity by
 
 ## Character Hook
 
-**Appearance:** Dresses in padded for silence clothes, has the air of a judge, and is recognizable by a laugh that turns heads.  
-**Personality:** Cheerful in a crisis and anxious in peacetime.  
-**Motivation:** Wants to repay a debt to someone who once saved his life.  
-**Backstory:** Oriel Whitlock left a walled city with too many rules the season a bargain went wrong in front of the whole town, and has spent every day since trying to repay a debt to someone who once saved his life.
+**High Concept:** Royal Taster Turned Poisoner, The Sandeford Who Got Away  
+**Trouble:** Pride Before Every Fall  
+**Appearance:** Dresses in padded for silence clothes, has the air of a judge, and is recognizable by a tiny bell sewn to the hem of a sleeve.  
+**Personality:** Grimly practical, with a hidden soft spot for strays.  
+**Backstory:** The story in a glassblowers' quarter is that Isolde Sandeford left after he alone walked out of a collapsed mine. The truth is stranger, but the goal is simple: Isolde means to earn enough to rebuild a ruined family home.
 
-**Background question:** What organization trained you in the art of killing, and how did you become a member?
+**Background question:** You once killed someone you were close to. What happened, and how did it change you?
 
 **Connection prompts** (ask another player):
 
 - What secret about myself did I tell you, and how did it change your view of me?
-- How did you save me when I was on the brink of death? What have I promised you as repayment?
+- I've killed someone for you. Who were they?
 
 ---
 
@@ -121,6 +122,6 @@ When you take Severe damage, you can **mark a Stress** to reduce the severity by
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

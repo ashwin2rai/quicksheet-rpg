@@ -1,4 +1,4 @@
-# Zinnia Rivensong
+# Rohan Hawthorne
 
 *A guardian of mixed Infernis and Simiah heritage, raised among the Slyborne, who stands between friends and danger.*
 
@@ -45,8 +45,8 @@
 
 ## Experiences
 
-- **Siege Survivor** +2
-- **Rousing Sermons** +2
+- **Battlefield Bandaging** +2
+- **Lifeguard on the Wild Coast** +2
 
 ## Features
 
@@ -104,10 +104,11 @@ When you take Severe damage, you can **mark a Stress** to reduce the severity by
 
 ## Character Hook
 
-**Appearance:** Dresses in weathered clothes, has the air of an elephant, and is recognizable by a hat with a single bright feather.  
-**Personality:** Dry-humored and quietly observant.  
-**Motivation:** Wants to learn the truth about where they came from.  
-**Backstory:** Few in a sleepy farming village expected much of Zinnia Rivensong, until a friend took the blame for something they did. Since then, Zinnia has set out to learn the truth about where they came from.
+**High Concept:** Penniless Caravan Protector  
+**Trouble:** Never Learned When to Stop Talking  
+**Appearance:** Dresses in weathered clothes, has the air of an elephant, and is recognizable by a missing fingertip and a story that changes every time.  
+**Personality:** Theatrical even when ordering breakfast.  
+**Backstory:** Rohan Hawthorne left a smoky foundry town the season the local lord demanded something they refused to give, and has spent every day since trying to laugh in the face of the creature that haunts their nightmares.
 
 **Background question:** You've been tasked with protecting something important and delivering it somewhere dangerous. What is it, and where does it need to go?
 
@@ -121,6 +122,6 @@ When you take Severe damage, you can **mark a Stress** to reduce the severity by
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

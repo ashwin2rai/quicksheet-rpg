@@ -1,6 +1,6 @@
-# Nell Underhill
+# Idris Oddfellow
 
-*A Giant bard raised among the Wanderborne who collects forgotten songs.*
+*A Giant bard raised among the Wanderborne who never misses a chance at an audience.*
 
 **Level:** 1 (Tier 1) | **Class:** Bard - Wordsmith  
 **Heritage:** Giant / Wanderborne | **Pronouns:** they/them
@@ -44,8 +44,8 @@
 
 ## Experiences
 
-- **Seasoned Pilgrim** +2
-- **Reads a Room Quickly** +2
+- **Forbidden History** +2
+- **Noble Family Trees** +2
 
 ## Features
 
@@ -96,12 +96,13 @@
 
 ## Character Hook
 
-**Appearance:** Dresses in extravagant clothes, has the air of a magician, and is recognizable by a faded tattoo of a compass rose.  
-**Personality:** Patient with people, impatient with excuses.  
-**Motivation:** Wants to prove that a long-held family story is true.  
-**Backstory:** Nell Underhill left a traveling caravan the season they won a contest that was meant to be lost, and has spent every day since trying to prove that a long-held family story is true.
+**High Concept:** Penniless Keeper of Old Songs  
+**Trouble:** Betrothed to Someone I've Never Met  
+**Appearance:** Dresses in extravagant clothes, has the air of a magician, and is recognizable by a faint smell of woodsmoke that never quite washes out.  
+**Personality:** Unshakably calm until someone mentions a certain name.  
+**Backstory:** The story in a library city where the streets are named after books is that Idris Oddfellow left after the stars went dark for one whole night. The truth is stranger, but the goal is simple: Idris means to learn the truth about where they came from.
 
-**Background question:** You were in love once. Who did you adore, and how did they hurt you?
+**Background question:** You've always looked up to another bard. Who are they, and why do you idolize them?
 
 **Connection prompts** (ask another player):
 
@@ -113,6 +114,6 @@
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

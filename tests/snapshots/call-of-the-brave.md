@@ -1,6 +1,6 @@
-# Nell Copperfield
+# Imogen Hallowmere
 
-*A Faun warrior raised among the Wanderborne who has spent a lifetime learning to fight.*
+*A Faun warrior raised among the Wanderborne who fights so others will not have to.*
 
 **Level:** 1 (Tier 1) | **Class:** Warrior - Call of the Brave  
 **Heritage:** Faun / Wanderborne | **Pronouns:** she/her
@@ -47,8 +47,8 @@
 
 ## Experiences
 
-- **Horse Handler** +2
-- **Noble Family Trees** +2
+- **Ex-Mercenary** +2
+- **Night Watch Veteran** +2
 
 ## Features
 
@@ -103,16 +103,17 @@ When you make a successful attack against a target within Very Close range, you 
 
 ## Character Hook
 
-**Appearance:** Dresses in weathered clothes, has the air of a hero, and is recognizable by a faded tattoo of a compass rose.  
-**Personality:** Restless whenever things go quiet.  
-**Motivation:** Wants to earn enough to rebuild a ruined family home.  
-**Backstory:** Nell Copperfield left a crowded port city the season a stranger left her a sealed letter and vanished, and has spent every day since trying to earn enough to rebuild a ruined family home.
+**High Concept:** Grim Former Gladiator  
+**Trouble:** A Creature I Spared Keeps Finding Me  
+**Appearance:** Dresses in weathered clothes, has the air of a hero, and is recognizable by a faint smell of woodsmoke that never quite washes out.  
+**Personality:** A storyteller who exaggerates everything except the dangerous parts.  
+**Backstory:** Imogen Hallowmere was born in a monastery carved into a cliff face and might have stayed forever, but she found a map hidden inside an old instrument case. These days Imogen travels with a single purpose: to make a name worth remembering.
 
 **Background question:** Who taught you to fight, and why did they stay behind when you left home?
 
 **Connection prompts** (ask another player):
 
-- What mundane task do you usually help me with off the battlefield?
+- We knew each other long before this party came together. How?
 
 ---
 
@@ -120,6 +121,6 @@ When you make a successful attack against a target within Very Close range, you 
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.

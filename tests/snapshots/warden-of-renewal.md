@@ -1,6 +1,6 @@
-# Ivo Marrow
+# Anouk Clearbrook
 
-*A Halfling druid raised among the Orderborne who is searching for something lost.*
+*A Halfling druid raised among the Orderborne who is running toward something rather than away.*
 
 **Level:** 1 (Tier 1) | **Class:** Druid - Warden of Renewal  
 **Heritage:** Halfling / Orderborne | **Pronouns:** she/her
@@ -46,8 +46,8 @@
 
 ## Experiences
 
-- **Night Watch Veteran** +2
-- **Stage Combat Choreographer** +2
+- **Bookbinder** +2
+- **Reads a Room Quickly** +2
 
 ## Features
 
@@ -59,7 +59,7 @@
 
 ### Community: Orderborne
 
-**Dedicated.** *(Your sayings: "Teach what you have learned."; "Speak plainly, act fairly."; "Never leave a task half-done.")* Record three sayings or values your upbringing instilled in you. Once per rest, when you describe how you're embodying one of these principles through your current action, you can roll a **d20** as your Hope Die.
+**Dedicated.** *(Your sayings: "Pride is a debt that comes due."; "Order is a kindness we give to each other."; "Waste nothing.")* Record three sayings or values your upbringing instilled in you. Once per rest, when you describe how you're embodying one of these principles through your current action, you can roll a **d20** as your Hope Die.
 
 ### Class: Druid
 
@@ -123,17 +123,18 @@ Additionally, before you make a **Spellcast Roll** while within a natural enviro
 
 ## Character Hook
 
-**Appearance:** Dresses in grown clothes, has the air of a witch, and is recognizable by mismatched earrings.  
-**Personality:** Dry-humored and quietly observant.  
-**Motivation:** Wants to earn enough to rebuild a ruined family home.  
-**Backstory:** Ivo Marrow left a walled city with too many rules the season she found a map hidden inside an old instrument case, and has spent every day since trying to earn enough to rebuild a ruined family home.
+**High Concept:** Hedge Druid, The Only Honest Clearbrook  
+**Trouble:** Trusts Too Easily  
+**Appearance:** Dresses in grown clothes, has the air of a witch, and is recognizable by a walking stick carved with tiny faces.  
+**Personality:** Cheerful in a crisis and anxious in peacetime.  
+**Backstory:** Anouk Clearbrook was born in an orphanage run by retired soldiers and might have stayed forever, but an old debt came due with interest. These days Anouk travels with a single purpose: to understand a strange dream that keeps returning.
 
-**Background question:** Why was the community you grew up in so reliant on nature and its creatures?
+**Background question:** Who was the first wild animal you bonded with? Why did your bond end?
 
 **Connection prompts** (ask another player):
 
 - What affectionate nickname have you given me?
-- What animal do I say you remind me of?
+- What did you confide in me that makes me leap into danger for you every time?
 
 ---
 
@@ -141,6 +142,6 @@ Additionally, before you make a **Spellcast Roll** while within a natural enviro
 
 This product includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Darrington Press created the SRD material; it is used subject to the Darrington Press Community Gaming License (DPCGL): https://darringtonpress.com/license/ . Official SRD: https://www.daggerheart.com/srd/
 
-Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts and hooks are original QuickSheet content.
+Modifications: game text was referenced from Old Gus' Daggerheart System Reference Document (https://github.com/callmepartario/og-dhsrd), an edited and reorganized web edition of the SRD. QuickSheet further selected, structured and reformatted that material into this Markdown sheet. Names, descriptions, Experiences, concepts, high concepts, troubles and hooks are original QuickSheet content.
 
 QuickSheet is a free, unofficial, non-commercial fan project for Daggerheart™ Compatible play. It is not sponsored by, affiliated with, endorsed by, or approved by Darrington Press or Critical Role.
