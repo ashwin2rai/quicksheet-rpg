@@ -6,9 +6,9 @@
     "sourceVersion": "2.0",
     "upstream": {
       "repository": "https://github.com/callmepartario/og-dhsrd",
-      "commit": "07cac58944b5cf8a2890efa6d263d4fe0f869032",
+      "commit": "75428a9dae060c6f2a2826c4770c3658dc0feb76",
       "file": "scripts/og-dhsrd-features.js",
-      "sha256": "d309a09e60887a23d2b4b26beadbcc8c9aee6c46de50dd07246f584d759b2b36"
+      "sha256": "5aed25e4754c6931c12912498046751605cc92bc9bd269e5308a4021eb9b49bd"
     },
     "copyright": "Includes materials from the Daggerheart System Reference Document 2.0, © Critical Role, LLC. All rights reserved. Used under the Darrington Press Community Gaming License; see NOTICE.md."
   },
